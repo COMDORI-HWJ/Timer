@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2BA0F045269395C20040D20B /* Test2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BA0F045269395C20040D20B /* Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA0F048269395C20040D20B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BA0F04A269395C20040D20B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2BA0F04C269395C20040D20B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,7 +49,7 @@
 		2BA0F046269395C20040D20B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2BA0F045269395C20040D20B /* Test2.app */,
+				2BA0F045269395C20040D20B /* Timer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,9 +71,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2BA0F044269395C20040D20B /* Test2 */ = {
+		2BA0F044269395C20040D20B /* Timer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2BA0F059269395C30040D20B /* Build configuration list for PBXNativeTarget "Test2" */;
+			buildConfigurationList = 2BA0F059269395C30040D20B /* Build configuration list for PBXNativeTarget "Timer" */;
 			buildPhases = (
 				2BA0F041269395C20040D20B /* Sources */,
 				2BA0F042269395C20040D20B /* Frameworks */,
@@ -83,9 +83,9 @@
 			);
 			dependencies = (
 			);
-			name = Test2;
+			name = Timer;
 			productName = Test2;
-			productReference = 2BA0F045269395C20040D20B /* Test2.app */;
+			productReference = 2BA0F045269395C20040D20B /* Timer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2BA0F040269395C20040D20B /* Build configuration list for PBXProject "Test2" */;
+			buildConfigurationList = 2BA0F040269395C20040D20B /* Build configuration list for PBXProject "Timer" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2BA0F044269395C20040D20B /* Test2 */,
+				2BA0F044269395C20040D20B /* Timer */,
 			);
 		};
 /* End PBXProject section */
@@ -324,7 +324,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2BA0F040269395C20040D20B /* Build configuration list for PBXProject "Test2" */ = {
+		2BA0F040269395C20040D20B /* Build configuration list for PBXProject "Timer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BA0F057269395C30040D20B /* Debug */,
@@ -333,7 +333,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2BA0F059269395C30040D20B /* Build configuration list for PBXNativeTarget "Test2" */ = {
+		2BA0F059269395C30040D20B /* Build configuration list for PBXNativeTarget "Timer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BA0F05A269395C30040D20B /* Debug */,

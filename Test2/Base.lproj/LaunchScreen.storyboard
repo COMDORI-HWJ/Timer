@@ -15,13 +15,44 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYY-JS-QKW">
+                                <rect key="frame" x="83" y="413.5" width="248" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="69" id="jWJ-4R-Kfl"/>
+                                    <constraint firstAttribute="width" constant="248" id="m3t-Ud-bEm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="39"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made by COMDORI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TA7-n7-oGi">
+                                <rect key="frame" x="130" y="664" width="154" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="Fpe-G0-0Ah"/>
+                                    <constraint firstAttribute="width" constant="154" id="Ng6-YW-hpm"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="154" id="QOG-MN-WU4"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="bfI-ea-5RP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FYY-JS-QKW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="GOD-Cy-uOc"/>
+                            <constraint firstItem="FYY-JS-QKW" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="GTC-dZ-lpY"/>
+                            <constraint firstItem="TA7-n7-oGi" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="227" id="VAg-2b-bvV"/>
+                            <constraint firstItem="FYY-JS-QKW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ybo-e2-elT"/>
+                            <constraint firstItem="TA7-n7-oGi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="vz2-eb-FoU"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
