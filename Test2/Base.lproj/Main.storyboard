@@ -11,9 +11,9 @@
         <!--Timer-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Timer" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Timer" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="View">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7EW-uf-r0O">
@@ -22,7 +22,7 @@
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
-                                    <action selector="B1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3fg-4L-Pka"/>
+                                    <action selector="start:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qsk-L2-BZJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-dS-Obq">
@@ -31,11 +31,11 @@
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <state key="normal" title="Reset"/>
                                 <connections>
-                                    <action selector="B1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AQE-Sg-3xS"/>
+                                    <action selector="Reset1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D1w-9s-lkB"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="84" translatesAutoresizingMaskIntoConstraints="NO" id="Xjf-uR-alh">
-                                <rect key="frame" x="63" y="125.66666666666669" width="264" height="60"/>
+                                <rect key="frame" x="63" y="231" width="264" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vC9-7f-0N1">
                                         <rect key="frame" x="0.0" y="0.0" width="32" height="60"/>
@@ -66,15 +66,8 @@
                                     <constraint firstAttribute="width" constant="264" id="bNo-wD-T73"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vm9-Cv-UV4">
-                                <rect key="frame" x="58" y="407" width="48.666666666666657" height="83"/>
-                                <edgeInsets key="layoutMargins" top="8" left="12" bottom="8" right="8"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wX-O5-uhd">
-                                <rect key="frame" x="58" y="183.66666666666666" width="274.33333333333331" height="89.999999999999972"/>
+                                <rect key="frame" x="58" y="294" width="274.33333333333331" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="274.32999999999998" id="Fv6-zs-q2n"/>
                                     <constraint firstAttribute="height" constant="90" id="pnV-P2-Z5V"/>
@@ -84,7 +77,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="84" translatesAutoresizingMaskIntoConstraints="NO" id="67Z-Xa-V4w">
-                                <rect key="frame" x="63" y="281.66666666666669" width="264" height="60"/>
+                                <rect key="frame" x="63" y="392" width="264" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YML-AL-5vW">
                                         <rect key="frame" x="0.0" y="0.0" width="32" height="60"/>
@@ -113,16 +106,23 @@
                                     <constraint firstAttribute="height" constant="60" id="o4X-3B-L3w"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vm9-Cv-UV4">
+                                <rect key="frame" x="63" y="431" width="48.666666666666657" height="83"/>
+                                <edgeInsets key="layoutMargins" top="8" left="12" bottom="8" right="8"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Xjf-uR-alh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-225" id="3Dv-35-wHg"/>
+                            <constraint firstItem="Xjf-uR-alh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-161" id="3Dv-35-wHg"/>
                             <constraint firstItem="67Z-Xa-V4w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B9Y-mn-Keq"/>
                             <constraint firstItem="Xjf-uR-alh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KLN-ba-FFc"/>
                             <constraint firstItem="8wX-O5-uhd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N1c-x1-PKh"/>
-                            <constraint firstItem="8wX-O5-uhd" firstAttribute="top" secondItem="Xjf-uR-alh" secondAttribute="bottom" constant="-2" id="aLf-zU-QUq"/>
-                            <constraint firstItem="67Z-Xa-V4w" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-69" id="bhl-0c-Ft3"/>
+                            <constraint firstItem="8wX-O5-uhd" firstAttribute="top" secondItem="Xjf-uR-alh" secondAttribute="bottom" constant="3" id="aLf-zU-QUq"/>
+                            <constraint firstItem="67Z-Xa-V4w" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bhl-0c-Ft3"/>
                             <constraint firstItem="8wX-O5-uhd" firstAttribute="leading" secondItem="vm9-Cv-UV4" secondAttribute="leading" id="iQr-C9-O7X"/>
                             <constraint firstItem="vm9-Cv-UV4" firstAttribute="top" secondItem="8wX-O5-uhd" secondAttribute="bottom" constant="92" id="n3c-Gu-py5"/>
                         </constraints>
@@ -132,17 +132,19 @@
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
                     <connections>
+                        <outlet property="ResetButton" destination="tKf-dS-Obq" id="gh4-Ic-aLc"/>
+                        <outlet property="StartStopButton" destination="7EW-uf-r0O" id="RzA-kM-nar"/>
                         <outlet property="TimerLabel" destination="8wX-O5-uhd" id="sCH-dp-eQP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1070.7692307692307" y="804.02843601895734"/>
+            <point key="canvasLocation" x="-1478" y="825"/>
         </scene>
         <!--Info-->
         <scene sceneID="EoY-ca-2dK">
             <objects>
-                <viewController id="Lxr-2m-ofb" sceneMemberID="viewController">
+                <viewController title="Info" id="Lxr-2m-ofb" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EAE-aR-QZP">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,11 +166,12 @@
             </objects>
             <point key="canvasLocation" x="-83.07692307692308" y="806.87203791469187"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main-->
         <scene sceneID="fKT-pG-D9w">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Zrm-wF-le5" sceneMemberID="viewController">
+                <tabBarController title="Main" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="Zrm-wF-le5" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="PAn-lj-oPj"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WGU-IR-6kw">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -182,6 +185,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GOy-NJ-LVd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-989" y="80"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="WM0-sJ-yHh">
+            <objects>
+                <navigationController title="Main" id="4rH-Re-1WK" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="8tn-dc-IhZ">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gbk-py-8gI">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rv2-5R-4OE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1826" y="68"/>
         </scene>
     </scenes>
     <color key="tintColor" systemColor="systemOrangeColor"/>
