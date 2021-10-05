@@ -31,9 +31,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var TimerLabel: UILabel!
     @IBOutlet weak var StartStopButton: UIButton!
     @IBOutlet weak var ResetButton: UIButton!
+    
+    @IBOutlet weak var hourUpButton: UIButton!
+    @IBOutlet weak var hourDownButton: UIButton!
+        
+    @IBOutlet weak var minUpButton: UIButton!
+    @IBOutlet weak var minDownButton: UIStackView!
+    
     @IBOutlet weak var secUpButton: UIButton!
+    @IBOutlet weak var secDownButton: UIButton!
     
-    
+    @IBOutlet weak var millisecUpButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -146,7 +154,7 @@ class ViewController: UIViewController {
             timercount = true
             StartStopButton.setTitle("Pause", for: .normal)
             print("일시정지")
-            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
         }
         
     }
@@ -168,8 +176,12 @@ class ViewController: UIViewController {
     
     func timeLabel()
     {
-        let time = secondsToHoursMinutesSeconds(seconds: count)
-        let timeText = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+//        let time = secondsToHoursMinutesSeconds(seconds: count)
+//        let timeText = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+//        TimerLabel.text = timeText
+
+        let time = millisecondsToHours(ms: count)
+        let timeText = makeTime2String(hours: time.0, minutes: time.1, seconds: time.2, milliseconds: time.3)
         TimerLabel.text = timeText
         
     }
@@ -178,7 +190,7 @@ class ViewController: UIViewController {
     {
         if(count > 0)
         {
-            count = count - 1
+            count = count-1 //해결필요
             print(count , "시간입니다")
             timeLabel()
             if(count == 0)
@@ -187,6 +199,24 @@ class ViewController: UIViewController {
                 print("0초가 되었습니다 및 초기화")
             }
         }
+    }
+    
+    func millisecondsToHours(ms: Int) -> (Int, Int, Int, Int)
+    {
+        return ((ms / 3600000), ((ms % 60000 / 1000)), ((ms % 60000) / 1000), (ms % 60000) % 1000)
+    }
+    
+    func makeTime2String(hours: Int, minutes: Int, seconds : Int, milliseconds : Int) -> String
+    {
+        var timeString = ""
+        timeString += String(format: "%02d", hours)
+        timeString += ":"
+        timeString += String(format: "%02d", minutes)
+        timeString += ":"
+        timeString += String(format: "%02d", seconds)
+        timeString += "."
+        timeString += String(format: "%03d", milliseconds)
+        return timeString
     }
     
     func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int)
@@ -205,17 +235,59 @@ class ViewController: UIViewController {
         return timeString
     }
     
+    @IBAction func millisecUp(_ sender : Any)
+    {
+        count += 1
+        print(count,"m시간을 증가 하였습니다")
+        timeLabel()
+    }
+    
     @IBAction func secUp(_ sender:Any)
     {
 //        let time = secondsToHoursMinutesSeconds(seconds: count)
 //        let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
         
-        count += 1
-        print(count,"시간을 증가 하였습니다")
+        count += 1000
+        print(count,"s시간을 증가 하였습니다")
         timeLabel()
 //        TimerLabel.text = timeString
     }
     
-
-
+    @IBAction func secDown( _ sender : Any)
+    {
+        if(count > 0)
+        {
+            count -= 1
+            print(count, "시간을 감소 하였습니다")
+            timeLabel()
+        }
+       
+    }
+    
+    @IBAction func minUp(_ sender : Any)
+    {
+        count += 60000
+        print(count, "min시간을 증가 하였습니다")
+        timeLabel()
+    }
+    
+    @IBAction func minDown(_ sender : Any)
+    {
+        if(count > 0)
+        {
+          count -= 1000
+            print(count, "시간이 감소 하였습니다")
+                    timeLabel()
+        }
+        
+    }
+    
+    @IBAction func hourUp(_ sender : Any)
+    {
+        count += 3600000
+        print(count, "h시간이 증가 하였습니다")
+        timeLabel()
+    }
+    
 }
+
