@@ -188,14 +188,16 @@ class ViewController: UIViewController {
     
     @objc func timerCounter() -> Void
     {
-        if(count > 0)
+        if(count > -00)
         {
-            count = count-1 //해결필요
+            count = count-8 //해결필요  어느정도 맞춤.
             print(count , "시간입니다")
             timeLabel()
-            if(count == 0)
+            if(count == -00)
             {
                 Reset()
+                timercount = false
+                timer.invalidate()
                 print("0초가 되었습니다 및 초기화")
             }
         }
@@ -203,7 +205,7 @@ class ViewController: UIViewController {
     
     func millisecondsToHours(ms: Int) -> (Int, Int, Int, Int)
     {
-        return ((ms / 3600000), ((ms % 60000 / 1000)), ((ms % 60000) / 1000), (ms % 60000) % 1000)
+        return ((ms / 3600000), ((ms % 3600000) / 60000), ((ms % 60000) / 1000), (ms % 3600000) % 1000)
     }
     
     func makeTime2String(hours: Int, minutes: Int, seconds : Int, milliseconds : Int) -> String
@@ -242,6 +244,16 @@ class ViewController: UIViewController {
         timeLabel()
     }
     
+    @IBAction func millisecDown(_ sender : Any)
+    {
+        if(count > 0)
+        {
+            count -= 1
+            print(count,"m시간을 감소 하였습니다")
+            timeLabel()
+        }
+    }
+    
     @IBAction func secUp(_ sender:Any)
     {
 //        let time = secondsToHoursMinutesSeconds(seconds: count)
@@ -257,7 +269,7 @@ class ViewController: UIViewController {
     {
         if(count > 0)
         {
-            count -= 1
+            count -= 1000
             print(count, "시간을 감소 하였습니다")
             timeLabel()
         }
@@ -275,7 +287,7 @@ class ViewController: UIViewController {
     {
         if(count > 0)
         {
-          count -= 1000
+          count -= 60000
             print(count, "시간이 감소 하였습니다")
                     timeLabel()
         }
