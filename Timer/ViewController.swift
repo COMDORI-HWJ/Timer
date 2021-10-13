@@ -13,6 +13,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
     
 //    let timeSel : Selector = #selector(ViewController.start2)
@@ -20,13 +21,6 @@ class ViewController: UIViewController {
     var timer = Timer()
     var timercount : Bool = false
     var count : Int = 0
-    
-    var min:Int = 0
-    var sec1:Int  = 0
-
-    @IBOutlet weak var hourLabel: UILabel!
-    @IBOutlet weak var minLabel: UILabel!
-    @IBOutlet weak var secLabel: UILabel!
     
     @IBOutlet weak var TimerLabel: UILabel!
     @IBOutlet weak var StartStopButton: UIButton!
@@ -51,95 +45,7 @@ class ViewController: UIViewController {
     
 
     }
-    
  
-//    @IBAction func start1(_ sender: Any) { /*분*/
-//
-//        if(min  > -1){
-//            minLabel.text = String(min)
-//            timer = Timer.scheduledTimer(timeInterval: 60.0,  target: self, selector: timeSel, userInfo: nil, repeats:false)
-//            min = min-1
-//            print(sec1)
-//        StartStopButton.isEnabled = false
-//        }
-//        else{
-//            timer.invalidate()
-//            StartStopButton.isEnabled = true
-//
-//        }
-//    }
-//
-//    @IBAction func start2(_ sender: Any) { /*초*/
-//
-//        if(sec1  > -1){
-//            print(playing)
-//            secLabel.text = String(sec1)
-//            timer = Timer.scheduledTimer(timeInterval: 1.0,  target: self, selector: timeSel, userInfo: nil, repeats:false)
-//            sec1 -= 1
-//            print(sec1)
-//        StartStopButton.isEnabled = false
-//        }
-//        else{
-//            timer.invalidate()
-////            StartStopButton.isEnabled = true
-//
-//        }
-//    }
-//
-//    @objc
-//
-//    @IBAction func B1(_ sender: Any) {
-//                print("버튼을 눌렀습니다.")
-//    }
-//
-//    @IBAction func Reset1 (_ sender: Any) {
-//        sec1 = 0
-//        secLabel.text="\(sec1)"
-//        timer.invalidate()
-//        print("타이머를 리셋하였습니다")
-//        StartStopButton.setTitle("Start", for: .normal)
-//        StartStopButton.isEnabled = true
-//    }
-//
-//    @IBAction func up2 (_ sender: Any) {
-//        if(min<60){
-//            min += 1
-//            print(min,"분을 증가 하였습니다")
-//            minLabel.text="\(min)"
-//        }
-//        else if(sec1<61){
-//            print("시간이 증가하지 않습니다.")
-//        }
-//
-//    }
-//
-//    @IBAction func up3 (_ sender: Any) {
-//        if(sec1<60){
-//            sec1 += 1
-//            print(sec1,"값 입니다")
-//            secLabel.text="\(sec1)"
-//        }
-//        else if(sec1<61){
-//            print("시간이 증가하지 않습니다.")
-//        }
-//
-//    }
-//
-//
-//    @IBAction func B3 (_ sender: Any) {
-//        let bt = UIButton()
-//        if(sec1>1){
-//            sec1 = sec1-1
-//        }
-//        else if(sec1>0){
-//            sec1 -= 1
-//        }
-//        bt.setTitle("STOP", for: .normal)
-//
-//        print(sec1,"값 입니다")
-//        secLabel.text="\(sec1)"
-//
-//    }
     
     @IBAction func start_stop(_ sender: Any)
     {
@@ -189,7 +95,7 @@ class ViewController: UIViewController {
     
     @objc func timerCounter() -> Void
     {
-        if(count > 000)
+        if(count > 0)
         {
             count = count-8 //해결필요  어느정도 맞춤.
             print(count , "시간입니다")
@@ -263,12 +169,21 @@ class ViewController: UIViewController {
     
     @IBAction func secDown( _ sender : Any)
     {
-        if(count > 0)
+        if(count > 999)
         {
-            count -= 1000
-            print(count, "s시간을 감소 하였습니다")
-            timeLabel()
+            if(count > 0)
+            {
+                count -= 1000
+                print(count, "s시간을 감소 하였습니다")
+                timeLabel()
+            }
         }
+        else
+        {
+            print("초가 충분히 남아 있지 않아 시간을 감소할 수 없습니다.")
+            print(count, "시간이 저장되어있다.")
+        }
+
        
     }
     
@@ -281,12 +196,22 @@ class ViewController: UIViewController {
     
     @IBAction func minDown(_ sender : Any)
     {
-        if(count > 0)
+        if(count > 59999)
         {
-          count -= 60000
-            print(count, "분시간이 감소 하였습니다")
-                timeLabel()
+            if(count > 0)
+            {
+              count -= 60000
+                print(count, "분시간이 감소 하였습니다")
+                    timeLabel()
+            }
         }
+        else
+        {
+            print("분 시간이 충분히 남아 있지 않아 시간을 감소할 수 없습니다.")
+            print(count, "시간이 저장되어있다.")
+
+        }
+       
     }
     
     @IBAction func hourUp(_ sender : Any)
@@ -302,12 +227,21 @@ class ViewController: UIViewController {
     
     @IBAction func hourDown(_ sender : Any)
     {
-        if(count > 00)
+        if(count > 3599999)
         {
-            count -= 3600000
-            print(count, "h시간이 감소 하였습니다")
-            timeLabel()
+            if(count > 0)
+            {
+                count -= 3600000
+                print(count, "h시간이 감소 하였습니다")
+                timeLabel()
+            }
         }
+        else
+        {
+            print("h 시간이 충분히 남아 있지 않아 시간을 감소할 수 없습니다.")
+            print(count, "시간이 저장되어있다.")
+        }
+       
     }
     
 }

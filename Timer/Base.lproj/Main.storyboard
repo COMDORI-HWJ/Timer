@@ -67,24 +67,23 @@
                                     <constraint firstAttribute="height" constant="60" id="QM4-lU-sXP"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMW-kE-EHS">
-                                <rect key="frame" x="120" y="517" width="150" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="158" translatesAutoresizingMaskIntoConstraints="NO" id="UMW-kE-EHS">
+                                <rect key="frame" x="45" y="514" width="281" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7EW-uf-r0O">
-                                        <rect key="frame" x="0.0" y="0.0" width="61" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7EW-uf-r0O">
+                                        <rect key="frame" x="0.0" y="0.0" width="56" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                        <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Start"/>
                                         <connections>
                                             <action selector="start_stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="13b-NG-kGr"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-dS-Obq">
-                                        <rect key="frame" x="61" y="0.0" width="89" height="30"/>
+                                        <rect key="frame" x="214.00000000000003" y="0.0" width="66.999999999999972" height="30"/>
                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                        <inset key="contentEdgeInsets" minX="50" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <state key="normal" title="Reset"/>
                                         <connections>
                                             <action selector="ResetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lIl-OS-HP6"/>
@@ -92,7 +91,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="Art-hz-8Rn"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="DG6-2k-OXh"/>
                                     <constraint firstAttribute="height" constant="30" id="tZc-8K-BwD"/>
                                 </constraints>
                             </stackView>
@@ -168,7 +167,7 @@
                             <constraint firstItem="bwg-Dk-CU4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-42" id="ail-Vh-Eqk"/>
                             <constraint firstItem="lA7-MR-ezs" firstAttribute="top" secondItem="Xjf-uR-alh" secondAttribute="bottom" constant="8" symbolic="YES" id="boJ-dw-Gxt"/>
                             <constraint firstItem="lA7-MR-ezs" firstAttribute="leading" secondItem="Xjf-uR-alh" secondAttribute="leading" id="gGi-fa-cHX"/>
-                            <constraint firstItem="UMW-kE-EHS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="110" id="s7z-e6-Int"/>
+                            <constraint firstItem="UMW-kE-EHS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="107" id="s7z-e6-Int"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Countdown" image="timer" catalog="system" id="ufF-Ca-BxA">
