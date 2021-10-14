@@ -15,8 +15,8 @@ import UIKit
 
 
 class ViewController: UIViewController {
-    
-//    let timeSel : Selector = #selector(ViewController.start2)
+
+    //    let timeSel : Selector = #selector(ViewController.start2)
     
     var timer = Timer()
     var timercount : Bool = false
@@ -62,6 +62,15 @@ class ViewController: UIViewController {
             StartStopButton.setTitle("Pause", for: .normal)
             print("일시정지")
             timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+            /* 카운트다운 동안 시간 버튼 비활성화 */
+            hourUpButton.isEnabled = false
+            hourDownButton.isEnabled = false
+            minUpButton.isEnabled = false
+            minDownButton.isEnabled = false
+            secUpButton.isEnabled = false
+            secDownButton.isEnabled = false
+            millisecUpButton.isEnabled = false
+            millisecDownButton.isEnabled = false
         }
         
     }
@@ -72,7 +81,14 @@ class ViewController: UIViewController {
         self.timer.invalidate()
         self.TimerLabel.text = self.TimeString(hours: 0, minutes: 0, seconds: 0, milliseconds: 0)
         self.StartStopButton.setTitle("Start", for: .normal)
-        
+        hourUpButton.isEnabled = true
+        hourDownButton.isEnabled = true
+        minUpButton.isEnabled = true
+        minDownButton.isEnabled = true
+        secUpButton.isEnabled = true
+        secDownButton.isEnabled = true
+        millisecUpButton.isEnabled = true
+        millisecDownButton.isEnabled = true
     }
     
     @IBAction func ResetButton(_ sender: Any)
@@ -100,7 +116,7 @@ class ViewController: UIViewController {
             count = count-8 //해결필요  어느정도 맞춤.
             print(count , "시간입니다")
             timeLabel()
-            if(count < 0)
+            if(count == 0 || count < 0)
             {
                 Reset()
                 print("0초가 되었습니다 및 초기화")
@@ -110,7 +126,7 @@ class ViewController: UIViewController {
     
     func millisecondsToHours(ms: Int) -> (Int, Int, Int, Int)
     {
-        return ((ms / 3600000), ((ms % 3600000) / 60000), ((ms % 60000) / 1000), (ms % 3600000) % 1000)
+        return ((ms / 3600000), ((ms % 3600000) / 60000), ((ms % 60000) / 1000), (ms % 3600000) % 1000) //1시간을 1밀리초로 환산하여 계산함. ex)3600000밀리초는 1시간
     }
     
     func TimeString(hours: Int, minutes: Int, seconds : Int, milliseconds : Int) -> String
