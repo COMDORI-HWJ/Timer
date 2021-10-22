@@ -12,6 +12,7 @@
  */
 
 import UIKit
+import AVFoundation //햅틱
 
 
 class ViewController: UIViewController {
@@ -54,7 +55,6 @@ class ViewController: UIViewController {
             timercount = false
             timer.invalidate()
             StartStopButton.setTitle("Start", for: .normal)
-            
         }
         else
         {
@@ -103,7 +103,7 @@ class ViewController: UIViewController {
 //        let timeText = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
 //        TimerLabel.text = timeText
 
-        let time = millisecondsToHours(ms: count)
+        let time = CalTime(ms: count)
         let timeText = TimeString(hours: time.0, minutes: time.1, seconds: time.2, milliseconds: time.3)
         TimerLabel.text = timeText
         
@@ -118,18 +118,20 @@ class ViewController: UIViewController {
             timeLabel()
             if(count == 0 || count < 0)
             {
+                AudioServicesPlaySystemSound(1016) // 소리발생
+                AudioServicesPlaySystemSound(4095) // 진동발생
                 Reset()
                 print("0초가 되었습니다 및 초기화")
             }
         }
     }
     
-    func millisecondsToHours(ms: Int) -> (Int, Int, Int, Int)
+    func CalTime(ms: Int) -> (Int, Int, Int, Int)
     {
         return ((ms / 3600000), ((ms % 3600000) / 60000), ((ms % 60000) / 1000), (ms % 3600000) % 1000) //1시간을 1밀리초로 환산하여 계산함. ex)3600000밀리초는 1시간
     }
     
-    func TimeString(hours: Int, minutes: Int, seconds : Int, milliseconds : Int) -> String
+    func TimeString(hours: Int, minutes: Int, seconds : Int, milliseconds : Int) -> String  //시간을 스트리밍값으로 변환
     {
         var timeString = ""
         timeString += String(format: "%02d", hours)
@@ -140,6 +142,13 @@ class ViewController: UIViewController {
         timeString += "."
         timeString += String(format: "%03d", milliseconds)
         return timeString
+    }
+    
+    func Effect() /*버튼을 누를때 발생하는 효과*/
+    {
+        UIImpactFeedbackGenerator(style: .heavy).impactOccurred() // 탭틱 엔진이 있는 경우만 작동, 진동세기 강하게
+        //AudioServicesPlaySystemSound(1016) // 소리발생
+
     }
     
 //    func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int)
@@ -160,7 +169,9 @@ class ViewController: UIViewController {
     
     @IBAction func millisecUp(_ sender : Any)
     {
+  
         count += 1
+        Effect()
         print(count,"m시간을 증가 하였습니다")
         timeLabel()
     }
@@ -170,6 +181,7 @@ class ViewController: UIViewController {
         if(count > 0)
         {
             count -= 1
+            Effect()
             print(count,"m시간을 감소 하였습니다")
             timeLabel()
         }
@@ -178,6 +190,7 @@ class ViewController: UIViewController {
     @IBAction func secUp(_ sender:Any)
     {
         count += 1000
+        Effect()
         print(count,"s시간을 증가 하였습니다")
         timeLabel()
 //        TimerLabel.text = timeString
@@ -190,6 +203,7 @@ class ViewController: UIViewController {
             if(count > 0)
             {
                 count -= 1000
+                Effect()
                 print(count, "s시간을 감소 하였습니다")
                 timeLabel()
             }
@@ -206,6 +220,7 @@ class ViewController: UIViewController {
     @IBAction func minUp(_ sender : Any)
     {
         count += 60000
+        Effect()
         print(count, "분시간이 증가 하였습니다")
         timeLabel()
     }
@@ -217,6 +232,7 @@ class ViewController: UIViewController {
             if(count > 0)
             {
               count -= 60000
+                Effect()
                 print(count, "분시간이 감소 하였습니다")
                     timeLabel()
             }
@@ -235,6 +251,7 @@ class ViewController: UIViewController {
         if(count < 82800000)
         {
             count += 3600000
+            Effect()
             print(count, "h시간이 증가 하였습니다")
             timeLabel()
         }
@@ -248,6 +265,7 @@ class ViewController: UIViewController {
             if(count > 0)
             {
                 count -= 3600000
+                Effect()
                 print(count, "h시간이 감소 하였습니다")
                 timeLabel()
             }
