@@ -12,6 +12,7 @@ class Setting: UIViewController { // UITableViewDataSource, UITableViewDelegate
     
     @IBOutlet weak var Table: UITableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,6 +52,10 @@ class Setting: UIViewController { // UITableViewDataSource, UITableViewDelegate
 //
 //
 //    }
+
+
+    
+
 }
 
 

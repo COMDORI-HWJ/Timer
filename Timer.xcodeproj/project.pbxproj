@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B68133E2727A71900E4C67A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B68133D2727A71900E4C67A /* CustomTableViewCell.swift */; };
 		2B6813422727AA0300E4C67A /* vibration icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6813412727AA0300E4C67A /* vibration icon.png */; };
 		2B69E3EA2722459D00591357 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B69E3E92722459D00591357 /* Setting.swift */; };
 		2B69E3EC27224DBA00591357 /* SettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B69E3EB27224DBA00591357 /* SettingTableCell.swift */; };
@@ -24,7 +23,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B68133D2727A71900E4C67A /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		2B6813412727AA0300E4C67A /* vibration icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vibration icon.png"; sourceTree = "<group>"; };
 		2B69E3E92722459D00591357 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		2B69E3EB27224DBA00591357 /* SettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableCell.swift; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 				2BA0F053269395C30040D20B /* LaunchScreen.storyboard */,
 				2BA0F04E269395C20040D20B /* Main.storyboard */,
 				2B69E3EB27224DBA00591357 /* SettingTableCell.swift */,
-				2B68133D2727A71900E4C67A /* CustomTableViewCell.swift */,
 				2B6813412727AA0300E4C67A /* vibration icon.png */,
 			);
 			path = Timer;
@@ -167,7 +164,6 @@
 			files = (
 				2BA0F04D269395C20040D20B /* ViewController.swift in Sources */,
 				2BE37D7E26E529C400EA2FA5 /* Backup.swift in Sources */,
-				2B68133E2727A71900E4C67A /* CustomTableViewCell.swift in Sources */,
 				2B69E3EC27224DBA00591357 /* SettingTableCell.swift in Sources */,
 				2B69E3EA2722459D00591357 /* Setting.swift in Sources */,
 				2BA0F049269395C20040D20B /* AppDelegate.swift in Sources */,

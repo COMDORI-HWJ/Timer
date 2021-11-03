@@ -272,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jo-HN-Gzq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="163.07692307692307" y="796.91943127962077"/>
+            <point key="canvasLocation" x="166" y="825"/>
         </scene>
         <!--Main-->
         <scene sceneID="fKT-pG-D9w">
@@ -295,10 +295,10 @@
             </objects>
             <point key="canvasLocation" x="-1014" y="87"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Setting Table Cell-->
         <scene sceneID="zN2-d3-7c7">
             <objects>
-                <tableViewController id="k19-w8-9zM" sceneMemberID="viewController">
+                <tableViewController id="k19-w8-9zM" customClass="SettingTableCell" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="CWS-Na-37O">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="547"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,54 +313,72 @@
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1c9-67-aOy">
+                                                <switch opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1c9-67-aOy">
                                                     <rect key="frame" x="321" y="6" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="VibrationButton:" destination="k19-w8-9zM" eventType="valueChanged" id="ovD-45-YZd"/>
+                                                    </connections>
                                                 </switch>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vibration icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="EjZ-x0-0Id">
                                                     <rect key="frame" x="20" y="1" width="44" height="42"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="버튼 진동" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQN-cf-q8U">
+                                                    <rect key="frame" x="72" y="11" width="75" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="right" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="DFY-go-FSv" imageView="gVe-Ud-SVy" style="IBUITableViewCellStyleDefault" id="Gou-m7-qPl">
+                                    <tableViewCell clipsSubviews="YES" contentMode="right" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Gou-m7-qPl">
                                         <rect key="frame" x="0.0" y="92.666667938232422" width="390" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gou-m7-qPl" id="EMz-AL-T02">
-                                            <rect key="frame" x="0.0" y="0.0" width="360.33333333333331" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="알림 소리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DFY-go-FSv">
-                                                    <rect key="frame" x="78.666666666666657" y="0.0" width="273.66666666666663" height="43.666667938232422"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                                    <nil key="textColor"/>
+                                                <switch opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="Sound" translatesAutoresizingMaskIntoConstraints="NO" id="Nzi-hc-CRJ">
+                                                    <rect key="frame" x="321" y="6" width="49" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="onTintColor" red="0.58290478315622751" green="0.81493231871414129" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <connections>
+                                                        <action selector="SoundAlert:" destination="k19-w8-9zM" eventType="valueChanged" id="Xmd-lX-3ID"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="타이머 소리 및 진동 알림" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R06-lm-MKw">
+                                                    <rect key="frame" x="42" y="8" width="193" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
+                                                    <color key="textColor" red="0.7803921568627451" green="0.50903500110651256" blue="0.42173317165638263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="vibration icon.png" id="gVe-Ud-SVy">
-                                                    <rect key="frame" x="20" y="0.0" width="43.666666666666657" height="43.666666666666664"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="right" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="kCO-9Q-8DK" imageView="8qs-vs-JS2" style="IBUITableViewCellStyleDefault" id="1yi-Uh-Ezx">
-                                        <rect key="frame" x="0.0" y="136.33333587646484" width="390" height="43.666667938232422"/>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="기타" id="0sy-aF-xeG">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="MCg-Ye-e0y" imageView="Fb1-uN-jvs" style="IBUITableViewCellStyleDefault" id="GxH-zC-q5I">
+                                        <rect key="frame" x="0.0" y="186.00000190734863" width="390" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1yi-Uh-Ezx" id="6dT-eo-9C1">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GxH-zC-q5I" id="fXC-By-gen">
                                             <rect key="frame" x="0.0" y="0.0" width="360.33333333333331" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="알림 소리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kCO-9Q-8DK">
-                                                    <rect key="frame" x="78.666666666666657" y="0.0" width="273.66666666666663" height="43.666667938232422"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MCg-Ye-e0y">
+                                                    <rect key="frame" x="55.666666666666657" y="0.0" width="296.66666666666663" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="vibration icon.png" id="8qs-vs-JS2">
-                                                    <rect key="frame" x="20" y="0.0" width="43.666666666666657" height="43.666666666666664"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="info.circle.fill" catalog="system" id="Fb1-uN-jvs">
+                                                    <rect key="frame" x="20.5" y="12.333333333333336" width="19.666666666666664" height="19"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -375,15 +393,20 @@
                         </connections>
                     </tableView>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="SoundSwitch" destination="Nzi-hc-CRJ" id="G3K-B3-BNu"/>
+                        <outlet property="VibrationSwitch" destination="1c9-67-aOy" id="a6o-YV-lDc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ljJ-7a-9YP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="781.6350710900474"/>
+            <point key="canvasLocation" x="937" y="825"/>
         </scene>
     </scenes>
     <color key="tintColor" systemColor="systemYellowColor"/>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="stopwatch" catalog="system" width="121" height="128"/>
         <image name="timer" catalog="system" width="128" height="121"/>
         <image name="vibration icon.png" width="491.51998901367188" height="491.51998901367188"/>

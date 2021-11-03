@@ -16,9 +16,7 @@ import AVFoundation //햅틱
 
 
 class ViewController: UIViewController {
-
-    //    let timeSel : Selector = #selector(ViewController.start2)
-    
+  
     var timer = Timer()
     var timercount : Bool = false
     var count : Int = 0
@@ -118,8 +116,20 @@ class ViewController: UIViewController {
             timeLabel()
             if(count == 0 || count < 0)
             {
-                AudioServicesPlaySystemSound(1016) // 소리발생
-                AudioServicesPlaySystemSound(4095) // 진동발생
+                if(SettingTableCell.soundCheck == true)
+                {
+                    print("Sound: ",SettingTableCell.soundCheck)
+                    AudioServicesPlaySystemSound(1016) // "트윗" 소리발생
+                    AudioServicesPlaySystemSound(4095) // 진동발생
+                }
+                
+                else if(SettingTableCell.soundCheck == false)
+                {
+                    print("Sound: ",SettingTableCell.soundCheck)
+                }
+                                    
+              
+                //AudioServicesPlaySystemSound(4095) // 진동발생
                 Reset()
                 print("0초가 되었습니다 및 초기화")
             }
@@ -146,7 +156,14 @@ class ViewController: UIViewController {
     
     func Effect() /*버튼을 누를때 발생하는 효과*/
     {
-        UIImpactFeedbackGenerator(style: .heavy).impactOccurred() // 탭틱 엔진이 있는 경우만 작동, 진동세기 강하게
+        if(SettingTableCell.vibrationCheck == true)
+        {
+            print("진동: ",SettingTableCell.vibrationCheck)
+            UIImpactFeedbackGenerator(style: .heavy).impactOccurred() // 탭틱 엔진이 있는 경우만 작동, 진동세기 강하게
+
+        }else{
+            print("진동: ",SettingTableCell.vibrationCheck)
+        }
         //AudioServicesPlaySystemSound(1016) // 소리발생
 
     }
@@ -169,7 +186,6 @@ class ViewController: UIViewController {
     
     @IBAction func millisecUp(_ sender : Any)
     {
-  
         count += 1
         Effect()
         print(count,"m시간을 증가 하였습니다")
