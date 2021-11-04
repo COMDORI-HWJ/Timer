@@ -19,7 +19,7 @@
 		2BB1DC6A27177AAC0013C523 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1DC6927177AAC0013C523 /* Stopwatch.swift */; };
 		2BBE707426E972BD00DF2351 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2BBE707326E972BD00DF2351 /* Settings.bundle */; };
 		2BD4CF0B2702817D0063D45D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2BD4CF0A2702817D0063D45D /* README.md */; };
-		2BE37D7E26E529C400EA2FA5 /* Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE37D7D26E529C400EA2FA5 /* Backup.swift */; };
+		2BE37D7E26E529C400EA2FA5 /* Backup.txt in Sources */ = {isa = PBXBuildFile; fileRef = 2BE37D7D26E529C400EA2FA5 /* Backup.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +38,7 @@
 		2BB1DC6927177AAC0013C523 /* Stopwatch.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		2BBE707326E972BD00DF2351 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2BD4CF0A2702817D0063D45D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		2BE37D7D26E529C400EA2FA5 /* Backup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backup.swift; sourceTree = "<group>"; };
+		2BE37D7D26E529C400EA2FA5 /* Backup.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Backup.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 			children = (
 				2BA0F056269395C30040D20B /* Info.plist */,
 				2BA0F048269395C20040D20B /* AppDelegate.swift */,
-				2BE37D7D26E529C400EA2FA5 /* Backup.swift */,
+				2BE37D7D26E529C400EA2FA5 /* Backup.txt */,
 				2BA0F04A269395C20040D20B /* SceneDelegate.swift */,
 				2BA0F04C269395C20040D20B /* ViewController.swift */,
 				2BB1DC6927177AAC0013C523 /* Stopwatch.swift */,
@@ -163,7 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BA0F04D269395C20040D20B /* ViewController.swift in Sources */,
-				2BE37D7E26E529C400EA2FA5 /* Backup.swift in Sources */,
+				2BE37D7E26E529C400EA2FA5 /* Backup.txt in Sources */,
 				2B69E3EC27224DBA00591357 /* SettingTableCell.swift in Sources */,
 				2B69E3EA2722459D00591357 /* Setting.swift in Sources */,
 				2BA0F049269395C20040D20B /* AppDelegate.swift in Sources */,
