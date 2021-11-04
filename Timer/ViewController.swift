@@ -53,32 +53,39 @@ class ViewController: UIViewController {
             timercount = false
             timer.invalidate()
             StartStopButton.setTitle("Start", for: .normal)
+            
+        }
+        else if(count > 0)
+        {
+                timercount = true
+                StartStopButton.setTitle("Pause", for: .normal)
+                print("일시정지")
+                timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+                /* 카운트다운 동안 시간 버튼 비활성화 */
+                hourUpButton.isEnabled = false
+                hourDownButton.isEnabled = false
+                minUpButton.isEnabled = false
+                minDownButton.isEnabled = false
+                secUpButton.isEnabled = false
+                secDownButton.isEnabled = false
+                millisecUpButton.isEnabled = false
+                millisecDownButton.isEnabled = false
+            
         }
         else
         {
-            timercount = true
-            StartStopButton.setTitle("Pause", for: .normal)
-            print("일시정지")
-            timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
-            /* 카운트다운 동안 시간 버튼 비활성화 */
-            hourUpButton.isEnabled = false
-            hourDownButton.isEnabled = false
-            minUpButton.isEnabled = false
-            minDownButton.isEnabled = false
-            secUpButton.isEnabled = false
-            secDownButton.isEnabled = false
-            millisecUpButton.isEnabled = false
-            millisecDownButton.isEnabled = false
+            print(count,"초 미만, 카운트 다운 실패")
         }
         
     }
     
     func Reset() /* 초기화 함수 선언 */
     {
-        self.count = 0
+        timercount = false
         self.timer.invalidate()
-        self.TimerLabel.text = self.TimeString(hours: 0, minutes: 0, seconds: 0, milliseconds: 0)
         self.StartStopButton.setTitle("Start", for: .normal)
+        self.count = 0
+        self.TimerLabel.text = self.TimeString(hours: 0, minutes: 0, seconds: 0, milliseconds: 0)
         hourUpButton.isEnabled = true
         hourDownButton.isEnabled = true
         minUpButton.isEnabled = true
@@ -87,11 +94,12 @@ class ViewController: UIViewController {
         secDownButton.isEnabled = true
         millisecUpButton.isEnabled = true
         millisecDownButton.isEnabled = true
+        
     }
     
     @IBAction func ResetButton(_ sender: Any)
     {
-       Reset() //초기화 함수 호출
+        Reset() //초기화 함수 호출
         print("초기화 되었습니다.")
     }
     
@@ -127,7 +135,6 @@ class ViewController: UIViewController {
                 {
                     print("Sound: ",SettingTableCell.soundCheck)
                 }
-                                    
               
                 //AudioServicesPlaySystemSound(4095) // 진동발생
                 Reset()
@@ -165,7 +172,6 @@ class ViewController: UIViewController {
             print("진동: ",SettingTableCell.vibrationCheck)
         }
         //AudioServicesPlaySystemSound(1016) // 소리발생
-
     }
     
 //    func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int)

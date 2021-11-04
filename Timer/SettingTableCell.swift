@@ -28,6 +28,7 @@ class SettingTableCell:UITableViewController{
         {
             SettingTableCell.soundCheck = true
             AudioServicesPlaySystemSound(1016) // "트윗" 소리
+            AudioServicesPlaySystemSound(4095) // 진동
             print("소리확인 결과: ",SettingTableCell.soundCheck)
            
 
