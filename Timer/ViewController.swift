@@ -6,9 +6,12 @@
 
 /*
  Reference
+ https://youtu.be/3TbdoVhgQmE 유튜브 참고
+ https://www.youtube.com/watch?v=GzwLobVuXXI 백그라운드 타이머
  https://kwangsics.tistory.com/entry/Swift-%ED%95%A8%EC%88%98-%EC%A0%95%EC%9D%98%EC%99%80-%ED%98%B8%EC%B6%9C?category=606525 함수 정의 및 호출
  https://bite-sized-learning.tistory.com/175 타이머1
  https://youtu.be/3TbdoVhgQmE 타이머2
+ 
  */
 
 import UIKit
@@ -20,6 +23,7 @@ class ViewController: UIViewController {
     var timer = Timer()
     var timercount : Bool = false
     var count : Int = 0
+    var saveTime: Date?
     
     @IBOutlet weak var TimerLabel: UILabel!
     @IBOutlet weak var StartStopButton: UIButton!
@@ -41,14 +45,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.topItem?.title="AD" //뷰 제목
-    
+        
+        //Background
+//        let notificationCenter = NotificationCenter.default
+//        notificationCenter.addObserver(self, selector: #selector(BackgroundTime), name: UIApplication.willResignActiveNotification, object: nil)
+//        notificationCenter.addObserver(self, selector: #selector(ForegroundTime), name: UIApplication.willEnterForegroundNotification, object: nil)
+                                      
 
     }
  
     
     @IBAction func start_stop(_ sender: Any)
     {
-        if(timercount)
+        if timercount
         {
             timercount = false
             timer.invalidate()
@@ -61,6 +70,7 @@ class ViewController: UIViewController {
                 StartStopButton.setTitle("Pause", for: .normal)
                 print("일시정지")
                 timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+            
                 /* 카운트다운 동안 시간 버튼 비활성화 */
                 hourUpButton.isEnabled = false
                 hourDownButton.isEnabled = false
@@ -117,9 +127,11 @@ class ViewController: UIViewController {
     
     @objc func timerCounter() -> Void
     {
+       // saveTime = Int(Date().timeIntervalSince(saveTime))
         if(count > 0)
         {
             count = count-8 //해결필요  어느정도 맞춤.
+            
             print(count , "시간입니다")
             timeLabel()
             if(count == 0 || count < 0)
@@ -189,6 +201,9 @@ class ViewController: UIViewController {
 //        timeString += String(format: "%02d", seconds)
 //        return timeString
 //    }
+    
+
+
     
     @IBAction func millisecUp(_ sender : Any)
     {
