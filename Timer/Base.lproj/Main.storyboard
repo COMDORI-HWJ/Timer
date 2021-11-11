@@ -131,7 +131,7 @@
                                             <color key="titleColor" systemColor="systemBlueColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="start_stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wpw-CH-9bM"/>
+                                            <action selector="StartStopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qgu-QG-ff3"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-dS-Obq">
@@ -194,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1478.4615384615383" y="824.64454976303318"/>
+            <point key="canvasLocation" x="-1934" y="825"/>
         </scene>
         <!--Stopwatch-->
         <scene sceneID="EoY-ca-2dK">
@@ -240,7 +240,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JlS-1e-ThQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="XKb-HX-3mY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-609.23076923076917" y="824.64454976303318"/>
+            <point key="canvasLocation" x="-491" y="825"/>
         </scene>
         <!--Setting-->
         <scene sceneID="iwu-l4-1ql">
@@ -292,6 +292,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="eps-16-npp"/>
                         <segue destination="Lxr-2m-ofb" kind="relationship" relationship="viewControllers" id="C8A-u4-Dsy"/>
                         <segue destination="fGX-y9-as3" kind="relationship" relationship="viewControllers" id="eWK-7A-mi3"/>
+                        <segue destination="O5m-2W-qXp" kind="relationship" relationship="viewControllers" id="SFO-6p-SCU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GOy-NJ-LVd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -423,6 +424,191 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOe-v5-TgX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1789" y="852"/>
+        </scene>
+        <!--Background-->
+        <scene sceneID="pd5-ml-4Fw">
+            <objects>
+                <viewController title="Background" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="O5m-2W-qXp" customClass="BackgroundTimer" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9pp-2W-H0H" customClass="View">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="48" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8HD-ex-HTB">
+                                <rect key="frame" x="59" y="269" width="272" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enR-nI-Zo2">
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="60"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="7" bottom="8" right="8"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <size key="titleShadowOffset" width="-6" height="0.0"/>
+                                        <state key="normal" title="↑"/>
+                                        <connections>
+                                            <action selector="hourUp:" destination="O5m-2W-qXp" eventType="touchUpInside" id="L92-Gc-ZWl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7s-ck-Agi">
+                                        <rect key="frame" x="80" y="0.0" width="32" height="60"/>
+                                        <edgeInsets key="layoutMargins" top="4" left="0.0" bottom="-34" right="8"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="↑"/>
+                                        <connections>
+                                            <action selector="minUp:" destination="O5m-2W-qXp" eventType="touchUpInside" id="KIW-to-sST"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5h-81-Z4k">
+                                        <rect key="frame" x="160" y="0.0" width="32" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <edgeInsets key="layoutMargins" top="7" left="16" bottom="-5" right="7"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="↑"/>
+                                        <connections>
+                                            <action selector="secUp:" destination="O5m-2W-qXp" eventType="touchUpInside" id="QDT-p2-dF3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TX3-zk-paX">
+                                        <rect key="frame" x="240" y="0.0" width="32" height="60"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="-1" bottom="8" right="8"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="↑"/>
+                                        <connections>
+                                            <action selector="millisecUp:" destination="O5m-2W-qXp" eventType="touchUpInside" id="not-Ki-ixx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="m1K-rw-UVj"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="48" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wxS-kA-fuA">
+                                <rect key="frame" x="59" y="427" width="272" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8y-PN-iuk">
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="60"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="7" bottom="8" right="8"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <size key="titleShadowOffset" width="-6" height="0.0"/>
+                                        <state key="normal" title="↓"/>
+                                        <connections>
+                                            <action selector="hourDown:" destination="O5m-2W-qXp" eventType="touchUpInside" id="UUJ-01-CCa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exz-kA-xyV">
+                                        <rect key="frame" x="80" y="0.0" width="32" height="60"/>
+                                        <edgeInsets key="layoutMargins" top="4" left="0.0" bottom="-34" right="8"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="↓"/>
+                                        <connections>
+                                            <action selector="minDown:" destination="O5m-2W-qXp" eventType="touchUpInside" id="kWg-I7-pOd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Czu-sh-dnh">
+                                        <rect key="frame" x="160" y="0.0" width="32" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <edgeInsets key="layoutMargins" top="7" left="16" bottom="-5" right="7"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="↓"/>
+                                        <connections>
+                                            <action selector="secDown:" destination="O5m-2W-qXp" eventType="touchUpInside" id="KzM-IT-q9h"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06e-Au-I9f">
+                                        <rect key="frame" x="240" y="0.0" width="32" height="60"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="-1" bottom="8" right="8"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="↓"/>
+                                        <connections>
+                                            <action selector="millisecDown:" destination="O5m-2W-qXp" eventType="touchUpInside" id="p5T-r6-4QW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ixT-d4-s2V"/>
+                                    <constraint firstAttribute="width" constant="272" id="qW9-Ce-JqH"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="130" translatesAutoresizingMaskIntoConstraints="NO" id="mHq-pJ-R6b">
+                                <rect key="frame" x="69.666666666666686" y="541.66666666666663" width="251" height="35"/>
+                                <subviews>
+                                    <button opaque="NO" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ga3-SA-Oma">
+                                        <rect key="frame" x="0.0" y="0.0" width="54" height="35"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="26"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Start">
+                                            <color key="titleColor" systemColor="systemBlueColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="start_stop:" destination="O5m-2W-qXp" eventType="touchUpInside" id="GWl-UE-mAA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhb-Xn-abF">
+                                        <rect key="frame" x="184" y="0.0" width="67" height="35"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <state key="normal" title="Reset"/>
+                                        <connections>
+                                            <action selector="ResetButton:" destination="O5m-2W-qXp" eventType="touchUpInside" id="Pk0-VK-qCq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="96L-ce-Qu5"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="HGE-Bt-Gen"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00:00.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXh-Op-Bhf">
+                                <rect key="frame" x="59" y="337" width="296" height="82"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="yml-zq-mbR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QR5-ze-p21"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8HD-ex-HTB" firstAttribute="centerY" secondItem="9pp-2W-H0H" secondAttribute="centerY" constant="-123" id="2US-vG-6TZ"/>
+                            <constraint firstItem="mHq-pJ-R6b" firstAttribute="centerX" secondItem="9pp-2W-H0H" secondAttribute="centerX" id="QJJ-Pf-Iqh"/>
+                            <constraint firstItem="8HD-ex-HTB" firstAttribute="centerX" secondItem="9pp-2W-H0H" secondAttribute="centerX" id="QMf-5R-CfC"/>
+                            <constraint firstItem="mHq-pJ-R6b" firstAttribute="centerY" secondItem="9pp-2W-H0H" secondAttribute="centerY" constant="137" id="Ufk-f5-byO"/>
+                            <constraint firstItem="wxS-kA-fuA" firstAttribute="centerX" secondItem="9pp-2W-H0H" secondAttribute="centerX" id="WHE-tw-6ND"/>
+                            <constraint firstItem="wxS-kA-fuA" firstAttribute="centerY" secondItem="9pp-2W-H0H" secondAttribute="centerY" constant="35" id="q1P-E4-5Ls"/>
+                            <constraint firstItem="DXh-Op-Bhf" firstAttribute="leading" secondItem="8HD-ex-HTB" secondAttribute="leading" id="rGZ-Qb-qqm"/>
+                            <constraint firstItem="DXh-Op-Bhf" firstAttribute="top" secondItem="8HD-ex-HTB" secondAttribute="bottom" constant="8" symbolic="YES" id="rja-sZ-0ZH"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Back" id="cmV-zJ-AKM">
+                        <imageReference key="image" image="timer" catalog="system" symbolScale="large"/>
+                        <color key="badgeColor" systemColor="systemIndigoColor"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="qnU-9O-1jD"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
+                    <connections>
+                        <outlet property="ResetButton" destination="qhb-Xn-abF" id="A56-wY-SFn"/>
+                        <outlet property="StartStopButton" destination="ga3-SA-Oma" id="VaH-gX-by1"/>
+                        <outlet property="TimerLabel" destination="DXh-Op-Bhf" id="Xd0-Ov-qHA"/>
+                        <outlet property="hourDownButton" destination="F8y-PN-iuk" id="jBj-5i-vLo"/>
+                        <outlet property="hourUpButton" destination="enR-nI-Zo2" id="9GH-lF-GgV"/>
+                        <outlet property="millisecDownButton" destination="06e-Au-I9f" id="2od-nA-l7I"/>
+                        <outlet property="millisecUpButton" destination="TX3-zk-paX" id="kXt-r6-iiq"/>
+                        <outlet property="minDownButton" destination="exz-kA-xyV" id="p7i-XN-6gW"/>
+                        <outlet property="minUpButton" destination="X7s-ck-Agi" id="odD-bA-sE5"/>
+                        <outlet property="secDownButton" destination="Czu-sh-dnh" id="WVO-Ph-9va"/>
+                        <outlet property="secUpButton" destination="q5h-81-Z4k" id="2w2-Kh-Hmw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1rA-BW-eOL" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1185" y="825"/>
         </scene>
     </scenes>
     <color key="tintColor" systemColor="systemYellowColor"/>

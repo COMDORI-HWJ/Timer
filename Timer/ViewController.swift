@@ -23,7 +23,6 @@ class ViewController: UIViewController {
     var timer = Timer()
     var timercount : Bool = false
     var count : Int = 0
-    var saveTime: Date?
     
     @IBOutlet weak var TimerLabel: UILabel!
     @IBOutlet weak var StartStopButton: UIButton!
@@ -55,7 +54,7 @@ class ViewController: UIViewController {
     }
  
     
-    @IBAction func start_stop(_ sender: Any)
+    @IBAction func StartStopButton(_ sender: Any)
     {
         if timercount
         {

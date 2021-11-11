@@ -1,4 +1,14 @@
 //
+//  BackgroundTimer.swift
+//  Timer
+//
+//  Created by WONJI HA on 2021/11/11.
+//
+
+
+
+
+//
 //  ViewController.swift
 //  Timer
 //
@@ -18,9 +28,9 @@ import UIKit
 import AVFoundation //햅틱
 
 
-class ViewController: UIViewController {
+class BackgroundTimer: UIViewController {
   
-    var timer = Timer()
+    var timer : Timer!
     var timercount : Bool = false
     var count : Int = 0
     var saveTime: Date?
@@ -46,16 +56,22 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.topItem?.title="AD" //뷰 제목
         
-        //Background
-//        let notificationCenter = NotificationCenter.default
-//        notificationCenter.addObserver(self, selector: #selector(BackgroundTime), name: UIApplication.willResignActiveNotification, object: nil)
-//        notificationCenter.addObserver(self, selector: #selector(ForegroundTime), name: UIApplication.willEnterForegroundNotification, object: nil)
+        startTimer()
+        timerCounter()
+      
+  
                                       
 
     }
- 
+    
     
     @IBAction func start_stop(_ sender: Any)
+    {
+        startTimer()
+        
+    }
+  
+    func startTimer()
     {
         if timercount
         {
@@ -69,6 +85,7 @@ class ViewController: UIViewController {
                 timercount = true
                 StartStopButton.setTitle("Pause", for: .normal)
                 print("일시정지")
+                
                 timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
             
                 /* 카운트다운 동안 시간 버튼 비활성화 */
@@ -88,6 +105,7 @@ class ViewController: UIViewController {
         }
         
     }
+  
     
     func Reset() /* 초기화 함수 선언 */
     {
@@ -130,7 +148,7 @@ class ViewController: UIViewController {
        // saveTime = Int(Date().timeIntervalSince(saveTime))
         if(count > 0)
         {
-            count = count-8 //해결필요  어느정도 맞춤.
+            count -= 8 //해결필요  어느정도 맞춤.
             
             print(count , "시간입니다")
             timeLabel()
