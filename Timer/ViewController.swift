@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     var timercount : Bool = false
     var count : Int = 0
     
-    @IBOutlet weak var TimerLabel: UILabel!
+    @IBOutlet weak var TimeLabel: UILabel!
     @IBOutlet weak var StartStopButton: UIButton!
     @IBOutlet weak var ResetButton: UIButton!
     
@@ -52,9 +52,11 @@ class ViewController: UIViewController {
                                       
 
     }
- 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
-    @IBAction func StartStopButton(_ sender: Any)
+    @IBAction func Start_StopButton(_ sender: Any)
     {
         if timercount
         {
@@ -94,7 +96,7 @@ class ViewController: UIViewController {
         self.timer.invalidate()
         self.StartStopButton.setTitle("Start", for: .normal)
         self.count = 0
-        self.TimerLabel.text = self.TimeString(hours: 0, minutes: 0, seconds: 0, milliseconds: 0)
+        self.TimeLabel.text = self.TimeString(hours: 0, minutes: 0, seconds: 0, milliseconds: 0)
         hourUpButton.isEnabled = true
         hourDownButton.isEnabled = true
         minUpButton.isEnabled = true
@@ -120,7 +122,7 @@ class ViewController: UIViewController {
 
         let time = CalTime(ms: count)
         let timeText = TimeString(hours: time.0, minutes: time.1, seconds: time.2, milliseconds: time.3)
-        TimerLabel.text = timeText
+        TimeLabel.text = timeText
         
     }
     
@@ -201,15 +203,34 @@ class ViewController: UIViewController {
 //        return timeString
 //    }
     
-
-
+    func UpAlertError()
+    {
+        let alert = UIAlertController(title: "알림", message: "타이머는 23시까지만 설정가능합니다.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func DownAlertError ()
+    {
+        let alert = UIAlertController(title: "오류", message: "시간이 충분히 남아 있지 않아 시간을 감소할 수 없습니다.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func millisecUp(_ sender : Any)
     {
-        count += 1
-        Effect()
-        print(count,"m시간을 증가 하였습니다")
-        timeLabel()
+        if(count < 82800000)
+        {
+            count += 1
+            Effect()
+            print(count,"m시간을 증가 하였습니다")
+            timeLabel()
+        }
+
+        else
+        {
+            UpAlertError()
+        }
     }
     
     @IBAction func millisecDown(_ sender : Any)
@@ -221,15 +242,26 @@ class ViewController: UIViewController {
             print(count,"m시간을 감소 하였습니다")
             timeLabel()
         }
+        else
+        {
+            DownAlertError()
+        }
     }
     
     @IBAction func secUp(_ sender:Any)
     {
-        count += 1000
-        Effect()
-        print(count,"s시간을 증가 하였습니다")
-        timeLabel()
-//        TimerLabel.text = timeString
+        if(count < 82800000)
+        {
+            count += 1000
+            Effect()
+            print(count,"s시간을 증가 하였습니다")
+            timeLabel()
+        }
+        else
+        {
+            UpAlertError()
+        }
+
     }
     
     @IBAction func secDown( _ sender : Any)
@@ -246,6 +278,7 @@ class ViewController: UIViewController {
         }
         else
         {
+            DownAlertError()
             print("초가 충분히 남아 있지 않아 시간을 감소할 수 없습니다.")
             print(count, "시간이 저장되어있다.")
         }
@@ -255,10 +288,18 @@ class ViewController: UIViewController {
     
     @IBAction func minUp(_ sender : Any)
     {
-        count += 60000
-        Effect()
-        print(count, "분시간이 증가 하였습니다")
-        timeLabel()
+        if(count < 82800000)
+        {
+            count += 60000
+            Effect()
+            print(count, "분시간이 증가 하였습니다")
+            timeLabel()
+        }
+
+        else
+        {
+            UpAlertError()
+        }
     }
     
     @IBAction func minDown(_ sender : Any)
@@ -275,6 +316,7 @@ class ViewController: UIViewController {
         }
         else
         {
+            DownAlertError()
             print("분 시간이 충분히 남아 있지 않아 시간을 감소할 수 없습니다.")
             print(count, "시간이 저장되어있다.")
 
@@ -291,6 +333,11 @@ class ViewController: UIViewController {
             print(count, "h시간이 증가 하였습니다")
             timeLabel()
         }
+        else
+        {
+            UpAlertError()
+        }
+      
 
     }
     
@@ -307,7 +354,7 @@ class ViewController: UIViewController {
             }
         }
         else
-        {
+        {   DownAlertError()
             print("h 시간이 충분히 남아 있지 않아 시간을 감소할 수 없습니다.")
             print(count, "시간이 저장되어있다.")
         }

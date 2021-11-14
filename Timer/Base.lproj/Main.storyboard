@@ -131,7 +131,7 @@
                                             <color key="titleColor" systemColor="systemBlueColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="StartStopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qgu-QG-ff3"/>
+                                            <action selector="Start_StopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dMv-d1-HC1"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-dS-Obq">
@@ -181,7 +181,7 @@
                     <connections>
                         <outlet property="ResetButton" destination="tKf-dS-Obq" id="3Cs-C3-h0i"/>
                         <outlet property="StartStopButton" destination="h9K-ep-IIr" id="nU8-3H-amT"/>
-                        <outlet property="TimerLabel" destination="lA7-MR-ezs" id="Qun-VP-5pD"/>
+                        <outlet property="TimeLabel" destination="lA7-MR-ezs" id="dQ0-eQ-blQ"/>
                         <outlet property="hourDownButton" destination="CA8-6k-cfL" id="kVH-gC-XR6"/>
                         <outlet property="hourUpButton" destination="vC9-7f-0N1" id="sSh-hL-xD1"/>
                         <outlet property="millisecDownButton" destination="kbU-jE-0Lz" id="Vs2-ip-qY9"/>
@@ -292,7 +292,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="eps-16-npp"/>
                         <segue destination="Lxr-2m-ofb" kind="relationship" relationship="viewControllers" id="C8A-u4-Dsy"/>
                         <segue destination="fGX-y9-as3" kind="relationship" relationship="viewControllers" id="eWK-7A-mi3"/>
-                        <segue destination="O5m-2W-qXp" kind="relationship" relationship="viewControllers" id="SFO-6p-SCU"/>
+                        <segue destination="O5m-2W-qXp" kind="relationship" relationship="viewControllers" id="TR5-dT-ynX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GOy-NJ-LVd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -444,7 +444,7 @@
                                         <size key="titleShadowOffset" width="-6" height="0.0"/>
                                         <state key="normal" title="↑"/>
                                         <connections>
-                                            <action selector="hourUp:" destination="O5m-2W-qXp" eventType="touchUpInside" id="L92-Gc-ZWl"/>
+                                            <action selector="hourUp:" destination="O5m-2W-qXp" eventType="touchUpInside" id="a8f-un-H11"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7s-ck-Agi">
@@ -454,7 +454,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="↑"/>
                                         <connections>
-                                            <action selector="minUp:" destination="O5m-2W-qXp" eventType="touchUpInside" id="KIW-to-sST"/>
+                                            <action selector="minUp:" destination="O5m-2W-qXp" eventType="touchUpInside" id="iSz-hK-xAU"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5h-81-Z4k">
@@ -465,7 +465,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="↑"/>
                                         <connections>
-                                            <action selector="secUp:" destination="O5m-2W-qXp" eventType="touchUpInside" id="QDT-p2-dF3"/>
+                                            <action selector="secUp:" destination="O5m-2W-qXp" eventType="touchUpInside" id="o2W-0a-bcB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TX3-zk-paX">
@@ -475,7 +475,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="↑"/>
                                         <connections>
-                                            <action selector="millisecUp:" destination="O5m-2W-qXp" eventType="touchUpInside" id="not-Ki-ixx"/>
+                                            <action selector="millisecUp:" destination="O5m-2W-qXp" eventType="touchUpInside" id="1mP-t7-IK7"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -494,7 +494,7 @@
                                         <size key="titleShadowOffset" width="-6" height="0.0"/>
                                         <state key="normal" title="↓"/>
                                         <connections>
-                                            <action selector="hourDown:" destination="O5m-2W-qXp" eventType="touchUpInside" id="UUJ-01-CCa"/>
+                                            <action selector="hourDown:" destination="O5m-2W-qXp" eventType="touchUpInside" id="13N-1q-3JE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exz-kA-xyV">
@@ -504,7 +504,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="↓"/>
                                         <connections>
-                                            <action selector="minDown:" destination="O5m-2W-qXp" eventType="touchUpInside" id="kWg-I7-pOd"/>
+                                            <action selector="minDown:" destination="O5m-2W-qXp" eventType="touchUpInside" id="nzL-Bt-M5a"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Czu-sh-dnh">
@@ -515,7 +515,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="↓"/>
                                         <connections>
-                                            <action selector="secDown:" destination="O5m-2W-qXp" eventType="touchUpInside" id="KzM-IT-q9h"/>
+                                            <action selector="secDown:" destination="O5m-2W-qXp" eventType="touchUpInside" id="Blo-sn-jxv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06e-Au-I9f">
@@ -525,7 +525,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="↓"/>
                                         <connections>
-                                            <action selector="millisecDown:" destination="O5m-2W-qXp" eventType="touchUpInside" id="p5T-r6-4QW"/>
+                                            <action selector="millisecDown:" destination="O5m-2W-qXp" eventType="touchUpInside" id="JAz-l4-eNv"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -545,7 +545,7 @@
                                             <color key="titleColor" systemColor="systemBlueColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="start_stop:" destination="O5m-2W-qXp" eventType="touchUpInside" id="GWl-UE-mAA"/>
+                                            <action selector="Start_StopButton:" destination="O5m-2W-qXp" eventType="touchUpInside" id="KMZ-ka-dKg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhb-Xn-abF">
@@ -554,7 +554,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <state key="normal" title="Reset"/>
                                         <connections>
-                                            <action selector="ResetButton:" destination="O5m-2W-qXp" eventType="touchUpInside" id="Pk0-VK-qCq"/>
+                                            <action selector="ResetButton:" destination="O5m-2W-qXp" eventType="touchUpInside" id="dsp-lY-bt8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -593,9 +593,9 @@
                     <navigationItem key="navigationItem" id="qnU-9O-1jD"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
                     <connections>
-                        <outlet property="ResetButton" destination="qhb-Xn-abF" id="A56-wY-SFn"/>
-                        <outlet property="StartStopButton" destination="ga3-SA-Oma" id="VaH-gX-by1"/>
-                        <outlet property="TimerLabel" destination="DXh-Op-Bhf" id="Xd0-Ov-qHA"/>
+                        <outlet property="ResetButton" destination="qhb-Xn-abF" id="8aU-JK-27P"/>
+                        <outlet property="StartStopButton" destination="ga3-SA-Oma" id="crc-zw-KIy"/>
+                        <outlet property="TimerLabel" destination="DXh-Op-Bhf" id="AOc-oZ-TAE"/>
                         <outlet property="hourDownButton" destination="F8y-PN-iuk" id="jBj-5i-vLo"/>
                         <outlet property="hourUpButton" destination="enR-nI-Zo2" id="9GH-lF-GgV"/>
                         <outlet property="millisecDownButton" destination="06e-Au-I9f" id="2od-nA-l7I"/>

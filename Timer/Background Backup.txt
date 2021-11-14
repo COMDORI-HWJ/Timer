@@ -34,7 +34,7 @@ class BackgroundTimer: UIViewController {
     var timer : Timer!
     var timercount : Bool = false
     var count : Int = 0
-    var startTime: Date?
+    var saveTime: Date?
     
     @IBOutlet weak var TimerLabel: UILabel!
     @IBOutlet weak var StartStopButton: UIButton!
@@ -57,56 +57,29 @@ class BackgroundTimer: UIViewController {
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.topItem?.title="AD" //뷰 제목
         
-        let notifi = NotificationCenter.default
-        notifi.addObserver(self, selector: #selector(Background), name: UIApplication.willResignActiveNotification, object: nil)
-        notifi.addObserver(self, selector: #selector(Foreground), name: UIApplication.willEnterForegroundNotification, object: nil)
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, Error in
             print("push알림: ",didAllow)
         })
         
-//        if timercount
-//        {
-//            stopTimer(startTime: Date())
-//        }
-//        else
-//        {
-//            startTimer()
-//        }
-//
+        if timercount
+        {
+            stopTimer()
+        }
+        else
+        {
+            startTimer()
+        }
+  
                                       
 
     }
     
-   
-    
-    @objc func Background()
-    {
-        print("App move to backgroud")
-        if timercount{
-            startTime = Date()
-            print("save Time")
-
-        }
-    }
-
-    @objc func Foreground() {
-        print("App move to foreground")
-        if let backTime = startTime {
-            let elapsed = Date().timeIntervalSince(backTime)
-            let dur = Int(elapsed)
-            count -= dur
-           // startTime = nil
-            print("저장된 시간:", dur)
-        }
-    }
-
 
     @IBAction func Start_StopButton(_ sender: Any)
     {
         if timercount
         {
             startTimer()
-
         }
         else
         {
@@ -126,33 +99,25 @@ class BackgroundTimer: UIViewController {
             
             
         }
-//        guard let startTime = startTime else {
-//            startTime: Date()
-//            return
-//        }
 
         
     }
     
     func stopTimer()
     {
-        
         if(count > 0)
         {
             timercount = true
             StartStopButton.setTitle("Pause", for: .normal)
             print("일시정지")
             timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
-         
-            }
-  
-        
+
             
         }
+        
     
 
-    
-    
+    }
   
     func ButtonDisabled()
     {
@@ -208,21 +173,13 @@ class BackgroundTimer: UIViewController {
     
     @objc func timerCounter() -> Void
     {
-//        let elapsedTimeSeconds = Int(Date().timeIntervalSince(startTime))
-//        print("백그시간:",elapsedTimeSeconds)
-        
-        Background()
-        Foreground()
-        
+       // saveTime = Int(Date().timeIntervalSince(saveTime))
         if(count > 0)
         {
-          
-            count = count-8 //해결필요  어느정도 맞춤.
-            
+            count -= 8 //해결필요  어느정도 맞춤.
             ButtonDisabled()
             print(count , "시간입니다")
             timeLabel()
-           
             if(count == 0 || count < 0)
             {
                 if(SettingTableCell.soundCheck == true)

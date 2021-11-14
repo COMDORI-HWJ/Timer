@@ -20,7 +20,9 @@
 		2BB1DC6A27177AAC0013C523 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1DC6927177AAC0013C523 /* Stopwatch.swift */; };
 		2BBE707426E972BD00DF2351 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2BBE707326E972BD00DF2351 /* Settings.bundle */; };
 		2BD4CF0B2702817D0063D45D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2BD4CF0A2702817D0063D45D /* README.md */; };
+		2BE0D863274121CE00D08F01 /* Back2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BE0D862274121CE00D08F01 /* Back2.txt */; };
 		2BE37D7E26E529C400EA2FA5 /* Backup.txt in Sources */ = {isa = PBXBuildFile; fileRef = 2BE37D7D26E529C400EA2FA5 /* Backup.txt */; };
+		2BEBAE4A273E885200BE5F24 /* Background Backup.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BEBAE49273E885200BE5F24 /* Background Backup.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +42,9 @@
 		2BB1DC6927177AAC0013C523 /* Stopwatch.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		2BBE707326E972BD00DF2351 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2BD4CF0A2702817D0063D45D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2BE0D862274121CE00D08F01 /* Back2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Back2.txt; sourceTree = "<group>"; };
 		2BE37D7D26E529C400EA2FA5 /* Backup.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Backup.txt; sourceTree = "<group>"; };
+		2BEBAE49273E885200BE5F24 /* Background Backup.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Background Backup.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				2BA0F056269395C30040D20B /* Info.plist */,
-				2BA0F048269395C20040D20B /* AppDelegate.swift */,
 				2BE37D7D26E529C400EA2FA5 /* Backup.txt */,
+				2BA0F048269395C20040D20B /* AppDelegate.swift */,
 				2BA0F04A269395C20040D20B /* SceneDelegate.swift */,
 				2BA0F04C269395C20040D20B /* ViewController.swift */,
 				2BB1DC6927177AAC0013C523 /* Stopwatch.swift */,
@@ -88,6 +92,8 @@
 				2B69E3EB27224DBA00591357 /* SettingTableCell.swift */,
 				2B415B39273CFFF500E8D3E6 /* BackgroundTimer.swift */,
 				2B6813412727AA0300E4C67A /* vibration icon.png */,
+				2BEBAE49273E885200BE5F24 /* Background Backup.txt */,
+				2BE0D862274121CE00D08F01 /* Back2.txt */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -151,7 +157,9 @@
 			files = (
 				2B6813422727AA0300E4C67A /* vibration icon.png in Resources */,
 				2BBE707426E972BD00DF2351 /* Settings.bundle in Resources */,
+				2BE0D863274121CE00D08F01 /* Back2.txt in Resources */,
 				2BA0F055269395C30040D20B /* LaunchScreen.storyboard in Resources */,
+				2BEBAE4A273E885200BE5F24 /* Background Backup.txt in Resources */,
 				2BD4CF0B2702817D0063D45D /* README.md in Resources */,
 				2BA0F052269395C30040D20B /* Assets.xcassets in Resources */,
 				2BA0F050269395C20040D20B /* Main.storyboard in Resources */,
@@ -323,6 +331,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 93D652JGK3;
 				INFOPLIST_FILE = Timer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -342,6 +351,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 93D652JGK3;
 				INFOPLIST_FILE = Timer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
