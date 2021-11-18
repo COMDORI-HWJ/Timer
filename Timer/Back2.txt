@@ -43,6 +43,7 @@ class BackgroundTimer: UIViewController {
     var timerCounting:Bool = false
     var startTime:Date?
     var stopTime:Date?
+    var count : Int = 5000
 
     let userDefaults = UserDefaults.standard
     let START_TIME_KEY = "startTime"
@@ -79,7 +80,7 @@ class BackgroundTimer: UIViewController {
         }
     }
 
-    @IBAction func startStopAction(_ sender: Any)
+    @IBAction func Start_StopButton(_ sender: Any)
     {
         if timerCounting
         {
@@ -110,19 +111,20 @@ class BackgroundTimer: UIViewController {
     }
     func startTimer()
     {
-        scheduledTimer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(refreshValue), userInfo: nil, repeats: true)
+        scheduledTimer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
         setTimerCounting(true)
         startStopButton.setTitle("STOP", for: .normal)
         startStopButton.setTitleColor(UIColor.red, for: .normal)
     }
 
-    @objc func refreshValue()
+    @objc func timerCounter()
     {
         if let start = startTime
         {
-            var diff = Date().timeIntervalSince(start)
-            diff -= 8
-            setTimeLabel(Int(diff))
+            count -= 8
+            let diff = Date().timeIntervalSince(start)
+            
+            setTimeLabel(Int(diff)+count)
         }
         else
         {
@@ -175,6 +177,7 @@ class BackgroundTimer: UIViewController {
         setStartTime(date: nil)
         timeLabel.text = makeTimeString(hour: 0, min: 0, sec: 0, mill: 0)
         stopTimer()
+        count = 0
     }
 
     func setStartTime(date: Date?)
@@ -195,6 +198,7 @@ class BackgroundTimer: UIViewController {
         userDefaults.set(timerCounting, forKey: COUNTING_KEY)
     }
 }
+
 
 
 

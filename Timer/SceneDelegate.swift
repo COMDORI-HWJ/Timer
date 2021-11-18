@@ -16,6 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var bgTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
+    var backcount = 0
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -78,17 +79,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
         print("백그라운드 상태")
         
-        var count = 0
+       
         
-        let _: Timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (timer:Timer) in
-            count += 1
-            print("Timer Count: ", count)
-            
-            if count >= 10 {
-                timer.invalidate()
-                self.endBackground()
-            }
-        }
+//        let _: Timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (timer:Timer) in
+//            self.backcount += 1
+//            print("Timer Count: ", self.backcount)
+//
+////            if count >= 10 {
+////                timer.invalidate()
+////                self.endBackground()
+////            }
+//        }
 
 
 

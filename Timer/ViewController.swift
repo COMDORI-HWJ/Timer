@@ -16,6 +16,7 @@
 
 import UIKit
 import AVFoundation //햅틱
+import GoogleMobileAds
 
 
 class ViewController: UIViewController {
@@ -40,6 +41,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var millisecUpButton: UIButton!
     @IBOutlet weak var millisecDownButton: UIButton!
     
+    @IBOutlet weak var bannerView: GADBannerView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -49,7 +53,11 @@ class ViewController: UIViewController {
 //        let notificationCenter = NotificationCenter.default
 //        notificationCenter.addObserver(self, selector: #selector(BackgroundTime), name: UIApplication.willResignActiveNotification, object: nil)
 //        notificationCenter.addObserver(self, selector: #selector(ForegroundTime), name: UIApplication.willEnterForegroundNotification, object: nil)
-                                      
+         /* Admob */
+      //  bannerView.adUnitID = "ca-app-pub-7875242624363574/7192134359"
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" //테스트 광고
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
 
     }
     override func didReceiveMemoryWarning() {
