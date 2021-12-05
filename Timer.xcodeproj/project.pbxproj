@@ -17,9 +17,10 @@
 		2BA0F050269395C20040D20B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA0F04E269395C20040D20B /* Main.storyboard */; };
 		2BA0F052269395C30040D20B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BA0F051269395C30040D20B /* Assets.xcassets */; };
 		2BA0F055269395C30040D20B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA0F053269395C30040D20B /* LaunchScreen.storyboard */; };
+		2BA573A5275D4A5B003C7677 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA573A4275D4A5B003C7677 /* UIButton.swift */; };
+		2BA573A9275D5189003C7677 /* +.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BA573A8275D5188003C7677 /* +.png */; };
 		2BB176192746AE2E00324111 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1761B2746AE2E00324111 /* InfoPlist.strings */; };
 		2BB1DC6A27177AAC0013C523 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1DC6927177AAC0013C523 /* Stopwatch.swift */; };
-		2BBE707426E972BD00DF2351 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2BBE707326E972BD00DF2351 /* Settings.bundle */; };
 		2BD4CF0B2702817D0063D45D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2BD4CF0A2702817D0063D45D /* README.md */; };
 		2BE0D863274121CE00D08F01 /* Back2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BE0D862274121CE00D08F01 /* Back2.txt */; };
 		2BE37D7E26E529C400EA2FA5 /* Backup.txt in Sources */ = {isa = PBXBuildFile; fileRef = 2BE37D7D26E529C400EA2FA5 /* Backup.txt */; };
@@ -42,9 +43,10 @@
 		2BA0F054269395C30040D20B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BA0F056269395C30040D20B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BA0F05D269396170040D20B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		2BA573A4275D4A5B003C7677 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		2BA573A8275D5188003C7677 /* +.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "+.png"; path = "../../../../Desktop/+.png"; sourceTree = "<group>"; };
 		2BB1761A2746AE2E00324111 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BB1DC6927177AAC0013C523 /* Stopwatch.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
-		2BBE707326E972BD00DF2351 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2BD4CF0A2702817D0063D45D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2BE0D862274121CE00D08F01 /* Back2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Back2.txt; sourceTree = "<group>"; };
 		2BE37D7D26E529C400EA2FA5 /* Backup.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Backup.txt; sourceTree = "<group>"; };
@@ -78,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				2BD4CF0A2702817D0063D45D /* README.md */,
-				2BBE707326E972BD00DF2351 /* Settings.bundle */,
 				2BA0F047269395C20040D20B /* Timer */,
 				2BA0F046269395C20040D20B /* Products */,
 				47DEF28A0F9F368041C8FFF1 /* Pods */,
@@ -97,6 +98,7 @@
 		2BA0F047269395C20040D20B /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				2BA573A8275D5188003C7677 /* +.png */,
 				2BA0F056269395C30040D20B /* Info.plist */,
 				2BB1761B2746AE2E00324111 /* InfoPlist.strings */,
 				2BE37D7D26E529C400EA2FA5 /* Backup.txt */,
@@ -113,6 +115,7 @@
 				2B6813412727AA0300E4C67A /* vibration icon.png */,
 				2BEBAE49273E885200BE5F24 /* Background Backup.txt */,
 				2BE0D862274121CE00D08F01 /* Back2.txt */,
+				2BA573A4275D4A5B003C7677 /* UIButton.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -186,8 +189,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BA573A9275D5189003C7677 /* +.png in Resources */,
 				2B6813422727AA0300E4C67A /* vibration icon.png in Resources */,
-				2BBE707426E972BD00DF2351 /* Settings.bundle in Resources */,
 				2BE0D863274121CE00D08F01 /* Back2.txt in Resources */,
 				2BA0F055269395C30040D20B /* LaunchScreen.storyboard in Resources */,
 				2BEBAE4A273E885200BE5F24 /* Background Backup.txt in Resources */,
@@ -255,6 +258,7 @@
 				2BA0F049269395C20040D20B /* AppDelegate.swift in Sources */,
 				2BB1DC6A27177AAC0013C523 /* Stopwatch.swift in Sources */,
 				2BA0F04B269395C20040D20B /* SceneDelegate.swift in Sources */,
+				2BA573A5275D4A5B003C7677 /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

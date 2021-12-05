@@ -42,8 +42,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var millisecDownButton: UIButton!
     
     @IBOutlet weak var bannerView: GADBannerView!
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -63,7 +62,7 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+        
     @IBAction func Start_StopButton(_ sender: Any)
     {
         if timercount
