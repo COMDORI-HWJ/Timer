@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Timer
+
+  Created by WONJI HA on 2021/12/06.
+  
+*/
+
+// https://babbab2.tistory.com/59
+
+"Time is no" = "Time is null";

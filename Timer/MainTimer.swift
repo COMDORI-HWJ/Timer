@@ -1,33 +1,31 @@
 //
-//  ViewController.swift
+//  Timer.swift
 //  Timer
 //
-//  Created by WONJI HA on 2021/07/06.
+//  Created by WONJI HA on 2021/12/08.
+//
 
-/*
- Reference
- https://youtu.be/3TbdoVhgQmE 유튜브 참고
- https://www.youtube.com/watch?v=GzwLobVuXXI 백그라운드 타이머
- https://kwangsics.tistory.com/entry/Swift-%ED%95%A8%EC%88%98-%EC%A0%95%EC%9D%98%EC%99%80-%ED%98%B8%EC%B6%9C?category=606525 함수 정의 및 호출
- https://bite-sized-learning.tistory.com/175 타이머1
- https://youtu.be/3TbdoVhgQmE 타이머2
- https://unclean.tistory.com/27 타이머3
- 
- */
-
+import Foundation
 import UIKit
 import AVFoundation //햅틱
 import GoogleMobileAds
 
 
-class ViewController: UIViewController {
+class MainTimer: UIViewController {
   
     var timer = Timer()
-    var timercount : Bool = false
-    var count : Double = 0
-    let timeSel: Selector = #selector(ViewController.updateTime)
+    var timerstatus : Bool = false
+    var count : Double = 900
+    
+
+
+    var startTime = Date()
        
-    @IBOutlet weak var TimeLabel: UILabel!
+    @IBOutlet weak var HourLabel: UILabel!
+    @IBOutlet weak var MinLabel: UILabel!
+    @IBOutlet weak var SecLabel: UILabel!
+    @IBOutlet weak var MillisecLabel: UILabel!
+    
     @IBOutlet weak var StartStopButton: UIButton!
     @IBOutlet weak var ResetButton: UIButton!
     
@@ -68,53 +66,55 @@ class ViewController: UIViewController {
 
     @IBAction func Start_StopButton(_ sender: Any)
     {
-        if timercount
-        {
-            timercount = false
+        if timerstatus {
+            timerstatus = false
             timer.invalidate()
-            StartStopButton.setTitle("Start", for: .normal)
-            
-        }
-        else if(count > 0)
-        {
-                timercount = true
-                StartStopButton.setTitle("Pause", for: .normal)
-                print("일시정지")
-            timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
-            
-                /* 카운트다운 동안 시간 버튼 비활성화 */
-                hourUpButton.isEnabled = false
-                hourDownButton.isEnabled = false
-                minUpButton.isEnabled = false
-                minDownButton.isEnabled = false
-                secUpButton.isEnabled = false
-                secDownButton.isEnabled = false
-                millisecUpButton.isEnabled = false
-                millisecDownButton.isEnabled = false
-            
-        }
-        else
-        {
-            print(count,"초 미만, 카운트 다운 실패")
-        }
+            _ = self.HourLabel.text ?? "123"
+            _ = self.MinLabel.text ?? ""
+            _ = self.SecLabel.text ?? ""
+            _ = self.MillisecLabel.text ?? ""
+           
+                    
         
-    }
+            StartStopButton.setTitle("Start", for: .normal)
+        }
+        else if(count > 0){
+            timerstatus = true
+            StartStopButton.setTitle("Pause", for: .normal)
+            print("일시정지")
+            self.timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+            self.startTime = Date()
+       
+        }
+
+            
+        }
+
+        
+        
+      
+    
     
     func Reset() /* 초기화 함수 선언 */
     {
-        timercount = false
+        //timercount = false
         self.timer.invalidate()
-        self.StartStopButton.setTitle("Start", for: .normal)
+        //self.StartStopButton.setTitle("Start", for: .normal)
         self.count = 0
-        self.TimeLabel.text = self.TimeString(hours: 0, minutes: 0, seconds: 0, milliseconds: 0)
-        hourUpButton.isEnabled = true
-        hourDownButton.isEnabled = true
-        minUpButton.isEnabled = true
-        minDownButton.isEnabled = true
-        secUpButton.isEnabled = true
-        secDownButton.isEnabled = true
-        millisecUpButton.isEnabled = true
-        millisecDownButton.isEnabled = true
+        
+        self.HourLabel.text = "00"
+        self.MinLabel.text = "00"
+        self.SecLabel.text = "00"
+        self.MillisecLabel.text = "00"
+
+//        hourUpButton.isEnabled = true
+//        hourDownButton.isEnabled = true
+//        minUpButton.isEnabled = true
+//        minDownButton.isEnabled = true
+//        secUpButton.isEnabled = true
+//        secDownButton.isEnabled = true
+//        millisecUpButton.isEnabled = true
+//        millisecDownButton.isEnabled = true
         
     }
     
@@ -132,45 +132,40 @@ class ViewController: UIViewController {
 
         let time = CalTime(ms: Int(count))
         let timeText = TimeString(hours: time.0, minutes: time.1, seconds: time.2, milliseconds: time.3)
-        TimeLabel.text = timeText
-        
+        //TimeLabel.text = timeText
+
     }
     
-    @objc func updateTime(){
-        count = count-8
-        print(count , "시간입니다")
-        timeLabel()
-    }
+
     
-    @objc func timerCounter() -> Void
+    @objc func timerCounter()
     {
-       // saveTime = Int(Date().timeIntervalSince(saveTime))
-        if(count > 0)
-        {
+     
+        
+        var timeInterval = Date().timeIntervalSince(self.startTime)
+           // timeInterval += 10
+            //count = timeInterval
+        if(timeInterval > 0){
+            timeInterval -= count
+          
+            let hour = (Int)(fmod((timeInterval/60/60), 12)) // 분을 12로 나누어 시를 구한다
+            let minute = (Int)(fmod((timeInterval/60), 60)) // 초를 60으로 나누어 분을 구한다
+            let second = (Int)(fmod(timeInterval, 60)) // 초를 구한다
+            let milliSecond = (Int)((timeInterval - floor(timeInterval))*1000)
             
-            count -= 8.4//해결필요?   -8
+        self.HourLabel.text = String(format: "%02d", hour)
+        self.MinLabel.text = String(format: "%02d", minute)
+        self.SecLabel.text = String(format: "%02d", second)
+        self.MillisecLabel.text = String(format: "%03d", milliSecond)
+        
+        print("time:",timeInterval)
+        print("count:", count)
+        //print("밀리초:",milliSecond)
             
-            print(count , "시간입니다")
-            timeLabel()
-            if(count == 0 || count < 0)
-            {
-                if(SettingTableCell.soundCheck == true)
-                {
-                    print("Sound: ",SettingTableCell.soundCheck)
-                    AudioServicesPlaySystemSound(1016) // "트윗" 소리발생
-                    AudioServicesPlaySystemSound(4095) // 진동발생
-                }
-
-                else if(SettingTableCell.soundCheck == false)
-                {
-                    print("Sound: ",SettingTableCell.soundCheck)
-                }
-
-                //AudioServicesPlaySystemSound(4095) // 진동발생
-                Reset()
-                print("0초가 되었습니다 및 초기화")
-            }
         }
+         
+        
+                                    
     }
     
     func CalTime(ms: Int) -> (Int, Int, Int, Int)
@@ -238,10 +233,12 @@ class ViewController: UIViewController {
     {
         if(count < 82800000)
         {
-            count += 1
+            count += 0.999
             Effect()
+            MillisecLabel.text = "\(count)"
+           // MillisecLabel.text = String(format: "%03d", count)
+         
             print(count,"m시간을 증가 하였습니다")
-            timeLabel()
         }
 
         else
@@ -269,10 +266,10 @@ class ViewController: UIViewController {
     {
         if(count < 82800000)
         {
-            count += 1000
+            count += 1
             Effect()
             print(count,"s시간을 증가 하였습니다")
-            timeLabel()
+            SecLabel.text = "\(count)"
         }
         else
         {
@@ -376,4 +373,3 @@ class ViewController: UIViewController {
     }
     
 }
-

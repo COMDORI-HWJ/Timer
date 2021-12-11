@@ -23,6 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        UIApplication.shared.isIdleTimerDisabled = true //화면 꺼짐 방지 슬립모드 방지
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
