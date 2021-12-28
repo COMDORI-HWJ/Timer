@@ -5,6 +5,8 @@
 //  Created by WONJI HA on 2021/12/08.
 //
 
+//https://unclean.tistory.com/27 타이머3
+
 import Foundation
 import UIKit
 import AVFoundation //햅틱
@@ -15,11 +17,19 @@ class MainTimer: UIViewController {
   
     var timer = Timer()
     var timerstatus : Bool = false
-    var count : Double = 900
+    var count : Double = 0
     
 
 
     var startTime = Date()
+    var timeInterval : Double = 500
+    
+    var hour = 0 // 분을 12로 나누어 시를 구한다
+    var minute = 0 // 초를 60으로 나누어 분을 구한다
+    var second = 0 // 초를 구한다
+    var milliSecond = 0
+    
+    
        
     @IBOutlet weak var HourLabel: UILabel!
     @IBOutlet weak var MinLabel: UILabel!
@@ -98,9 +108,11 @@ class MainTimer: UIViewController {
     func Reset() /* 초기화 함수 선언 */
     {
         //timercount = false
+        timerstatus = true
         self.timer.invalidate()
         //self.StartStopButton.setTitle("Start", for: .normal)
         self.count = 0
+        self.timeInterval = 0
         
         self.HourLabel.text = "00"
         self.MinLabel.text = "00"
@@ -140,18 +152,19 @@ class MainTimer: UIViewController {
     
     @objc func timerCounter()
     {
-     
-        
-        var timeInterval = Date().timeIntervalSince(self.startTime)
+        if(timeInterval > -0.99999999999){
+            timer.invalidate()
+        }
+         timeInterval = Date().timeIntervalSince(self.startTime)
            // timeInterval += 10
             //count = timeInterval
-        if(timeInterval > 0){
+       
             timeInterval -= count
           
-            let hour = (Int)(fmod((timeInterval/60/60), 12)) // 분을 12로 나누어 시를 구한다
-            let minute = (Int)(fmod((timeInterval/60), 60)) // 초를 60으로 나누어 분을 구한다
-            let second = (Int)(fmod(timeInterval, 60)) // 초를 구한다
-            let milliSecond = (Int)((timeInterval - floor(timeInterval))*1000)
+            hour = (Int)(fmod((timeInterval/60/60), 12)) // 분을 12로 나누어 시를 구한다
+            minute = (Int)(fmod((timeInterval/60), 60)) // 초를 60으로 나누어 분을 구한다
+            second = (Int)(fmod(timeInterval, 60)) // 초를 구한다
+            milliSecond = (Int)((timeInterval - floor(timeInterval))*1000)
             
         self.HourLabel.text = String(format: "%02d", hour)
         self.MinLabel.text = String(format: "%02d", minute)
@@ -159,10 +172,11 @@ class MainTimer: UIViewController {
         self.MillisecLabel.text = String(format: "%03d", milliSecond)
         
         print("time:",timeInterval)
-        print("count:", count)
+        //print("count:", count)
+       // print("startTime:", startTime)
         //print("밀리초:",milliSecond)
             
-        }
+        
          
         
                                     
@@ -233,12 +247,13 @@ class MainTimer: UIViewController {
     {
         if(count < 82800000)
         {
-            count += 0.999
+            count += 0.001
             Effect()
-            MillisecLabel.text = "\(count)"
-           // MillisecLabel.text = String(format: "%03d", count)
+            //MillisecLabel.text = "\(count)"
+            //MillisecLabel.text = "\((timeInterval - floor(timeInterval))*1000)"
+            MillisecLabel.text = String(format: "%03d", count)
          
-            print(count,"m시간을 증가 하였습니다")
+            print(timeInterval,"m시간을 증가 하였습니다")
         }
 
         else

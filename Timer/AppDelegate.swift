@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     var window: UIWindow?
-    var bgTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
  
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         print("이제 앱 실행 준비할게요")

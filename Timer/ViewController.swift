@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     var timer = Timer()
     var timercount : Bool = false
     var count : Double = 0
-    let timeSel: Selector = #selector(ViewController.updateTime)
+   // let timeSel: Selector = #selector(ViewController.updateTime)
        
     @IBOutlet weak var TimeLabel: UILabel!
     @IBOutlet weak var StartStopButton: UIButton!
@@ -77,10 +77,15 @@ class ViewController: UIViewController {
         }
         else if(count > 0)
         {
+          
                 timercount = true
                 StartStopButton.setTitle("Pause", for: .normal)
                 print("일시정지")
-            timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+                timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+       
+                RunLoop.current.add(timer, forMode: .common) // 타이머가 작동하지 않을때 런루프를 사용한다.
+                RunLoop.current.run()
+               
             
                 /* 카운트다운 동안 시간 버튼 비활성화 */
                 hourUpButton.isEnabled = false
@@ -136,19 +141,13 @@ class ViewController: UIViewController {
         
     }
     
-    @objc func updateTime(){
-        count = count-8
-        print(count , "시간입니다")
-        timeLabel()
-    }
     
     @objc func timerCounter() -> Void
     {
        // saveTime = Int(Date().timeIntervalSince(saveTime))
         if(count > 0)
         {
-            
-            count -= 8.4//해결필요?   -8
+            count -= 8.25//해결필요?   -8.4, 8.3
             
             print(count , "시간입니다")
             timeLabel()
