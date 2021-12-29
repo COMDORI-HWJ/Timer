@@ -83,8 +83,7 @@ class ViewController: UIViewController {
                 print("일시정지")
                 timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
        
-                RunLoop.current.add(timer, forMode: .common) // 타이머가 작동하지 않을때 런루프를 사용한다.
-                RunLoop.current.run()
+           
                
             
                 /* 카운트다운 동안 시간 버튼 비활성화 */
@@ -97,10 +96,14 @@ class ViewController: UIViewController {
                 millisecUpButton.isEnabled = false
                 millisecDownButton.isEnabled = false
             
+            RunLoop.current.add(timer, forMode: .default) // 타이머가 작동하지 않을때 런루프를 사용한다.
+            RunLoop.current.run()
+            
         }
         else
         {
             print(count,"초 미만, 카운트 다운 실패")
+
         }
         
     }

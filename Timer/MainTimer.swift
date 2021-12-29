@@ -152,8 +152,9 @@ class MainTimer: UIViewController {
     
     @objc func timerCounter()
     {
-        if(timeInterval > -0.99999999999){
+        if(timeInterval > -0.99){
             timer.invalidate()
+            Reset()
         }
          timeInterval = Date().timeIntervalSince(self.startTime)
            // timeInterval += 10
@@ -250,8 +251,9 @@ class MainTimer: UIViewController {
             count += 0.001
             Effect()
             //MillisecLabel.text = "\(count)"
-            //MillisecLabel.text = "\((timeInterval - floor(timeInterval))*1000)"
-            MillisecLabel.text = String(format: "%03d", count)
+            MillisecLabel.text = "\((count - floor(count))*1000)"
+
+            //MillisecLabel.text = String(format: "%03d", count)
          
             print(timeInterval,"m시간을 증가 하였습니다")
         }
@@ -269,7 +271,7 @@ class MainTimer: UIViewController {
             count -= 1
             Effect()
             print(count,"m시간을 감소 하였습니다")
-            timeLabel()
+            //MillisecLabel()
         }
         else
         {
@@ -284,7 +286,7 @@ class MainTimer: UIViewController {
             count += 1
             Effect()
             print(count,"s시간을 증가 하였습니다")
-            SecLabel.text = "\(count)"
+            SecLabel.text = "\(floor(count))"
         }
         else
         {
