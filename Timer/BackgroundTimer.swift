@@ -12,7 +12,7 @@
  https://kwangsics.tistory.com/entry/Swift-%ED%95%A8%EC%88%98-%EC%A0%95%EC%9D%98%EC%99%80-%ED%98%B8%EC%B6%9C?category=606525 함수 정의 및 호출
  https://bite-sized-learning.tistory.com/175 타이머1
  https://youtu.be/3TbdoVhgQmE 타이머2
-
+ https://fdee.tistory.com/entry/Xcode-%EA%B8%B0%EB%8A%A5-%EB%B2%84%ED%8A%BC-%EB%B7%B0-%EB%AA%A8%EC%84%9C%EB%A6%AC-%EB%91%A5%EA%B8%80%EA%B2%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0-button-view-cornerRadius 버튼 둥글게
  */
 
 import UIKit
@@ -54,6 +54,8 @@ class BackgroundTimer: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        setRadius() //버튼 둥글게 만들기
 
         startTime = userDefaults.object(forKey: START_TIME_KEY) as? Date
         stopTime = userDefaults.object(forKey: STOP_TIME_KEY) as? Date
@@ -204,6 +206,13 @@ class BackgroundTimer: UIViewController {
     {
         timerCounting = val
         userDefaults.set(timerCounting, forKey: COUNTING_KEY)
+    }
+    
+    func setRadius()
+    {
+        hourUpButton.layer.cornerRadius = 4
+        hourDownButton.layer.cornerRadius = 4
+        StartStopButton.layer.cornerRadius = 5
     }
 }
 

@@ -18,72 +18,92 @@
                     <view key="view" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bC-Xf-vdC" customClass="View">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="r6h-ui-4wB" userLabel="UP Set">
-                                <rect key="frame" x="48" y="209" width="294" height="47"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="r6h-ui-4wB" userLabel="UP Set">
+                                <rect key="frame" x="46.333333333333343" y="209" width="297.33333333333326" height="47"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mm8-sS-gk4">
-                                        <rect key="frame" x="0.0" y="0.0" width="45" height="47"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mm8-sS-gk4" customClass="Button" customModule="Timer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="47.333333333333336" height="47"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <gestureRecognizers/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <size key="titleShadowOffset" width="-6" height="0.0"/>
                                         <state key="normal">
-                                            <imageReference key="image" image="plus" catalog="system" symbolScale="default"/>
+                                            <color key="titleColor" systemColor="systemRedColor"/>
+                                            <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="13"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="hourUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7m8-gW-BCh"/>
                                             <outletCollection property="gestureRecognizers" destination="byR-lt-IRq" appends="YES" id="ziT-uf-Hfk"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="bottomLeft" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MN5-Je-FeL">
-                                        <rect key="frame" x="83" y="0.0" width="45" height="47"/>
+                                    <button opaque="NO" tag="1" contentMode="bottomLeft" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MN5-Je-FeL" customClass="Button" customModule="Timer" customModuleProvider="target">
+                                        <rect key="frame" x="83.333333333333314" y="0.0" width="47.333333333333343" height="47"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <gestureRecognizers/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <size key="titleShadowOffset" width="-6" height="0.0"/>
-                                        <state key="normal" image="plus" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="45"/>
+                                        <state key="normal">
+                                            <color key="titleColor" systemColor="systemRedColor"/>
+                                            <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
-                                        <buttonConfiguration key="configuration" style="filled">
-                                            <imageReference key="image" image="plus" catalog="system" symbolScale="default"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
-                                            <color key="baseBackgroundColor" name="AccentColor"/>
-                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="13"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="minUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pUZ-a3-lGZ"/>
                                             <outletCollection property="gestureRecognizers" destination="3g2-0O-1vv" appends="YES" id="vjI-Jj-Fhi"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ny-t0-f8c">
-                                        <rect key="frame" x="166" y="0.0" width="45" height="47"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ny-t0-f8c" customClass="Button" customModule="Timer" customModuleProvider="target">
+                                        <rect key="frame" x="166.66666666666666" y="0.0" width="47.333333333333343" height="47"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <gestureRecognizers/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <size key="titleShadowOffset" width="-6" height="0.0"/>
-                                        <state key="normal" image="plus" catalog="system"/>
-                                        <buttonConfiguration key="configuration" style="filled">
-                                            <imageReference key="image" image="plus" catalog="system" symbolScale="default"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
-                                            <color key="baseBackgroundColor" name="AccentColor"/>
-                                        </buttonConfiguration>
+                                        <state key="normal">
+                                            <color key="titleColor" systemColor="systemRedColor"/>
+                                            <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="13"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="secUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jLs-la-L2n"/>
                                             <outletCollection property="gestureRecognizers" destination="DRU-fl-9Fc" appends="YES" id="DGP-86-lbV"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXz-Fa-b0V">
-                                        <rect key="frame" x="249" y="0.0" width="45" height="47"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXz-Fa-b0V" customClass="Button" customModule="Timer" customModuleProvider="target">
+                                        <rect key="frame" x="249.99999999999997" y="0.0" width="47.333333333333343" height="47"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <gestureRecognizers/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <size key="titleShadowOffset" width="-6" height="0.0"/>
-                                        <state key="normal" image="plus" catalog="system"/>
-                                        <buttonConfiguration key="configuration" style="filled">
-                                            <imageReference key="image" image="plus" catalog="system" symbolScale="default"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
-                                            <color key="baseBackgroundColor" name="AccentColor"/>
-                                        </buttonConfiguration>
+                                        <state key="normal">
+                                            <color key="titleColor" systemColor="systemRedColor"/>
+                                            <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="13"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="millisecUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sdh-oS-Fec"/>
                                             <outletCollection property="gestureRecognizers" destination="EWQ-x3-oaw" appends="YES" id="YXe-wx-khk"/>
@@ -97,65 +117,80 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="t5q-8C-Lg4" userLabel="Down Set">
-                                <rect key="frame" x="48" y="349" width="294" height="48"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="t5q-8C-Lg4" userLabel="Down Set">
+                                <rect key="frame" x="46.333333333333343" y="349" width="297.33333333333326" height="48"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJq-ld-Cjb">
-                                        <rect key="frame" x="0.0" y="0.0" width="45" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJq-ld-Cjb" customClass="Button" customModule="Timer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="47.333333333333336" height="48"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="minus" catalog="system"/>
-                                        <buttonConfiguration key="configuration" style="filled">
-                                            <imageReference key="image" image="minus" catalog="system" symbolScale="default"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
-                                            <color key="baseForegroundColor" systemColor="systemRedColor"/>
-                                            <color key="baseBackgroundColor" name="AccentColor"/>
-                                        </buttonConfiguration>
+                                        <state key="normal" title="">
+                                            <imageReference key="image" image="minus" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="13"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="hourDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VU4-ra-evo"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGZ-qb-qex">
-                                        <rect key="frame" x="83" y="0.0" width="45" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGZ-qb-qex" customClass="Button" customModule="Timer" customModuleProvider="target">
+                                        <rect key="frame" x="83.333333333333314" y="0.0" width="47.333333333333343" height="48"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="minus" catalog="system"/>
-                                        <buttonConfiguration key="configuration" style="filled">
-                                            <imageReference key="image" image="minus" catalog="system" symbolScale="default"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
-                                            <color key="baseForegroundColor" systemColor="systemRedColor"/>
-                                            <color key="baseBackgroundColor" name="AccentColor"/>
-                                        </buttonConfiguration>
+                                        <state key="normal">
+                                            <color key="titleColor" systemColor="systemRedColor"/>
+                                            <imageReference key="image" image="minus" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="13"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="minDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Va5-Z6-6Ij"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idn-sB-3qx">
-                                        <rect key="frame" x="166" y="0.0" width="45" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idn-sB-3qx" customClass="Button" customModule="Timer" customModuleProvider="target">
+                                        <rect key="frame" x="166.66666666666666" y="0.0" width="47.333333333333343" height="48"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="minus" catalog="system"/>
-                                        <buttonConfiguration key="configuration" style="filled">
-                                            <imageReference key="image" image="minus" catalog="system" symbolScale="default"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20" scale="default"/>
-                                            <color key="baseForegroundColor" systemColor="systemRedColor"/>
-                                            <color key="baseBackgroundColor" name="AccentColor"/>
-                                        </buttonConfiguration>
+                                        <state key="normal">
+                                            <color key="titleColor" systemColor="systemRedColor"/>
+                                            <imageReference key="image" image="minus" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="13"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="secDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T2R-Be-Djj"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAm-2u-aaW">
-                                        <rect key="frame" x="249" y="0.0" width="45" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAm-2u-aaW" customClass="Button" customModule="Timer" customModuleProvider="target">
+                                        <rect key="frame" x="249.99999999999997" y="0.0" width="47.333333333333343" height="48"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="minus" catalog="system"/>
-                                        <buttonConfiguration key="configuration" style="filled">
-                                            <imageReference key="image" image="minus" catalog="system" symbolScale="default"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
-                                            <color key="baseForegroundColor" systemColor="systemRedColor"/>
-                                            <color key="baseBackgroundColor" name="AccentColor"/>
-                                        </buttonConfiguration>
+                                        <state key="normal">
+                                            <color key="titleColor" systemColor="systemRedColor"/>
+                                            <imageReference key="image" image="minus" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="large"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="13"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="millisecDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zEv-Ng-DCN"/>
                                         </connections>
@@ -163,9 +198,9 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="UMW-kE-EHS">
-                                <rect key="frame" x="20" y="432" width="350" height="45"/>
+                                <rect key="frame" x="20" y="432" width="350" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h9K-ep-IIr">
+                                    <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h9K-ep-IIr" customClass="Button" customModule="Timer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="44"/>
                                         <color key="backgroundColor" systemColor="systemTealColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -173,17 +208,27 @@
                                         <state key="normal" title="Start">
                                             <color key="titleColor" systemColor="systemBackgroundColor"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="Start_StopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dMv-d1-HC1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-dS-Obq">
-                                        <rect key="frame" x="186.66666666666663" y="0.0" width="163.33333333333337" height="45"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-dS-Obq" customClass="Button" customModule="Timer" customModuleProvider="target">
+                                        <rect key="frame" x="186.66666666666663" y="0.0" width="163.33333333333337" height="44"/>
                                         <color key="backgroundColor" red="1" green="0.35868220540000001" blue="0.27279899169999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <state key="normal" title="Reset">
                                             <color key="titleColor" systemColor="systemBackgroundColor"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="ResetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lIl-OS-HP6"/>
                                         </connections>
@@ -527,14 +572,12 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enR-nI-Zo2">
                                         <rect key="frame" x="0.0" y="0.0" width="32" height="60"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
                                         <edgeInsets key="layoutMargins" top="8" left="7" bottom="8" right="8"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <size key="titleShadowOffset" width="-6" height="0.0"/>
                                         <state key="normal" title="↑"/>
-                                        <connections>
-                                            <action selector="hourUp:" destination="O5m-2W-qXp" eventType="touchUpInside" id="a8f-un-H11"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7s-ck-Agi">
                                         <rect key="frame" x="80" y="0.0" width="32" height="60"/>
@@ -582,9 +625,6 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <size key="titleShadowOffset" width="-6" height="0.0"/>
                                         <state key="normal" title="↓"/>
-                                        <connections>
-                                            <action selector="hourDown:" destination="O5m-2W-qXp" eventType="touchUpInside" id="13N-1q-3JE"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exz-kA-xyV">
                                         <rect key="frame" x="80" y="0.0" width="32" height="60"/>
@@ -634,7 +674,7 @@
                                             <color key="titleColor" systemColor="systemBlueColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="Start_Stop_Action:" destination="O5m-2W-qXp" eventType="touchUpInside" id="M0l-zv-dTk"/>
+                                            <action selector="Start_Stop_Action:" destination="O5m-2W-qXp" eventType="touchUpInside" id="9n6-pN-ZHi"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhb-Xn-abF">
@@ -683,10 +723,10 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
                     <connections>
                         <outlet property="ResetButton" destination="qhb-Xn-abF" id="9eb-iZ-aWC"/>
-                        <outlet property="StartStopButton" destination="ga3-SA-Oma" id="84X-pX-O7f"/>
+                        <outlet property="StartStopButton" destination="ga3-SA-Oma" id="G7z-2m-8zm"/>
                         <outlet property="TimeLabel" destination="DXh-Op-Bhf" id="TZ9-xV-Bcm"/>
-                        <outlet property="hourDownButton" destination="F8y-PN-iuk" id="jBj-5i-vLo"/>
-                        <outlet property="hourUpButton" destination="enR-nI-Zo2" id="9GH-lF-GgV"/>
+                        <outlet property="hourDownButton" destination="F8y-PN-iuk" id="3Th-Qg-dH3"/>
+                        <outlet property="hourUpButton" destination="enR-nI-Zo2" id="92R-Xj-Bwu"/>
                         <outlet property="millisecDownButton" destination="06e-Au-I9f" id="2od-nA-l7I"/>
                         <outlet property="millisecUpButton" destination="TX3-zk-paX" id="kXt-r6-iiq"/>
                         <outlet property="minDownButton" destination="exz-kA-xyV" id="p7i-XN-6gW"/>
@@ -951,6 +991,11 @@
             <point key="canvasLocation" x="-1940.625" y="835.56338028169012"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="h9K-ep-IIr">
+            <size key="intrinsicContentSize" width="55" height="44"/>
+        </designable>
+    </designables>
     <color key="tintColor" systemColor="systemYellowColor"/>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>

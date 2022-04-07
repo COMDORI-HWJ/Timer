@@ -18,7 +18,6 @@
 		2BA0F050269395C20040D20B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA0F04E269395C20040D20B /* Main.storyboard */; };
 		2BA0F052269395C30040D20B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BA0F051269395C30040D20B /* Assets.xcassets */; };
 		2BA0F055269395C30040D20B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA0F053269395C30040D20B /* LaunchScreen.storyboard */; };
-		2BA573A5275D4A5B003C7677 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA573A4275D4A5B003C7677 /* UIButton.swift */; };
 		2BA573AC275D7A09003C7677 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BA573AE275D7A09003C7677 /* Localizable.strings */; };
 		2BB176192746AE2E00324111 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1761B2746AE2E00324111 /* InfoPlist.strings */; };
 		2BB1DC6A27177AAC0013C523 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1DC6927177AAC0013C523 /* Stopwatch.swift */; };
@@ -27,6 +26,7 @@
 		2BE37D7E26E529C400EA2FA5 /* Backup.txt in Sources */ = {isa = PBXBuildFile; fileRef = 2BE37D7D26E529C400EA2FA5 /* Backup.txt */; };
 		2BEBAE4A273E885200BE5F24 /* Background Backup.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BEBAE49273E885200BE5F24 /* Background Backup.txt */; };
 		378210E627FF4D2A00B312C3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 378210E527FF4D2A00B312C3 /* .gitignore */; };
+		378210EA27FF5EFC00B312C3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378210E927FF5EFC00B312C3 /* Button.swift */; };
 		BECDA9BFE8857DFD0A03E72D /* Pods_Timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F160EE6B80F5B857748379 /* Pods_Timer.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +46,6 @@
 		2BA0F054269395C30040D20B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BA0F056269395C30040D20B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BA0F05D269396170040D20B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		2BA573A4275D4A5B003C7677 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		2BA573AD275D7A09003C7677 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2BA573B0275D7BEB003C7677 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2BB1761A2746AE2E00324111 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -56,6 +55,7 @@
 		2BE37D7D26E529C400EA2FA5 /* Backup.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Backup.txt; sourceTree = "<group>"; };
 		2BEBAE49273E885200BE5F24 /* Background Backup.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Background Backup.txt"; sourceTree = "<group>"; };
 		378210E527FF4D2A00B312C3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		378210E927FF5EFC00B312C3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		68F160EE6B80F5B857748379 /* Pods_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Timer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77415CFC5A01F4DFF2332A9 /* Pods-Timer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timer.debug.xcconfig"; path = "Target Support Files/Pods-Timer/Pods-Timer.debug.xcconfig"; sourceTree = "<group>"; };
 		E96CF789F52AE69404619CCE /* Pods-Timer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timer.release.xcconfig"; path = "Target Support Files/Pods-Timer/Pods-Timer.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 				2B69E3E92722459D00591357 /* Setting.swift */,
 				2B69E3EB27224DBA00591357 /* SettingTableCell.swift */,
 				2B415B39273CFFF500E8D3E6 /* BackgroundTimer.swift */,
-				2BA573A4275D4A5B003C7677 /* UIButton.swift */,
+				378210E927FF5EFC00B312C3 /* Button.swift */,
 				2B6197AA27600A4B00310E7E /* MainTimer.swift */,
 				2BA573AE275D7A09003C7677 /* Localizable.strings */,
 				2BA0F051269395C30040D20B /* Assets.xcassets */,
@@ -263,11 +263,11 @@
 				2BE37D7E26E529C400EA2FA5 /* Backup.txt in Sources */,
 				2B6197AB27600A4B00310E7E /* MainTimer.swift in Sources */,
 				2B69E3EC27224DBA00591357 /* SettingTableCell.swift in Sources */,
+				378210EA27FF5EFC00B312C3 /* Button.swift in Sources */,
 				2B69E3EA2722459D00591357 /* Setting.swift in Sources */,
 				2BA0F049269395C20040D20B /* AppDelegate.swift in Sources */,
 				2BB1DC6A27177AAC0013C523 /* Stopwatch.swift in Sources */,
 				2BA0F04B269395C20040D20B /* SceneDelegate.swift in Sources */,
-				2BA573A5275D4A5B003C7677 /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
