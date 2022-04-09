@@ -73,34 +73,26 @@ class MainTimer: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-
+    enum WatchStatus {
+        case start
+        case stop
+    }
+    
+    var watchStatus: WatchStatus = .start
+    
     @IBAction func Start_StopButton(_ sender: Any)
     {
-        if timerstatus {
-            timerstatus = false
-            timer.invalidate()
-            _ = self.HourLabel.text ?? "123"
-            _ = self.MinLabel.text ?? ""
-            _ = self.SecLabel.text ?? ""
-            _ = self.MillisecLabel.text ?? ""
-           
-                    
-        
-            StartStopButton.setTitle("Start", for: .normal)
-        }
-        else if(count > 0){
-            timerstatus = true
-            StartStopButton.setTitle("Pause", for: .normal)
-            print("일시정지")
-            self.timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+        switch self.watchStatus {
+        case .start:
+            self.watchStatus = .stop
+            self.timer = Timer.scheduledTimer(timeInterval: 0.001,target: self,selector: #selector(timerCounter),userInfo: nil,repeats: true)
             self.startTime = Date()
-       
-        }
-
             
-        }
+            case .stop: // 기록 기능
+            self.watchStatus = .start
+    }
 
-        
+    }
         
       
     
@@ -152,16 +144,14 @@ class MainTimer: UIViewController {
     
     @objc func timerCounter()
     {
-        if(timeInterval > -0.99){
-            timer.invalidate()
-            Reset()
-        }
-         timeInterval = Date().timeIntervalSince(self.startTime)
+//        if(timeInterval > -0.99){
+//            timer.invalidate()
+//            Reset()
+//        }
+        let timeInterval = Date().timeIntervalSince(startTime)
            // timeInterval += 10
             //count = timeInterval
-       
-            timeInterval -= count
-          
+           
             hour = (Int)(fmod((timeInterval/60/60), 12)) // 분을 12로 나누어 시를 구한다
             minute = (Int)(fmod((timeInterval/60), 60)) // 초를 60으로 나누어 분을 구한다
             second = (Int)(fmod(timeInterval, 60)) // 초를 구한다
@@ -173,6 +163,10 @@ class MainTimer: UIViewController {
         self.MillisecLabel.text = String(format: "%03d", milliSecond)
         
         print("time:",timeInterval)
+//        print("hour:", HourLabel.text)
+//        print("min:", MinLabel.text)
+//        print("sec:", SecLabel.text)
+        print("millisec:", MillisecLabel)
         //print("count:", count)
        // print("startTime:", startTime)
         //print("밀리초:",milliSecond)

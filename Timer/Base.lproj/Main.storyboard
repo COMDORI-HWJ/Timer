@@ -889,7 +889,7 @@
                                             <color key="titleColor" systemColor="systemBackgroundColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="Start_StopButton:" destination="Vk9-PK-ao1" eventType="touchUpInside" id="OYd-7H-vM5"/>
+                                            <action selector="Start_StopButton:" destination="Vk9-PK-ao1" eventType="touchUpInside" id="Tdi-JF-VzP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kec-j5-xzK">
@@ -974,7 +974,7 @@
                         <outlet property="MinLabel" destination="IHr-b4-Ujb" id="Ieh-RE-Zpk"/>
                         <outlet property="ResetButton" destination="kec-j5-xzK" id="XCk-AX-4zm"/>
                         <outlet property="SecLabel" destination="kh7-cr-n4t" id="uA7-uV-ZAm"/>
-                        <outlet property="StartStopButton" destination="6yH-St-PTd" id="aa4-Bt-w8Y"/>
+                        <outlet property="StartStopButton" destination="6yH-St-PTd" id="REU-hE-glS"/>
                         <outlet property="bannerView" destination="843-w3-b2M" id="QIA-QP-wVx"/>
                         <outlet property="hourDownButton" destination="6bu-ie-h5R" id="zdL-fq-ZeQ"/>
                         <outlet property="hourUpButton" destination="rzn-x9-0eW" id="io6-7O-DMf"/>
@@ -992,8 +992,35 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="6Ny-t0-f8c">
+            <size key="intrinsicContentSize" width="47.333333333333336" height="25.333333333333332"/>
+        </designable>
+        <designable name="BGZ-qb-qex">
+            <size key="intrinsicContentSize" width="47.333333333333336" height="18"/>
+        </designable>
+        <designable name="MN5-Je-FeL">
+            <size key="intrinsicContentSize" width="47.333333333333336" height="25.333333333333332"/>
+        </designable>
+        <designable name="Mm8-sS-gk4">
+            <size key="intrinsicContentSize" width="47.333333333333336" height="25.333333333333332"/>
+        </designable>
+        <designable name="QAm-2u-aaW">
+            <size key="intrinsicContentSize" width="47.333333333333336" height="18"/>
+        </designable>
+        <designable name="ZJq-ld-Cjb">
+            <size key="intrinsicContentSize" width="47.333333333333336" height="18"/>
+        </designable>
         <designable name="h9K-ep-IIr">
             <size key="intrinsicContentSize" width="55" height="44"/>
+        </designable>
+        <designable name="idn-sB-3qx">
+            <size key="intrinsicContentSize" width="47.333333333333336" height="18"/>
+        </designable>
+        <designable name="tKf-dS-Obq">
+            <size key="intrinsicContentSize" width="64" height="44"/>
+        </designable>
+        <designable name="xXz-Fa-b0V">
+            <size key="intrinsicContentSize" width="47.333333333333336" height="25.333333333333332"/>
         </designable>
     </designables>
     <color key="tintColor" systemColor="systemYellowColor"/>

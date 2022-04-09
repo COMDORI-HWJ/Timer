@@ -12,6 +12,8 @@
  https://bite-sized-learning.tistory.com/175 타이머1
  https://youtu.be/3TbdoVhgQmE 타이머2
  https://unclean.tistory.com/27 타이머3
+ https://blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=tksrl0379&logNo=222061720138&parentCategoryNo=&categoryNo=27&viewDate=&isShowPopularPosts=false&from=postView runLoop 타이머, 쓰레드 활용법
+ https://hongssup.tistory.com/20 UILabel.text must be used from main thread only 프론트화면 표시 오류 해결
  
  */
 
@@ -81,11 +83,12 @@ class ViewController: UIViewController {
                 timercount = true
                 StartStopButton.setTitle("Pause", for: .normal)
                 print("일시정지")
-                timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+            DispatchQueue.global().async {
+                self.timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(self.timerCounter), userInfo: nil, repeats: true)
+                RunLoop.current.run()
+
+            }
        
-           
-               
-            
                 /* 카운트다운 동안 시간 버튼 비활성화 */
                 hourUpButton.isEnabled = false
                 hourDownButton.isEnabled = false
@@ -96,8 +99,7 @@ class ViewController: UIViewController {
                 millisecUpButton.isEnabled = false
                 millisecDownButton.isEnabled = false
             
-            RunLoop.current.add(timer, forMode: .default) // 타이머가 작동하지 않을때 런루프를 사용한다.
-            RunLoop.current.run()
+//            RunLoop.current.add(timer, forMode: .default) // 타이머가 작동하지 않을때 런루프를 사용한다.
             
         }
         else
@@ -140,7 +142,10 @@ class ViewController: UIViewController {
 
         let time = CalTime(ms: Int(count))
         let timeText = TimeString(hours: time.0, minutes: time.1, seconds: time.2, milliseconds: time.3)
-        TimeLabel.text = timeText
+        DispatchQueue.main.async {
+            self.TimeLabel.text = timeText
+
+        }
         
     }
     
@@ -150,7 +155,7 @@ class ViewController: UIViewController {
        // saveTime = Int(Date().timeIntervalSince(saveTime))
         if(count > 0)
         {
-            count -= 8.25//해결필요?   -8.4, 8.3
+            count -= 1 //해결필요? 8.28  8.4, 8.3
             
             print(count , "시간입니다")
             timeLabel()
@@ -378,4 +383,3 @@ class ViewController: UIViewController {
     }
     
 }
-
