@@ -11,9 +11,10 @@
  https://kwangsics.tistory.com/entry/Swift-%ED%95%A8%EC%88%98-%EC%A0%95%EC%9D%98%EC%99%80-%ED%98%B8%EC%B6%9C?category=606525 함수 정의 및 호출
  https://bite-sized-learning.tistory.com/175 타이머1
  https://youtu.be/3TbdoVhgQmE 타이머2
- https://unclean.tistory.com/27 타이머3
+ https://unclean.tistory.com/27 타이머3(시작시간을 카운트함)
  https://blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=tksrl0379&logNo=222061720138&parentCategoryNo=&categoryNo=27&viewDate=&isShowPopularPosts=false&from=postView runLoop 타이머, 쓰레드 활용법
  https://hongssup.tistory.com/20 UILabel.text must be used from main thread only 프론트화면 표시 오류 해결
+
  
  */
 
