@@ -6,11 +6,14 @@
 //
 
 /* Reference
+ 
 https://unclean.tistory.com/27 타이머3 시작시간 카운트
 https://ios-development.tistory.com/773 타이머4
 https://ios-development.tistory.com/775 DispatchSourceTimer를 이용한 Timer 모듈 구현
 https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
-*/
+
+ 
+ */
 
 import Foundation
 import UIKit
@@ -21,8 +24,9 @@ import GoogleMobileAds
 class MainTimer: UIViewController {
   
     var timer = Timer()
-    var TimerStatus : Bool = false
-    var count : Double = 3600 //1hour
+    var TimerStatus : Bool = false // 타이머 상태
+    var count : Double = 3600 // 1hour
+    var remainTime : Double = 0 // 남은시간
 
     var startTime = Date()
     var timeInterval : Double = 0
@@ -32,6 +36,11 @@ class MainTimer: UIViewController {
     var second = 0 // 초를 구한다
     var milliSecond = 0
 
+//    enum timerStatus {
+//        case start
+//        case stop
+//    }
+//    var timerStatus: timerStatus = .start
        
     @IBOutlet weak var HourLabel: UILabel!
     @IBOutlet weak var MinLabel: UILabel!
@@ -75,10 +84,7 @@ class MainTimer: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-//    enum TimerStatus {
-//        case start
-//        case stop
-//    }
+
     
     //var timerStatus: TimerStatus = .start
     
@@ -88,33 +94,46 @@ class MainTimer: UIViewController {
         {
             TimerStatus = false
             timer.invalidate()
+
             StartStopButton.setTitle("Start", for: .normal)
+
         }
         else
         {   TimerStatus = true
             StartStopButton.setTitle("Pause", for: .normal)
-            DispatchQueue.global().async { // Timer Thread
-                self.timer = Timer.scheduledTimer(timeInterval: 0.001,target: self,selector: #selector(MainTimer.timerCounter),userInfo: nil,repeats: true)
-                RunLoop.current.run()
-            }
+            timer = Timer.scheduledTimer(timeInterval: 0.001,target: self,selector: #selector(timerCounter),userInfo: nil,repeats: true)
+//            DispatchQueue.global().async { // Timer Thread
+//                self.timer = Timer.scheduledTimer(timeInterval: 0.001,target: self,selector: #selector(MainTimer.timerCounter),userInfo: nil,repeats: true)
+//                RunLoop.current.run()
+//            }
+           
         }
-//        switch timerStatus {
+
+//        switch self.timerStatus {
 //        case .start:
-//            timerStatus = .stop
+//            self.timerStatus = .stop
+//            StartStopButton.setTitle("Pause", for: .normal)
+//            DispatchQueue.global().async { // Timer Thread
+//                self.timer = Timer.scheduledTimer(timeInterval: 0.001,target: self,selector: #selector(MainTimer.timerCounter),userInfo: nil,repeats: true)
 //
-//            self.startTime = Date()
 //
+//                RunLoop.current.run()
+//            }
+//        case .stop:
+//            self.timerStatus = .start
+//            timer.invalidate()
+//            StartStopButton.setTitle("Start", for: .normal)
 //
-//            case .stop: // 기록 기능
-//                timerStatus = .start
-//    }
+//        }
+
     }
     
     @objc func timerCounter()
     {
+
         timeInterval = Date().timeIntervalSince(startTime)
-            
-        let remainTime = count - timeInterval // 남은시간 계산
+        remainTime = count - timeInterval // 남은시간 계산
+        
         if(remainTime > 0){
             hour = (Int)(fmod((remainTime/60/60), 12)) // 분을 12로 나누어 시를 구한다
             minute = (Int)(fmod((remainTime/60), 60)) // 초를 60으로 나누어 분을 구한다
@@ -127,9 +146,11 @@ class MainTimer: UIViewController {
                 self.SecLabel.text = String(format: "%02d", self.second)
                 self.MillisecLabel.text = String(format: "%03d", self.milliSecond)
             }
-
         
-        print("time:",timeInterval)
+       // print("time:",timeInterval)
+        print("hour time:",hour)
+        print("min time:",minute)
+        print("sec time:",second)
         print("남은 시간:", remainTime)
             
         }
@@ -138,18 +159,20 @@ class MainTimer: UIViewController {
    
     func Reset() /* 초기화 함수 선언 */
     {
-        //timercount = false
         TimerStatus = false
         timer.invalidate()
-        //timer = nil
-        //self.StartStopButton.setTitle("Start", for: .normal)
+        startTime = Date() // 시작시간 초기화
+        remainTime = 0
+        self.StartStopButton.setTitle("Start", for: .normal)
         //self.count = 60
-        //self.timeInterval = 0
         
         self.HourLabel.text = "00"
         self.MinLabel.text = "00"
         self.SecLabel.text = "00"
         self.MillisecLabel.text = "000"
+        print("초기화 남은 시간:", remainTime)
+        print("초기화 남은 카운트:", count)
+
 
 //        hourUpButton.isEnabled = true
 //        hourDownButton.isEnabled = true
@@ -166,6 +189,7 @@ class MainTimer: UIViewController {
     {
         Reset() //초기화 함수 호출
         print("초기화 되었습니다.")
+        
     }
     
     func timeLabel()
