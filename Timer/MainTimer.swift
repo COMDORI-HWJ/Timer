@@ -79,6 +79,7 @@ class MainTimer: UIViewController {
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
 
+       
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -96,6 +97,8 @@ class MainTimer: UIViewController {
             timer.invalidate()
 
             StartStopButton.setTitle("Start", for: .normal)
+            
+
 
         }
         else
@@ -106,7 +109,7 @@ class MainTimer: UIViewController {
 //                self.timer = Timer.scheduledTimer(timeInterval: 0.001,target: self,selector: #selector(MainTimer.timerCounter),userInfo: nil,repeats: true)
 //                RunLoop.current.run()
 //            }
-           
+         
         }
 
 //        switch self.timerStatus {
@@ -147,11 +150,12 @@ class MainTimer: UIViewController {
                 self.MillisecLabel.text = String(format: "%03d", self.milliSecond)
             }
         
-       // print("time:",timeInterval)
+        print("time:",timeInterval)
         print("hour time:",hour)
         print("min time:",minute)
         print("sec time:",second)
         print("남은 시간:", remainTime)
+       print("남은 시간 카운트: ", count)
             
         }
                     

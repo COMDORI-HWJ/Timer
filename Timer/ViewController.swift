@@ -27,6 +27,10 @@ class ViewController: UIViewController {
     var timer = Timer()
     var timercount : Bool = false
     var count : Double = 0
+    var startTime = Date()
+    
+    var remainTime : Double = 0 // 남은시간
+
    // let timeSel: Selector = #selector(ViewController.updateTime)
        
     @IBOutlet weak var TimeLabel: UILabel!
@@ -114,17 +118,20 @@ class ViewController: UIViewController {
     {
         timercount = false
         self.timer.invalidate()
+        DispatchQueue.main.async {
         self.StartStopButton.setTitle("Start", for: .normal)
         self.count = 0
         self.TimeLabel.text = self.TimeString(hours: 0, minutes: 0, seconds: 0, milliseconds: 0)
-        hourUpButton.isEnabled = true
-        hourDownButton.isEnabled = true
-        minUpButton.isEnabled = true
-        minDownButton.isEnabled = true
-        secUpButton.isEnabled = true
-        secDownButton.isEnabled = true
-        millisecUpButton.isEnabled = true
-        millisecDownButton.isEnabled = true
+        
+            self.hourUpButton.isEnabled = true
+            self.hourDownButton.isEnabled = true
+            self.minUpButton.isEnabled = true
+            self.minDownButton.isEnabled = true
+            self.secUpButton.isEnabled = true
+            self.secDownButton.isEnabled = true
+            self.millisecUpButton.isEnabled = true
+            self.millisecDownButton.isEnabled = true
+        }
         
     }
     
@@ -140,7 +147,7 @@ class ViewController: UIViewController {
 //        let timeText = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
 //        TimerLabel.text = timeText
 
-        let time = CalTime(ms: Int(count))
+        let time = CalTime(ms: Int(remainTime))
         let timeText = TimeString(hours: time.0, minutes: time.1, seconds: time.2, milliseconds: time.3)
         DispatchQueue.main.async {
             self.TimeLabel.text = timeText
@@ -155,7 +162,11 @@ class ViewController: UIViewController {
        // saveTime = Int(Date().timeIntervalSince(saveTime))
         if(count > 0)
         {
-            count -= 1 //해결필요? 8.28  8.4, 8.3
+
+            let realTime = Date().timeIntervalSince(self.startTime)
+           
+            remainTime = count - realTime
+            //count -= 1 //해결필요? 8.28  8.4, 8.3
             
             print(count , "시간입니다")
             timeLabel()
