@@ -11,7 +11,12 @@ https://unclean.tistory.com/27 타이머3 시작시간 카운트
 https://ios-development.tistory.com/773 타이머4
 https://ios-development.tistory.com/775 DispatchSourceTimer를 이용한 Timer 모듈 구현
 https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
-
+https://bongcando.tistory.com/20 //메모리 릭 이슈 관련
+https://onelife2live.tistory.com/44 // 타이머5
+ 
+ 
+ 
+ 
  
  */
 
@@ -23,7 +28,9 @@ import GoogleMobileAds
 
 class MainTimer: UIViewController {
   
-    var timer = Timer()
+    //var timer = Timer()
+    var timer : DispatchSourceTimer? = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.global())
+
     var TimerStatus : Bool = false // 타이머 상태
     var count : Double = 3600 // 1hour
     var remainTime : Double = 0 // 남은시간
@@ -36,11 +43,11 @@ class MainTimer: UIViewController {
     var second = 0 // 초를 구한다
     var milliSecond = 0
 
-//    enum timerStatus {
-//        case start
-//        case stop
-//    }
-//    var timerStatus: timerStatus = .start
+    enum timerStatus {
+        case start
+        case stop
+    }
+    var timerStatus: timerStatus = .start
        
     @IBOutlet weak var HourLabel: UILabel!
     @IBOutlet weak var MinLabel: UILabel!
@@ -79,38 +86,54 @@ class MainTimer: UIViewController {
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
 
-       
+
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-
+    deinit
+    {
+        startTime = Date()
+        timer?.cancel()
+        timer?.setEventHandler(handler: nil)
+        timer?.suspend()
+    }
     
     //var timerStatus: TimerStatus = .start
     
     @IBAction func Start_StopButton(_ sender: Any)
     {
-        if TimerStatus
-        {
-            TimerStatus = false
-            timer.invalidate()
 
-            StartStopButton.setTitle("Start", for: .normal)
-            
-
-
-        }
-        else
-        {   TimerStatus = true
-            StartStopButton.setTitle("Pause", for: .normal)
-            timer = Timer.scheduledTimer(timeInterval: 0.001,target: self,selector: #selector(timerCounter),userInfo: nil,repeats: true)
-//            DispatchQueue.global().async { // Timer Thread
-//                self.timer = Timer.scheduledTimer(timeInterval: 0.001,target: self,selector: #selector(MainTimer.timerCounter),userInfo: nil,repeats: true)
-//                RunLoop.current.run()
+//            if timer == nil
+//            {
+//                TimerStatus = false
+//                //timer.invalidate()
+//                timer?.suspend()
+//                StartStopButton.setTitle("Start", for: .normal)
+//
 //            }
-         
-        }
+//            else
+//            {   TimerStatus = true
+//                StartStopButton.setTitle("Pause", for: .normal)
+//
+//                timer?.schedule(deadline: .now(), repeating: .milliseconds(1))
+//
+//                timer?.setEventHandler(handler: { [weak self] in
+//                    self?.timerCounter()
+//                })
+//               //timer?.activate()
+//                timer?.resume()
+//               // timer = Timer.scheduledTimer(timeInterval: 0.001,target: self,selector: #selector(timerCounter),userInfo: nil,repeats: true)
+//    //            DispatchQueue.global().async { // Timer Thread
+//    //                self.timer = Timer.scheduledTimer(timeInterval: 0.001,target: self,selector: #selector(MainTimer.timerCounter),userInfo: nil,repeats: true)
+//    //                RunLoop.current.run()
+//    //            }
+//
+//            }
+            
+        
+
 
 //        switch self.timerStatus {
 //        case .start:
@@ -129,13 +152,39 @@ class MainTimer: UIViewController {
 //
 //        }
 
+        
+        switch self.timerStatus {
+        case .start:
+            self.timerStatus = .stop
+            StartStopButton.setTitle("Pause", for: .normal)
+//            timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.global())
+
+                            timer?.schedule(deadline: .now(), repeating: .milliseconds(1))
+
+                            timer?.setEventHandler{ [weak self] in
+                                self?.timerCounter()
+                            }
+                           //timer?.activate()
+                            timer?.resume()
+
+
+
+        case .stop:
+            self.timerStatus = .start
+            timer?.suspend()
+            StartStopButton.setTitle("Start", for: .normal)
+
+        }
     }
+    
     
     @objc func timerCounter()
     {
 
         timeInterval = Date().timeIntervalSince(startTime)
         remainTime = count - timeInterval // 남은시간 계산
+        //remainTime = count - 1 // 남은시간 계산
+
         
         if(remainTime > 0){
             hour = (Int)(fmod((remainTime/60/60), 12)) // 분을 12로 나누어 시를 구한다
@@ -163,12 +212,24 @@ class MainTimer: UIViewController {
    
     func Reset() /* 초기화 함수 선언 */
     {
+//        if TimerStatus == false
+//        {
+//            timer?.resume() //suspend 상태의 timer에 바로 Nil 값을 넣으면 런타임 에러발생
+//
+//        }
         TimerStatus = false
-        timer.invalidate()
+
+
+        //timer.invalidate()
+//        timer?.cancel()
+//        timer = nil
+        timer?.setEventHandler(handler: nil)
+        
         startTime = Date() // 시작시간 초기화
         remainTime = 0
         self.StartStopButton.setTitle("Start", for: .normal)
         //self.count = 60
+        
         
         self.HourLabel.text = "00"
         self.MinLabel.text = "00"

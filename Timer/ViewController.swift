@@ -114,6 +114,12 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func ResetButton(_ sender: Any)
+    {
+        Reset() //초기화 함수 호출
+        print("초기화 되었습니다.")
+    }
+    
     func Reset() /* 초기화 함수 선언 */
     {
         timercount = false
@@ -135,28 +141,21 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func ResetButton(_ sender: Any)
-    {
-        Reset() //초기화 함수 호출
-        print("초기화 되었습니다.")
-    }
-    
     func timeLabel()
     {
 //        let time = secondsToHoursMinutesSeconds(seconds: count)
 //        let timeText = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
 //        TimerLabel.text = timeText
 
-        let time = CalTime(ms: Int(remainTime))
+        let time = CalTime(ms: Int(count))
         let timeText = TimeString(hours: time.0, minutes: time.1, seconds: time.2, milliseconds: time.3)
         DispatchQueue.main.async {
             self.TimeLabel.text = timeText
 
         }
-        
     }
     
-    
+
     @objc func timerCounter() -> Void
     {
        // saveTime = Int(Date().timeIntervalSince(saveTime))
@@ -165,8 +164,8 @@ class ViewController: UIViewController {
 
             let realTime = Date().timeIntervalSince(self.startTime)
            
-            remainTime = count - realTime
-            //count -= 1 //해결필요? 8.28  8.4, 8.3
+            //remainTime = count - realTime
+            count -= 1 //해결필요? 8.28  8.4, 8.3
             
             print(count , "시간입니다")
             timeLabel()
