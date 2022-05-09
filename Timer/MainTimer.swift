@@ -23,9 +23,14 @@ class MainTimer: UIViewController {
   
     var timer = Timer()
     var TimerStatus : Bool = false // 타이머 상태
-    var count : Double = 3600 // 1hour
-    var remainTime : Double = 0 // 남은시간
-
+    var count : Double = 60
+    var elapsed : Double = 0 // 경과시간
+/*
+3600 1시간
+60 1분
+1 1초
+0.001 1밀리초
+ */
 
    // var timeInterval : Double = 0
     
@@ -93,6 +98,7 @@ class MainTimer: UIViewController {
         if TimerStatus
         {
             TimerStatus = false
+            count = count - elapsed
             timer.invalidate()
 
             StartStopButton.setTitle("Start", for: .normal)
@@ -105,13 +111,15 @@ class MainTimer: UIViewController {
             DispatchQueue.main.async {
                 self.timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { [weak self] timer in
                     let timeInterval = Date().timeIntervalSince(startTime)
-                    self!.remainTime = self!.count - timeInterval // 남은시간 계산
+                    let remainTime = self!.count - timeInterval // 남은시간 계산
+                    self!.elapsed = self!.count - remainTime
+                   
                 
-                    if(self!.remainTime > 0){
-                        self!.hour = (Int)(fmod((self!.remainTime/60/60), 12)) // 분을 12로 나누어 시를 구한다
-                        self!.minute = (Int)(fmod((self!.remainTime/60), 60)) // 초를 60으로 나누어 분을 구한다
-                        self!.second = (Int)(fmod(self!.remainTime, 60)) // 초를 구한다
-                        self!.milliSecond = (Int)((self!.remainTime - floor(self!.remainTime))*1000)
+                    if(remainTime > 0){
+                        self!.hour = (Int)(fmod((remainTime/60/60), 12)) // 분을 12로 나누어 시를 구한다
+                        self!.minute = (Int)(fmod((remainTime/60), 60)) // 초를 60으로 나누어 분을 구한다
+                        self!.second = (Int)(fmod(remainTime, 60)) // 초를 구한다
+                        self!.milliSecond = (Int)((remainTime - floor(remainTime))*1000)
                    
                      // Timer카운터 쓰레드 적용
                         self!.HourLabel.text = String(format: "%02d", self!.hour)
@@ -124,7 +132,10 @@ class MainTimer: UIViewController {
                         print("hour time:",self!.hour)
                         print("min time:",self!.minute)
                         print("sec time:",self!.second)
-                        print("남은 시간:", self!.remainTime)
+                        print("millisec time:",self!.milliSecond)
+                        print("남은 시간:", remainTime)
+                        print("남은 카운트:", self!.count)
+                        print("경과시간:", self!.elapsed)
                     
                 }
             })
@@ -165,7 +176,7 @@ class MainTimer: UIViewController {
     {
         TimerStatus = false
         timer.invalidate()
-        remainTime = 0
+        count = 1
         self.StartStopButton.setTitle("Start", for: .normal)
         //self.count = 60
         
@@ -173,7 +184,6 @@ class MainTimer: UIViewController {
         self.MinLabel.text = "00"
         self.SecLabel.text = "00"
         self.MillisecLabel.text = "000"
-        print("초기화 남은 시간:", remainTime)
         print("초기화 남은 카운트:", count)
 
 
@@ -383,7 +393,7 @@ class MainTimer: UIViewController {
     {
         if(count < 82800000)
         {
-            count += 3600000
+            count += 3600
             Effect()
             print(count, "h시간이 증가 하였습니다")
             timeLabel()
