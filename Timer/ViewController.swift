@@ -1,6 +1,5 @@
-//
-//  ViewController.swift
 //  Timer
+//  ViewController.swift(3600000(1시간)밀리초에서 빼는 방식의 타이머, 초기개발방식)
 //
 //  Created by WONJI HA on 2021/07/06.
 

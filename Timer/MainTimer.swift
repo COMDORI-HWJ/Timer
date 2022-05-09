@@ -1,7 +1,5 @@
-//
-//  Timer.swift
 //  Timer
-//
+//  MainTimer.swift(3600(1시간)밀리초에서 빼는 방식의 타이머)
 //  Created by WONJI HA on 2021/12/08.
 //
 
@@ -11,12 +9,7 @@ https://unclean.tistory.com/27 타이머3 시작시간 카운트
 https://ios-development.tistory.com/773 타이머4
 https://ios-development.tistory.com/775 DispatchSourceTimer를 이용한 Timer 모듈 구현
 https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
-https://bongcando.tistory.com/20 //메모리 릭 이슈 관련
-https://onelife2live.tistory.com/44 // 타이머5
- 
- 
- 
- 
+옵셔널 체이닝: 변수나 상수 뒤에 ? 또는 !느낌표를 사용하여 옵셔널에서 값을 강제 추출하는 효과가 있다. 사용을 지양하는 편이 좋다고 한다.
  
  */
 
@@ -28,26 +21,24 @@ import GoogleMobileAds
 
 class MainTimer: UIViewController {
   
-    //var timer = Timer()
-    var timer : DispatchSourceTimer? = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.global())
-
+    var timer = Timer()
     var TimerStatus : Bool = false // 타이머 상태
     var count : Double = 3600 // 1hour
     var remainTime : Double = 0 // 남은시간
 
-    var startTime = Date()
-    var timeInterval : Double = 0
+
+   // var timeInterval : Double = 0
     
     var hour = 0 // 분을 12로 나누어 시를 구한다
     var minute = 0 // 초를 60으로 나누어 분을 구한다
     var second = 0 // 초를 구한다
     var milliSecond = 0
 
-    enum timerStatus {
-        case start
-        case stop
-    }
-    var timerStatus: timerStatus = .start
+//    enum timerStatus {
+//        case start
+//        case stop
+//    }
+//    var timerStatus: timerStatus = .start
        
     @IBOutlet weak var HourLabel: UILabel!
     @IBOutlet weak var MinLabel: UILabel!
@@ -86,54 +77,63 @@ class MainTimer: UIViewController {
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
 
-
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    deinit
-    {
-        startTime = Date()
-        timer?.cancel()
-        timer?.setEventHandler(handler: nil)
-        timer?.suspend()
-    }
+
     
     //var timerStatus: TimerStatus = .start
     
     @IBAction func Start_StopButton(_ sender: Any)
     {
+        let startTime = Date()
 
-//            if timer == nil
-//            {
-//                TimerStatus = false
-//                //timer.invalidate()
-//                timer?.suspend()
-//                StartStopButton.setTitle("Start", for: .normal)
-//
-//            }
-//            else
-//            {   TimerStatus = true
-//                StartStopButton.setTitle("Pause", for: .normal)
-//
-//                timer?.schedule(deadline: .now(), repeating: .milliseconds(1))
-//
-//                timer?.setEventHandler(handler: { [weak self] in
-//                    self?.timerCounter()
-//                })
-//               //timer?.activate()
-//                timer?.resume()
-//               // timer = Timer.scheduledTimer(timeInterval: 0.001,target: self,selector: #selector(timerCounter),userInfo: nil,repeats: true)
-//    //            DispatchQueue.global().async { // Timer Thread
-//    //                self.timer = Timer.scheduledTimer(timeInterval: 0.001,target: self,selector: #selector(MainTimer.timerCounter),userInfo: nil,repeats: true)
-//    //                RunLoop.current.run()
-//    //            }
-//
-//            }
-            
-        
+        if TimerStatus
+        {
+            TimerStatus = false
+            timer.invalidate()
 
+            StartStopButton.setTitle("Start", for: .normal)
+
+        }
+        else
+        {
+            TimerStatus = true
+            StartStopButton.setTitle("Pause", for: .normal)
+            DispatchQueue.main.async {
+                self.timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { [weak self] timer in
+                    let timeInterval = Date().timeIntervalSince(startTime)
+                    self!.remainTime = self!.count - timeInterval // 남은시간 계산
+                
+                    if(self!.remainTime > 0){
+                        self!.hour = (Int)(fmod((self!.remainTime/60/60), 12)) // 분을 12로 나누어 시를 구한다
+                        self!.minute = (Int)(fmod((self!.remainTime/60), 60)) // 초를 60으로 나누어 분을 구한다
+                        self!.second = (Int)(fmod(self!.remainTime, 60)) // 초를 구한다
+                        self!.milliSecond = (Int)((self!.remainTime - floor(self!.remainTime))*1000)
+                   
+                     // Timer카운터 쓰레드 적용
+                        self!.HourLabel.text = String(format: "%02d", self!.hour)
+                        self!.MinLabel.text = String(format: "%02d", self!.minute)
+                        self!.SecLabel.text = String(format: "%02d", self!.second)
+                        self!.MillisecLabel.text = String(format: "%03d", self!.milliSecond)
+                    
+                
+               // print("time:",timeInterval)
+                        print("hour time:",self!.hour)
+                        print("min time:",self!.minute)
+                        print("sec time:",self!.second)
+                        print("남은 시간:", self!.remainTime)
+                    
+                }
+            })
+            // Timer Thread
+
+               // RunLoop.current.run()
+            }
+           
+        }
 
 //        switch self.timerStatus {
 //        case .start:
@@ -152,84 +152,22 @@ class MainTimer: UIViewController {
 //
 //        }
 
-        
-        switch self.timerStatus {
-        case .start:
-            self.timerStatus = .stop
-            StartStopButton.setTitle("Pause", for: .normal)
-//            timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.global())
-
-                            timer?.schedule(deadline: .now(), repeating: .milliseconds(1))
-
-                            timer?.setEventHandler{ [weak self] in
-                                self?.timerCounter()
-                            }
-                           //timer?.activate()
-                            timer?.resume()
-
-
-
-        case .stop:
-            self.timerStatus = .start
-            timer?.suspend()
-            StartStopButton.setTitle("Start", for: .normal)
-
-        }
     }
-    
     
     @objc func timerCounter()
     {
 
-        timeInterval = Date().timeIntervalSince(startTime)
-        remainTime = count - timeInterval // 남은시간 계산
-        //remainTime = count - 1 // 남은시간 계산
 
-        
-        if(remainTime > 0){
-            hour = (Int)(fmod((remainTime/60/60), 12)) // 분을 12로 나누어 시를 구한다
-            minute = (Int)(fmod((remainTime/60), 60)) // 초를 60으로 나누어 분을 구한다
-            second = (Int)(fmod(remainTime, 60)) // 초를 구한다
-            milliSecond = (Int)((remainTime - floor(remainTime))*1000)
-           
-            DispatchQueue.main.async { // Timer카운터 쓰레드 적용
-                self.HourLabel.text = String(format: "%02d", self.hour)
-                self.MinLabel.text = String(format: "%02d", self.minute)
-                self.SecLabel.text = String(format: "%02d", self.second)
-                self.MillisecLabel.text = String(format: "%03d", self.milliSecond)
-            }
-        
-        print("time:",timeInterval)
-        print("hour time:",hour)
-        print("min time:",minute)
-        print("sec time:",second)
-        print("남은 시간:", remainTime)
-       print("남은 시간 카운트: ", count)
-            
-        }
                     
     }
    
     func Reset() /* 초기화 함수 선언 */
     {
-//        if TimerStatus == false
-//        {
-//            timer?.resume() //suspend 상태의 timer에 바로 Nil 값을 넣으면 런타임 에러발생
-//
-//        }
         TimerStatus = false
-
-
-        //timer.invalidate()
-//        timer?.cancel()
-//        timer = nil
-        timer?.setEventHandler(handler: nil)
-        
-        startTime = Date() // 시작시간 초기화
+        timer.invalidate()
         remainTime = 0
         self.StartStopButton.setTitle("Start", for: .normal)
         //self.count = 60
-        
         
         self.HourLabel.text = "00"
         self.MinLabel.text = "00"
@@ -342,8 +280,7 @@ class MainTimer: UIViewController {
             MillisecLabel.text = "\((count - floor(count))*1000)"
 
             //MillisecLabel.text = String(format: "%03d", count)
-         
-            print(timeInterval,"m시간을 증가 하였습니다")
+        
         }
 
         else
