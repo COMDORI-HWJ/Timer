@@ -18,7 +18,6 @@ import UIKit
 import AVFoundation //햅틱
 import GoogleMobileAds
 
-
 class MainTimer: UIViewController {
   
     var timer = Timer()
@@ -66,8 +65,7 @@ class MainTimer: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.topItem?.title="AD" //뷰 제목
-        
-       
+  
          /* Admob */
       //  bannerView.adUnitID = "ca-app-pub-7875242624363574/7192134359"
         bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" //테스트 광고
@@ -105,53 +103,49 @@ class MainTimer: UIViewController {
             StartStopButton.setTitle("Pause", for: .normal)
             DispatchQueue.main.async {
                 // Timer카운터 쓰레드 적용
-                
                 self.timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { [weak self] timer in
                     let timeInterval = Date().timeIntervalSince(startTime)
                     self!.remainTime = self!.count - timeInterval // 남은시간 계산
                     self!.elapsed = self!.count - self!.remainTime
-                   
-                    if(self!.remainTime > 0){
-                        
+                    if(self!.remainTime > trunc(-1)) /** ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림     */
+                    {
                         self!.Timecal()
+                        if(self!.remainTime < trunc(0))
+                        {
+                            self?.Reset()
+                            print("0초, 초기화")
+                        }
 
-                    
-                
-
-                    
-                }
+                    }
             })
-            // Timer Thread
-
-               // RunLoop.current.run()
-            }
-           
+                //RunLoop.current.run() //메인쓰레드에서는 불안정하게 작동함.
+                
+                }
         }
 
-//        switch self.timerStatus {
-//        case .start:
-//            self.timerStatus = .stop
-//            StartStopButton.setTitle("Pause", for: .normal)
-//            DispatchQueue.global().async { // Timer Thread
-//                self.timer = Timer.scheduledTimer(timeInterval: 0.001,target: self,selector: #selector(MainTimer.timerCounter),userInfo: nil,repeats: true)
-//
-//
-//                RunLoop.current.run()
-//            }
-//        case .stop:
-//            self.timerStatus = .start
-//            timer.invalidate()
-//            StartStopButton.setTitle("Start", for: .normal)
-//
-//        }
 
     }
     
-    @objc func timerCounter()
+    func Timecal()
     {
-
-
-                    
+        hour = (Int)(fmod((remainTime/60/60), 100)) // 분을 12로 나누어 시를 구한다
+        minute = (Int)(fmod((remainTime/60), 60)) // 초를 60으로 나누어 분을 구한다
+        second = (Int)(fmod(remainTime, 60)) // 초를 구한다
+        milliSecond = (Int)((remainTime - floor(remainTime))*1000)
+        
+        HourLabel.text = String(format: "%02d", hour)
+        MinLabel.text = String(format: "%02d", minute)
+        SecLabel.text = String(format: "%02d", second)
+        MillisecLabel.text = String(format: "%03d", milliSecond)
+        
+        print("hour time:", hour)
+        print("min time:", minute)
+        print("sec time:", second)
+        print("millisec time:", milliSecond)
+        print("remainTime:", remainTime)
+        print("경과시간:", elapsed)
+        print("남은 카운트:", count)
+        //return ((ms / 3600000), ((ms % 3600000) / 60000), ((ms % 60000) / 1000), (ms % 3600000) % 1000) //1시간을 1밀리초로 환산하여 계산함. ex)3600000밀리초는 1시간
     }
    
     func Reset() /* 초기화 함수 선언 */
@@ -189,27 +183,6 @@ class MainTimer: UIViewController {
         
     }
 
-    func Timecal()
-    {
-        hour = (Int)(fmod((remainTime/60/60), 100)) // 분을 12로 나누어 시를 구한다
-        minute = (Int)(fmod((remainTime/60), 60)) // 초를 60으로 나누어 분을 구한다
-        second = (Int)(fmod(remainTime, 60)) // 초를 구한다
-        milliSecond = (Int)((remainTime - floor(remainTime))*1000)
-        
-        HourLabel.text = String(format: "%02d", hour)
-        MinLabel.text = String(format: "%02d", minute)
-        SecLabel.text = String(format: "%02d", second)
-        MillisecLabel.text = String(format: "%03d", milliSecond)
-        
-        print("hour time:", hour)
-        print("min time:", minute)
-        print("sec time:", second)
-        print("millisec time:", milliSecond)
-        print("남은 시간:", remainTime)
-        print("경과시간:", elapsed)
-        print("남은 카운트:", count)
-        //return ((ms / 3600000), ((ms % 3600000) / 60000), ((ms % 60000) / 1000), (ms % 3600000) % 1000) //1시간을 1밀리초로 환산하여 계산함. ex)3600000밀리초는 1시간
-    }
     
     func CountLabel()
     {
@@ -272,7 +245,7 @@ class MainTimer: UIViewController {
     {
         if(count > 0)
         {
-            count -= 1
+            count -= 0.001
             Effect()
             print(count,"m시간을 감소 하였습니다")
             CountLabel()
@@ -300,15 +273,12 @@ class MainTimer: UIViewController {
     
     @IBAction func secDown( _ sender : Any)
     {
-        if(count > 999)
+        if(count > 0)
         {
-            if(count > 0)
-            {
-                count -= 1000
-                Effect()
-                print(count, "s시간을 감소 하였습니다")
-                CountLabel()
-            }
+            count -= 1
+            Effect()
+            print(count, "s시간을 감소 하였습니다")
+            CountLabel()
         }
         else
         {
@@ -337,15 +307,12 @@ class MainTimer: UIViewController {
     
     @IBAction func minDown(_ sender : Any)
     {
-        if(count > 59999)
+        if(count > 0)
         {
-            if(count > 0)
-            {
-              count -= 60000
-                Effect()
-                print(count, "분시간이 감소 하였습니다")
-                CountLabel()
-            }
+            count -= 60
+            Effect()
+            print(count, "분시간이 감소 하였습니다")
+            CountLabel()
         }
         else
         {
@@ -372,21 +339,18 @@ class MainTimer: UIViewController {
     
     @IBAction func hourDown(_ sender : Any)
     {
-        if(count > 3599999)
-        {
-            if(count > 0)
-            {
-                count -= 3600
-                Effect()
-                CountLabel()
-            }
-        }
-        else
-        {   DownAlertError()
-            print("h 시간이 충분히 남아 있지 않아 시간을 감소할 수 없습니다.")
-            print(count, "시간이 저장되어있다.")
-        }
        
+       if(count > 0)
+        {
+           count -= 3600
+           Effect()
+           CountLabel()
+       }
+       else
+       {
+           DownAlertError()
+           print("h 시간이 충분히 남아 있지 않아 시간을 감소할 수 없습니다.")
+           print(count, "시간이 저장되어있다.")
+       }
     }
-    
 }

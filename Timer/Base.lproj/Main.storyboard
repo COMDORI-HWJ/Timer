@@ -1074,6 +1074,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="millisecUp:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="2du-Ix-Rlf"/>
                                             <outletCollection property="gestureRecognizers" destination="5Rj-IT-3lk" appends="YES" id="LL6-nH-5Ro"/>
                                         </connections>
                                     </button>
@@ -1098,6 +1099,9 @@
                                                 <real key="value" value="13"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="millisecDown:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="Wlk-FR-Zhs"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1121,6 +1125,9 @@
                                                 <real key="value" value="13"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="hourDown:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="NoB-0h-a9t"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aB3-8f-b3z" customClass="Button" customModule="Timer" customModuleProvider="target">
                                         <rect key="frame" x="141.66666666666669" y="0.0" width="47.333333333333343" height="48"/>
@@ -1137,6 +1144,9 @@
                                                 <real key="value" value="13"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="minDown:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="EbM-dN-6U7"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GR3-0Y-Yfk" customClass="Button" customModule="Timer" customModuleProvider="target">
                                         <rect key="frame" x="283.66666666666663" y="0.0" width="47.333333333333314" height="48"/>
@@ -1153,6 +1163,9 @@
                                                 <real key="value" value="13"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="secDown:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="3ez-9V-Vwc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -1197,6 +1210,9 @@
                                                 <real key="value" value="13"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="minUp:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="rx4-PM-5Ih"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvx-zQ-uTH" customClass="Button" customModule="Timer" customModuleProvider="target">
                                         <rect key="frame" x="283.66666666666663" y="0.0" width="47.333333333333314" height="45.333333333333336"/>
@@ -1215,6 +1231,9 @@
                                                 <real key="value" value="13"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="secUp:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="qXl-GZ-bed"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
