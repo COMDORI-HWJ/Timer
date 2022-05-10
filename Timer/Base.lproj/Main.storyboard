@@ -309,7 +309,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-3598" y="791"/>
+            <point key="canvasLocation" x="-2728" y="825"/>
         </scene>
         <!--Stopwatch-->
         <scene sceneID="EoY-ca-2dK">
@@ -355,7 +355,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JlS-1e-ThQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="XKb-HX-3mY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1294" y="825"/>
+            <point key="canvasLocation" x="-1305" y="825"/>
         </scene>
         <!--Setting-->
         <scene sceneID="iwu-l4-1ql">
@@ -390,7 +390,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jo-HN-Gzq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="164.61538461538461" y="824.64454976303318"/>
+            <point key="canvasLocation" x="135" y="825"/>
         </scene>
         <!--Main-->
         <scene sceneID="fKT-pG-D9w">
@@ -404,8 +404,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="eps-16-npp"/>
                         <segue destination="I47-fJ-GwZ" kind="relationship" relationship="viewControllers" id="auu-g0-3Z0"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="eps-16-npp"/>
                         <segue destination="Lxr-2m-ofb" kind="relationship" relationship="viewControllers" id="C8A-u4-Dsy"/>
                         <segue destination="fGX-y9-as3" kind="relationship" relationship="viewControllers" id="eWK-7A-mi3"/>
                     </connections>
@@ -540,7 +540,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ljJ-7a-9YP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="984.61538461538453" y="835.30805687203792"/>
+            <point key="canvasLocation" x="938" y="825"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="FUP-ST-NKN">
@@ -556,7 +556,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOe-v5-TgX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1789" y="852"/>
+            <point key="canvasLocation" x="1691" y="825"/>
         </scene>
         <!--Background-->
         <scene sceneID="pd5-ml-4Fw">
@@ -736,7 +736,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rA-BW-eOL" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-585" y="836"/>
+            <point key="canvasLocation" x="-586" y="825"/>
         </scene>
         <!--Timer2-->
         <scene sceneID="NBH-rk-KdA">
@@ -994,7 +994,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkG-CR-xP1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1952" y="835"/>
+            <point key="canvasLocation" x="-2003" y="825"/>
         </scene>
         <!--Timer2-->
         <scene sceneID="yJN-KM-FTH">
@@ -1022,7 +1022,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="Start_StopButton:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="Fg5-pU-xak"/>
+                                            <action selector="TimerStartStop:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="DZI-h0-deN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTj-3u-3EN" customClass="Button" customModule="Timer" customModuleProvider="target">
@@ -1176,6 +1176,9 @@
                                                 <real key="value" value="13"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="hourUp:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="GMb-92-To3"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="bottomLeft" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Moe-ao-nWA" customClass="Button" customModule="Timer" customModuleProvider="target">
                                         <rect key="frame" x="141.66666666666669" y="0.0" width="47.333333333333343" height="45.333333333333336"/>
@@ -1295,7 +1298,7 @@
                         <outlet property="StartStopButton" destination="n2R-LT-9dT" id="Wyy-D5-oXW"/>
                         <outlet property="bannerView" destination="oeZ-cZ-mll" id="LBX-RS-7rp"/>
                         <outlet property="hourDownButton" destination="Ggl-Wh-D8x" id="l4e-Ir-ktc"/>
-                        <outlet property="hourUpButton" destination="a4q-za-Xl9" id="5cu-u6-d6v"/>
+                        <outlet property="hourUpButton" destination="a4q-za-Xl9" id="NPN-7N-Wbl"/>
                         <outlet property="millisecDownButton" destination="ybz-tX-2Hr" id="p88-j4-gtO"/>
                         <outlet property="millisecUpButton" destination="kX7-bO-S07" id="BZk-w8-QwY"/>
                         <outlet property="minDownButton" destination="aB3-8f-b3z" id="tTR-ul-IyB"/>
@@ -1305,13 +1308,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hy0-53-JJM" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="5Rj-IT-3lk">
-                    <connections>
-                        <action selector="millisecUp:" destination="I47-fJ-GwZ" id="r1H-CU-YQw"/>
-                    </connections>
-                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="5Rj-IT-3lk"/>
             </objects>
-            <point key="canvasLocation" x="-2709.375" y="790.14084507042253"/>
+            <point key="canvasLocation" x="-3454" y="825"/>
         </scene>
     </scenes>
     <designables>
