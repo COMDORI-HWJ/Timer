@@ -10,7 +10,7 @@ https://ios-development.tistory.com/773 타이머4
 https://ios-development.tistory.com/775 DispatchSourceTimer를 이용한 Timer 모듈 구현
 https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
 옵셔널 체이닝: 변수나 상수 뒤에 ? 또는 !느낌표를 사용하여 옵셔널에서 값을 강제 추출하는 효과가 있다. 사용을 지양하는 편이 좋다고 한다.
- 
+ https://80000coding.oopy.io/0bd77cd3-7dc7-4cf4-93ee-8ca4fbca898e 가드문 사용법 (if문보다 빠르게 끝낸다)
  */
 
 import Foundation
@@ -26,11 +26,9 @@ class MainTimer: UIViewController {
     var remainTime : Double = 0
     var elapsed : Double = 0 // 경과시간
 
-
-    
-    var hour = 0 // 분을 12로 나누어 시를 구한다
-    var minute = 0 // 초를 60으로 나누어 분을 구한다
-    var second = 0 // 초를 구한다
+    var hour = 0
+    var minute = 0
+    var second = 0
     var milliSecond = 0
 
 //    enum timerStatus {
@@ -91,13 +89,12 @@ class MainTimer: UIViewController {
         if TimerStatus
         {
             TimerStatus = false
-            count = count - elapsed
+            count = count - elapsed //일시정지 동안 카운트된 시간을 빼서 카운트를 줄인다(일시정지후 초기화 안됨)
             timer.invalidate()
-
             StartStopButton.setTitle("Start", for: .normal)
 
         }
-        else
+        else if (count > 0)
         {
             TimerStatus = true
             StartStopButton.setTitle("Pause", for: .normal)
@@ -107,20 +104,36 @@ class MainTimer: UIViewController {
                     let timeInterval = Date().timeIntervalSince(startTime)
                     self!.remainTime = self!.count - timeInterval // 남은시간 계산
                     self!.elapsed = self!.count - self!.remainTime
-                    if(self!.remainTime > trunc(-1)) /** ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림     */
+                    
+                /** ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림     */
+                    
+                    guard self!.remainTime >= trunc(0) else
                     {
-                        self!.Timecal()
-                        if(self!.remainTime < trunc(0))
-                        {
-                            self?.Reset()
-                            print("0초, 초기화")
-                        }
+                        self?.Reset()
+                        print("0초")
+                        return print("초기화 완료")
 
                     }
+                    self!.Timecal()
+                    
+//                    if(self!.remainTime >= trunc(0))
+//                    {
+//                        self!.Timecal()
+////                        if(self!.remainTime < 0)
+////                        {
+////                            self?.Reset()
+////                            print("0초, 초기화")
+////                        }
+//
+//                    }
             })
                 //RunLoop.current.run() //메인쓰레드에서는 불안정하게 작동함.
                 
                 }
+        }
+        else
+        {
+            print("카운트를 시작하지 못하였습니다.")
         }
 
 
@@ -156,8 +169,7 @@ class MainTimer: UIViewController {
         remainTime = 0
         elapsed = 0
         self.StartStopButton.setTitle("Start", for: .normal)
-
-        
+   
         HourLabel.text = "00"
         MinLabel.text = "00"
         SecLabel.text = "00"
@@ -194,7 +206,6 @@ class MainTimer: UIViewController {
         print("계산된 카운트:", count)
         //            MillisecLabel.text = "\((count - floor(count))*1000)"
         
-
     }
     
   
@@ -287,7 +298,6 @@ class MainTimer: UIViewController {
             print(count, "시간이 저장되어있다.")
         }
 
-       
     }
     
     @IBAction func minUp(_ sender : Any)
@@ -325,7 +335,7 @@ class MainTimer: UIViewController {
     
     @IBAction func hourUp(_ sender : Any)
     {
-        if(count < 356400)
+        if(count < 356400) //99시간으로 제한(3자리 시간적용시 레이아웃깨짐)
         {
             count += 3600
             CountLabel()

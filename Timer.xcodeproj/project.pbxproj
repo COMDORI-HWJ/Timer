@@ -24,7 +24,6 @@
 		2BD4CF0B2702817D0063D45D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2BD4CF0A2702817D0063D45D /* README.md */; };
 		2BE0D863274121CE00D08F01 /* Back2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BE0D862274121CE00D08F01 /* Back2.txt */; };
 		2BE37D7E26E529C400EA2FA5 /* Backup.txt in Sources */ = {isa = PBXBuildFile; fileRef = 2BE37D7D26E529C400EA2FA5 /* Backup.txt */; };
-		2BEBAE4A273E885200BE5F24 /* Background Backup.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BEBAE49273E885200BE5F24 /* Background Backup.txt */; };
 		378210E627FF4D2A00B312C3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 378210E527FF4D2A00B312C3 /* .gitignore */; };
 		378210EA27FF5EFC00B312C3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378210E927FF5EFC00B312C3 /* Button.swift */; };
 		BECDA9BFE8857DFD0A03E72D /* Pods_Timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F160EE6B80F5B857748379 /* Pods_Timer.framework */; };
@@ -53,7 +52,6 @@
 		2BD4CF0A2702817D0063D45D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2BE0D862274121CE00D08F01 /* Back2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Back2.txt; sourceTree = "<group>"; };
 		2BE37D7D26E529C400EA2FA5 /* Backup.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Backup.txt; sourceTree = "<group>"; };
-		2BEBAE49273E885200BE5F24 /* Background Backup.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Background Backup.txt"; sourceTree = "<group>"; };
 		378210E527FF4D2A00B312C3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		378210E927FF5EFC00B312C3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		68F160EE6B80F5B857748379 /* Pods_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Timer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,7 +118,6 @@
 				2BA0F053269395C30040D20B /* LaunchScreen.storyboard */,
 				2BA0F04E269395C20040D20B /* Main.storyboard */,
 				2B6813412727AA0300E4C67A /* vibration icon.png */,
-				2BEBAE49273E885200BE5F24 /* Background Backup.txt */,
 				2BE37D7D26E529C400EA2FA5 /* Backup.txt */,
 				2BE0D862274121CE00D08F01 /* Back2.txt */,
 			);
@@ -200,7 +197,6 @@
 				2B6813422727AA0300E4C67A /* vibration icon.png in Resources */,
 				2BE0D863274121CE00D08F01 /* Back2.txt in Resources */,
 				2BA0F055269395C30040D20B /* LaunchScreen.storyboard in Resources */,
-				2BEBAE4A273E885200BE5F24 /* Background Backup.txt in Resources */,
 				2BA573AC275D7A09003C7677 /* Localizable.strings in Resources */,
 				2BD4CF0B2702817D0063D45D /* README.md in Resources */,
 				2BA0F052269395C30040D20B /* Assets.xcassets in Resources */,
