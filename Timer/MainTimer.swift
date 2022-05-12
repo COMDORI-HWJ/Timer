@@ -109,6 +109,17 @@ class MainTimer: UIViewController {
                     
                     guard self!.remainTime >= trunc(0) else
                     {
+                        if(SettingTableCell.soundCheck == true)
+                        {
+                            print("Sound: ",SettingTableCell.soundCheck)
+                            AudioServicesPlaySystemSound(1016) // "트윗" 소리발생
+                            AudioServicesPlaySystemSound(4095) // 진동발생
+                        }
+                        else if(SettingTableCell.soundCheck == false)
+                        {
+                            print("Sound: ",SettingTableCell.soundCheck)
+                        }
+                        
                         self?.Reset()
                         print("0초")
                         return print("초기화 완료")
