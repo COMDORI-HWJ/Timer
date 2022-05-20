@@ -18,15 +18,15 @@ class SettingTableCell:UITableViewController{
 
         appver()
     }
-    
+
     @IBOutlet var SoundSwitch: UISwitch!
     @IBOutlet var VibrationSwitch: UISwitch!
     @IBOutlet weak var Ver: UILabel!
-    
+
     static var soundCheck : Bool = true  // 소리확인 변수 *static 프로퍼티를 사용해야 값이 수정된다. https://babbab2.tistory.com/119?category=828998
     static var vibrationCheck : Bool = true
-    
-    
+
+
     @IBAction func SoundAlert(_ sender: UISwitch) {
         UserDefaults.standard.set(SoundSwitch.isOn, forKey: "SoundSwitchState")
         if(sender.isOn)
@@ -42,7 +42,7 @@ class SettingTableCell:UITableViewController{
             print("소리확인 결과: ",SettingTableCell.soundCheck)
         }
     }
-    
+
     @IBAction func VibrationEffect(_ sender: Any){
         UserDefaults.standard.set(VibrationSwitch.isOn, forKey: "VibrationSwitchState")
         if(VibrationSwitch.isOn)
@@ -58,22 +58,22 @@ class SettingTableCell:UITableViewController{
             print("진동체크 결과: ", SettingTableCell.vibrationCheck)
         }
     }
-    
-    
+
+
     var version: String? {
         guard let dictionary = Bundle.main.infoDictionary,
             let version = dictionary["CFBundleShortVersionString"] as? String,
             let build = dictionary["CFBundleVersion"] as? String else {return nil}
-        
+
         let versionAndBuild: String = "App Version: \(version) / App Build: \(build)"
-      
+
         return versionAndBuild
     }
-    
+
     func appver ()
     {
         print(version!)
         Ver.text = version
     }
-    
+
 }
