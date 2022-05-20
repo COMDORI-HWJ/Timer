@@ -8,7 +8,7 @@
 /*
 Reference
 https://fomaios.tistory.com/entry/%EC%95%B1-%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0App-LifeCycle-1?category=851398 - 생명주기
-
+ https://hururuek-chapchap.tistory.com/149 노티피케이션
  */
 import UIKit
 
@@ -48,6 +48,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
         print("씬 활성화")
+        
+        UIApplication.shared.applicationIconBadgeNumber = 0; //노티피케이션 뱃지 초기화 시키는 방법 IOS 13 이상
     }
     
     /*

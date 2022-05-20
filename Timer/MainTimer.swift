@@ -11,12 +11,17 @@ https://ios-development.tistory.com/775 DispatchSourceTimer를 이용한 Timer �
 https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
 옵셔널 체이닝: 변수나 상수 뒤에 ? 또는 !느낌표를 사용하여 옵셔널에서 값을 강제 추출하는 효과가 있다. 사용을 지양하는 편이 좋다고 한다.
  https://80000coding.oopy.io/0bd77cd3-7dc7-4cf4-93ee-8ca4fbca898e 가드문 사용법 (if문보다 빠르게 끝낸다)
+ https://jesterz91.github.io/ios/2021/04/07/ios-notification/ UserNotification 프레임워크를 이용한 알림구현
+ https://twih1203.medium.com/swift-usernotification%EC%9C%BC%EB%A1%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80%EA%B0%80-%ED%8F%AC%ED%95%A8%EB%90%9C-%EB%A1%9C%EC%BB%AC-%EC%95%8C%EB%A6%BC-%EB%B3%B4%EB%82%B4%EA%B8%B0-5a7ef07fa2ec UserNotification으로 이미지가 포함된 로컬 알림 보내기
+ https://gonslab.tistory.com/27 푸시 알림 권한
+ 
  */
 
 import Foundation
 import UIKit
 import AVFoundation //햅틱
 import GoogleMobileAds
+import UserNotifications
 
 class MainTimer: UIViewController {
   
@@ -25,6 +30,7 @@ class MainTimer: UIViewController {
     var count : Double = 0
     var remainTime : Double = 0
     var elapsed : Double = 0 // 경과시간
+    let Noti = UNMutableNotificationContent()
 
     var hour = 0
     var minute = 0
@@ -69,7 +75,9 @@ class MainTimer: UIViewController {
         bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" //테스트 광고
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
-
+        
+        requestNotificationPermission()
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -81,6 +89,16 @@ class MainTimer: UIViewController {
 //    }
     
     //var timerStatus: TimerStatus = .start
+    
+    func requestNotificationPermission(){  //푸시 알림 권한 메소드
+           UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow,Error in
+               if didAllow {
+                   print("Push: 권한 허용")
+               } else {
+                   print("Push: 권한 거부")
+               }
+           })
+       }
     
     @IBAction func TimerStartStop(_ sender: Any)
     {
@@ -111,6 +129,7 @@ class MainTimer: UIViewController {
                     {
                         if(SettingTableCell.soundCheck == true)
                         {
+                            self?.sendNotification()
                             print("Sound: ",SettingTableCell.soundCheck)
                             AudioServicesPlaySystemSound(1016) // "트윗" 소리발생
                             AudioServicesPlaySystemSound(4095) // 진동발생
@@ -233,6 +252,17 @@ class MainTimer: UIViewController {
         //AudioServicesPlaySystemSound(1016) // 소리발생
     }
     
+    func sendNotification()
+    {
+        Noti.title = "타이머 완료"
+        Noti.body = "타이머 완료"
+        Noti.badge = 1
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "1", content: Noti, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
     
     func UpAlertError()
     {
