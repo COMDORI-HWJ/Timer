@@ -22,6 +22,7 @@ import UIKit
 import AVFoundation //햅틱
 import GoogleMobileAds
 import UserNotifications
+import SystemConfiguration
 
 class MainTimer: UIViewController {
   
@@ -91,7 +92,7 @@ class MainTimer: UIViewController {
     //var timerStatus: TimerStatus = .start
     
     func requestNotificationPermission(){  //푸시 알림 권한 메소드
-           UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow,Error in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge,.carPlay], completionHandler: {didAllow,Error in
                if didAllow {
                    print("Push: 권한 허용")
                } else {
@@ -129,7 +130,7 @@ class MainTimer: UIViewController {
                     {
                         if(SettingTableCell.soundCheck == true)
                         {
-                            self?.sendNotification()
+                            self?.sendNotification()  // Local Notification 발생
                             print("Sound: ",SettingTableCell.soundCheck)
                             AudioServicesPlaySystemSound(1016) // "트윗" 소리발생
                             AudioServicesPlaySystemSound(4095) // 진동발생
@@ -258,10 +259,15 @@ class MainTimer: UIViewController {
         Noti.body = "타이머 완료"
         Noti.badge = 1
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
-        
-        let request = UNNotificationRequest(identifier: "1", content: Noti, trigger: trigger)
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        //let notificationCenter = UNUserNotificationCenter.current()
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false) //알림 발생 시기
+        let identifier = "TimerNoti" //알림 고유 이름
+        let request = UNNotificationRequest(identifier: identifier, content: Noti, trigger: nil) //알림 등록 결과
+        UNUserNotificationCenter.current().add(request) { (Error) in
+            if let err = Error {
+                print("노티피케이션 알림 오류: ", err.localizedDescription)
+            }
+        }
     }
     
     func UpAlertError()

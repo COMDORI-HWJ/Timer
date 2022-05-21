@@ -13,7 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     var window: UIWindow?
- 
+//    let notification = NotificationCenter.shared
+
+    
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         print("이제 앱 실행 준비할게요")
         return true
@@ -24,6 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("앱 실행 준비 끝")
         
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
+//        NotificationCenter.userRequest()
+        setUNUserNotificationDelegate()
+        
         return true
     }
     
@@ -57,5 +63,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            
            return UIInterfaceOrientationMask.portrait //세로 화면 고정
        }
-
 }
+    
+    extension AppDelegate : UNUserNotificationCenterDelegate {
+        
+        // 위임자 설정
+        func setUNUserNotificationDelegate(){
+//            NotificationCenter.delegate = self
+        }
+        
+        //ForeGround에서 작동 시키는 방법
+            func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+                
+                completionHandler([.list,.sound,.banner])
+                
+            }
+        
+        //눌렀을 때, 특정한 활동을 수행 할 수 있도록 하기
+            func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+                
+                guard let rootViewController = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController else {
+                       return
+                }
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                
+                if response.notification.request.identifier == "Local Notification" {
+                    print("Hello Local Notification")
+                    
+                    if  let secondVC = storyboard.instantiateViewController(withIdentifier: "MainTimer") as? MainTimer,
+                           let navController = rootViewController as? UINavigationController{
+
+                        navController.pushViewController(secondVC, animated: true)
+                        
+                    }
+                    
+                }
+        
+    }
+    }
+

@@ -8,15 +8,13 @@
 /*
 Reference
 https://fomaios.tistory.com/entry/%EC%95%B1-%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0App-LifeCycle-1?category=851398 - 생명주기
- https://hururuek-chapchap.tistory.com/149 노티피케이션
+https://hururuek-chapchap.tistory.com/149 노티피케이션
  */
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var bgTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
-    var backcount = 0
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -49,7 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
         print("씬 활성화")
         
-        UIApplication.shared.applicationIconBadgeNumber = 0; //노티피케이션 뱃지 초기화 시키는 방법 IOS 13 이상
+        UIApplication.shared.applicationIconBadgeNumber = 0; //노티피케이션 뱃지 초기화 시키는 방법 iOS 13 이상
     }
     
     /*
@@ -84,20 +82,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         print("백그라운드 상태")
         
        
-        
-//        let _: Timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (timer:Timer) in
-//            self.backcount += 1
-//            print("Timer Count: ", self.backcount)
-//
-////            if count >= 10 {
-////                timer.invalidate()
-////                self.endBackground()
-////            }
-//        }
-
-
-
-            
+    
+           
     }
     
 
@@ -108,8 +94,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
      특별한 처리가 없다면 곧바로 suspennded상태로 전환된다.
     */
     func endBackground() {
-        UIApplication.shared.endBackgroundTask(bgTask)
-       // bgTask = UIBackgroundTaskInvalid
+       
         print("endBackgroud Callback Method Fired!")
     }
 
