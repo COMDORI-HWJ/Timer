@@ -25,13 +25,20 @@ import UserNotifications
 import SystemConfiguration
 
 class MainTimer: UIViewController {
+    
+    let storyboardId = "MTimer"
+    let appName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as! String
+    //let appName = infoDictionary["CFBundleDisplayName"] as! String
+
   
     var timer = Timer()
     var TimerStatus : Bool = false // 타이머 상태
     var count : Double = 0
     var remainTime : Double = 0
     var elapsed : Double = 0 // 경과시간
+    
     let Noti = UNMutableNotificationContent()
+    let notiCenter = UNUserNotificationCenter.current()
 
     var hour = 0
     var minute = 0
@@ -77,6 +84,7 @@ class MainTimer: UIViewController {
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         
+        requestNotiAuthorization()
         requestNotificationPermission()
         
     }
@@ -92,7 +100,7 @@ class MainTimer: UIViewController {
     //var timerStatus: TimerStatus = .start
     
     func requestNotificationPermission(){  //푸시 알림 권한 메소드
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge,.carPlay], completionHandler: {didAllow,Error in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge,.criticalAlert], completionHandler: {didAllow,Error in
                if didAllow {
                    print("Push: 권한 허용")
                } else {
@@ -189,6 +197,7 @@ class MainTimer: UIViewController {
         print("remainTime:", remainTime)
         print("경과시간:", elapsed)
         print("남은 카운트:", count)
+       
         //return ((ms / 3600000), ((ms % 3600000) / 60000), ((ms % 60000) / 1000), (ms % 3600000) % 1000) //1시간을 1밀리초로 환산하여 계산함. ex)3600000밀리초는 1시간
     }
    
@@ -255,20 +264,66 @@ class MainTimer: UIViewController {
     
     func sendNotification()
     {
-        Noti.title = "타이머 완료"
-        Noti.body = "타이머 완료"
+
+        Noti.title = appName
+        Noti.subtitle = "타이머 완료"
+        Noti.body = "0초가 되었습니다. 타이머를 다시 작동하려면 알림을 터치!"
         Noti.badge = 1
+        Noti.sound = UNNotificationSound.default
         
         //let notificationCenter = UNUserNotificationCenter.current()
         //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false) //알림 발생 시기
         let identifier = "TimerNoti" //알림 고유 이름
         let request = UNNotificationRequest(identifier: identifier, content: Noti, trigger: nil) //알림 등록 결과
-        UNUserNotificationCenter.current().add(request) { (Error) in
+        notiCenter.add(request) { (Error) in
             if let err = Error {
                 print("노티피케이션 알림 오류: ", err.localizedDescription)
             }
         }
+        print(appName)
     }
+    
+    @Published var notiTime: Date = Date() {
+            didSet {
+                removeAllNotifications()
+            }
+        }
+
+        @Published var isAlertOccurred: Bool = false
+
+        func removeAllNotifications() {
+            notiCenter.removeAllDeliveredNotifications()
+            notiCenter.removeAllPendingNotificationRequests()
+        }
+    
+    func requestNotiAuthorization() //노티피케이션 설정 가져오기 개발중
+    {
+        notiCenter.getNotificationSettings { settings in
+
+                   // 승인되어있지 않은 경우 request
+                   if settings.authorizationStatus != .authorized {
+                       self.notiCenter.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+                           if let error = error {
+                               print("Error : \(error)")
+                           }
+                   
+                           // 노티피케이션 최초 승인
+                          
+                           }
+                       
+                   
+
+                   // 거부되어있는 경우 alert
+                   if settings.authorizationStatus == .denied {
+                       // 알림 띄운 뒤 설정 창으로 이동
+                       DispatchQueue.main.async {
+                           self.isAlertOccurred = true
+                       }
+                   }
+    }
+        }
+    }
+    
     
     func UpAlertError()
     {
@@ -410,4 +465,15 @@ class MainTimer: UIViewController {
            print(count, "시간이 저장되어있다.")
        }
     }
+    
 }
+
+//extension Bundle
+//{
+//    class var appName : String {
+//        if let value = Bundle.main.infoDictionary?["CFBundleDispalyName"] as? String {
+//            return value
+//        }
+//        return ""
+//    }
+//}

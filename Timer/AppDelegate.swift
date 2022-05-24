@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     var window: UIWindow?
-//    let notification = NotificationCenter.shared
+
 
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
@@ -75,7 +75,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //ForeGround에서 작동 시키는 방법
             func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
                 
-                completionHandler([.list,.sound,.banner])
+                let userInfo = notification.request.content.userInfo
+                print("유저정보: ", userInfo)
+                
+                completionHandler([.list, .sound, .banner, .sound, .badge])
+                let application = UIApplication.shared
+                
+                if application.applicationState == .active
+                {
+                    print("푸쉬알림 탭 앱 켜짐")
+                }
+                if application.applicationState == .inactive
+                {
+                    print("푸쉬알림 탭 앱 꺼짐")
+                }
                 
             }
         
@@ -86,13 +99,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                        return
                 }
                 
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                
+                let storyboard = UIStoryboard(name: "MTimer", bundle: nil)
+                let mTimer = MainTimer()
+                let storyboardID = mTimer.storyboardId
                 
                 if response.notification.request.identifier == "Local Notification" {
                     print("Hello Local Notification")
                     
-                    if  let secondVC = storyboard.instantiateViewController(withIdentifier: "MainTimer") as? MainTimer,
+                    if  let secondVC = storyboard.instantiateViewController(withIdentifier: storyboardID) as? MainTimer,
                            let navController = rootViewController as? UINavigationController{
 
                         navController.pushViewController(secondVC, animated: true)
