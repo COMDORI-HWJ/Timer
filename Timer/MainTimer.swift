@@ -29,6 +29,7 @@ class MainTimer: UIViewController {
     let storyboardId = "MTimer"
     let appName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as! String
     //let appName = infoDictionary["CFBundleDisplayName"] as! String
+    
 
   
     var timer = Timer()
@@ -39,6 +40,7 @@ class MainTimer: UIViewController {
     
     let Noti = UNMutableNotificationContent()
     let notiCenter = UNUserNotificationCenter.current()
+    var DisplayName = "MTimer"
 
     var hour = 0
     var minute = 0
@@ -275,12 +277,14 @@ class MainTimer: UIViewController {
         //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false) //알림 발생 시기
         let identifier = "TimerNoti" //알림 고유 이름
         let request = UNNotificationRequest(identifier: identifier, content: Noti, trigger: nil) //알림 등록 결과
-        notiCenter.add(request) { (Error) in
-            if let err = Error {
+        notiCenter.add(request) { (error) in
+            if let err = error {
                 print("노티피케이션 알림 오류: ", err.localizedDescription)
             }
+            else{
+                print("노티피케이션 푸쉬알림 성공")
+            }
         }
-        print(appName)
     }
     
     @Published var notiTime: Date = Date() {

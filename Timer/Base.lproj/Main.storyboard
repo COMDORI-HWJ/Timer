@@ -1006,7 +1006,7 @@
         <!--MTimer-->
         <scene sceneID="yJN-KM-FTH">
             <objects>
-                <viewController storyboardIdentifier="MTimer" title="MTimer" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="I47-fJ-GwZ" customClass="MainTimer" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MTimer" title="MTimer" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="I47-fJ-GwZ" customClass="MainTimer" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1FO-Ns-emW" customClass="View">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1309,7 +1309,7 @@
                             <constraint firstItem="BuV-V0-meS" firstAttribute="trailing" secondItem="AFg-oB-x1T" secondAttribute="trailing" constant="13.5" id="y4N-rZ-hqb"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Timer2" id="MyG-DK-CRY">
+                    <tabBarItem key="tabBarItem" title="MTimer" id="MyG-DK-CRY">
                         <imageReference key="image" image="timer.square" catalog="system" symbolScale="large"/>
                         <color key="badgeColor" systemColor="systemIndigoColor"/>
                     </tabBarItem>

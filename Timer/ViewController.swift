@@ -27,6 +27,9 @@ class ViewController: UIViewController {
     var timercount : Bool = false
     var count : Double = 0
     var remainTime : Double = 0 // 남은시간
+    
+    var DisplayName = "MTimer"
+
 
    // let timeSel: Selector = #selector(ViewController.updateTime)
        
