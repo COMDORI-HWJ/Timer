@@ -4,6 +4,11 @@
 //
 //  Created by WONJI HA on 2021/07/06.
 //
+/* Reference
+ 
+ https://fomaios.tistory.com/entry/iOS-%ED%91%B8%EC%89%AC-%EC%95%8C%EB%A6%BC-%ED%83%AD%ED%96%88%EC%9D%84-%EB%95%8C-%ED%8A%B9%EC%A0%95-%ED%8E%98%EC%9D%B4%EC%A7%80%EB%A1%9C-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0 푸시알림 탭 특정뷰 이동(원래 뷰에서)
+ https://velog.io/@yoonjong/Swift-Push-Notification-%EB%88%84%EB%A5%BC-%EB%95%8C-%ED%8A%B9%EC%A0%95-ViewController-%EB%9C%A8%EA%B2%8C-%ED%95%98%EA%B8%B0 푸시알림 특정뷰 이동(새뷰에서)
+ */
 
 import UIKit
 import GoogleMobileAds
@@ -14,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     var window: UIWindow?
+    let userNotifiNotificationCenter = UNUserNotificationCenter.current()
 
 
     
@@ -28,8 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         
-        UNUserNotificationCenter.current().delegate = self // 특정 ViewController에 구현되어 있으면 푸시를 받지 못할 가능성이 있으므로 AppDelegate에서 구현
-        
+       //UNUserNotificationCenter.current().delegate = self // 특정 ViewController에 구현되어 있으면 푸시를 받지 못할 가능성이 있으므로 AppDelegate에서 구현
+       userNotifiNotificationCenter.delegate = self // 특정 ViewController에 구현되어 있으면 푸시를 받지 못할 가능성이 있으므로 AppDelegate에서 구현(앱에서 푸시알림)
+        application.registerForRemoteNotifications()
         
         return true
     }
@@ -68,66 +75,71 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     extension AppDelegate : UNUserNotificationCenterDelegate {
 
-        
         //ForeGround에서 작동 시키는 방법
        func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
                 
                 completionHandler([.list, .badge, .sound, .banner])
-                
-            }
+
+       }
         
         //눌렀을 때, 특정한 활동을 수행 할 수 있도록 하기
         func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+            
+            let application = UIApplication.shared
+           
+            //앱이 켜져있는 상태에서 푸시 알림을 눌렀을 때
+            if application.applicationState == .active {
+                print("푸시알림을 탭함 : 앱 켜진 상태")
+                if response.notification.request.content.subtitle == "타이머 완료" { //푸시 알림 제목에 따라서 특정 뷰로 이동
+                    NotificationCenter.default.post(name: Notification.Name("showPage"), object: nil, userInfo: ["index": 0])
+
+                }
+            }
                 
-           //let noti = response.notification
+            //앱이 꺼져있는 상태에서 푸시 알림을 눌렀을 때
+            else if application.applicationState == .inactive {
+                print("푸시알림 탭함 : 앱 꺼진 상태")
+                NotificationCenter.default.post(name: Notification.Name("showPage"), object: nil, userInfo: ["index": 0])
+                }
+            
+//            guard let rVC = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController else {
+//                return
+//            }
+//
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//            if let conVC = storyboard.instantiateViewController(withIdentifier: "MTimer") as? MainTimer { //스택형식으로 뷰가 열림
+//               //conVC.modalPresentationStyle = .fullScreen
+//                rVC.present(conVC, animated: true, completion: nil)
+//
+//            }
+//
+//
+//            if let conVC = storyboard.instantiateViewController(withIdentifier: "Main") as? UITabBarController {
+//                conVC.modalPresentationStyle = .fullScreen
+//                conVC.tabBarController?.selectedIndex = 0
+//                rVC.tabBarController?.selectedIndex = 0
+//                rVC.present(conVC, animated: true, completion: nil)
+//            }
+
+
             if response.actionIdentifier == UNNotificationDismissActionIdentifier {
                 print("메시지 닫힘")
             }
             else if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
                 print("푸시메시지 클릭 함")
+
                 
             }
             
-            guard let rootViewController1 = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController else {
-                           return
-                    }
             print("scene얻음")
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-            var conversationVC: UIViewController?
-                conversationVC = storyboard.instantiateViewController(withIdentifier: "MTimer")
-//                let tabBarVC = rootViewController1 as? UITabBarController,
-//                let navVC = tabBarVC.selectedViewController as? UINavigationController
-        
-                
-                // we can modify variable of the view controller using notification data
-                // (eg: title of notification)
-                // response.notification.request.content.userInfo
-                //conversationVC.DisplayName = response.notification.request.content.
-                    //navVC.pushViewController(conversationVC, animated: true)
-                
-                self.window?.rootViewController = conversationVC
-                self.window?.makeKeyAndVisible()
-          
-            
-            //            if let conversationVC = storyboard.instantiateViewController(withIdentifier: "MTimer") as? MainTimer,
-//                              let navController = rootViewController1 as? UINavigationController{
-//
-//                           navController.pushViewController(conversationVC, animated: true)
-//
-//                   // set the view controller as root
-//                window?.rootViewController = conversationVC
-//
-//                   //window?.makeKeyAndVisible()
-//                              }
+
             completionHandler()
             }
-
-
-
-
 
     }
 
 
+    

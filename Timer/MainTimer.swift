@@ -14,7 +14,7 @@ https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
  https://jesterz91.github.io/ios/2021/04/07/ios-notification/ UserNotification 프레임워크를 이용한 알림구현
  https://twih1203.medium.com/swift-usernotification%EC%9C%BC%EB%A1%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80%EA%B0%80-%ED%8F%AC%ED%95%A8%EB%90%9C-%EB%A1%9C%EC%BB%AC-%EC%95%8C%EB%A6%BC-%EB%B3%B4%EB%82%B4%EA%B8%B0-5a7ef07fa2ec UserNotification으로 이미지가 포함된 로컬 알림 보내기
  https://gonslab.tistory.com/27 푸시 알림 권한
- 
+
  */
 
 import Foundation
@@ -74,7 +74,9 @@ class MainTimer: UIViewController {
     @IBOutlet weak var millisecDownButton: UIButton!
     
     @IBOutlet weak var bannerView: GADBannerView!
-        
+    
+    @IBOutlet weak var SettingBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -110,11 +112,13 @@ class MainTimer: UIViewController {
                }
            })
        }
+    @IBAction func SettingButton(_ sender: UIButton) {
+        tabBarController?.selectedIndex = 3
+    }
     
     @IBAction func TimerStartStop(_ sender: Any)
     {
         let startTime = Date()
-
         if TimerStatus
         {
             TimerStatus = false
