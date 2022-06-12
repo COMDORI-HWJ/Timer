@@ -4,48 +4,6 @@
    <FileRef
       location = "group:Timer.xcodeproj">
    </FileRef>
-   <Group
-      location = "group:Screenshot"
-      name = "Screenshot">
-      <Group
-         location = "group:Screenshot/1.4.5"
-         name = "1.4.5">
-         <FileRef
-            location = "group:Screenshot/1.4.5/IMG_2213.PNG">
-         </FileRef>
-         <FileRef
-            location = "group:Screenshot/1.4.5/IMG_2212.PNG">
-         </FileRef>
-         <FileRef
-            location = "group:Screenshot/1.4.5/IMG_2215.PNG">
-         </FileRef>
-         <FileRef
-            location = "group:Screenshot/1.4.5/IMG_2214.PNG">
-         </FileRef>
-         <FileRef
-            location = "group:Screenshot/1.4.5/IMG_2216.PNG">
-         </FileRef>
-      </Group>
-      <Group
-         location = "group:Screenshot/1.6.0"
-         name = "1.6.0">
-         <FileRef
-            location = "group:Screenshot/1.6.0/Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.43.png">
-         </FileRef>
-         <FileRef
-            location = "group:Screenshot/1.6.0/Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.49.41.png">
-         </FileRef>
-         <FileRef
-            location = "group:Screenshot/1.6.0/Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.49.51.png">
-         </FileRef>
-         <FileRef
-            location = "group:Screenshot/1.6.0/Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.15.png">
-         </FileRef>
-         <FileRef
-            location = "group:Screenshot/1.6.0/Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png">
-         </FileRef>
-      </Group>
-   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
