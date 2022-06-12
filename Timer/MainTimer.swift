@@ -26,7 +26,6 @@ import SystemConfiguration
 
 class MainTimer: UIViewController {
     
-    let storyboardId = "MTimer"
     let appName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as! String
     //let appName = infoDictionary["CFBundleDisplayName"] as! String
     
@@ -40,7 +39,6 @@ class MainTimer: UIViewController {
     
     let Noti = UNMutableNotificationContent()
     let notiCenter = UNUserNotificationCenter.current()
-    var DisplayName = "MTimer"
 
     var hour = 0
     var minute = 0
