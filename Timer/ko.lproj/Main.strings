@@ -110,8 +110,11 @@
 /* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "tKf-dS-Obq"; */
 "tKf-dS-Obq.normalTitle" = "재시작";
 
+/* Class = "UITabBarItem"; title = "Countdown"; ObjectID = "MyG-DK-CRY"; */
+"MyG-DK-CRY.title" = "타이머";
+
 /* Class = "UITabBarItem"; title = "Countdown"; ObjectID = "ufF-Ca-BxA"; */
-"ufF-Ca-BxA.title" = "타이머";
+"ufF-Ca-BxA.title" = "타이머(테스트)";
 
 /* Class = "UIButton"; normalTitle = "↑"; ObjectID = "vC9-7f-0N1"; */
 "vC9-7f-0N1.normalTitle" = "↑";

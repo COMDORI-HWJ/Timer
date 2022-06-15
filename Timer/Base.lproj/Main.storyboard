@@ -521,7 +521,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Version: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXm-Lj-ZRm">
-                                                    <rect key="frame" x="51" y="11" width="284" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="284" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1279,15 +1279,6 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpW-mR-5W0">
-                                <rect key="frame" x="159" y="566" width="73" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="설정이동"/>
-                                <connections>
-                                    <action selector="SettingButton:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="b2e-zI-AiD"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BuV-V0-meS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1330,7 +1321,6 @@
                         <outlet property="MinLabel" destination="Zy4-OD-21G" id="TVU-6J-qK1"/>
                         <outlet property="ResetButton" destination="wTj-3u-3EN" id="aie-As-YjZ"/>
                         <outlet property="SecLabel" destination="zKH-mc-nHk" id="rtO-DM-ozk"/>
-                        <outlet property="SettingBtn" destination="tpW-mR-5W0" id="7eU-xl-rGq"/>
                         <outlet property="StartStopButton" destination="n2R-LT-9dT" id="Wyy-D5-oXW"/>
                         <outlet property="bannerView" destination="oeZ-cZ-mll" id="LBX-RS-7rp"/>
                         <outlet property="hourDownButton" destination="Ggl-Wh-D8x" id="l4e-Ir-ktc"/>

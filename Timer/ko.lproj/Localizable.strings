@@ -7,5 +7,9 @@
 */
 // https://babbab2.tistory.com/59
 
-"Time is no" = "시간이 충분히 남아 있지 않아 시간을 감소할 수 없습니다.";
 "Error" = "오류!";
+"Warning" = "경고";
+"OK" = "확인";
+"Time is no" = "시간이 충분히 남아 있지 않아 시간을 감소할 수 없습니다.";
+"It can be set up to 99 o'clock." = "타이머는 99시까지만 설정가능합니다.";
+"Timer done" = "타이머 완료";

@@ -14,7 +14,8 @@ https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
  https://jesterz91.github.io/ios/2021/04/07/ios-notification/ UserNotification 프레임워크를 이용한 알림구현
  https://twih1203.medium.com/swift-usernotification%EC%9C%BC%EB%A1%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80%EA%B0%80-%ED%8F%AC%ED%95%A8%EB%90%9C-%EB%A1%9C%EC%BB%AC-%EC%95%8C%EB%A6%BC-%EB%B3%B4%EB%82%B4%EA%B8%B0-5a7ef07fa2ec UserNotification으로 이미지가 포함된 로컬 알림 보내기
  https://gonslab.tistory.com/27 푸시 알림 권한
-
+ https://inuplace.tistory.com/1163 로콜라이징 
+ 
  */
 
 import Foundation
@@ -28,9 +29,7 @@ class MainTimer: UIViewController {
     
     let appName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as! String
     //let appName = infoDictionary["CFBundleDisplayName"] as! String
-    
-
-  
+      
     var timer = Timer()
     var TimerStatus : Bool = false // 타이머 상태
     var count : Double = 0
@@ -73,7 +72,6 @@ class MainTimer: UIViewController {
     
     @IBOutlet weak var bannerView: GADBannerView!
     
-    @IBOutlet weak var SettingBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,9 +108,6 @@ class MainTimer: UIViewController {
                }
            })
        }
-    @IBAction func SettingButton(_ sender: UIButton) {
-        tabBarController?.selectedIndex = 3
-    }
     
     @IBAction func TimerStartStop(_ sender: Any)
     {
@@ -158,17 +153,7 @@ class MainTimer: UIViewController {
 
                     }
                     self!.Timecal()
-                    
-//                    if(self!.remainTime >= trunc(0))
-//                    {
-//                        self!.Timecal()
-////                        if(self!.remainTime < 0)
-////                        {
-////                            self?.Reset()
-////                            print("0초, 초기화")
-////                        }
-//
-//                    }
+
             })
                 //RunLoop.current.run() //메인쓰레드에서는 불안정하게 작동함.
                 
@@ -178,8 +163,6 @@ class MainTimer: UIViewController {
         {
             print("카운트를 시작하지 못하였습니다.")
         }
-
-
     }
     
     func Timecal()
@@ -220,7 +203,6 @@ class MainTimer: UIViewController {
         MillisecLabel.text = "000"
         print("초기화 남은 카운트:", count)
 
-
 //        hourUpButton.isEnabled = true
 //        hourDownButton.isEnabled = true
 //        minUpButton.isEnabled = true
@@ -238,7 +220,6 @@ class MainTimer: UIViewController {
         print("초기화 되었습니다.")
         
     }
-
     
     func CountLabel()
     {
@@ -270,8 +251,8 @@ class MainTimer: UIViewController {
     {
 
         Noti.title = appName
-        Noti.subtitle = "타이머 완료"
-        Noti.body = "0초가 되었습니다. 타이머를 다시 작동하려면 알림을 터치!"
+        Noti.subtitle = String(format: NSLocalizedString("Timer done", comment: ""))
+        Noti.body = "0초가 되었습니다. 타이머를 다시 작동하려면 알림을 터치하세요!"
         Noti.badge = 1
         Noti.sound = UNNotificationSound.default
         
@@ -284,7 +265,7 @@ class MainTimer: UIViewController {
                 print("노티피케이션 알림 오류: ", err.localizedDescription)
             }
             else{
-                print("노티피케이션 푸쉬알림 성공")
+                print("노티피케이션 푸시알림 성공")
             }
         }
     }
@@ -333,15 +314,16 @@ class MainTimer: UIViewController {
     
     func UpAlertError()
     {
-        let alert = UIAlertController(title: "알림", message: "타이머는 99시까지만 설정가능합니다.", preferredStyle: .alert)
+        let alert = UIAlertController(title: String(format: NSLocalizedString("Warning", comment: "")), message: String(format: NSLocalizedString("It can be set up to 99 o'clock.", comment: "")), preferredStyle: .alert)
+//        let alert = UIAlertController(title: "알림", message: "타이머는 99시까지만 설정가능합니다.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true, completion: nil)
     }
     
     func DownAlertError ()
     {
-        let alert = UIAlertController(title: String(format: NSLocalizedString("Error", comment: "오류")), message: String(format: NSLocalizedString("Time is no", comment: "시간없음")), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        let alert = UIAlertController(title: String(format: NSLocalizedString("Error", comment: "")), message: String(format: NSLocalizedString("Time is no", comment: "시간없음")), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: String(format: NSLocalizedString("OK", comment: "")), style: .default))
         present(alert, animated: true, completion: nil)
     }
     
@@ -471,7 +453,6 @@ class MainTimer: UIViewController {
            print(count, "시간이 저장되어있다.")
        }
     }
-    
 }
 
 //extension Bundle

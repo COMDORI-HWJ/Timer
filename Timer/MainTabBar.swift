@@ -12,6 +12,8 @@ class MainTabBar: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.selectedIndex = 0 //첫 시작 화면을 탭바 0번으로 시작
+        //                tabBarController?.selectedIndex = 3
+
 
         // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(showPage(_:)), name: NSNotification.Name("showPage"), object: nil) //푸시 알림 옵저버
