@@ -14,7 +14,7 @@ https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
  https://jesterz91.github.io/ios/2021/04/07/ios-notification/ UserNotification 프레임워크를 이용한 알림구현
  https://twih1203.medium.com/swift-usernotification%EC%9C%BC%EB%A1%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80%EA%B0%80-%ED%8F%AC%ED%95%A8%EB%90%9C-%EB%A1%9C%EC%BB%AC-%EC%95%8C%EB%A6%BC-%EB%B3%B4%EB%82%B4%EA%B8%B0-5a7ef07fa2ec UserNotification으로 이미지가 포함된 로컬 알림 보내기
  https://gonslab.tistory.com/27 푸시 알림 권한
- https://inuplace.tistory.com/1163 로콜라이징 
+ https://inuplace.tistory.com/1163 로컬라이징
  
  */
 
@@ -35,6 +35,7 @@ class MainTimer: UIViewController {
     var count : Double = 0
     var remainTime : Double = 0
     var elapsed : Double = 0 // 경과시간
+    var Firstcount: Double = 0 //처음 시작한 카운트 <추후 db연동후 사용자가 많이 사용하는 시간 빅데이터화...>
     
     let Noti = UNMutableNotificationContent()
     let notiCenter = UNUserNotificationCenter.current()
@@ -184,6 +185,8 @@ class MainTimer: UIViewController {
         print("remainTime:", remainTime)
         print("경과시간:", elapsed)
         print("남은 카운트:", count)
+        //print("첫번째 카운트: \(Firstcount)")
+       dump("첫번째 카운트: \(Firstcount)")
        
         //return ((ms / 3600000), ((ms % 3600000) / 60000), ((ms % 60000) / 1000), (ms % 3600000) % 1000) //1시간을 1밀리초로 환산하여 계산함. ex)3600000밀리초는 1시간
     }
@@ -196,6 +199,7 @@ class MainTimer: UIViewController {
         remainTime = 0
         elapsed = 0
         self.StartStopButton.setTitle("Start", for: .normal)
+        Firstcount = 0
    
         HourLabel.text = "00"
         MinLabel.text = "00"
@@ -332,6 +336,7 @@ class MainTimer: UIViewController {
         if(count < 356400)
         {
             count += 0.001
+            Firstcount += 0.001
             Effect()
             CountLabel()
         }
@@ -347,6 +352,7 @@ class MainTimer: UIViewController {
         if(count > 0)
         {
             count -= 0.001
+            Firstcount -= 0.001
             Effect()
             print(count,"m시간을 감소 하였습니다")
             CountLabel()
@@ -362,6 +368,7 @@ class MainTimer: UIViewController {
         if(count < 356400)
         {
             count += 1
+            Firstcount += 1
             CountLabel()
             Effect()
         }
@@ -377,6 +384,7 @@ class MainTimer: UIViewController {
         if(count > 0)
         {
             count -= 1
+            Firstcount -= 1
             Effect()
             print(count, "s시간을 감소 하였습니다")
             CountLabel()
@@ -395,6 +403,7 @@ class MainTimer: UIViewController {
         if(count < 356400)
         {
             count += 60
+            Firstcount += 60
             Effect()
             CountLabel()
         }
@@ -410,6 +419,7 @@ class MainTimer: UIViewController {
         if(count > 0)
         {
             count -= 60
+            Firstcount -= 60
             Effect()
             print(count, "분시간이 감소 하였습니다")
             CountLabel()
@@ -428,6 +438,7 @@ class MainTimer: UIViewController {
         if(count < 356400) //99시간으로 제한(3자리 시간적용시 레이아웃깨짐)
         {
             count += 3600
+            Firstcount += 3600
             CountLabel()
             Effect()
         }
@@ -443,6 +454,7 @@ class MainTimer: UIViewController {
        if(count > 0)
         {
            count -= 3600
+           Firstcount -= 3600
            Effect()
            CountLabel()
        }
