@@ -1314,11 +1314,11 @@
                                     <constraint firstAttribute="height" constant="50" id="t5R-iY-L6H"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="GlR-vy-UPf">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="GlR-vy-UPf">
                                 <rect key="frame" x="41.5" y="220" width="237" height="52"/>
                                 <subviews>
                                     <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ol-qq-4mg" customClass="Button" customModule="Timer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="105" height="52"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="96.5" height="52"/>
                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -1332,17 +1332,16 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="StopwatchStartStop:" destination="TvW-ox-nD7" eventType="touchUpInside" id="ghK-zM-xnw"/>
                                             <action selector="TimerStartStop:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="e4S-qh-vrg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVc-ug-WS5" customClass="Button" customModule="Timer" customModuleProvider="target">
-                                        <rect key="frame" x="132" y="0.0" width="105" height="52"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="140.5" y="0.0" width="96.5" height="52"/>
+                                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                        <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
-                                        <state key="normal" title="기록">
-                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
-                                        </state>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                                        <state key="normal" title="기록(초기화)"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="20"/>
@@ -1350,6 +1349,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="ResetButton:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="dz7-dR-ZVd"/>
+                                            <action selector="ResetButton:" destination="TvW-ox-nD7" eventType="touchUpInside" id="eh0-b2-lQX"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1377,6 +1377,9 @@
                     <navigationItem key="navigationItem" id="dqg-Lv-JKA"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
                     <connections>
+                        <outlet property="ResetButton" destination="OVc-ug-WS5" id="ngP-Im-EC9"/>
+                        <outlet property="StartStopButton" destination="1Ol-qq-4mg" id="K7C-9k-l1z"/>
+                        <outlet property="TimeLabel" destination="6Qx-F3-pR7" id="Tue-z5-teD"/>
                         <outlet property="bannerView" destination="srG-6T-LVl" id="xBQ-JD-EY8"/>
                     </connections>
                 </viewController>
@@ -1414,7 +1417,7 @@
             <size key="intrinsicContentSize" width="47" height="46"/>
         </designable>
         <designable name="OVc-ug-WS5">
-            <size key="intrinsicContentSize" width="105" height="52"/>
+            <size key="intrinsicContentSize" width="130" height="52"/>
         </designable>
         <designable name="QAm-2u-aaW">
             <size key="intrinsicContentSize" width="47" height="18"/>

@@ -119,6 +119,15 @@ class MainTimer: UIViewController {
             count = count - elapsed //일시정지 동안 카운트된 시간을 빼서 카운트를 줄인다(일시정지후 초기화 안됨)
             timer.invalidate()
             StartStopButton.setTitle("Start", for: .normal)
+            
+            hourUpButton.isEnabled = true
+            hourDownButton.isEnabled = true
+            minUpButton.isEnabled = true
+            minDownButton.isEnabled = true
+            secUpButton.isEnabled = true
+            secDownButton.isEnabled = true
+            millisecUpButton.isEnabled = true
+            millisecDownButton.isEnabled = true
 
         }
         else if (count > 0)
@@ -158,6 +167,8 @@ class MainTimer: UIViewController {
             })
                 //RunLoop.current.run() //메인쓰레드에서는 불안정하게 작동함.
                 
+
+                
                 }
         }
         else
@@ -189,6 +200,15 @@ class MainTimer: UIViewController {
        dump("첫번째 카운트: \(Firstcount)")
        
         //return ((ms / 3600000), ((ms % 3600000) / 60000), ((ms % 60000) / 1000), (ms % 3600000) % 1000) //1시간을 1밀리초로 환산하여 계산함. ex)3600000밀리초는 1시간
+        
+        hourUpButton.isEnabled = false
+        hourDownButton.isEnabled = false
+        minUpButton.isEnabled = false
+        minDownButton.isEnabled = false
+        secUpButton.isEnabled = false
+        secDownButton.isEnabled = false
+        millisecUpButton.isEnabled = false
+        millisecDownButton.isEnabled = false
     }
    
     func Reset() /* 초기화 함수 선언 */
@@ -207,14 +227,14 @@ class MainTimer: UIViewController {
         MillisecLabel.text = "000"
         print("초기화 남은 카운트:", count)
 
-//        hourUpButton.isEnabled = true
-//        hourDownButton.isEnabled = true
-//        minUpButton.isEnabled = true
-//        minDownButton.isEnabled = true
-//        secUpButton.isEnabled = true
-//        secDownButton.isEnabled = true
-//        millisecUpButton.isEnabled = true
-//        millisecDownButton.isEnabled = true
+        hourUpButton.isEnabled = true
+        hourDownButton.isEnabled = true
+        minUpButton.isEnabled = true
+        minDownButton.isEnabled = true
+        secUpButton.isEnabled = true
+        secDownButton.isEnabled = true
+        millisecUpButton.isEnabled = true
+        millisecDownButton.isEnabled = true
         
     }
     
