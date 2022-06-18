@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2B415B3A273CFFF500E8D3E6 /* BackgroundTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B415B39273CFFF500E8D3E6 /* BackgroundTimer.swift */; };
 		2B6197AB27600A4B00310E7E /* MainTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6197AA27600A4B00310E7E /* MainTimer.swift */; };
-		2B6813422727AA0300E4C67A /* vibration icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6813412727AA0300E4C67A /* vibration icon.png */; };
+		2B6813422727AA0300E4C67A /* vibration.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6813412727AA0300E4C67A /* vibration.png */; };
 		2B69E3EA2722459D00591357 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B69E3E92722459D00591357 /* Setting.swift */; };
 		2B69E3EC27224DBA00591357 /* SettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B69E3EB27224DBA00591357 /* SettingTableCell.swift */; };
 		2BA0F049269395C20040D20B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA0F048269395C20040D20B /* AppDelegate.swift */; };
@@ -44,7 +44,7 @@
 		2B35BAE82746A6E5000F952F /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		2B415B39273CFFF500E8D3E6 /* BackgroundTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTimer.swift; sourceTree = "<group>"; };
 		2B6197AA27600A4B00310E7E /* MainTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTimer.swift; sourceTree = "<group>"; };
-		2B6813412727AA0300E4C67A /* vibration icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vibration icon.png"; sourceTree = "<group>"; };
+		2B6813412727AA0300E4C67A /* vibration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vibration.png; sourceTree = "<group>"; };
 		2B69E3E92722459D00591357 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		2B69E3EB27224DBA00591357 /* SettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableCell.swift; sourceTree = "<group>"; };
 		2BA0F045269395C20040D20B /* Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,7 +104,7 @@
 		2BA0F03C269395C20040D20B = {
 			isa = PBXGroup;
 			children = (
-				379383C72852BFA400D6463C /* Screenshot */,
+				379383C72852BFA400D6463C /* Screenshots */,
 				378210E527FF4D2A00B312C3 /* .gitignore */,
 				2BD4CF0A2702817D0063D45D /* README.md */,
 				2BA0F047269395C20040D20B /* Timer */,
@@ -127,12 +127,18 @@
 			children = (
 				376D7A30285E2ED500643F43 /* Sources */,
 				376D7A2D285E2DC200643F43 /* Resources */,
-				2BA0F056269395C30040D20B /* Info.plist */,
 				2B415B39273CFFF500E8D3E6 /* BackgroundTimer.swift */,
 				2BA0F051269395C30040D20B /* Assets.xcassets */,
-				2B6813412727AA0300E4C67A /* vibration icon.png */,
 			);
 			path = Timer;
+			sourceTree = "<group>";
+		};
+		370CF5E0285E3C62007F67B0 /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				2B6813412727AA0300E4C67A /* vibration.png */,
+			);
+			path = Icon;
 			sourceTree = "<group>";
 		};
 		376D7A28285E26B600643F43 /* 1.6.4 */ = {
@@ -147,9 +153,11 @@
 		376D7A2D285E2DC200643F43 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				376D7A34285E322000643F43 /* Storyboards */,
-				2BA573AE275D7A09003C7677 /* Localizable.strings */,
+				2BA0F056269395C30040D20B /* Info.plist */,
 				2BB1761B2746AE2E00324111 /* InfoPlist.strings */,
+				376D7A34285E322000643F43 /* Storyboards */,
+				370CF5E0285E3C62007F67B0 /* Icon */,
+				2BA573AE275D7A09003C7677 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -203,14 +211,14 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		379383C72852BFA400D6463C /* Screenshot */ = {
+		379383C72852BFA400D6463C /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
 				376D7A28285E26B600643F43 /* 1.6.4 */,
 				379383CE2852BFA400D6463C /* 1.6.0 */,
 				379383C82852BFA400D6463C /* 1.4.5 */,
 			);
-			path = Screenshot;
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 		379383C82852BFA400D6463C /* 1.4.5 */ = {
@@ -308,7 +316,7 @@
 			files = (
 				378210E627FF4D2A00B312C3 /* .gitignore in Resources */,
 				379383D92852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.43.png in Resources */,
-				2B6813422727AA0300E4C67A /* vibration icon.png in Resources */,
+				2B6813422727AA0300E4C67A /* vibration.png in Resources */,
 				379383DA2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.49.41.png in Resources */,
 				376D7A2C285E26B600643F43 /* IMG_1452.PNG in Resources */,
 				2BA0F055269395C30040D20B /* LaunchScreen.storyboard in Resources */,
@@ -560,7 +568,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 93D652JGK3;
-				INFOPLIST_FILE = Timer/Info.plist;
+				INFOPLIST_FILE = Timer/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -641,7 +649,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 93D652JGK3;
-				INFOPLIST_FILE = Timer/Info.plist;
+				INFOPLIST_FILE = Timer/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

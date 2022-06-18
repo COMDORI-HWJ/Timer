@@ -24,27 +24,27 @@
 |---------------|---|
 |1.4.5|2022년 4월 10일
 
-![](Screenshot/1.4.5/IMG_2212.PNG)
-![](Screenshot/1.4.5/IMG_2213.PNG)
-![](Screenshot/1.4.5/IMG_2214.PNG)
-![](Screenshot/1.4.5/IMG_2215.PNG)
-![](Screenshot/1.4.5/IMG_2216.PNG) 
+![](Screenshots/1.4.5/IMG_2212.PNG)
+![](Screenshots/1.4.5/IMG_2213.PNG)
+![](Screenshots/1.4.5/IMG_2214.PNG)
+![](Screenshots/1.4.5/IMG_2215.PNG)
+![](Screenshots/1.4.5/IMG_2216.PNG) 
 
 | Version |빌드 날짜 
 |---------------|---|
 |1.6.0|2022년 6월 10일
 
-![](Screenshot/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.49.41.png)
-![](Screenshot/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.49.51.png)
-![](Screenshot/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.50.03.png)
-![](Screenshot/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.50.15.png)
-![](Screenshot/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.50.43.png) 
+![](Screenshots/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.49.41.png)
+![](Screenshots/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.49.51.png)
+![](Screenshots/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.50.03.png)
+![](Screenshots/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.50.15.png)
+![](Screenshots/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.50.43.png) 
 
 | Version |빌드 날짜 
 |---------------|---|
 |1.6.4|2022년 6월 18일
 
-![](Screenshot/1.6.4/IMG_1453.PNG)
-![](Screenshot/1.6.4/IMG_1452.PNG)
+![](Screenshots/1.6.4/IMG_1453.PNG)
+![](Screenshots/1.6.4/IMG_1452.PNG)
 
 </div>
