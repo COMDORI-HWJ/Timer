@@ -90,7 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //앱이 켜져있는 상태에서 푸시 알림을 눌렀을 때
             if application.applicationState == .active {
                 print("푸시알림을 탭함 : 앱 켜진 상태")
-                if response.notification.request.content.subtitle == "타이머 완료" { //푸시 알림 제목에 따라서 특정 뷰로 이동
+                if response.notification.request.content.subtitle == String(format: NSLocalizedString("Timer done", comment: "")) { //푸시 알림 제목에 따라서 특정 뷰로 이동
                     NotificationCenter.default.post(name: Notification.Name("showPage"), object: nil, userInfo: ["index": 0])
 
                 }

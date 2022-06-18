@@ -523,7 +523,7 @@
         <scene sceneID="pd5-ml-4Fw">
             <objects>
                 <viewController title="Background" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="O5m-2W-qXp" customClass="BackgroundTimer" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9pp-2W-H0H" customClass="View">
+                    <view key="view" contentMode="scaleToFill" id="9pp-2W-H0H">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

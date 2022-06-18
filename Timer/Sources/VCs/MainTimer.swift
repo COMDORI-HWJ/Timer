@@ -15,6 +15,8 @@ https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
  https://twih1203.medium.com/swift-usernotification%EC%9C%BC%EB%A1%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80%EA%B0%80-%ED%8F%AC%ED%95%A8%EB%90%9C-%EB%A1%9C%EC%BB%AC-%EC%95%8C%EB%A6%BC-%EB%B3%B4%EB%82%B4%EA%B8%B0-5a7ef07fa2ec UserNotification으로 이미지가 포함된 로컬 알림 보내기
  https://gonslab.tistory.com/27 푸시 알림 권한
  https://inuplace.tistory.com/1163 로컬라이징
+ https://velog.io/@brillantescene/%EC%8A%A4%EC%9C%84%ED%94%84%ED%8A%B8-%ED%8C%8C%EC%9D%BC-%EC%A0%95%EB%A6%AC 프로젝트 구조 정리1
+ https://mini-min-dev.tistory.com/15 프로젝트 구조 정리2(프로젝트 폴더링)
  
  */
 

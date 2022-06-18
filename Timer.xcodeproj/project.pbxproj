@@ -21,8 +21,8 @@
 		2BA573AC275D7A09003C7677 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BA573AE275D7A09003C7677 /* Localizable.strings */; };
 		2BB176192746AE2E00324111 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1761B2746AE2E00324111 /* InfoPlist.strings */; };
 		2BD4CF0B2702817D0063D45D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2BD4CF0A2702817D0063D45D /* README.md */; };
-		2BE0D863274121CE00D08F01 /* Back2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BE0D862274121CE00D08F01 /* Back2.txt */; };
-		2BE37D7E26E529C400EA2FA5 /* Backup.txt in Sources */ = {isa = PBXBuildFile; fileRef = 2BE37D7D26E529C400EA2FA5 /* Backup.txt */; };
+		376D7A2B285E26B600643F43 /* IMG_1453.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 376D7A29285E26B600643F43 /* IMG_1453.PNG */; };
+		376D7A2C285E26B600643F43 /* IMG_1452.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 376D7A2A285E26B600643F43 /* IMG_1452.PNG */; };
 		376F47C4285B1BA200CDF726 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F47C3285B1BA200CDF726 /* Stopwatch.swift */; };
 		378210E627FF4D2A00B312C3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 378210E527FF4D2A00B312C3 /* .gitignore */; };
 		378210EA27FF5EFC00B312C3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378210E927FF5EFC00B312C3 /* Button.swift */; };
@@ -60,8 +60,8 @@
 		2BA573B0275D7BEB003C7677 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2BB1761A2746AE2E00324111 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BD4CF0A2702817D0063D45D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		2BE0D862274121CE00D08F01 /* Back2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Back2.txt; sourceTree = "<group>"; };
-		2BE37D7D26E529C400EA2FA5 /* Backup.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Backup.txt; sourceTree = "<group>"; };
+		376D7A29285E26B600643F43 /* IMG_1453.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_1453.PNG; sourceTree = "<group>"; };
+		376D7A2A285E26B600643F43 /* IMG_1452.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_1452.PNG; sourceTree = "<group>"; };
 		376F47C3285B1BA200CDF726 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		378210E527FF4D2A00B312C3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		378210E927FF5EFC00B312C3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -125,34 +125,90 @@
 		2BA0F047269395C20040D20B /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				376D7A30285E2ED500643F43 /* Sources */,
+				376D7A2D285E2DC200643F43 /* Resources */,
 				2BA0F056269395C30040D20B /* Info.plist */,
-				2BB1761B2746AE2E00324111 /* InfoPlist.strings */,
-				2BA0F048269395C20040D20B /* AppDelegate.swift */,
-				2BA0F04A269395C20040D20B /* SceneDelegate.swift */,
-				2BA0F04C269395C20040D20B /* ViewController.swift */,
-				2B69E3E92722459D00591357 /* Setting.swift */,
-				2B69E3EB27224DBA00591357 /* SettingTableCell.swift */,
 				2B415B39273CFFF500E8D3E6 /* BackgroundTimer.swift */,
-				378210E927FF5EFC00B312C3 /* Button.swift */,
-				2B6197AA27600A4B00310E7E /* MainTimer.swift */,
-				37C3E2A12852A617009E6D5B /* MainTabBar.swift */,
-				376F47C3285B1BA200CDF726 /* Stopwatch.swift */,
-				2BA573AE275D7A09003C7677 /* Localizable.strings */,
 				2BA0F051269395C30040D20B /* Assets.xcassets */,
-				2BA0F053269395C30040D20B /* LaunchScreen.storyboard */,
-				2BA0F04E269395C20040D20B /* Main.storyboard */,
 				2B6813412727AA0300E4C67A /* vibration icon.png */,
-				2BE37D7D26E529C400EA2FA5 /* Backup.txt */,
-				2BE0D862274121CE00D08F01 /* Back2.txt */,
 			);
 			path = Timer;
+			sourceTree = "<group>";
+		};
+		376D7A28285E26B600643F43 /* 1.6.4 */ = {
+			isa = PBXGroup;
+			children = (
+				376D7A29285E26B600643F43 /* IMG_1453.PNG */,
+				376D7A2A285E26B600643F43 /* IMG_1452.PNG */,
+			);
+			path = 1.6.4;
+			sourceTree = "<group>";
+		};
+		376D7A2D285E2DC200643F43 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				376D7A34285E322000643F43 /* Storyboards */,
+				2BA573AE275D7A09003C7677 /* Localizable.strings */,
+				2BB1761B2746AE2E00324111 /* InfoPlist.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		376D7A30285E2ED500643F43 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2BA0F048269395C20040D20B /* AppDelegate.swift */,
+				2BA0F04A269395C20040D20B /* SceneDelegate.swift */,
+				376D7A31285E2EE300643F43 /* VCs */,
+				376D7A33285E2FEC00643F43 /* Classes */,
+				376D7A32285E2EFD00643F43 /* Cells */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		376D7A31285E2EE300643F43 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				2B6197AA27600A4B00310E7E /* MainTimer.swift */,
+				2BA0F04C269395C20040D20B /* ViewController.swift */,
+				376F47C3285B1BA200CDF726 /* Stopwatch.swift */,
+				2B69E3E92722459D00591357 /* Setting.swift */,
+			);
+			path = VCs;
+			sourceTree = "<group>";
+		};
+		376D7A32285E2EFD00643F43 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2B69E3EB27224DBA00591357 /* SettingTableCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		376D7A33285E2FEC00643F43 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				378210E927FF5EFC00B312C3 /* Button.swift */,
+				37C3E2A12852A617009E6D5B /* MainTabBar.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		376D7A34285E322000643F43 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2BA0F053269395C30040D20B /* LaunchScreen.storyboard */,
+				2BA0F04E269395C20040D20B /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		379383C72852BFA400D6463C /* Screenshot */ = {
 			isa = PBXGroup;
 			children = (
-				379383C82852BFA400D6463C /* 1.4.5 */,
+				376D7A28285E26B600643F43 /* 1.6.4 */,
 				379383CE2852BFA400D6463C /* 1.6.0 */,
+				379383C82852BFA400D6463C /* 1.4.5 */,
 			);
 			path = Screenshot;
 			sourceTree = "<group>";
@@ -254,10 +310,11 @@
 				379383D92852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.43.png in Resources */,
 				2B6813422727AA0300E4C67A /* vibration icon.png in Resources */,
 				379383DA2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.49.41.png in Resources */,
-				2BE0D863274121CE00D08F01 /* Back2.txt in Resources */,
+				376D7A2C285E26B600643F43 /* IMG_1452.PNG in Resources */,
 				2BA0F055269395C30040D20B /* LaunchScreen.storyboard in Resources */,
 				379383DD2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png in Resources */,
 				379383D82852BFA400D6463C /* IMG_2216.PNG in Resources */,
+				376D7A2B285E26B600643F43 /* IMG_1453.PNG in Resources */,
 				2BA573AC275D7A09003C7677 /* Localizable.strings in Resources */,
 				2BD4CF0B2702817D0063D45D /* README.md in Resources */,
 				379383DB2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.49.51.png in Resources */,
@@ -323,7 +380,6 @@
 			files = (
 				2BA0F04D269395C20040D20B /* ViewController.swift in Sources */,
 				2B415B3A273CFFF500E8D3E6 /* BackgroundTimer.swift in Sources */,
-				2BE37D7E26E529C400EA2FA5 /* Backup.txt in Sources */,
 				2B6197AB27600A4B00310E7E /* MainTimer.swift in Sources */,
 				376F47C4285B1BA200CDF726 /* Stopwatch.swift in Sources */,
 				37C3E2A22852A617009E6D5B /* MainTabBar.swift in Sources */,
