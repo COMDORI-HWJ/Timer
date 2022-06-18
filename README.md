@@ -40,4 +40,11 @@
 ![](Screenshot/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.50.15.png)
 ![](Screenshot/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.50.43.png) 
 
+| Version |빌드 날짜 
+|---------------|---|
+|1.6.4|2022년 6월 18일
+
+![](Screenshot/1.6.4/IMG_1453.PNG)
+![](Screenshot/1.6.4/IMG_1452.PNG)
+
 </div>
