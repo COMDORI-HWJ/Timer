@@ -267,7 +267,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Timer(test)" id="ufF-Ca-BxA">
-                        <imageReference key="image" image="timer" catalog="system" symbolScale="large"/>
+                        <imageReference key="image" image="timer.square" catalog="system" symbolScale="large"/>
                         <color key="badgeColor" systemColor="systemIndigoColor"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="nuT-Md-GN1"/>
@@ -1264,7 +1264,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="MTimer" id="MyG-DK-CRY">
-                        <imageReference key="image" image="timer.square" catalog="system" symbolScale="large"/>
+                        <imageReference key="image" image="timer" catalog="system" symbolScale="large"/>
                         <color key="badgeColor" systemColor="systemIndigoColor"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="ZmE-1w-BPS"/>
@@ -1341,7 +1341,7 @@
                                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
-                                        <state key="normal" title="기록(초기화)"/>
+                                        <state key="normal" title="초기화"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="20"/>
@@ -1355,18 +1355,36 @@
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="Llm-7F-EMG"/>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qcb-tt-kp1">
+                                <rect key="frame" x="0.0" y="297" width="320" height="222"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YGT-MS-U9k">
+                                        <rect key="frame" x="0.0" y="44.5" width="320" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YGT-MS-U9k" id="lxi-RJ-OUw">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="L8f-iP-cby"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="qcb-tt-kp1" firstAttribute="leading" secondItem="L8f-iP-cby" secondAttribute="leading" id="4FS-Qo-gL6"/>
+                            <constraint firstItem="qcb-tt-kp1" firstAttribute="trailing" secondItem="L8f-iP-cby" secondAttribute="trailing" id="4T2-GZ-XAr"/>
                             <constraint firstItem="6Qx-F3-pR7" firstAttribute="top" secondItem="srG-6T-LVl" secondAttribute="bottom" constant="71" id="A8y-QC-yGv"/>
                             <constraint firstItem="srG-6T-LVl" firstAttribute="top" secondItem="L8f-iP-cby" secondAttribute="top" constant="20" id="LlY-fJ-13B"/>
+                            <constraint firstItem="qcb-tt-kp1" firstAttribute="top" secondItem="GlR-vy-UPf" secondAttribute="bottom" constant="25" id="Lx3-JG-qeC"/>
                             <constraint firstItem="GlR-vy-UPf" firstAttribute="top" secondItem="6Qx-F3-pR7" secondAttribute="bottom" constant="20.5" id="Od9-1D-0Oe"/>
                             <constraint firstItem="L8f-iP-cby" firstAttribute="trailing" secondItem="GlR-vy-UPf" secondAttribute="trailing" constant="41.5" id="T3Q-vc-in3"/>
                             <constraint firstItem="L8f-iP-cby" firstAttribute="trailing" secondItem="6Qx-F3-pR7" secondAttribute="trailing" constant="8.5" id="Vd1-7w-uzA"/>
                             <constraint firstItem="srG-6T-LVl" firstAttribute="trailing" secondItem="L8f-iP-cby" secondAttribute="trailing" id="cHT-uX-ObB"/>
                             <constraint firstItem="GlR-vy-UPf" firstAttribute="leading" secondItem="L8f-iP-cby" secondAttribute="leading" constant="41.5" id="hgD-bb-ltF"/>
                             <constraint firstItem="6Qx-F3-pR7" firstAttribute="leading" secondItem="L8f-iP-cby" secondAttribute="leading" constant="9" id="oaE-bW-FfI"/>
+                            <constraint firstItem="qcb-tt-kp1" firstAttribute="bottom" secondItem="L8f-iP-cby" secondAttribute="bottom" id="sRx-DK-scQ"/>
                             <constraint firstItem="srG-6T-LVl" firstAttribute="leading" secondItem="L8f-iP-cby" secondAttribute="leading" id="vyR-Oa-iG2"/>
                         </constraints>
                     </view>
@@ -1385,7 +1403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTy-DK-4Vg" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1275.3846153846152" y="824.64454976303318"/>
+            <point key="canvasLocation" x="-1276.875" y="823.94366197183103"/>
         </scene>
     </scenes>
     <designables>
@@ -1417,7 +1435,7 @@
             <size key="intrinsicContentSize" width="47" height="46"/>
         </designable>
         <designable name="OVc-ug-WS5">
-            <size key="intrinsicContentSize" width="130" height="52"/>
+            <size key="intrinsicContentSize" width="68" height="52"/>
         </designable>
         <designable name="QAm-2u-aaW">
             <size key="intrinsicContentSize" width="47" height="18"/>

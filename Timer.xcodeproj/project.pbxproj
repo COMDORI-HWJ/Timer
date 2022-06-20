@@ -141,6 +141,14 @@
 			path = Icon;
 			sourceTree = "<group>";
 		};
+		370CF5E1285E4951007F67B0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				370CF5E0285E3C62007F67B0 /* Icon */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		376D7A28285E26B600643F43 /* 1.6.4 */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,10 +161,10 @@
 		376D7A2D285E2DC200643F43 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				370CF5E1285E4951007F67B0 /* Images */,
 				2BA0F056269395C30040D20B /* Info.plist */,
 				2BB1761B2746AE2E00324111 /* InfoPlist.strings */,
 				376D7A34285E322000643F43 /* Storyboards */,
-				370CF5E0285E3C62007F67B0 /* Icon */,
 				2BA573AE275D7A09003C7677 /* Localizable.strings */,
 			);
 			path = Resources;
