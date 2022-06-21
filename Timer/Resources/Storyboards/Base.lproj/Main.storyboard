@@ -1233,6 +1233,22 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wop-Ey-dx5">
+                                <rect key="frame" x="119" y="109" width="83" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.039265976289999997" green="0.58318336719999997" blue="0.18790925159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="숫자입력"/>
+                                <connections>
+                                    <action selector="Timeinput:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="dVb-Mf-ab3"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="7VJ-ve-0SN">
+                                <rect key="frame" x="13" y="110" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="continue" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BuV-V0-meS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1285,6 +1301,7 @@
                         <outlet property="minUpButton" destination="Moe-ao-nWA" id="NsQ-eB-ymN"/>
                         <outlet property="secDownButton" destination="GR3-0Y-Yfk" id="Hq1-Jk-RQa"/>
                         <outlet property="secUpButton" destination="zvx-zQ-uTH" id="oEU-6a-Bxr"/>
+                        <outlet property="test" destination="wop-Ey-dx5" id="BDL-pw-oeO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hy0-53-JJM" sceneMemberID="firstResponder"/>

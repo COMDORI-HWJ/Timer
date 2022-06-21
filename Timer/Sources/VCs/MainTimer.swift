@@ -17,7 +17,9 @@ https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
  https://inuplace.tistory.com/1163 로컬라이징
  https://velog.io/@brillantescene/%EC%8A%A4%EC%9C%84%ED%94%84%ED%8A%B8-%ED%8C%8C%EC%9D%BC-%EC%A0%95%EB%A6%AC 프로젝트 구조 정리1
  https://mini-min-dev.tistory.com/15 프로젝트 구조 정리2(프로젝트 폴더링)
- 
+ https://boidevelop.tistory.com/62?category=839928 텍스트 필드 개념
+ https://scshim.tistory.com/220 UIAlert 알림창 구현
+ https://boidevelop.tistory.com/57 알림창 텍스트필드 추가
  */
 
 import Foundation
@@ -72,6 +74,8 @@ class MainTimer: UIViewController {
     
     @IBOutlet weak var millisecUpButton: UIButton!
     @IBOutlet weak var millisecDownButton: UIButton!
+    
+    @IBOutlet weak var test: UIButton!
     
     @IBOutlet weak var bannerView: GADBannerView!
     
@@ -349,8 +353,53 @@ class MainTimer: UIViewController {
     func DownAlertError ()
     {
         let alert = UIAlertController(title: String(format: NSLocalizedString("Error", comment: "")), message: String(format: NSLocalizedString("Time is no", comment: "시간없음")), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: String(format: NSLocalizedString("OK", comment: "")), style: .default))
+        alert.addAction(UIAlertAction(title: String(format: NSLocalizedString("OK", comment: "")), style: .destructive))
         present(alert, animated: true, completion: nil)
+    }
+    
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+      let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
+      return (string.rangeOfCharacter(from: invalidCharacters) == nil)
+    }
+
+
+    
+    @IBAction func Timeinput(_ sender: Any)
+    {
+        let alert = UIAlertController(title: "타이머 시간을 입력하세요", message: "1시간은 1을 입력하면됩니다. 예) 2입력→2시간", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .destructive) { (_) in
+            print("알림창에서 확인을 눌렀습니다.")
+            if let txt = alert.textFields?.first {
+                
+                if txt.text?.isEmpty != true { //https://jeonyeohun.tistory.com/87 타입추론 형 변환
+                    print("입력값: ", txt.text!)
+                    self.count = Double(txt.text!)!
+              
+                    print("입력한숫자값:", self.count)
+                    print(type(of: self.count))
+                    
+                }
+                else {
+                    print("입력값이 없습니다.")
+                }
+            }
+            
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        
+        alert.addTextField() { (textField) in
+            textField.placeholder = "이곳에 시간을 입력하세요."
+            textField.textContentType = .creditCardNumber //숫자 키패드
+            textField.keyboardType = .numberPad
+            
+            
+        }
+        
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true)
     }
     
     @IBAction func millisecUp(_ sender : Any)
@@ -488,6 +537,7 @@ class MainTimer: UIViewController {
        }
     }
 }
+
 
 //extension Bundle
 //{
