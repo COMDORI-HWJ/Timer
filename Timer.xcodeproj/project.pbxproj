@@ -161,6 +161,7 @@
 		376D7A2D285E2DC200643F43 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				37F6722128624F8500AE6284 /* Extensions */,
 				370CF5E1285E4951007F67B0 /* Images */,
 				2BA0F056269395C30040D20B /* Info.plist */,
 				2BB1761B2746AE2E00324111 /* InfoPlist.strings */,
@@ -251,6 +252,13 @@
 				379383D32852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png */,
 			);
 			path = 1.6.0;
+			sourceTree = "<group>";
+		};
+		37F6722128624F8500AE6284 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		47DEF28A0F9F368041C8FFF1 /* Pods */ = {

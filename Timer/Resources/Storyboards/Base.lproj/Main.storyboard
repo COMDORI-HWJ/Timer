@@ -1240,15 +1240,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="숫자입력"/>
                                 <connections>
-                                    <action selector="Timeinput:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="dVb-Mf-ab3"/>
+                                    <action selector="Timeinput:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="sZQ-5P-QxS"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="7VJ-ve-0SN">
-                                <rect key="frame" x="13" y="110" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="continue" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BuV-V0-meS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

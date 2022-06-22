@@ -9,3 +9,6 @@
 // https://babbab2.tistory.com/59
 
 "Time is no" = "Time is null";
+"오류!" = "Error!";
+"경고" = "Warning";
+"타이머는 99시까지만 설정가능합니다." = "It can be set up to 99 o'clock.";

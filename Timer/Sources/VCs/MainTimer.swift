@@ -20,6 +20,7 @@ https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
  https://boidevelop.tistory.com/62?category=839928 텍스트 필드 개념
  https://scshim.tistory.com/220 UIAlert 알림창 구현
  https://boidevelop.tistory.com/57 알림창 텍스트필드 추가
+ https://stackoverflow.com/questions/33658521/how-to-make-a-uilabel-clickable UILable 터치이벤트
  */
 
 import Foundation
@@ -76,6 +77,7 @@ class MainTimer: UIViewController {
     @IBOutlet weak var millisecDownButton: UIButton!
     
     @IBOutlet weak var test: UIButton!
+    @IBOutlet weak var testlabel: UILabel!
     
     @IBOutlet weak var bannerView: GADBannerView!
     
@@ -94,7 +96,14 @@ class MainTimer: UIViewController {
         requestNotiAuthorization()
         requestNotificationPermission()
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(MainTimer.tapFunction))
+        HourLabel.isUserInteractionEnabled = true //시간레이블 모두 추가하면 구문 삭제후 Enable() 사용
+        HourLabel.addGestureRecognizer(tap)
+        
+        Enable()
+        
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -114,7 +123,15 @@ class MainTimer: UIViewController {
                    print("Push: 권한 거부")
                }
            })
+        
+
        }
+    
+    @objc func tapFunction(sender:UITapGestureRecognizer) {
+
+        print("HourLabel tap working")
+        Timeinput()
+    }
     
     @IBAction func TimerStartStop(_ sender: Any)
     {
@@ -126,14 +143,7 @@ class MainTimer: UIViewController {
             timer.invalidate()
             StartStopButton.setTitle("Start", for: .normal)
             
-            hourUpButton.isEnabled = true
-            hourDownButton.isEnabled = true
-            minUpButton.isEnabled = true
-            minDownButton.isEnabled = true
-            secUpButton.isEnabled = true
-            secDownButton.isEnabled = true
-            millisecUpButton.isEnabled = true
-            millisecDownButton.isEnabled = true
+            Enable()
 
         }
         else if (count > 0)
@@ -207,14 +217,9 @@ class MainTimer: UIViewController {
        
         //return ((ms / 3600000), ((ms % 3600000) / 60000), ((ms % 60000) / 1000), (ms % 3600000) % 1000) //1시간을 1밀리초로 환산하여 계산함. ex)3600000밀리초는 1시간
         
-        hourUpButton.isEnabled = false
-        hourDownButton.isEnabled = false
-        minUpButton.isEnabled = false
-        minDownButton.isEnabled = false
-        secUpButton.isEnabled = false
-        secDownButton.isEnabled = false
-        millisecUpButton.isEnabled = false
-        millisecDownButton.isEnabled = false
+        /* 타이머 작동중 버튼 비활성화 */
+        Disable()
+
     }
    
     func Reset() /* 초기화 함수 선언 */
@@ -233,15 +238,8 @@ class MainTimer: UIViewController {
         MillisecLabel.text = "000"
         print("초기화 남은 카운트:", count)
 
-        hourUpButton.isEnabled = true
-        hourDownButton.isEnabled = true
-        minUpButton.isEnabled = true
-        minDownButton.isEnabled = true
-        secUpButton.isEnabled = true
-        secDownButton.isEnabled = true
-        millisecUpButton.isEnabled = true
-        millisecDownButton.isEnabled = true
-        
+        Enable()
+
     }
     
     @IBAction func ResetButton(_ sender: Any)
@@ -344,7 +342,7 @@ class MainTimer: UIViewController {
     
     func UpAlertError()
     {
-        let alert = UIAlertController(title: String(format: NSLocalizedString("Warning", comment: "")), message: String(format: NSLocalizedString("It can be set up to 99 o'clock.", comment: "")), preferredStyle: .alert)
+        let alert = UIAlertController(title: String(format: NSLocalizedString("경고", comment: "")), message: String(format: NSLocalizedString("타이머는 99시까지만 설정가능합니다.", comment: "")), preferredStyle: .alert)
 //        let alert = UIAlertController(title: "알림", message: "타이머는 99시까지만 설정가능합니다.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true, completion: nil)
@@ -352,29 +350,41 @@ class MainTimer: UIViewController {
     
     func DownAlertError ()
     {
-        let alert = UIAlertController(title: String(format: NSLocalizedString("Error", comment: "")), message: String(format: NSLocalizedString("Time is no", comment: "시간없음")), preferredStyle: .alert)
+        let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: String(format: NSLocalizedString("Time is no", comment: "시간없음")), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: String(format: NSLocalizedString("OK", comment: "")), style: .destructive))
         present(alert, animated: true, completion: nil)
     }
     
-
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-      let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
-      return (string.rangeOfCharacter(from: invalidCharacters) == nil)
-    }
-
-
-    
-    @IBAction func Timeinput(_ sender: Any)
+   
+//    @IBAction func Timeinput(_ sender: Any)
+    func Timeinput()
     {
+                
         let alert = UIAlertController(title: "타이머 시간을 입력하세요", message: "1시간은 1을 입력하면됩니다. 예) 2입력→2시간", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .destructive) { (_) in
+        let ok = UIAlertAction(title: "확인", style: .default) { (_) in
             print("알림창에서 확인을 눌렀습니다.")
             if let txt = alert.textFields?.first {
                 
-                if txt.text?.isEmpty != true { //https://jeonyeohun.tistory.com/87 타입추론 형 변환
-                    print("입력값: ", txt.text!)
-                    self.count = Double(txt.text!)!
+                    if txt.text?.isEmpty != true { //https://jeonyeohun.tistory.com/87 타입추론 형 변환
+                        print("입력값: ", txt.text!)
+                        if let inputcount = Double(txt.text!){ // https://developer.apple.com/forums/thread/100634 숫자 판별
+                            if inputcount < 356400 && txt.text!.count < 3 {
+                                self.count = inputcount * 3600
+                                self.CountLabel()
+                                print("입력한숫자값:", inputcount)
+                                print(type(of: inputcount))
+                            } else {
+                                self.UpAlertError()
+                                print("99시간이 넘어간다.")
+                            }
+                            
+                        } else {
+                            let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: "시간은 숫자만 입력가능합니다.", preferredStyle: UIAlertController.Style.alert)
+                            let ok = UIAlertAction(title: "네", style: .destructive, handler: nil)
+                            alert.addAction(ok)
+                            self.present(alert, animated: false, completion: nil)
+                            print("숫자가 아님.")
+                        }
               
                     print("입력한숫자값:", self.count)
                     print(type(of: self.count))
@@ -400,6 +410,33 @@ class MainTimer: UIViewController {
         alert.addAction(cancel)
         
         present(alert, animated: true)
+    }
+    
+    func Enable() //증감 버튼 및 시간레이블 활성화 메소드
+    {
+        hourUpButton.isEnabled = true
+        hourDownButton.isEnabled = true
+        minUpButton.isEnabled = true
+        minDownButton.isEnabled = true
+        secUpButton.isEnabled = true
+        secDownButton.isEnabled = true
+        millisecUpButton.isEnabled = true
+        millisecDownButton.isEnabled = true
+        
+        HourLabel.isUserInteractionEnabled = true
+    }
+    
+    func Disable() //증감 버튼 및 시간레이블 비활성화 메소드
+    {
+        hourUpButton.isEnabled = false
+        hourDownButton.isEnabled = false
+        minUpButton.isEnabled = false
+        minDownButton.isEnabled = false
+        secUpButton.isEnabled = false
+        secDownButton.isEnabled = false
+        millisecUpButton.isEnabled = false
+        millisecDownButton.isEnabled = false
+        HourLabel.isUserInteractionEnabled = false
     }
     
     @IBAction func millisecUp(_ sender : Any)
