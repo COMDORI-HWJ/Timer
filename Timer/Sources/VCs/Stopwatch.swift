@@ -50,6 +50,7 @@ class Stopwatch: UIViewController {
     var second = 0
     var milliSecond = 0
 
+    var recordList: [String] = [] //스톱워치 시간 기록 배열
 
        
     @IBOutlet weak var TimeLabel: UILabel!
@@ -60,9 +61,11 @@ class Stopwatch: UIViewController {
     @IBOutlet weak var MillisecLabel: UILabel!
     
     @IBOutlet weak var StartStopButton: UIButton!
-    @IBOutlet weak var ResetButton: UIButton!
+    @IBOutlet weak var RecordResetButton: UIButton!
     
-
+    @IBOutlet weak var TimeTableView: UITableView!
+    
+    
     
     @IBOutlet weak var bannerView: GADBannerView!
     
@@ -106,7 +109,35 @@ class Stopwatch: UIViewController {
     enum StopwatchStatus {
         case start, stop
     }
-    var stopwatchStatus: StopwatchStatus = .start
+    //var stopwatchStatus: StopwatchStatus = .start
+    
+    @IBAction func StopwatchStartStop(_ sender: Any)
+    {
+        startTime = Date()
+        if (TimerStatus)
+        {
+            TimerStatus = false
+            count = elapsed - count //일시정지 동안 경과된 시간(흐르는 시간)을 저장된 시간에서 빼준다.
+            timer.invalidate()
+            StartStopButton.setTitle("Start", for: .normal)
+            RecordResetButton.setTitle("초기화", for: .normal)
+            
+        }
+        else
+        {
+          
+            TimerStatus = true
+            StartStopButton.setTitle("Pause", for: .normal)
+            RecordResetButton.setTitle("기록", for: .normal)
+            print("일시정지")
+                    DispatchQueue.main.async {
+                        // Timer카운터 쓰레드 적용
+                        self.timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(self.timerCounter), userInfo: nil, repeats: true)
+                    }
+            
+        }
+    }
+    
     
 //    @IBAction func StopwatchStartStop1(_ sender: Any)
 //    {
@@ -184,32 +215,7 @@ class Stopwatch: UIViewController {
         //return ((ms / 3600000), ((ms % 3600000) / 60000), ((ms % 60000) / 1000), (ms % 3600000) % 1000) //1시간을 1밀리초로 환산하여 계산함. ex)3600000밀리초는 1시간
     }
     
-    @IBAction func StopwatchStartStop(_ sender: Any)
-    {
-        startTime = Date()
-        if (TimerStatus)
-        {
-            TimerStatus = false
-            count = elapsed - count //일시정지 동안 경과된 시간(흐르는 시간)을 저장된 시간에서 빼준다.
-            timer.invalidate()
-            StartStopButton.setTitle("Start", for: .normal)
-            ResetButton.setTitle("초기화", for: .normal)
-            
-        }
-        else
-        {
-          
-            TimerStatus = true
-            StartStopButton.setTitle("Pause", for: .normal)
-            ResetButton.setTitle("기록", for: .normal)
-            print("일시정지")
-                    DispatchQueue.main.async {
-                        // Timer카운터 쓰레드 적용
-                        self.timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(self.timerCounter), userInfo: nil, repeats: true)
-                    }
-            
-        }
-    }
+
     
     
 //    @IBAction func StopwatchStartStop(_ sender: Any)
@@ -276,16 +282,20 @@ class Stopwatch: UIViewController {
 //        SecLabel.text = String(format: "%02d", second)
 //        MillisecLabel.text = String(format: "%03d", milliSecond)
 
-        print("hour time:", hour)
-        print("min time:", minute)
-        print("sec time:", second)
-        print("millisec time:", milliSecond)
-
-        print("남은 카운트:", count)
+//        print("hour time:", hour)
+//        print("min time:", minute)
+//        print("sec time:", second)
+//        print("millisec time:", milliSecond)
+//
+//        print("남은 카운트:", count)
         //print("첫번째 카운트: \(Firstcount)")
        //dump("첫번째 카운트: \(Firstcount)")
 
         //return ((ms / 3600000), ((ms % 3600000) / 60000), ((ms % 60000) / 1000), (ms % 3600000) % 1000) //1시간을 1밀리초로 환산하여 계산함. ex)3600000밀리초는 1시간
+        
+
+        
+        
     }
    
     func Reset() /* 초기화 함수 선언 */
@@ -295,9 +305,10 @@ class Stopwatch: UIViewController {
         count = 0
         remainTime = 0
         elapsed = 0
+        recordList.removeAll() // 스톱워치 기록 배열 초기화
 
         StartStopButton.setTitle("Start", for: .normal)
-        ResetButton.setTitle("초기화", for: .normal)
+        RecordResetButton.setTitle("초기화", for: .normal)
 
         Firstcount = 0
         TimeLabel.text = "00:00:00.000"
@@ -306,14 +317,24 @@ class Stopwatch: UIViewController {
 //        SecLabel.text = "00"
 //        MillisecLabel.text = "000"
         print("초기화 남은 카운트:", count)
+        
 
         
     }
     
-    @IBAction func ResetButton(_ sender: Any)
+    @IBAction func RecordResetButton(_ sender: Any)
     {
-        Reset() //초기화 함수 호출
-        print("초기화 되었습니다.")
+        if (TimerStatus == true) {
+            let record = "\(hour):\(minute):\(second):\(milliSecond)" //스톱워치 시간을 기록
+            recordList.append(record)
+            print(recordList)
+
+        }
+        else {
+            Reset() //초기화 함수 호출
+            print("초기화 되었습니다.")
+        }
+
         
     }
     

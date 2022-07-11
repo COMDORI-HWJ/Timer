@@ -743,7 +743,7 @@ class MainTimer: UIViewController {
     
     private func tipLabel()
     {
-        TipLabel.text = "빠르게 시간을 변경하려면 타이머 시간을 탭하세요.\n시:분:초:밀리초"
+        TipLabel.text = "빠르게 시간을 변경하려면 타이머 숫자를 탭하세요.\n시:분:초:밀리초"
     }
     
 }

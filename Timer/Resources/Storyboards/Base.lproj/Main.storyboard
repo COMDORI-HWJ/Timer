@@ -1359,8 +1359,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="RecordResetButton:" destination="TvW-ox-nD7" eventType="touchUpInside" id="keC-Dz-WPc"/>
                                             <action selector="ResetButton:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="dz7-dR-ZVd"/>
-                                            <action selector="ResetButton:" destination="TvW-ox-nD7" eventType="touchUpInside" id="eh0-b2-lQX"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1406,9 +1406,10 @@
                     <navigationItem key="navigationItem" id="dqg-Lv-JKA"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
                     <connections>
-                        <outlet property="ResetButton" destination="OVc-ug-WS5" id="ngP-Im-EC9"/>
+                        <outlet property="RecordResetButton" destination="OVc-ug-WS5" id="G9v-ob-P9r"/>
                         <outlet property="StartStopButton" destination="1Ol-qq-4mg" id="K7C-9k-l1z"/>
                         <outlet property="TimeLabel" destination="6Qx-F3-pR7" id="Tue-z5-teD"/>
+                        <outlet property="TimeTableView" destination="qcb-tt-kp1" id="rr2-av-9AR"/>
                         <outlet property="bannerView" destination="srG-6T-LVl" id="xBQ-JD-EY8"/>
                     </connections>
                 </viewController>
