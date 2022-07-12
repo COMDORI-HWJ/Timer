@@ -36,6 +36,7 @@
 		379383DB2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.49.51.png in Resources */ = {isa = PBXBuildFile; fileRef = 379383D12852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.49.51.png */; };
 		379383DC2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.15.png in Resources */ = {isa = PBXBuildFile; fileRef = 379383D22852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.15.png */; };
 		379383DD2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png in Resources */ = {isa = PBXBuildFile; fileRef = 379383D32852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png */; };
+		379EA0C7287DC19000406FC8 /* Stopwatch extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379EA0C6287DC19000406FC8 /* Stopwatch extension.swift */; };
 		37C3E2A22852A617009E6D5B /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C3E2A12852A617009E6D5B /* MainTabBar.swift */; };
 		BECDA9BFE8857DFD0A03E72D /* Pods_Timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F160EE6B80F5B857748379 /* Pods_Timer.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		379383D12852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.49.51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.49.51.png"; sourceTree = "<group>"; };
 		379383D22852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.15.png"; sourceTree = "<group>"; };
 		379383D32852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png"; sourceTree = "<group>"; };
+		379EA0C6287DC19000406FC8 /* Stopwatch extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stopwatch extension.swift"; sourceTree = "<group>"; };
 		37C3E2A12852A617009E6D5B /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		68F160EE6B80F5B857748379 /* Pods_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Timer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77415CFC5A01F4DFF2332A9 /* Pods-Timer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timer.debug.xcconfig"; path = "Target Support Files/Pods-Timer/Pods-Timer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 		37F6722128624F8500AE6284 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				379EA0C6287DC19000406FC8 /* Stopwatch extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				37C3E2A22852A617009E6D5B /* MainTabBar.swift in Sources */,
 				2B69E3EC27224DBA00591357 /* SettingTableCell.swift in Sources */,
 				378210EA27FF5EFC00B312C3 /* Button.swift in Sources */,
+				379EA0C7287DC19000406FC8 /* Stopwatch extension.swift in Sources */,
 				2B69E3EA2722459D00591357 /* Setting.swift in Sources */,
 				2BA0F049269395C20040D20B /* AppDelegate.swift in Sources */,
 				2BA0F04B269395C20040D20B /* SceneDelegate.swift in Sources */,

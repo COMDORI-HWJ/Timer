@@ -7,10 +7,10 @@
 
 /* Reference
  
-https://unclean.tistory.com/27 타이머3 시작시간 카운트
-https://ios-development.tistory.com/773 타이머4
-https://ios-development.tistory.com/775 DispatchSourceTimer를 이용한 Timer 모듈 구현
-https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
+ https://unclean.tistory.com/27 타이머3 시작시간 카운트
+ https://ios-development.tistory.com/773 타이머4
+ https://ios-development.tistory.com/775 DispatchSourceTimer를 이용한 Timer 모듈 구현
+ https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
 옵셔널 체이닝: 변수나 상수 뒤에 ? 또는 !느낌표를 사용하여 옵셔널에서 값을 강제 추출하는 효과가 있다. 사용을 지양하는 편이 좋다고 한다.
  https://80000coding.oopy.io/0bd77cd3-7dc7-4cf4-93ee-8ca4fbca898e 가드문 사용법 (if문보다 빠르게 끝낸다)
  https://jesterz91.github.io/ios/2021/04/07/ios-notification/ UserNotification 프레임워크를 이용한 알림구현
@@ -18,6 +18,8 @@ https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
  https://gonslab.tistory.com/27 푸시 알림 권한
  https://inuplace.tistory.com/1163 로컬라이징
  https://fomaios.tistory.com/entry/Swift-Enum%EC%97%B4%EA%B1%B0%ED%98%95%EC%9D%84-%EC%8D%A8%EC%95%BC-%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0 Enum 열거형 이란?
+ https://pskbhnsr.tistory.com/48 딕셔너리 정렬
+ 
  */
 
 import Foundation
@@ -28,6 +30,20 @@ import UserNotifications
 import SystemConfiguration
 
 class Stopwatch: UIViewController {
+    
+    @IBOutlet weak var TimeLabel: UILabel!
+    
+    @IBOutlet weak var HourLabel: UILabel!
+    @IBOutlet weak var MinLabel: UILabel!
+    @IBOutlet weak var SecLabel: UILabel!
+    @IBOutlet weak var MillisecLabel: UILabel!
+    
+    @IBOutlet weak var StartStopButton: UIButton!
+    @IBOutlet weak var RecordResetButton: UIButton!
+    
+    @IBOutlet weak var LapsTableView: UITableView!
+    
+    @IBOutlet weak var bannerView: GADBannerView!
     
     let appName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as! String
     //let appName = infoDictionary["CFBundleDisplayName"] as! String
@@ -49,30 +65,15 @@ class Stopwatch: UIViewController {
     var minute = 0
     var second = 0
     var milliSecond = 0
-
+        
     var recordList: [String] = [] //스톱워치 시간 기록 배열
-
-       
-    @IBOutlet weak var TimeLabel: UILabel!
-    
-    @IBOutlet weak var HourLabel: UILabel!
-    @IBOutlet weak var MinLabel: UILabel!
-    @IBOutlet weak var SecLabel: UILabel!
-    @IBOutlet weak var MillisecLabel: UILabel!
-    
-    @IBOutlet weak var StartStopButton: UIButton!
-    @IBOutlet weak var RecordResetButton: UIButton!
-    
-    @IBOutlet weak var TimeTableView: UITableView!
-    
-    
-    
-    @IBOutlet weak var bannerView: GADBannerView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        LapsTableView.delegate = self
+        LapsTableView.dataSource = self
         self.navigationController?.navigationBar.topItem?.title="AD" //뷰 제목
   
          /* Admob */
@@ -105,11 +106,7 @@ class Stopwatch: UIViewController {
                }
            })
        }
-    
-    enum StopwatchStatus {
-        case start, stop
-    }
-    //var stopwatchStatus: StopwatchStatus = .start
+
     
     @IBAction func StopwatchStartStop(_ sender: Any)
     {
@@ -134,7 +131,7 @@ class Stopwatch: UIViewController {
                         // Timer카운터 쓰레드 적용
                         self.timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(self.timerCounter), userInfo: nil, repeats: true)
                     }
-            
+            RunLoop.current.run() //다른 작업을 실행해도 타이머는 돌아간다(Ex.LAP 테이블을 스크롤시 타이머가 안멈춤.)
         }
     }
     
@@ -214,10 +211,12 @@ class Stopwatch: UIViewController {
        
         //return ((ms / 3600000), ((ms % 3600000) / 60000), ((ms % 60000) / 1000), (ms % 3600000) % 1000) //1시간을 1밀리초로 환산하여 계산함. ex)3600000밀리초는 1시간
     }
-    
 
-    
-    
+//    enum StopwatchStatus {
+//        case start, stop
+//    }
+//    var stopwatchStatus: StopwatchStatus = .start
+//
 //    @IBAction func StopwatchStartStop(_ sender: Any)
 //    {
 //        startTime = Date()
@@ -270,13 +269,13 @@ class Stopwatch: UIViewController {
 //            }
 
 
-
         hour = (Int)(fmod((remainTime/60/60), 100)) // 분을 12로 나누어 시를 구한다
         minute = (Int)(fmod((remainTime/60), 60)) // 초를 60으로 나누어 분을 구한다
         second = (Int)(fmod(remainTime, 60)) // 초를 구한다
         milliSecond = (Int)((remainTime - floor(remainTime))*1000)
 
         TimeLabel.text = String(format: "%02d:", hour)+String(format: "%02d:", minute)+String(format: "%02d.", second)+String(format: "%03d", milliSecond)
+        
 //        HourLabel.text = String(format: "%02d", hour)
 //        MinLabel.text = String(format: "%02d", minute)
 //        SecLabel.text = String(format: "%02d", second)
@@ -293,9 +292,27 @@ class Stopwatch: UIViewController {
 
         //return ((ms / 3600000), ((ms % 3600000) / 60000), ((ms % 60000) / 1000), (ms % 3600000) % 1000) //1시간을 1밀리초로 환산하여 계산함. ex)3600000밀리초는 1시간
         
+        
+    }
+    
+    @IBAction func RecordResetButton(_ sender: Any)
+    {
+               
+        if (TimerStatus == true) {
 
-        
-        
+            let record = "\(hour):\(minute):\(second):\(milliSecond)" //스톱워치 시간을 기록
+            recordList.append(record)
+            LapsTableView.reloadData()
+            //tableViewScroll() 
+            
+            print(recordList)
+
+        }
+        else {
+            Reset() //초기화 함수 호출
+            print("초기화 되었습니다.")
+        }
+
     }
    
     func Reset() /* 초기화 함수 선언 */
@@ -306,9 +323,11 @@ class Stopwatch: UIViewController {
         remainTime = 0
         elapsed = 0
         recordList.removeAll() // 스톱워치 기록 배열 초기화
+        LapsTableView.reloadData() // 스톱워치 랩 테이블 초기화
+
 
         StartStopButton.setTitle("Start", for: .normal)
-        RecordResetButton.setTitle("초기화", for: .normal)
+        RecordResetButton.setTitle("기록", for: .normal)
 
         Firstcount = 0
         TimeLabel.text = "00:00:00.000"
@@ -318,25 +337,9 @@ class Stopwatch: UIViewController {
 //        MillisecLabel.text = "000"
         print("초기화 남은 카운트:", count)
         
-
-        
     }
     
-    @IBAction func RecordResetButton(_ sender: Any)
-    {
-        if (TimerStatus == true) {
-            let record = "\(hour):\(minute):\(second):\(milliSecond)" //스톱워치 시간을 기록
-            recordList.append(record)
-            print(recordList)
 
-        }
-        else {
-            Reset() //초기화 함수 호출
-            print("초기화 되었습니다.")
-        }
-
-        
-    }
     
 //    func CountLabel()
 //    {
@@ -444,4 +447,13 @@ class Stopwatch: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    private func tableViewScroll() { //기록 테이블 자동 스크롤 갱신 메소드
+        let numberOfSections = LapsTableView.numberOfSections
+        let numberOfRows = LapsTableView.numberOfRows(inSection: numberOfSections - 1)
+        let lastPath = IndexPath(row: numberOfRows - 1, section: numberOfSections - 1)
+        LapsTableView.scrollToRow(at: lastPath, at: .none, animated: true)
+    }
+    
 }
+
+
