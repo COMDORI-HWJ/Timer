@@ -2,10 +2,11 @@
 //  ViewController.swift(3600000(1시간)밀리초에서 빼는 방식의 타이머, 초기개발방식)
 //
 //  Created by WONJI HA on 2021/07/06.
+//  Code Ver: 1.4.9
 
 /*
  Reference
- https://youtu.be/3TbdoVhgQmE 타이머 앱 초기 구성 (유튜브 참고 기반)
+ https://youtu.be/3TbdoVhgQmE 유튜브 참고
  https://www.youtube.com/watch?v=GzwLobVuXXI 백그라운드 타이머
  https://kwangsics.tistory.com/entry/Swift-%ED%95%A8%EC%88%98-%EC%A0%95%EC%9D%98%EC%99%80-%ED%98%B8%EC%B6%9C?category=606525 함수 정의 및 호출
  https://bite-sized-learning.tistory.com/175 타이머1
@@ -26,10 +27,9 @@ class ViewController: UIViewController {
     var timer = Timer()
     var timercount : Bool = false
     var count : Double = 0
-    var remainTime : Double = 0 // 남은시간
+    var startTime = Date()
     
-    var DisplayName = "MTimer"
-
+    var remainTime : Double = 0 // 남은시간
 
    // let timeSel: Selector = #selector(ViewController.updateTime)
        
@@ -74,7 +74,6 @@ class ViewController: UIViewController {
 
     @IBAction func Start_StopButton(_ sender: Any)
     {
-        let startTime = Date()
         if timercount
         {
             timercount = false
@@ -82,28 +81,17 @@ class ViewController: UIViewController {
             StartStopButton.setTitle("Start", for: .normal)
             
         }
-        else
+        else if(count > 0)
         {
           
                 timercount = true
                 StartStopButton.setTitle("Pause", for: .normal)
                 print("일시정지")
-                DispatchQueue.main.async {
-                    self.timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { [weak self] timer in
-                                       let timeInterval = Date().timeIntervalSince(startTime)
-                                       self?.remainTime = self!.count - timeInterval // 남은시간 계산
-                                       self!.timeLabel()
-                        
-                        
-                        
-                        
-                        
-                        
-                        // RunLoop.current.run()
+            DispatchQueue.global().async {
+                self.timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(self.timerCounter), userInfo: nil, repeats: true)
+                RunLoop.current.run()
 
-                    } )
-                }
-                                                      
+            }
        
                 /* 카운트다운 동안 시간 버튼 비활성화 */
                 hourUpButton.isEnabled = false
@@ -118,7 +106,11 @@ class ViewController: UIViewController {
 //            RunLoop.current.add(timer, forMode: .default) // 타이머가 작동하지 않을때 런루프를 사용한다.
             
         }
-        
+        else
+        {
+            print(count,"초 미만, 카운트 다운 실패")
+
+        }
         
     }
     
@@ -155,7 +147,7 @@ class ViewController: UIViewController {
 //        let timeText = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
 //        TimerLabel.text = timeText
 
-        let time = CalTime(ms: Int(remainTime))
+        let time = CalTime(ms: Int(count))
         let timeText = TimeString(hours: time.0, minutes: time.1, seconds: time.2, milliseconds: time.3)
         DispatchQueue.main.async {
             self.TimeLabel.text = timeText
@@ -170,7 +162,7 @@ class ViewController: UIViewController {
         if(count > 0)
         {
 
-            //let realTime = Date().timeIntervalSince(self.startTime)
+            let realTime = Date().timeIntervalSince(self.startTime)
            
             //remainTime = count - realTime
             count -= 1 //해결필요? 8.28  8.4, 8.3

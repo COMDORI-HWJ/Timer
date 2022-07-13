@@ -1,2 +1,21 @@
+/*
+ Reference
+ 
+ http://yoonbumtae.com/?p=4168 로컬라이제이션 방법
+ https://lxxyeon.tistory.com/133 개발언어 한국어로 변경하는 법
+ */
+
 /* Class = "UITabBarItem"; title = "Countdown"; ObjectID = "MyG-DK-CRY"; */
 "MyG-DK-CRY.title" = "Timer";
+
+/* 타이머 탭*/
+"n2R-LT-9dT.normalTitle" = "Start"; //타이머 시작 버튼
+"wTj-3u-3EN.normalTitle" = "Reset"; //타이머 초기화 버튼
+
+/* 스톱워치 탭 */
+"1Ol-qq-4mg.normalTitle" = "Start"; //스톱워치 시작 버튼
+
+
+/* 설정 탭 */
+"9j6-AH-5HM.text" = "Time Control Button Haptic"; //타이머 시간 조절 버튼 햅틱
+"CgJ-3Q-KK9.text" = "Timer completion notifications"; //타이머 완료 알림

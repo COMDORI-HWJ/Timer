@@ -116,6 +116,8 @@
 /* Class = "UITabBarItem"; title = "Countdown"; ObjectID = "ufF-Ca-BxA"; */
 "ufF-Ca-BxA.title" = "타이머(테스트)";
 
+"149-E9-hRK.title" = "스톱워치";
+
 /* Class = "UIButton"; normalTitle = "↑"; ObjectID = "vC9-7f-0N1"; */
 "vC9-7f-0N1.normalTitle" = "↑";
 
