@@ -190,27 +190,27 @@ class Stopwatch: UIViewController {
 //
 //    }
     
-    func Timecal()
-    {
-        hour = (Int)(fmod((remainTime/60/60), 100)) // 분을 12로 나누어 시를 구한다
-        minute = (Int)(fmod((remainTime/60), 60)) // 초를 60으로 나누어 분을 구한다
-        second = (Int)(fmod(remainTime, 60)) // 초를 구한다
-        milliSecond = (Int)((remainTime - floor(remainTime))*1000)
-        
-        TimeLabel.text = String(format: "%02d:", hour)+String(format: "%02d:", minute)+String(format: "%02d.", second)+String(format: "%03d", milliSecond)
-        
-        print("hour time:", hour)
-        print("min time:", minute)
-        print("sec time:", second)
-        print("millisec time:", milliSecond)
-        print("remainTime:", remainTime)
-        print("경과시간:", elapsed)
-        print("남은 카운트:", count)
-        //print("첫번째 카운트: \(Firstcount)")
-       dump("첫번째 카운트: \(Firstcount)")
-       
-        //return ((ms / 3600000), ((ms % 3600000) / 60000), ((ms % 60000) / 1000), (ms % 3600000) % 1000) //1시간을 1밀리초로 환산하여 계산함. ex)3600000밀리초는 1시간
-    }
+//    func Timecal()
+//    {
+//        hour = (Int)(fmod((remainTime/60/60), 100)) // 분을 12로 나누어 시를 구한다
+//        minute = (Int)(fmod((remainTime/60), 60)) // 초를 60으로 나누어 분을 구한다
+//        second = (Int)(fmod(remainTime, 60)) // 초를 구한다
+//        milliSecond = (Int)((remainTime - floor(remainTime))*1000)
+//
+//        TimeLabel.text = String(format: "%02d:", hour)+String(format: "%02d:", minute)+String(format: "%02d.", second)+String(format: "%03d", milliSecond)
+//
+//        print("hour time:", hour)
+//        print("min time:", minute)
+//        print("sec time:", second)
+//        print("millisec time:", milliSecond)
+//        print("remainTime:", remainTime)
+//        print("경과시간:", elapsed)
+//        print("남은 카운트:", count)
+//        //print("첫번째 카운트: \(Firstcount)")
+//       dump("첫번째 카운트: \(Firstcount)")
+//
+//        //return ((ms / 3600000), ((ms % 3600000) / 60000), ((ms % 60000) / 1000), (ms % 3600000) % 1000) //1시간을 1밀리초로 환산하여 계산함. ex)3600000밀리초는 1시간
+//    }
 
 //    enum StopwatchStatus {
 //        case start, stop
@@ -274,7 +274,8 @@ class Stopwatch: UIViewController {
         second = (Int)(fmod(remainTime, 60)) // 초를 구한다
         milliSecond = (Int)((remainTime - floor(remainTime))*1000)
 
-        TimeLabel.text = String(format: "%02d:", hour)+String(format: "%02d:", minute)+String(format: "%02d.", second)+String(format: "%03d", milliSecond)
+        TimeLabel.text = String(format: "%02d:", hour)+String(format: "%02d:", minute)+String(format: "%02d.", second)
+        MillisecLabel.text = String(format: "%03d", milliSecond)
         
 //        HourLabel.text = String(format: "%02d", hour)
 //        MinLabel.text = String(format: "%02d", minute)
@@ -330,7 +331,8 @@ class Stopwatch: UIViewController {
         RecordResetButton.setTitle("기록", for: .normal)
 
         Firstcount = 0
-        TimeLabel.text = "00:00:00.000"
+        TimeLabel.text = "00:00:00."
+        MillisecLabel.text = "000"
 //        HourLabel.text = "00"
 //        MinLabel.text = "00"
 //        SecLabel.text = "00"

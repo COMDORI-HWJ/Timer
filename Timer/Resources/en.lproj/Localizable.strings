@@ -8,7 +8,22 @@
 
 // https://babbab2.tistory.com/59
 
-"Time is no" = "Time is null";
+
 "오류!" = "Error!";
 "경고" = "Warning";
+"확인" = "OK";
 "타이머는 99시까지만 설정가능합니다." = "It can be set up to 99 o'clock.";
+
+"시작" = "Start";
+"초기화" = "Reset";
+"일시정지" = "Pause";
+
+"타이머 완료" = "Timer done";
+"0초가 되었습니다. 타이머를 다시 작동하려면 알림을 탭하세요!" = "0 Seconds. Just tap the notification to make the timer work again!";
+"시간이 충분히 남아 있지 않아 시간을 감소할 수 없습니다." = "Time is no.";
+
+"타이머 시간을 입력하세요" = "Enter the timer time";
+"1시간은 1을 입력하면됩니다. 예) 99입력→99시간" = "For 1 hour = Enter 1 Ex) 99input → 99hour";
+"시간은 숫자만 입력가능합니다." = "Only numbers can be entered for the time.";
+"취소" = "Cancel";
+"이곳에 시간을 입력하세요." = "Please enter your time here.";

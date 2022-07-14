@@ -11,8 +11,6 @@
 /* Class = "UIButton"; normalTitle = "↑"; ObjectID = "8Tr-aC-Tun"; */
 "8Tr-aC-Tun.normalTitle" = "↑";
 
-/* Class = "UIViewController"; title = "Countdown"; ObjectID = "BYZ-38-t0r"; */
-"BYZ-38-t0r.title" = "타이머";
 
 /* Class = "UIButton"; normalTitle = "↓"; ObjectID = "CA8-6k-cfL"; */
 "CA8-6k-cfL.normalTitle" = "↓";
@@ -68,8 +66,7 @@
 /* Class = "UITabBarController"; title = "Main"; ObjectID = "Zrm-wF-le5"; */
 "Zrm-wF-le5.title" = "Main";
 
-/* Class = "UITabBarItem"; title = "Stopwatch"; ObjectID = "ckb-No-S11"; */
-"ckb-No-S11.title" = "스톱워치";
+
 
 /* Class = "UITabBarItem"; title = "Back"; ObjectID = "cmV-zJ-AKM"; */
 "cmV-zJ-AKM.title" = "Back";

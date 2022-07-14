@@ -143,7 +143,7 @@ class MainTimer: UIViewController {
             TimerStatus = false
             count = count - elapsed //일시정지 동안 카운트된 시간을 빼서 카운트를 줄인다(일시정지후 초기화 안됨)
             timer.invalidate()
-            StartStopButton.setTitle("Start", for: .normal)
+            StartStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
             
             Enable()
 
@@ -151,7 +151,7 @@ class MainTimer: UIViewController {
         else if (count > 0)
         {
             TimerStatus = true
-            StartStopButton.setTitle("Pause", for: .normal)
+            StartStopButton.setTitle(String(format: NSLocalizedString("일시중지", comment: "Pause")), for: .normal)
             DispatchQueue.main.async {
                 // Timer카운터 쓰레드 적용
                 self.timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { [weak self] timer in
@@ -231,7 +231,7 @@ class MainTimer: UIViewController {
         count = 0
         remainTime = 0
         elapsed = 0
-        self.StartStopButton.setTitle("Start", for: .normal)
+        self.StartStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
         Firstcount = 0
    
         HourLabel.text = "00"
@@ -253,14 +253,18 @@ class MainTimer: UIViewController {
     
     func CountLabel()
     {
+        let MSC = Int((count - floor(count))*1000)
         /*        3600==1시간        60==1분        1==1초        0.001==1밀리초        */
         HourLabel.text = String(format: "%02d", (Int)(fmod((count/60/60), 100)))
         MinLabel.text = String(format: "%02d", (Int)(fmod((count/60), 60)))
         SecLabel.text = String(format: "%02d", (Int)(fmod(count, 60)))
-        MillisecLabel.text = String(format: "%03d", (Int)((count - floor(count))*1000))
+        MillisecLabel.text = String(format: "%03d", MSC)
         print("계산된 카운트:", count)
         //            MillisecLabel.text = "\((count - floor(count))*1000)"
         
+       
+                                    
+        print("밀리초: ", MillisecLabel.text)
     }
     
   
@@ -281,8 +285,8 @@ class MainTimer: UIViewController {
     {
 
         Noti.title = appName
-        Noti.subtitle = String(format: NSLocalizedString("Timer done", comment: ""))
-        Noti.body = "0초가 되었습니다. 타이머를 다시 작동하려면 알림을 터치하세요!"
+        Noti.subtitle = String(format: NSLocalizedString("타이머 완료", comment: "Timer done"))
+        Noti.body = String(format: NSLocalizedString("0초가 되었습니다. 타이머를 다시 작동하려면 알림을 탭하세요!", comment: ""))
         Noti.badge = 1
         Noti.sound = UNNotificationSound.default
         
@@ -342,7 +346,7 @@ class MainTimer: UIViewController {
     
     func UpAlertError()
     {
-        let alert = UIAlertController(title: String(format: NSLocalizedString("경고", comment: "")), message: String(format: NSLocalizedString("타이머는 99시까지만 설정가능합니다.(설정할 수 있는 최대 시간값을 넘겼습니다)", comment: "")), preferredStyle: .alert)
+        let alert = UIAlertController(title: String(format: NSLocalizedString("경고", comment: "Warning")), message: String(format: NSLocalizedString("타이머는 99시까지만 설정가능합니다.(설정할 수 있는 최대 시간값을 넘겼습니다)", comment: "")), preferredStyle: .alert)
 //        let alert = UIAlertController(title: "알림", message: "타이머는 99시까지만 설정가능합니다.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true, completion: nil)
@@ -350,8 +354,8 @@ class MainTimer: UIViewController {
     
     func DownAlertError ()
     {
-        let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: String(format: NSLocalizedString("Time is no", comment: "시간없음")), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: String(format: NSLocalizedString("OK", comment: "")), style: .destructive))
+        let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "Error")), message: String(format: NSLocalizedString("시간이 충분히 남아 있지 않아 시간을 감소할 수 없습니다.", comment: "Time is no")), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .destructive))
         present(alert, animated: true, completion: nil)
     }
     
@@ -562,15 +566,15 @@ class MainTimer: UIViewController {
     //    @IBAction func Timeinput(_ sender: Any)
         func Hourinput()
         {
-            let alert = UIAlertController(title: "타이머 시간을 입력하세요", message: "1시간은 1을 입력하면됩니다. 예) 99입력→99시간", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "확인", style: .default) { (_) in
+            let alert = UIAlertController(title: String(format: NSLocalizedString("타이머 시간을 입력하세요", comment: "Enter the timer time")), message: String(format: NSLocalizedString("1시간은 1을 입력하면됩니다. 예) 99입력→99시간", comment: "")), preferredStyle: .alert)
+            let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .default) { (_) in
                 print("알림창에서 확인을 눌렀습니다.")
                 if let txt = alert.textFields?.first {
                         if txt.text?.isEmpty != true { //https://jeonyeohun.tistory.com/87 타입추론 형 변환
                             print("입력값: ", txt.text!)
-                            if let inputcount = Double(txt.text!){ // https://developer.apple.com/forums/thread/100634 숫자 판별
+                            if let inputcount = Int(txt.text!){ // https://developer.apple.com/forums/thread/100634 숫자 판별
                                 if inputcount < 356400 && txt.text!.count < 3 {
-                                    self.count = (inputcount * 3600) + self.count
+                                    self.count = Double(inputcount * 3600) + self.count
                                     self.CountLabel()
                                     print("입력한숫자값:", inputcount)
                                     print(type(of: inputcount))
@@ -579,8 +583,8 @@ class MainTimer: UIViewController {
                                     print("99시간이 넘어간다.")
                                 }
                             } else {
-                                let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: "시간은 숫자만 입력가능합니다.", preferredStyle: UIAlertController.Style.alert)
-                                let ok = UIAlertAction(title: "네", style: .destructive, handler: nil)
+                                let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: String(format: NSLocalizedString("시간은 숫자만 입력가능합니다.", comment: "")), preferredStyle: UIAlertController.Style.alert)
+                                let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .destructive, handler: nil)
                                 alert.addAction(ok)
                                 self.present(alert, animated: false, completion: nil)
                                 print("숫자가 아님.")
@@ -592,9 +596,9 @@ class MainTimer: UIViewController {
                 }
             }
             
-            let cancel = UIAlertAction(title: "취소", style: .cancel)
+            let cancel = UIAlertAction(title: String(format: NSLocalizedString("취소", comment: "Cancel")), style: .cancel)
             alert.addTextField() { (textField) in
-                textField.placeholder = "이곳에 시간을 입력하세요."
+                textField.placeholder = String(format: NSLocalizedString("이곳에 시간을 입력하세요.", comment: ""))
                 textField.textContentType = .creditCardNumber //숫자 키패드
                 textField.keyboardType = .numberPad
             }
@@ -611,9 +615,9 @@ class MainTimer: UIViewController {
             if let txt = alert.textFields?.first {
                     if txt.text?.isEmpty != true {
                         print("입력값: ", txt.text!)
-                        if let inputcount = Double(txt.text!){
+                        if let inputcount = Int(txt.text!){
                             if inputcount < 356400 && txt.text!.count < 3 {
-                                self.count = (inputcount * 60) + self.count
+                                self.count = Double(inputcount * 60) + self.count
                                 self.CountLabel()
                                 print("입력한숫자값:", inputcount)
                                 print(type(of: inputcount))
@@ -639,7 +643,7 @@ class MainTimer: UIViewController {
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         
         alert.addTextField() { (textField) in
-            textField.placeholder = "이곳에 시간을 입력하세요."
+            textField.placeholder = "이곳에 분을 입력하세요."
             textField.textContentType = .creditCardNumber //숫자 키패드
             textField.keyboardType = .numberPad
             
@@ -657,9 +661,9 @@ class MainTimer: UIViewController {
             if let txt = alert.textFields?.first {
                     if txt.text?.isEmpty != true {
                         print("입력값: ", txt.text!)
-                        if let inputcount = Double(txt.text!){
+                        if let inputcount = Int(txt.text!){
                             if inputcount < 356400 {
-                                self.count = inputcount + self.count
+                                self.count = Double(inputcount) + self.count
                                 self.CountLabel()
                                 print("입력한숫자값:", inputcount)
                                 print(type(of: inputcount))
@@ -685,7 +689,7 @@ class MainTimer: UIViewController {
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         
         alert.addTextField() { (textField) in
-            textField.placeholder = "이곳에 시간을 입력하세요."
+            textField.placeholder = "이곳에 초를 입력하세요."
             textField.textContentType = .creditCardNumber //숫자 키패드
             textField.keyboardType = .numberPad
             
@@ -703,11 +707,12 @@ class MainTimer: UIViewController {
             if let txt = alert.textFields?.first {
                     if txt.text?.isEmpty != true {
                         print("입력값: ", txt.text!)
-                        if let inputcount = Double(txt.text!){
+                        if let inputcount = Int(txt.text!){
                             if inputcount < 356400 {
-                                self.count = (inputcount * 0.001) + self.count
+                                let num = Double(inputcount) * 0.001
+                                self.count = num + self.count
                                 self.CountLabel()
-                                print("입력한숫자값:", inputcount)
+                                
                                 print(type(of: inputcount))
                             } else {
                                 self.UpAlertError()
@@ -731,7 +736,7 @@ class MainTimer: UIViewController {
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         
         alert.addTextField() { (textField) in
-            textField.placeholder = "이곳에 시간을 입력하세요."
+            textField.placeholder = "이곳에 밀리초를 입력하세요."
             textField.textContentType = .creditCardNumber //숫자 키패드
             textField.keyboardType = .numberPad
             
