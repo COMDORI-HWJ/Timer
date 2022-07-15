@@ -24,17 +24,17 @@
 | Version |빌드 날짜 
 |-|-
 |1.4.5|2022년 4월 10일
-| ![title](Screenshots/1.4.5/IMG_2212.PNG)| ![](Screenshots/1.4.5/IMG_2213.PNG)
-| ![](Screenshots/1.4.5/IMG_2214.PNG)|![](Screenshots/1.4.5/IMG_2215.PNG)
-| ![](Screenshots/1.4.5/IMG_2216.PNG)|
+| ![title](Screenshots/1.4.5/IMG_2212.PNG){: width="100" height="100"}| ![](Screenshots/1.4.5/IMG_2213.PNG){: width="100" height="100"}
+| ![](Screenshots/1.4.5/IMG_2214.PNG){: width="100" height="100"} | ![](Screenshots/1.4.5/IMG_2215.PNG){: width="100" height="100"}
+| ![](Screenshots/1.4.5/IMG_2216.PNG){: width="100" height="100"} |
 
 
 
 | Version |빌드 날짜 
 |---------------|---|
 |1.6.0|2022년 6월 10일
-|![](Screenshots/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.49.41.png)|![](Screenshots/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.49.51.png)
-|![](Screenshots/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.50.03.png)|![](Screenshots/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.50.15.png)
+|![](Screenshots/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.49.41.png){: width="100" height="100"}|![](Screenshots/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.49.51.png){: width="100" height="100"}
+|![](Screenshots/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.50.03.png){: width="100" height="100"}|![](Screenshots/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.50.15.png){: width="100" height="100"}
 |![](Screenshots/1.6.0/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-06-10%20at%2008.50.43.png) 
 
 | Version |빌드 날짜 
@@ -45,14 +45,14 @@
 | Version |빌드 날짜 
 |---------------|---|
 |1.6.9|2022년 6월 24일
-|![](Screenshots/1.6.9/83ABF940-3250-4196-93BD-420C78303A15.png)|![](Screenshots/1.6.9/170C011B-C326-4EE5-928C-9F59A3E6D476.png)
-|![](Screenshots/1.6.9/E026E82F-DAC5-49E4-BD14-A2D316CB3B01.png)|![](Screenshots/1.6.9/FB879B37-30C3-43A8-B2F9-21355472A619.png)
+|![](Screenshots/1.6.9/83ABF940-3250-4196-93BD-420C78303A15.png){: width="100" height="100"}|![](Screenshots/1.6.9/170C011B-C326-4EE5-928C-9F59A3E6D476.png){: width="100" height="100"}
+|![](Screenshots/1.6.9/E026E82F-DAC5-49E4-BD14-A2D316CB3B01.png){: width="100" height="100"}|![](Screenshots/1.6.9/FB879B37-30C3-43A8-B2F9-21355472A619.png){: width="100" height="100"}
 |![](Screenshots/1.6.9/FD5F04FD-0A18-43C9-B2F2-2356237B8991.png) 
 
 | Version |빌드 날짜 
 |---------------|---|
 |1.7.1|2022년 7월 13일
-|![](Screenshots/1.7.1/IMG_1464.PNG)|![](Screenshots/1.7.1/IMG_1465.PNG)
-|![](Screenshots/1.7.1/IMG_1466.PNG)|![](Screenshots/1.7.1/IMG_1467.PNG)
+|![](Screenshots/1.7.1/IMG_1464.PNG){: width="100" height="100"}|![](Screenshots/1.7.1/IMG_1465.PNG)
+|![](Screenshots/1.7.1/IMG_1466.PNG){: width="100" height="100"}|![](Screenshots/1.7.1/IMG_1467.PNG){: width="100" height="100"}
 
 </div>
