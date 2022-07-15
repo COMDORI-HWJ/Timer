@@ -52,7 +52,7 @@
 | Version |빌드 날짜 
 |---------------|---|
 |1.7.1|2022년 7월 13일
-|![](Screenshots/1.7.1/IMG_1464.PNG){: width="100" height="100"}|![](Screenshots/1.7.1/IMG_1465.PNG)
+|![](Screenshots/1.7.1/IMG_1464.PNG){: width="100" height="100"}|![](Screenshots/1.7.1/IMG_1465.PNG){: width="100" height="100"}
 |![](Screenshots/1.7.1/IMG_1466.PNG){: width="100" height="100"}|![](Screenshots/1.7.1/IMG_1467.PNG){: width="100" height="100"}
 
 </div>
