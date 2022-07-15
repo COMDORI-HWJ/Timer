@@ -4,11 +4,11 @@
 //
 
 /* Reference
- 
-https://unclean.tistory.com/27 타이머3 시작시간 카운트
-https://ios-development.tistory.com/773 타이머4
-https://ios-development.tistory.com/775 DispatchSourceTimer를 이용한 Timer 모듈 구현
-https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
+ https://noahlogs.tistory.com/9 [기초]변수와 상수
+ https://unclean.tistory.com/27 타이머3 시작시간 카운트
+ https://ios-development.tistory.com/773 타이머4
+ https://ios-development.tistory.com/775 DispatchSourceTimer를 이용한 Timer 모듈 구현
+ https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
 옵셔널 체이닝: 변수나 상수 뒤에 ? 또는 !느낌표를 사용하여 옵셔널에서 값을 강제 추출하는 효과가 있다. 사용을 지양하는 편이 좋다고 한다.
  https://80000coding.oopy.io/0bd77cd3-7dc7-4cf4-93ee-8ca4fbca898e 가드문 사용법 (if문보다 빠르게 끝낸다)
  https://jesterz91.github.io/ios/2021/04/07/ios-notification/ UserNotification 프레임워크를 이용한 알림구현
@@ -35,25 +35,17 @@ class MainTimer: UIViewController {
     let appName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as! String
     //let appName = infoDictionary["CFBundleDisplayName"] as! String
       
-    var hour = 0
-    var minute = 0
-    var second = 0
-    var milliSecond = 0
-    
+    var hour = 0, minute = 0, second = 0, milliSecond = 0
+
     var timer = Timer()
     var TimerStatus : Bool = false // 타이머 상태
-    var count : Double = 0
-    var remainTime : Double = 0
+    var count : Double = 0, remainTime : Double = 0
     var elapsed : Double = 0 // 경과시간
     var Firstcount: Double = 0 //처음 시작한 카운트 <추후 db연동후 사용자가 많이 사용하는 시간 빅데이터화...>
     
     let Noti = UNMutableNotificationContent()
     let notiCenter = UNUserNotificationCenter.current()
-
-
-    
-
-
+   
 //    enum timerStatus {
 //        case start
 //        case stop
@@ -80,11 +72,7 @@ class MainTimer: UIViewController {
     @IBOutlet weak var millisecUpButton: UIButton!
     @IBOutlet weak var millisecDownButton: UIButton!
     
-    @IBOutlet weak var test: UIButton!
     @IBOutlet weak var TipLabel: UILabel!
-    @IBOutlet weak var TipTextView: UITextView!
-    
-
     
     @IBOutlet weak var bannerView: GADBannerView!
     
@@ -105,8 +93,6 @@ class MainTimer: UIViewController {
 
         Enable()
         tipLabel()
-
-
         
     }
     
@@ -133,7 +119,6 @@ class MainTimer: UIViewController {
 
        }
     
-
     
     @IBAction func TimerStartStop(_ sender: Any)
     {
@@ -159,7 +144,7 @@ class MainTimer: UIViewController {
                     self!.remainTime = self!.count - timeInterval // 남은시간 계산
                     self!.elapsed = self!.count - self!.remainTime
                     
-                /** ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림     */
+                /** ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림 **/
                     
                     guard self!.remainTime >= trunc(0) else
                     {
@@ -184,9 +169,7 @@ class MainTimer: UIViewController {
 
             })
                 //RunLoop.current.run() //메인쓰레드에서는 불안정하게 작동함.
-                
-
-                
+    
                 }
         }
         else
@@ -197,7 +180,7 @@ class MainTimer: UIViewController {
     
     func Timecal()
     {
-        hour = (Int)(fmod((remainTime/60/60), 100)) // 분을 12로 나누어 시를 구한다
+        hour = (Int)(fmod((remainTime/60/60), 100)) // 분을 12로 나누어 시를 구한다 * 100으로 설정해야 99시를 넘기지 않음.
         minute = (Int)(fmod((remainTime/60), 60)) // 초를 60으로 나누어 분을 구한다
         second = (Int)(fmod(remainTime, 60)) // 초를 구한다
         milliSecond = (Int)((remainTime - floor(remainTime))*1000)
@@ -232,7 +215,11 @@ class MainTimer: UIViewController {
         remainTime = 0
         elapsed = 0
         self.StartStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
-        Firstcount = 0
+       
+        hour = 0
+        minute = 0
+        second = 0
+        milliSecond = 0
    
         HourLabel.text = "00"
         MinLabel.text = "00"
@@ -253,21 +240,27 @@ class MainTimer: UIViewController {
     
     func CountLabel()
     {
-        let MSC = Int((count - floor(count))*1000)
         /*        3600==1시간        60==1분        1==1초        0.001==1밀리초        */
         HourLabel.text = String(format: "%02d", (Int)(fmod((count/60/60), 100)))
         MinLabel.text = String(format: "%02d", (Int)(fmod((count/60), 60)))
         SecLabel.text = String(format: "%02d", (Int)(fmod(count, 60)))
-        MillisecLabel.text = String(format: "%03d", MSC)
-        print("계산된 카운트:", count)
-        //            MillisecLabel.text = "\((count - floor(count))*1000)"
+        MillisecLabel.text = String(format: "%03d", (Int)((count - floor(count))*1001)) //1001을 곱해줘야 밀리초가 정상표시됨.
         
-       
-                                    
-        print("밀리초: ", MillisecLabel.text)
+//            hour = (Int)(fmod((count/3600), 100)) // 분을 12로 나누어 시를 구한다
+//            minute = (Int)(fmod((count/60), 60)) // 초를 60으로 나누어 분을 구한다
+//            second = (Int)(fmod(count/1, 60)) // 초를 구한다
+//            milliSecond = (Int)((count - floor(count))*1000)
+//
+//            HourLabel.text = String(format: "%02d", hour)
+//            MinLabel.text = String(format: "%02d", minute)
+//            SecLabel.text = String(format: "%02d", second)
+//            MillisecLabel.text = String(format: "%03d", milliSecond)
+
+            print("계산된 카운트:", count)
+            print("밀리초: ", milliSecond)
     }
     
-  
+                        
     func Effect() /*버튼을 누를때 발생하는 효과*/
     {
         if(SettingTableCell.vibrationCheck == true)
@@ -661,7 +654,7 @@ class MainTimer: UIViewController {
             if let txt = alert.textFields?.first {
                     if txt.text?.isEmpty != true {
                         print("입력값: ", txt.text!)
-                        if let inputcount = Int(txt.text!){
+                        if let inputcount = Double(txt.text!){
                             if inputcount < 356400 {
                                 self.count = Double(inputcount) + self.count
                                 self.CountLabel()
@@ -707,12 +700,11 @@ class MainTimer: UIViewController {
             if let txt = alert.textFields?.first {
                     if txt.text?.isEmpty != true {
                         print("입력값: ", txt.text!)
-                        if let inputcount = Int(txt.text!){
+                        if let inputcount = Double(txt.text!){
                             if inputcount < 356400 {
-                                let num = Double(inputcount) * 0.001
-                                self.count = num + self.count
+                                self.count = (inputcount * 0.001) + self.count
                                 self.CountLabel()
-                                
+                                print("입력한숫자값:", inputcount)
                                 print(type(of: inputcount))
                             } else {
                                 self.UpAlertError()
