@@ -18,6 +18,7 @@
 /* 스톱워치 탭 */
 "149-E9-hRK.title" = "Millisecond Stopwatch";
 "1Ol-qq-4mg.normalTitle" = "Start"; //스톱워치 시작 버튼
+"OVc-ug-WS5.normalTitle" = "Reset"; //스톱워치 초기화 버튼
 
 
 /* 설정 탭 */

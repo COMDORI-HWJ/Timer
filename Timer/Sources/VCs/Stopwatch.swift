@@ -116,16 +116,16 @@ class Stopwatch: UIViewController {
             TimerStatus = false
             count = elapsed - count //일시정지 동안 경과된 시간(흐르는 시간)을 저장된 시간에서 빼준다.
             timer.invalidate()
-            StartStopButton.setTitle("Start", for: .normal)
-            RecordResetButton.setTitle("초기화", for: .normal)
+            StartStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
+            RecordResetButton.setTitle(String(format: NSLocalizedString("초기화", comment: "Reset")), for: .normal)
             
         }
         else
         {
           
             TimerStatus = true
-            StartStopButton.setTitle("Pause", for: .normal)
-            RecordResetButton.setTitle("기록", for: .normal)
+            StartStopButton.setTitle(String(format: NSLocalizedString("일시중지", comment: "Pause")), for: .normal)
+            RecordResetButton.setTitle(String(format: NSLocalizedString("기록", comment: "Rap")), for: .normal)
             print("일시정지")
                     DispatchQueue.main.async {
                         // Timer카운터 쓰레드 적용

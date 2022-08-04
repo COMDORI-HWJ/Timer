@@ -1,31 +1,10 @@
 
-/* Class = "UIButton"; normalTitle = "↓"; ObjectID = "06e-Au-I9f"; */
-"06e-Au-I9f.normalTitle" = "↓";
-
 /* Class = "UITableViewSection"; headerTitle = "other"; ObjectID = "0sy-aF-xeG"; */
 "0sy-aF-xeG.headerTitle" = "기타";
 
-/* Class = "UIButton"; normalTitle = "↓"; ObjectID = "57U-xq-WsJ"; */
-"57U-xq-WsJ.normalTitle" = "↓";
-
-/* Class = "UIButton"; normalTitle = "↑"; ObjectID = "8Tr-aC-Tun"; */
-"8Tr-aC-Tun.normalTitle" = "↑";
-
-
-/* Class = "UIButton"; normalTitle = "↓"; ObjectID = "CA8-6k-cfL"; */
-"CA8-6k-cfL.normalTitle" = "↓";
-
-/* Class = "UIButton"; normalTitle = "↓"; ObjectID = "Czu-sh-dnh"; */
-"Czu-sh-dnh.normalTitle" = "↓";
 
 /* Class = "UILabel"; text = "00:00:00.000"; ObjectID = "DXh-Op-Bhf"; */
 "DXh-Op-Bhf.text" = "00:00:00.000";
-
-/* Class = "UIButton"; normalTitle = "↓"; ObjectID = "F8y-PN-iuk"; */
-"F8y-PN-iuk.normalTitle" = "↓";
-
-/* Class = "UIButton"; normalTitle = "↑"; ObjectID = "IiM-5t-u8l"; */
-"IiM-5t-u8l.normalTitle" = "↑";
 
 /* Class = "UILabel"; text = "스톱워치 준비중"; ObjectID = "La7-zP-Iob"; */
 "La7-zP-Iob.text" = "스톱워치 준비중";
@@ -45,9 +24,6 @@
 /* Class = "UILabel"; text = "타이머 소리 및 진동 알림"; ObjectID = "R06-lm-MKw"; */
 "R06-lm-MKw.text" = "타이머 소리 및 진동 알림";
 
-/* Class = "UIButton"; normalTitle = "↑"; ObjectID = "TX3-zk-paX"; */
-"TX3-zk-paX.normalTitle" = "↑";
-
 /* Class = "UITabBarItem"; title = "Setting"; ObjectID = "Wbj-YU-TnF"; */
 "Wbj-YU-TnF.title" = "설정";
 
@@ -57,15 +33,8 @@
 /* Class = "UIButton"; normalTitle = "TEST"; ObjectID = "X5G-82-1bc"; */
 "X5G-82-1bc.normalTitle" = "TEST";
 
-/* Class = "UIButton"; normalTitle = "↑"; ObjectID = "X7s-ck-Agi"; */
-"X7s-ck-Agi.normalTitle" = "↑";
-
-/* Class = "UIButton"; normalTitle = "↑"; ObjectID = "YOa-Wt-J4A"; */
-"YOa-Wt-J4A.normalTitle" = "↑";
-
 /* Class = "UITabBarController"; title = "Main"; ObjectID = "Zrm-wF-le5"; */
 "Zrm-wF-le5.title" = "Main";
-
 
 
 /* Class = "UITabBarItem"; title = "Back"; ObjectID = "cmV-zJ-AKM"; */
@@ -73,12 +42,6 @@
 
 /* Class = "UITableViewSection"; headerTitle = "Effect Setting"; ObjectID = "cpZ-vf-XDb"; */
 "cpZ-vf-XDb.headerTitle" = "효과 설정";
-
-/* Class = "UIButton"; normalTitle = "↑"; ObjectID = "enR-nI-Zo2"; */
-"enR-nI-Zo2.normalTitle" = "↑";
-
-/* Class = "UIButton"; normalTitle = "↓"; ObjectID = "exz-kA-xyV"; */
-"exz-kA-xyV.normalTitle" = "↓";
 
 /* Class = "UIViewController"; title = "Setting"; ObjectID = "fGX-y9-as3"; */
 "fGX-y9-as3.title" = "Setting";
@@ -89,17 +52,8 @@
 /* Class = "UIButton"; normalTitle = "Start"; ObjectID = "h9K-ep-IIr"; */
 "h9K-ep-IIr.normalTitle" = "시작";
 
-/* Class = "UIButton"; normalTitle = "↓"; ObjectID = "hfF-Jq-3mT"; */
-"hfF-Jq-3mT.normalTitle" = "↓";
-
-/* Class = "UIButton"; normalTitle = "↓"; ObjectID = "kbU-jE-0Lz"; */
-"kbU-jE-0Lz.normalTitle" = "↓";
-
 /* Class = "UILabel"; text = "00:00:00.000"; ObjectID = "lA7-MR-ezs"; */
 "lA7-MR-ezs.text" = "00:00:00.000";
-
-/* Class = "UIButton"; normalTitle = "↑"; ObjectID = "q5h-81-Z4k"; */
-"q5h-81-Z4k.normalTitle" = "↑";
 
 /* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "qhb-Xn-abF"; */
 "qhb-Xn-abF.normalTitle" = "재시작";
@@ -114,9 +68,6 @@
 "ufF-Ca-BxA.title" = "타이머(테스트)";
 
 "149-E9-hRK.title" = "스톱워치";
-
-/* Class = "UIButton"; normalTitle = "↑"; ObjectID = "vC9-7f-0N1"; */
-"vC9-7f-0N1.normalTitle" = "↑";
 
 /* Class = "UILabel"; text = "버튼 진동"; ObjectID = "wQN-cf-q8U"; */
 "wQN-cf-q8U.text" = "버튼 진동";

@@ -65,8 +65,7 @@ class SettingTableCell:UITableViewController{
             let version = dictionary["CFBundleShortVersionString"] as? String,
             let build = dictionary["CFBundleVersion"] as? String else {return nil}
 
-        let versionAndBuild: String = "App Version: \(version) / App Build: \(build)"
-
+        let versionAndBuild: String = String(format: NSLocalizedString("앱 버전 : ", comment: "App Version"))+"\(version)"
         return versionAndBuild
     }
 

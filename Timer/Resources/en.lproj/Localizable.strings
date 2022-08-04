@@ -16,7 +16,8 @@
 
 "시작" = "Start";
 "초기화" = "Reset";
-"일시정지" = "Pause";
+"일시중지" = "Pause";
+"기록" = "Rap";
 
 "타이머 완료" = "Timer done";
 "0초가 되었습니다. 타이머를 다시 작동하려면 알림을 탭하세요!" = "0 Seconds. Just tap the notification to make the timer work again!";
@@ -27,3 +28,7 @@
 "시간은 숫자만 입력가능합니다." = "Only numbers can be entered for the time.";
 "취소" = "Cancel";
 "이곳에 시간을 입력하세요." = "Please enter your time here.";
+
+
+"앱 버전 : " = "App Version : ";
+
