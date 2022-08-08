@@ -58,11 +58,11 @@
 | Version |빌드 날짜 
 |---------------|---|
 |1.7.5|2022년 8월 9일
-|![](Screenshots/1.7.5/IMG_1482.PNG%0D){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1483.PNG%0D){: width="100" height="100"}
-|![](Screenshots/1.7.5/IMG_1484.PNG%0D){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1485.PNG){: width="100" height="100"}
-|![](Screenshots/1.7.5/IMG_1486.PNG%0D){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1487.PNG){: width="100" height="100"}
-|![](Screenshots/1.7.5/IMG_1488.PNG%0D){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1489.PNG){: width="100" height="100"}
-|![](Screenshots/1.7.5/IMG_1490.PNG%0D){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1491.PNG){: width="100" height="100"}
+|![](Screenshots/1.7.5/IMG_1482.PNG){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1483.PNG%0D){: width="100" height="100"}
+|![](Screenshots/1.7.5/IMG_1484.PNG){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1485.PNG){: width="100" height="100"}
+|![](Screenshots/1.7.5/IMG_1486.PNG){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1487.PNG){: width="100" height="100"}
+|![](Screenshots/1.7.5/IMG_1488.PNG){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1489.PNG){: width="100" height="100"}
+|![](Screenshots/1.7.5/IMG_1490.PNG){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1491.PNG){: width="100" height="100"}
 
 
 </div>
