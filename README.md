@@ -6,7 +6,7 @@
 1. 타이머를 밀리초 단위(00::00:00:000)로 시간을 늘리거나 줄일수 있다.(개발완료)
 2. 밀리초 단위 카운트 다운이 가능 하다.(개발완료)
 3. 밀리초 단위 스톱워치를 사용할 수 있다.(개발완료)
-4. 타이머 완료 소리를 선택할 수 있다.(추후)
+4. 타이머 완료 알림 소리를 선택할 수 있다.(추후)
 5. 자주 사용하는 시간때 타이머를 선택할 수 있다.(00:00:02:008밀리초, 00:00:04:002밀리초를 단축키로 등록하여 바로 타이머를 사용한다는 뜻, 추후)
 6. 백그라운트 타이머를 사용할 수 있다.(개발완료, 오랫동안 백그라운드 실행시 애플 정책에 따라 작동중지)
 7. 타이머가 끝나면 푸시알림 및 푸시알림을 탭 하였을 때 타이머 화면으로 이동(개발완료)
@@ -54,5 +54,22 @@
 |1.7.1|2022년 7월 13일
 |![](Screenshots/1.7.1/IMG_1464.PNG){: width="100" height="100"}|![](Screenshots/1.7.1/IMG_1465.PNG){: width="100" height="100"}
 |![](Screenshots/1.7.1/IMG_1466.PNG){: width="100" height="100"}|![](Screenshots/1.7.1/IMG_1467.PNG){: width="100" height="100"}
+
+| Version |빌드 날짜 
+|---------------|---|
+|1.7.5|2022년 8월 9일
+|![](Screenshots/1.7.5/IMG_1482.PNG%0D){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1483.PNG%0D){: width="100" height="100"}
+|![](Screenshots/1.7.5/IMG_1484.PNG%0D){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1485.PNG){: width="100" height="100"}
+|![](Screenshots/1.7.5/IMG_1486.PNG%0D){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1487.PNG){: width="100" height="100"}
+|![](Screenshots/1.7.5/IMG_1488.PNG%0D){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1489.PNG){: width="100" height="100"}
+|![](Screenshots/1.7.5/IMG_1490.PNG%0D){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1491.PNG){: width="100" height="100"}
+|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.28.47.png%0D){: width="100" height="100"}|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.00.png){: width="100" height="100"}
+|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.14.png%0D)|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.22.png) 
+|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.25.png%0D)|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.28.png) 
+|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.31.png%0D)|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.34.png) 
+|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.36.png%0D)|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.39.png) 
+|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.45.png%0D)|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.50.png) 
+|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.53.png%0D)|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.58.png) 
+
 
 </div>
