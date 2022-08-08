@@ -63,12 +63,6 @@
 |![](Screenshots/1.7.5/IMG_1486.PNG%0D){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1487.PNG){: width="100" height="100"}
 |![](Screenshots/1.7.5/IMG_1488.PNG%0D){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1489.PNG){: width="100" height="100"}
 |![](Screenshots/1.7.5/IMG_1490.PNG%0D){: width="100" height="100"}|![](Screenshots/1.7.5/IMG_1491.PNG){: width="100" height="100"}
-|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.28.47.png%0D){: width="100" height="100"}|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.00.png){: width="100" height="100"}
-|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.14.png%0D{: width="100" height="100"})|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.22.png){: width="100" height="100"} 
-|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.25.png%0D){: width="100" height="100"}|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.28.png){: width="100" height="100"} 
-|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.31.png%0D){: width="100" height="100"}|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.34.png){: width="100" height="100"} 
-|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.36.png%0D){: width="100" height="100"}|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.39.png){: width="100" height="100"} 
-|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.45.png%0D){: width="100" height="100"}|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.50.png){: width="100" height="100"}
-|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.53.png%0D){: width="100" height="100"}|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.58.png){: width="100" height="100"}
+
 
 </div>
