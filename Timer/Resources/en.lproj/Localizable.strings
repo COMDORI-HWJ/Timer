@@ -23,11 +23,24 @@
 "0초가 되었습니다. 타이머를 다시 작동하려면 알림을 탭하세요!" = "0 Seconds. Just tap the notification to make the timer work again!";
 "시간이 충분히 남아 있지 않아 시간을 감소할 수 없습니다." = "Time is no.";
 
-"타이머 시간을 입력하세요" = "Enter the timer time";
+"타이머 시간을 입력하세요" = "Enter the timer hours";
+"타이머 분을 입력하세요" = "Enter the timer minutes";
+"타이머 초를 입력하세요" = "Enter the timer seconds";
+"타이머 밀리초를 입력하세요" = "Enter the timer milliseconds";
+
 "1시간은 1을 입력하면됩니다. 예) 99입력→99시간" = "For 1 hour = Enter 1 Ex) 99input → 99hour";
+"1분은 1을 입력하세요. 예) 33입력→33분" = "1 minutes = Enter 1 Ex) 33input → 33minutes";
+"1초는 1을 입력하세요. 예) 55입력→55초" = "1 second = Enter 1 Ex) 55input → 55second";
+"0.001초는 1을 입력하면됩니다. 예) 777입력→0.777밀리초" = "0.001 millisecond = Enter 1 Ex) 777input → 0.777millisecond";
+
 "시간은 숫자만 입력가능합니다." = "Only numbers can be entered for the time.";
 "취소" = "Cancel";
-"이곳에 시간을 입력하세요." = "Please enter your time here.";
+"이곳에 시간을 입력하세요." = "Please enter your hours here.";
+"이곳에 분을 입력하세요." = "Please enter your minutes here.";
+"이곳에 초를 입력하세요." = "Please enter your seconds here.";
+"이곳에 밀리초를 입력하세요." = "Please enter your milliseconds here.";
+
+"빠르게 시간을 변경하려면 타이머 숫자를 탭하세요.\n시:분:초:밀리초" = "Tap the timer number to quickly change the time. \nHours:minutes:seconds:milliseconds";
 
 
 "앱 버전 : " = "App Version : ";

@@ -559,7 +559,7 @@ class MainTimer: UIViewController {
     //    @IBAction func Timeinput(_ sender: Any)
         func Hourinput()
         {
-            let alert = UIAlertController(title: String(format: NSLocalizedString("타이머 시간을 입력하세요", comment: "Enter the timer time")), message: String(format: NSLocalizedString("1시간은 1을 입력하면됩니다. 예) 99입력→99시간", comment: "")), preferredStyle: .alert)
+            let alert = UIAlertController(title: String(format: NSLocalizedString("타이머 시간을 입력하세요", comment: "Enter the timer hours")), message: String(format: NSLocalizedString("1시간은 1을 입력하면됩니다. 예) 99입력→99시간", comment: "")), preferredStyle: .alert)
             let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .default) { (_) in
                 print("알림창에서 확인을 눌렀습니다.")
                 if let txt = alert.textFields?.first {
@@ -602,8 +602,8 @@ class MainTimer: UIViewController {
     
     func Mininput()
     {
-        let alert = UIAlertController(title: "타이머 분을 입력하세요", message: "1분은 1을 입력하세요. 예) 33입력→33분", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .default) { (_) in
+        let alert = UIAlertController(title: String(format: NSLocalizedString("타이머 분을 입력하세요", comment: "Enter the timer minutes")), message: String(format: NSLocalizedString("1분은 1을 입력하세요. 예) 33입력→33분", comment: "1 minutes = Enter 1 Ex) 33input → 33minutes")), preferredStyle: .alert)
+        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "")), style: .default) { (_) in
             print("알림창에서 확인을 눌렀습니다.")
             if let txt = alert.textFields?.first {
                     if txt.text?.isEmpty != true {
@@ -619,8 +619,8 @@ class MainTimer: UIViewController {
                                 print("99시간이 넘어간다.")
                             }
                         } else {
-                            let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: "시간은 숫자만 입력가능합니다.", preferredStyle: UIAlertController.Style.alert)
-                            let ok = UIAlertAction(title: "네", style: .destructive, handler: nil)
+                            let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: String(format: NSLocalizedString("시간은 숫자만 입력가능합니다.", comment: "")), preferredStyle: UIAlertController.Style.alert)
+                            let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .destructive, handler: nil)
                             alert.addAction(ok)
                             self.present(alert, animated: false, completion: nil)
                             print("숫자가 아님.")
@@ -633,10 +633,10 @@ class MainTimer: UIViewController {
             }
         }
         
-        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        let cancel = UIAlertAction(title: String(format: NSLocalizedString("취소", comment: "Cancel")), style: .cancel)
         
         alert.addTextField() { (textField) in
-            textField.placeholder = "이곳에 분을 입력하세요."
+            textField.placeholder = String(format: NSLocalizedString("이곳에 분을 입력하세요.", comment: ""))
             textField.textContentType = .creditCardNumber //숫자 키패드
             textField.keyboardType = .numberPad
             
@@ -648,8 +648,8 @@ class MainTimer: UIViewController {
     
     func Secinput()
     {
-        let alert = UIAlertController(title: "타이머 초를 입력하세요", message: "1초는 1을 입력하세요. 예) 55입력→55초", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .default) { (_) in
+        let alert = UIAlertController(title: String(format: NSLocalizedString("타이머 초를 입력하세요", comment: "")), message: String(format: NSLocalizedString("1초는 1을 입력하세요. 예) 55입력→55초", comment: "")), preferredStyle: .alert)
+        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "")), style: .default) { (_) in
             print("알림창에서 확인을 눌렀습니다.")
             if let txt = alert.textFields?.first {
                     if txt.text?.isEmpty != true {
@@ -665,8 +665,8 @@ class MainTimer: UIViewController {
                                 print("99시간이 넘어간다.")
                             }
                         } else {
-                            let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: "시간은 숫자만 입력가능합니다.", preferredStyle: UIAlertController.Style.alert)
-                            let ok = UIAlertAction(title: "네", style: .destructive, handler: nil)
+                            let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: String(format: NSLocalizedString("시간은 숫자만 입력가능합니다.", comment: "")), preferredStyle: UIAlertController.Style.alert)
+                            let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .destructive, handler: nil)
                             alert.addAction(ok)
                             self.present(alert, animated: false, completion: nil)
                             print("숫자가 아님.")
@@ -679,10 +679,10 @@ class MainTimer: UIViewController {
             }
         }
         
-        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        let cancel = UIAlertAction(title: String(format: NSLocalizedString("취소", comment: "Cancel")), style: .cancel)
         
         alert.addTextField() { (textField) in
-            textField.placeholder = "이곳에 초를 입력하세요."
+            textField.placeholder = String(format: NSLocalizedString("이곳에 초를 입력하세요.", comment: ""))
             textField.textContentType = .creditCardNumber //숫자 키패드
             textField.keyboardType = .numberPad
             
@@ -694,8 +694,8 @@ class MainTimer: UIViewController {
     
     func Millisecinput()
     {
-        let alert = UIAlertController(title: "타이머 밀리초를 입력하세요", message: "0.001초는 1을 입력하면됩니다. 예) 777입력→0.777초", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .default) { (_) in
+        let alert = UIAlertController(title: String(format: NSLocalizedString("타이머 밀리초를 입력하세요", comment: "")), message: String(format: NSLocalizedString("0.001초는 1을 입력하면됩니다. 예) 777입력→0.777밀리초", comment: "")), preferredStyle: .alert)
+        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .default) { (_) in
             print("알림창에서 확인을 눌렀습니다.")
             if let txt = alert.textFields?.first {
                     if txt.text?.isEmpty != true {
@@ -711,8 +711,8 @@ class MainTimer: UIViewController {
                                 print("99시간이 넘어간다.")
                             }
                         } else {
-                            let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: "시간은 숫자만 입력가능합니다.", preferredStyle: UIAlertController.Style.alert)
-                            let ok = UIAlertAction(title: "네", style: .destructive, handler: nil)
+                            let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: String(format: NSLocalizedString("시간은 숫자만 입력가능합니다.", comment: "")), preferredStyle: UIAlertController.Style.alert)
+                            let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .destructive, handler: nil)
                             alert.addAction(ok)
                             self.present(alert, animated: false, completion: nil)
                             print("숫자가 아님.")
@@ -725,10 +725,10 @@ class MainTimer: UIViewController {
             }
         }
         
-        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        let cancel = UIAlertAction(title: String(format: NSLocalizedString("취소", comment: "Cancel")), style: .cancel)
         
         alert.addTextField() { (textField) in
-            textField.placeholder = "이곳에 밀리초를 입력하세요."
+            textField.placeholder = String(format: NSLocalizedString("이곳에 밀리초를 입력하세요.", comment: ""))
             textField.textContentType = .creditCardNumber //숫자 키패드
             textField.keyboardType = .numberPad
             
@@ -740,7 +740,7 @@ class MainTimer: UIViewController {
     
     private func tipLabel()
     {
-        TipLabel.text = "빠르게 시간을 변경하려면 타이머 숫자를 탭하세요.\n시:분:초:밀리초"
+        TipLabel.text = String(format: NSLocalizedString("빠르게 시간을 변경하려면 타이머 숫자를 탭하세요.\n시:분:초:밀리초", comment: ""))
     }
     
 }

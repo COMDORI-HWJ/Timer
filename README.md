@@ -71,5 +71,13 @@
 |![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.45.png)|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.50.png) 
 |![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.53.png)|![](Screenshots/1.7.5/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20-%202022-08-09%20at%2006.29.58.png)
 
+| Version |빌드 날짜 
+|---------------|---|
+|1.7.6|2022년 8월 10일
+|![](Screenshots/1.7.6/1.png){: width="100" height="100"}|![](Screenshots/1.7.6/2.png){: width="100" height="100"}
+|![](Screenshots/1.7.6/3.png){: width="100" height="100"}|![](Screenshots/1.7.6/4.png){: width="100" height="100"}
+|![](Screenshots/1.7.6/5.png){: width="100" height="100"}|![](Screenshots/1.7.6/6.png){: width="100" height="100"}
+|![](Screenshots/1.7.6/7.png){: width="100" height="100"}|![](Screenshots/1.7.6/8.png){: width="100" height="100"} 
+
 
 </div>

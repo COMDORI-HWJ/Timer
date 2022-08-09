@@ -327,8 +327,8 @@ class Stopwatch: UIViewController {
         LapsTableView.reloadData() // 스톱워치 랩 테이블 초기화
 
 
-        StartStopButton.setTitle("Start", for: .normal)
-        RecordResetButton.setTitle("기록", for: .normal)
+        StartStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
+        RecordResetButton.setTitle(String(format: NSLocalizedString("기록", comment: "Rap")), for: .normal)
 
         Firstcount = 0
         TimeLabel.text = "00:00:00."
