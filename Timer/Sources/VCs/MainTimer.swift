@@ -33,6 +33,7 @@ import SystemConfiguration
 class MainTimer: UIViewController {
     
     let appName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as! String
+
     //let appName = infoDictionary["CFBundleDisplayName"] as! String
       
     var hour = 0, minute = 0, second = 0, milliSecond = 0
@@ -277,7 +278,7 @@ class MainTimer: UIViewController {
     func sendNotification()
     {
 
-        Noti.title = appName
+        Noti.title = String(format: NSLocalizedString("밀리초 타이머", comment: "Milliseccond Timer")) //appName(한글로만 나옴)
         Noti.subtitle = String(format: NSLocalizedString("타이머 완료", comment: "Timer done"))
         Noti.body = String(format: NSLocalizedString("0초가 되었습니다. 타이머를 다시 작동하려면 알림을 탭하세요!", comment: ""))
         Noti.badge = 1

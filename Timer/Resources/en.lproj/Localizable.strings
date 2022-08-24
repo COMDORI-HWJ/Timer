@@ -19,6 +19,7 @@
 "일시중지" = "Pause";
 "기록" = "Rap";
 
+"밀리초 타이머" = "Millisecond Timer";
 "타이머 완료" = "Timer done";
 "0초가 되었습니다. 타이머를 다시 작동하려면 알림을 탭하세요!" = "0 Seconds. Just tap the notification to make the timer work again!";
 "시간이 충분히 남아 있지 않아 시간을 감소할 수 없습니다." = "Time is no.";
