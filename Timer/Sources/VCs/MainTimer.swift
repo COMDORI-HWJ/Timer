@@ -8,19 +8,15 @@
  https://unclean.tistory.com/27 타이머3 시작시간 카운트
  https://ios-development.tistory.com/773 타이머4
  https://ios-development.tistory.com/775 DispatchSourceTimer를 이용한 Timer 모듈 구현
- https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
-옵셔널 체이닝: 변수나 상수 뒤에 ? 또는 !느낌표를 사용하여 옵셔널에서 값을 강제 추출하는 효과가 있다. 사용을 지양하는 편이 좋다고 한다.
  https://80000coding.oopy.io/0bd77cd3-7dc7-4cf4-93ee-8ca4fbca898e 가드문 사용법 (if문보다 빠르게 끝낸다)
  https://jesterz91.github.io/ios/2021/04/07/ios-notification/ UserNotification 프레임워크를 이용한 알림구현
  https://twih1203.medium.com/swift-usernotification%EC%9C%BC%EB%A1%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80%EA%B0%80-%ED%8F%AC%ED%95%A8%EB%90%9C-%EB%A1%9C%EC%BB%AC-%EC%95%8C%EB%A6%BC-%EB%B3%B4%EB%82%B4%EA%B8%B0-5a7ef07fa2ec UserNotification으로 이미지가 포함된 로컬 알림 보내기
  https://gonslab.tistory.com/27 푸시 알림 권한
- https://inuplace.tistory.com/1163 로컬라이징
- https://velog.io/@brillantescene/%EC%8A%A4%EC%9C%84%ED%94%84%ED%8A%B8-%ED%8C%8C%EC%9D%BC-%EC%A0%95%EB%A6%AC 프로젝트 구조 정리1
- https://mini-min-dev.tistory.com/15 프로젝트 구조 정리2(프로젝트 폴더링)
  https://boidevelop.tistory.com/62?category=839928 텍스트 필드 개념
  https://scshim.tistory.com/220 UIAlert 알림창 구현
  https://boidevelop.tistory.com/57 알림창 텍스트필드 추가
  https://stackoverflow.com/questions/33658521/how-to-make-a-uilabel-clickable UILable 터치이벤트
+
  */
 
 import Foundation

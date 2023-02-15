@@ -10,15 +10,11 @@
  https://unclean.tistory.com/27 타이머3 시작시간 카운트
  https://ios-development.tistory.com/773 타이머4
  https://ios-development.tistory.com/775 DispatchSourceTimer를 이용한 Timer 모듈 구현
- https://www.clien.net/service/board/cm_app/17167370 클리앙 개발 문의
-옵셔널 체이닝: 변수나 상수 뒤에 ? 또는 !느낌표를 사용하여 옵셔널에서 값을 강제 추출하는 효과가 있다. 사용을 지양하는 편이 좋다고 한다.
  https://80000coding.oopy.io/0bd77cd3-7dc7-4cf4-93ee-8ca4fbca898e 가드문 사용법 (if문보다 빠르게 끝낸다)
  https://jesterz91.github.io/ios/2021/04/07/ios-notification/ UserNotification 프레임워크를 이용한 알림구현
  https://twih1203.medium.com/swift-usernotification%EC%9C%BC%EB%A1%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80%EA%B0%80-%ED%8F%AC%ED%95%A8%EB%90%9C-%EB%A1%9C%EC%BB%AC-%EC%95%8C%EB%A6%BC-%EB%B3%B4%EB%82%B4%EA%B8%B0-5a7ef07fa2ec UserNotification으로 이미지가 포함된 로컬 알림 보내기
  https://gonslab.tistory.com/27 푸시 알림 권한
- https://inuplace.tistory.com/1163 로컬라이징
- https://fomaios.tistory.com/entry/Swift-Enum%EC%97%B4%EA%B1%B0%ED%98%95%EC%9D%84-%EC%8D%A8%EC%95%BC-%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0 Enum 열거형 이란?
- https://pskbhnsr.tistory.com/48 딕셔너리 정렬
+
  
  */
 
