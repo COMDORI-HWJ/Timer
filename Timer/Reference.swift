@@ -21,4 +21,6 @@
  
  https://pskbhnsr.tistory.com/48 딕셔너리 정렬
  
+ https://junyng.tistory.com/30 Dynamic Type을 사용하여 폰트 크기 조정하기
+ 
 */
