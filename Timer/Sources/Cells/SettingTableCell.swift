@@ -5,6 +5,11 @@
 //  Created by WONJI HA on 2021/10/22.
 //
 
+/* Reference
+ https://philosopher-chan.tistory.com/1032 테이블 셀 클릭 이벤트 처리
+ https://stackoverflow.com/questions/37558333/select-cell-in-tableview-section 테이블 섹션 구분
+ */
+
 import Foundation
 import UIKit
 import AVFoundation //소리, 진동
@@ -74,5 +79,15 @@ class SettingTableCell:UITableViewController{
         print(version!)
         Ver.text = version
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("테이블셀을 클릭 했습니다")
+        print(indexPath.section,"섹션의", indexPath.row , "행입니다.")
+        
+        if(indexPath.section == 1 && indexPath.row == 2){
+            print("1번째 섹션의 2번째 행 클릭발생")
+        }
+    }
+
 
 }
