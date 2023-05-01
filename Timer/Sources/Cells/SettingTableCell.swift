@@ -8,20 +8,27 @@
 /* Reference
  https://philosopher-chan.tistory.com/1032 테이블 셀 클릭 이벤트 처리
  https://stackoverflow.com/questions/37558333/select-cell-in-tableview-section 테이블 섹션 구분
+ https://velog.io/@minji0801/iOS-Swift-iOS-%EA%B8%B0%EA%B8%B0%EC%97%90%EC%84%9C-Mail-%EC%95%B1-%EC%9D%B4%EC%9A%A9%ED%95%B4%EC%84%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EB%B3%B4%EB%82%B4%EB%8A%94-%EB%B0%A9%EB%B2%95 메일 보내기
+ https://borabong.tistory.com/6 메일컨트롤러 dismiss
  */
 
 import Foundation
 import UIKit
 import AVFoundation //소리, 진동
+import MessageUI
 
 
-class SettingTableCell:UITableViewController{
+class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         SoundSwitch.isOn = UserDefaults.standard.bool(forKey: "SoundSwitchState") // UserDefaults 사용하여 데이터 저장 https://zeddios.tistory.com/107
         VibrationSwitch.isOn = UserDefaults.standard.bool(forKey: "VibrationSwitchState")
 
         appver()
+        
+        func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 
     @IBOutlet var SoundSwitch: UISwitch!
@@ -65,29 +72,81 @@ class SettingTableCell:UITableViewController{
     }
 
 
-    var version: String? {
+    func version() -> String {
         guard let dictionary = Bundle.main.infoDictionary,
-            let version = dictionary["CFBundleShortVersionString"] as? String,
-            let build = dictionary["CFBundleVersion"] as? String else {return nil}
-
-        let versionAndBuild: String = String(format: NSLocalizedString("앱 버전 : ", comment: "App Version"))+"\(version)"
-        return versionAndBuild
+              let version = dictionary["CFBundleShortVersionString"] as? String else { return "" }
+        return version
     }
 
     func appver ()
     {
-        print(version!)
-        Ver.text = version
+        print(version())
+        Ver.text =  String(format: NSLocalizedString("앱 버전 : ", comment: "App Version"))+"\(self.version())"
     }
     
+    // Device Identifier 찾기
+    func getDeviceIdentifier() -> String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        let machineMirror = Mirror(reflecting: systemInfo.machine)
+        let identifier = machineMirror.children.reduce("") { identifier, element in
+            guard let value = element.value as? Int8, value != 0 else { return identifier }
+            return identifier + String(UnicodeScalar(UInt8(value)))
+        }
+        
+        return identifier
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("테이블셀을 클릭 했습니다")
         print(indexPath.section,"섹션의", indexPath.row , "행입니다.")
         
         if(indexPath.section == 1 && indexPath.row == 2){
-            print("1번째 섹션의 2번째 행 클릭발생")
+            if MFMailComposeViewController.canSendMail() {
+                let composeViewController = MFMailComposeViewController()
+                composeViewController.mailComposeDelegate = self
+                
+                let msgBody =
+                """
+                아이폰 모델 : \(self.getDeviceIdentifier())
+                iOS : \(UIDevice.current.systemVersion)
+                앱 버전 : \(version())
+                ┈┈┈┈┈┈┈✄┈┈┈┈┈┈┈
+                
+                오류 및 버그 :  ☛ 이 문장을 지우고 버그, 오류 사항, 안 되는것 을 적어주시면 됩니다.
+                
+                ┈┈┈┈┈┈┈✄┈┈┈┈┈┈┈
+                개선사항 및 아이디어 제보 : ☛ 이 문장을 지우고 자유롭게 적어주시면 감사하겠습니다.
+                
+                문의해 주셔서 감사합니다. 🙇🏼‍♂️
+                """
+                
+                composeViewController.setToRecipients(["02145s1@gmail.com"])
+                composeViewController.setSubject("[iOS 타이머 앱] 문의사항")
+                composeViewController.setMessageBody(msgBody, isHTML: false)
+                self.present(composeViewController, animated: true, completion: nil)
+
+            } else {
+                print("send Mail Fail")
+                let sendMailErrorAlert = UIAlertController(title: "메일 보내기 오류", message: "현재 메일 앱이 설치되어 있지 않거나 이메일앱 설정이 되어 있지 않습니다. App Store에서 Apple Mail앱을 다운로드 또는 이메일 설정을 확인해 주시기 바랍니다.", preferredStyle: .alert)
+                let mailInstall = UIAlertAction(title: "다운로드", style: .default) { _ in
+                    if let url = URL(string: "https://apps.apple.com/kr/app/mail/id1108187098"), UIApplication.shared.canOpenURL(url) {
+                        if #available(iOS 10.0, *) {
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        } else {
+                            UIApplication.shared.openURL(url)
+                        }
+                    }
+                }
+                let cancelMailInstall = UIAlertAction(title: "취소", style: .destructive, handler: nil)
+                sendMailErrorAlert.addAction(mailInstall)
+                sendMailErrorAlert.addAction(cancelMailInstall)
+                self.present(sendMailErrorAlert, animated: true, completion: nil)
+            }
         }
     }
-
-
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
+
