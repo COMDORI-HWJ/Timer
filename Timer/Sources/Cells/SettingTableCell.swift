@@ -20,6 +20,16 @@ import MessageUI
 
 
 class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegate{
+    @IBOutlet var SoundSwitch: UISwitch!
+    @IBOutlet var VibrationSwitch: UISwitch!
+    @IBOutlet weak var Ver: UILabel!
+
+    
+
+    static var soundCheck : Bool = true  // 소리확인 변수 *static 프로퍼티를 사용해야 값이 수정된다. https://babbab2.tistory.com/119?category=828998
+    static var vibrationCheck : Bool = true
+    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         SoundSwitch.isOn = UserDefaults.standard.bool(forKey: "SoundSwitchState") // UserDefaults 사용하여 데이터 저장 https://zeddios.tistory.com/107
@@ -34,13 +44,6 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
         let navigationController = UINavigationController(rootViewController: info)
         present(navigationController, animated: true)
     }
-
-    @IBOutlet var SoundSwitch: UISwitch!
-    @IBOutlet var VibrationSwitch: UISwitch!
-    @IBOutlet weak var Ver: UILabel!
-
-    static var soundCheck : Bool = true  // 소리확인 변수 *static 프로퍼티를 사용해야 값이 수정된다. https://babbab2.tistory.com/119?category=828998
-    static var vibrationCheck : Bool = true
 
 
     @IBAction func SoundAlert(_ sender: UISwitch) {
@@ -120,9 +123,9 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
 //                    self.present(vcName!, animated: true, completion: nil)
             
             let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Info")
-                    self.navigationController?.pushViewController(viewController!, animated: true)
+            self.navigationController?.pushViewController(viewController!, animated: true)
         }
-        if(indexPath.section == 1 && indexPath.row == 2){
+        if(indexPath.section == 1 && indexPath.row == 3){
             
             if MFMailComposeViewController.canSendMail() {
                 let composeViewController = MFMailComposeViewController()
