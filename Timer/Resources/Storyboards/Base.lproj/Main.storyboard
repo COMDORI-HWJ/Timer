@@ -169,7 +169,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="" id="0sy-aF-xeG">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="hjd-JM-Z0P" imageView="J0i-Ez-EoV" style="IBUITableViewCellStyleDefault" id="GxH-zC-q5I">
+                                    <tableViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="hjd-JM-Z0P" imageView="J0i-Ez-EoV" style="IBUITableViewCellStyleDefault" id="GxH-zC-q5I">
                                         <rect key="frame" x="16" y="281.5" width="288" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GxH-zC-q5I" id="fXC-By-gen">
@@ -190,10 +190,10 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="hzL-d3-N8y" kind="show" id="Ikr-ET-ogO"/>
+                                            <segue destination="hzL-d3-N8y" kind="show" id="UL6-S1-PpY"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="yg1-Oq-jUK" style="IBUITableViewCellStyleDefault" id="uYI-FL-lf0">
+                                    <tableViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="yg1-Oq-jUK" style="IBUITableViewCellStyleDefault" id="uYI-FL-lf0">
                                         <rect key="frame" x="16" y="325" width="288" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uYI-FL-lf0" id="qzZ-l8-1hA">
@@ -210,15 +210,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Meh-2g-bAF" style="IBUITableViewCellStyleDefault" id="tjf-P5-yHn">
-                                        <rect key="frame" x="16" y="368.5" width="288" height="55.5"/>
+                                    <tableViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Meh-2g-bAF" style="IBUITableViewCellStyleDefault" id="tjf-P5-yHn">
+                                        <rect key="frame" x="16" y="368.5" width="288" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tjf-P5-yHn" id="kaa-Tv-deg">
-                                            <rect key="frame" x="0.0" y="0.0" width="261.5" height="55.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="261.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="문의 및 아이디어 제보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Meh-2g-bAF">
-                                                    <rect key="frame" x="16" y="0.0" width="237.5" height="55.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="237.5" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
@@ -235,6 +235,7 @@
                             <outlet property="delegate" destination="k19-w8-9zM" id="D2d-fH-Sdv"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="gex-Nx-ZD5"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="SoundSwitch" destination="aeq-vZ-SJF" id="e3r-oQ-sdS"/>
@@ -249,7 +250,7 @@
         <!--Info-->
         <scene sceneID="FUP-ST-NKN">
             <objects>
-                <viewController id="hzL-d3-N8y" customClass="Info" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Info" title="Info" id="hzL-d3-N8y" customClass="Info" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xt0-IE-tbg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="441"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -281,7 +282,14 @@
                             <constraint firstItem="ntX-h1-Vep" firstAttribute="centerY" secondItem="Xt0-IE-tbg" secondAttribute="centerY" constant="52.5" id="qSU-vJ-850"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qya-wv-L6N"/>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" id="qya-wv-L6N">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="83c-Kj-JPV">
+                            <connections>
+                                <action selector="backBtn:" destination="hzL-d3-N8y" id="eod-tm-eQY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="Info" destination="ntX-h1-Vep" id="e7R-36-4R9"/>
                         <outlet property="Profile" destination="0Vk-Ah-Gm4" id="Tuj-32-Omz"/>
@@ -289,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOe-v5-TgX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="971.25" y="825.52816901408448"/>
+            <point key="canvasLocation" x="891" y="833"/>
         </scene>
         <!--MTimer-->
         <scene sceneID="yJN-KM-FTH">
@@ -403,10 +411,10 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="262" id="nX3-n9-pUO"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="n6l-vk-qsb" userLabel="Down Set">
+                            <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="n6l-vk-qsb" userLabel="Down Set">
                                 <rect key="frame" x="29.5" y="277.5" width="261" height="48"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ggl-Wh-D8x" customClass="Button" customModule="Timer" customModuleProvider="target">
+                                    <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ggl-Wh-D8x" customClass="Button" customModule="Timer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="47" height="48"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
@@ -424,7 +432,7 @@
                                             <action selector="hourDown:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="NoB-0h-a9t"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aB3-8f-b3z" customClass="Button" customModule="Timer" customModuleProvider="target">
+                                    <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aB3-8f-b3z" customClass="Button" customModule="Timer" customModuleProvider="target">
                                         <rect key="frame" x="107" y="0.0" width="47" height="48"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
@@ -443,7 +451,7 @@
                                             <action selector="minDown:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="EbM-dN-6U7"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GR3-0Y-Yfk" customClass="Button" customModule="Timer" customModuleProvider="target">
+                                    <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GR3-0Y-Yfk" customClass="Button" customModule="Timer" customModuleProvider="target">
                                         <rect key="frame" x="214" y="0.0" width="47" height="48"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
@@ -464,10 +472,10 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="jv8-fk-50A" userLabel="UP Set">
+                            <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="jv8-fk-50A" userLabel="UP Set">
                                 <rect key="frame" x="29.5" y="152" width="261" height="46"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4q-za-Xl9" customClass="Button" customModule="Timer" customModuleProvider="target">
+                                    <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4q-za-Xl9" customClass="Button" customModule="Timer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="47" height="46"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <gestureRecognizers/>
@@ -488,7 +496,7 @@
                                             <action selector="hourUp:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="GMb-92-To3"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="bottomLeft" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Moe-ao-nWA" customClass="Button" customModule="Timer" customModuleProvider="target">
+                                    <button opaque="NO" multipleTouchEnabled="YES" tag="1" contentMode="bottomLeft" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Moe-ao-nWA" customClass="Button" customModule="Timer" customModuleProvider="target">
                                         <rect key="frame" x="107" y="0.0" width="47" height="46"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <gestureRecognizers/>
@@ -509,7 +517,7 @@
                                             <action selector="minUp:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="rx4-PM-5Ih"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvx-zQ-uTH" customClass="Button" customModule="Timer" customModuleProvider="target">
+                                    <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvx-zQ-uTH" customClass="Button" customModule="Timer" customModuleProvider="target">
                                         <rect key="frame" x="214" y="0.0" width="47" height="46"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <gestureRecognizers/>
