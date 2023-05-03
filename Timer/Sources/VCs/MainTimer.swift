@@ -16,6 +16,7 @@
  https://scshim.tistory.com/220 UIAlert 알림창 구현
  https://boidevelop.tistory.com/57 알림창 텍스트필드 추가
  https://stackoverflow.com/questions/33658521/how-to-make-a-uilabel-clickable UILable 터치이벤트
+ https://stackoverflow.com/questions/1080043/how-to-disable-multitouch 버튼 멀티터치 막기
 
  */
 
@@ -76,14 +77,8 @@ class MainTimer: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        self.navigationController?.navigationBar.topItem?.title="AD" //뷰 제목
-  
-         /* Admob */
-      //  bannerView.adUnitID = "ca-app-pub-7875242624363574/7192134359"
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" //테스트 광고
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+        
+        UIButton.appearance().isExclusiveTouch = true // 버튼 멀티터치 막기
         
         requestNotiAuthorization()
         requestNotificationPermission()
@@ -91,6 +86,15 @@ class MainTimer: UIViewController {
         Enable()
         tipLabel()
         
+        // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.topItem?.title="AD" //뷰 제목
+        
+        /* Admob */
+//        bannerView.adUnitID = "ca-app-pub-7875242624363574/7192134359"
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" //테스트 광고
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+
     }
     
     override func didReceiveMemoryWarning() {
