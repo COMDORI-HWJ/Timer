@@ -1,7 +1,9 @@
 
-/* Class = "UITableViewSection"; headerTitle = "other"; ObjectID = "0sy-aF-xeG"; */
-"0sy-aF-xeG.headerTitle" = "기타";
-
+///* Class = "UITableViewSection"; headerTitle = "other"; ObjectID = "0sy-aF-xeG"; */
+//"0sy-aF-xeG.headerTitle" = "기타";
+//
+///* Class = "UITableViewSection"; headerTitle = "Effect Setting"; ObjectID = "cpZ-vf-XDb"; */
+//"cpZ-vf-XDb.headerTitle" = "효과 설정";
 
 /* Class = "UILabel"; text = "00:00:00.000"; ObjectID = "DXh-Op-Bhf"; */
 "DXh-Op-Bhf.text" = "00:00:00.000";
@@ -40,8 +42,7 @@
 /* Class = "UITabBarItem"; title = "Back"; ObjectID = "cmV-zJ-AKM"; */
 "cmV-zJ-AKM.title" = "Back";
 
-/* Class = "UITableViewSection"; headerTitle = "Effect Setting"; ObjectID = "cpZ-vf-XDb"; */
-"cpZ-vf-XDb.headerTitle" = "효과 설정";
+
 
 /* Class = "UIViewController"; title = "Setting"; ObjectID = "fGX-y9-as3"; */
 "fGX-y9-as3.title" = "Setting";
