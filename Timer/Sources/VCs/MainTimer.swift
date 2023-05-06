@@ -43,7 +43,7 @@ class MainTimer: UIViewController {
     
     let Noti = UNMutableNotificationContent()
     let notiCenter = UNUserNotificationCenter.current()
-   
+    
 //    enum timerStatus {
 //        case start
 //        case stop
@@ -77,7 +77,6 @@ class MainTimer: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         UIButton.appearance().isExclusiveTouch = true // 버튼 멀티터치 막기
         
         requestNotiAuthorization()
