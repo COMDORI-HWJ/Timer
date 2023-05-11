@@ -25,11 +25,10 @@
 ### 오름차순 기준
 
 | Version |빌드 날짜 
-|-|-
+|:-:|:-:|
 |1.4.5|2022년 4월 10일
-| ![title](Screenshots/1.4.5/IMG_2212.PNG){: width="100" height="100"}| ![](Screenshots/1.4.5/IMG_2213.PNG){: width="100" height="100"}
-| ![](Screenshots/1.4.5/IMG_2214.PNG){: width="100" height="100"} | ![](Screenshots/1.4.5/IMG_2215.PNG){: width="100" height="100"}
-| ![](Screenshots/1.4.5/IMG_2216.PNG){: width="100" height="100"} |
+| <img src=Screenshots/1.4.5/IMG_2212.PNG height ="700" >|<img src=Screenshots/1.4.5/IMG_2213.PNG height ="700">
+| <img src = Screenshots/1.4.5/IMG_2214.PNG height="700"> | <img src=Screenshots/1.4.5/IMG_2215.PNG height="700">| <img src=Screenshots/1.4.5/IMG_2216.PNG height="700"> |
 
 
 
