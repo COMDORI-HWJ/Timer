@@ -40,7 +40,7 @@
 | Version |빌드 날짜 
 |:-:|:-:|
 |1.6.4|2022년 6월 18일
-<img src=Screenshots/1.6.4/IMG_1453.PNG height="700">|<img src=screenshots/1.6.4/IMG_1452.PNG height="700">
+<img src=Screenshots/1.6.4/IMG_1453.PNG height="700">|<img src=Screenshots/1.6.4/IMG_1452.PNG height="700">
 
 | Version |빌드 날짜 
 |:-:|:-:|
