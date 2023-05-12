@@ -4,7 +4,6 @@
 //
 
 /* Reference
- https://noahlogs.tistory.com/9 [기초]변수와 상수
  https://unclean.tistory.com/27 타이머3 시작시간 카운트
  https://ios-development.tistory.com/773 타이머4
  https://ios-development.tistory.com/775 DispatchSourceTimer를 이용한 Timer 모듈 구현
