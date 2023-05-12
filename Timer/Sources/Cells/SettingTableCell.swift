@@ -20,12 +20,11 @@ import MessageUI
 
 
 class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegate{
+    
     @IBOutlet var SoundSwitch: UISwitch!
     @IBOutlet var VibrationSwitch: UISwitch!
     @IBOutlet weak var Ver: UILabel!
-
     
-
     static var soundCheck : Bool = true  // 소리확인 변수 *static 프로퍼티를 사용해야 값이 수정된다. https://babbab2.tistory.com/119?category=828998
     static var vibrationCheck : Bool = true
     
@@ -125,7 +124,17 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
             let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Info")
             self.navigationController?.pushViewController(viewController!, animated: true)
         }
-        if(indexPath.section == 1 && indexPath.row == 3){
+        
+        if(indexPath.section == 1 && indexPath.row == 0) {
+            
+            guard let tutorial = self.storyboard?.instantiateViewController(withIdentifier: "TutorialVC") as? Tutorial else { return }
+            tutorial.modalTransitionStyle = .flipHorizontal // 화면 전환 애니메이션 설정
+            tutorial.modalPresentationStyle = .popover // 전환된 화면이 보여지는 방법 설정
+            self.present(tutorial, animated: true, completion: nil)
+
+        }
+        
+        if(indexPath.section == 1 && indexPath.row == 3) {
             
             if MFMailComposeViewController.canSendMail() {
                 let composeViewController = MFMailComposeViewController()
