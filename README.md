@@ -83,4 +83,9 @@
 |:-:|:-:|
 |<img src=Screenshots/20230502/1.PNG height="700">|<img src=Screenshots/20230502/2.PNG height="700">
 
+|빌드 날짜 |2023년 5월 13일
+|:-:|:-:|
+|<img src=Screenshots/20230513/1.png height="700">|<img src=Screenshots/20230513/2.png height="700">
+|<img src=Screenshots/20230513/3.png height="700">
+
 </div>
