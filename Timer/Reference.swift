@@ -6,6 +6,7 @@
 //
 /**참고 및 공부**/
 /*
+https://noahlogs.tistory.com/9 [기초]변수와 상수
  https://es1015.tistory.com/504 [Swift] FileManager로 디바이스에 파일 저장하기 (Document) [LSSupportsOpeningDocumentsInPlace entry or an UISupportsDocumentBrowser entry to your Info.plist to declare support.]
 
  https://inuplace.tistory.com/1163 로컬라이징
@@ -23,5 +24,5 @@
  
  https://junyng.tistory.com/30 Dynamic Type을 사용하여 폰트 크기 조정하기
  
- https://ios-development.tistory.com/80 [iOS - swift] 튜토리얼 화면(tutorial screen) 만들기 - PageViewController (programmatically)
+ https://kkh0977.tistory.com/2753
 */
