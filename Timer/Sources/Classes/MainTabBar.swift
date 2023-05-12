@@ -26,7 +26,7 @@ class MainTabBar: UITabBarController {
         print("튜토리얼화면작동")
         let ud = UserDefaults.standard
         if ud.bool(forKey: UserInfoKey.tutorial) == true {
-            let vc = instanceTutorialVC(name: "MasterVC")
+            let vc = instanceTutorial(name: "TutorialVC")
             self.present(vc!, animated: true)
             return
         }
