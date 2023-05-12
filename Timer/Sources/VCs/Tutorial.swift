@@ -83,41 +83,56 @@ class Tutorial: UIViewController, UIPageViewControllerDataSource {
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    // 현재의 콘텐츠 뷰 컨트롤러보다 앞쪽에 올 콘텐츠 뷰 컨트롤러 객체
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-            // 현재 페이지 인덱스
+        // 현재 뷰 컨트롤러의 인덱스를 가져옵니다.
         guard var index = (viewController as! TutorialContents).pageIndex else { return nil }
         
-            // 인덱스가 맨 앞이면 nil
-            guard index > 0 else { return nil }
-            
-            // 이전 페이지 인덱스
-            index -= 1
-            return self.getContentVC(atIndex: index)
-        }
+        // 인덱스를 감소시키고, 무제한 스크롤을 위해 모듈러 연산을 사용합니다.
+        index = (index - 1 + self.tutorialTitles.count) % self.tutorialTitles.count
         
-        // 현재의 콘텐츠 뷰 컨트롤러 뒤쪽에 올 콘텐츠 뷰 컨트롤러 객체
-        func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-            // 현재 페이지 인덱스
-            guard var index = (viewController as! TutorialContents).pageIndex else { return nil }
-            
-            // 다음 페이지 인덱스
-            index += 1
-            
-            // 인덱스는 배열 데이터의 크기보다 작아야함
-            guard index < self.tutorialTitles.count else { return nil }
-            return self.getContentVC(atIndex: index)
-        }
+        // 새로운 인덱스의 뷰 컨트롤러를 반환합니다.
+        return self.getContentVC(atIndex: index)
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        // 현재 뷰 컨트롤러의 인덱스를 가져옵니다.
+        guard var index = (viewController as! TutorialContents).pageIndex else { return nil }
         
+        // 인덱스를 증가시키고, 무제한 스크롤을 위해 모듈러 연산을 사용합니다.
+        index = (index + 1) % self.tutorialTitles.count
+        
+        // 새로운 인덱스의 뷰 컨트롤러를 반환합니다.
+        return self.getContentVC(atIndex: index)
+    }
+    
     // 인디 케이터 초기 값, 페이지 뷰 컨트롤러가 최초에 출력할 콘텐츠 부의 인덱스를 알려주는 메서드
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return 0
-    }
+            return 0
+        }
     
     // 인디 케이터에 표시할 페이지 갯수, 페이지 뷰 컨트롤러가 출력할 페이지의 개수를 알려줄 메서드
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return self.tutorialTitles.count
     }
+    
+//    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+//        guard var index = (viewController as! TutorialContents).pageIndex else { return nil }
+//        guard index > 0 else { return nil }
+//        index -= 1
+//        return self.getContentVC(atIndex: index)
+//    }
+//
+//    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+//        guard var index = (viewController as! TutorialContents).pageIndex else { return nil }
+//        index += 1
+//        guard index < self.tutorialTitles.count else { return nil }
+//        return self.getContentVC(atIndex: index)
+//    }
+//
+//    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+//        return 0
+//    }
+
 }
 
 // 프로퍼티 리스트
@@ -133,5 +148,3 @@ extension UIViewController {
            return self.mainSb.instantiateViewController(withIdentifier: name)
        }
    }
-
-
