@@ -26,3 +26,17 @@ https://noahlogs.tistory.com/9 [기초]변수와 상수
  
  https://kkh0977.tistory.com/2753
 */
+
+
+
+//
+//  TutorialContents.swift
+//  Timer
+//
+//  Created by Wonji Ha on 2023/05/06.
+//
+/** Reference
+ * https://kkh0977.tistory.com/2753 CGRect 사용해 x , y , width , height 좌표, 크기 설정 및 동적으로 UILabel 라벨 생성 실시
+ * https://woongsios.tistory.com/57 status bar 높이 구하기 in Swift 5
+ 
+ */
