@@ -20,6 +20,9 @@ class Tutorial: UIViewController, UIPageViewControllerDataSource {
     var tutorialTitles = ["환영합니다!", "+를 눌러서 시간을 추가해보세요!", "-를 눌러서 시간을 빼보세요."]
     var tutorialImages = ["1", "2", ""]
     
+    var gifImages = ["tutorial2", "tutorial3", "tutorial4"]
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      
@@ -66,10 +69,10 @@ class Tutorial: UIViewController, UIPageViewControllerDataSource {
         let cvc = TutorialContents()
 //        guard let cvc = instanceTutorial(name: "TutorialVC") as? TutorialContents else { return nil }
         cvc.titleText = tutorialTitles[idx]
-        cvc.imageFile = tutorialImages[idx]
+        cvc.imageFile = gifImages[idx]
         cvc.pageIndex = idx
         cvc.view.backgroundColor = .brown
-//        cvc.view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height-90)
+        cvc.view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height-90)
         return cvc
     }
 //    @IBAction func pageChanged(_ sender: UIPageControl) {
