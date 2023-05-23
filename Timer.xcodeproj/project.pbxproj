@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,6 +28,9 @@
 		376F47C4285B1BA200CDF726 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F47C3285B1BA200CDF726 /* Stopwatch.swift */; };
 		378210E627FF4D2A00B312C3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 378210E527FF4D2A00B312C3 /* .gitignore */; };
 		378210EA27FF5EFC00B312C3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378210E927FF5EFC00B312C3 /* Button.swift */; };
+		378F0F552A1189A1002E8583 /* tutorial2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 378F0F522A118998002E8583 /* tutorial2.gif */; };
+		378F0F562A1189A1002E8583 /* tutorial4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 378F0F532A11899F002E8583 /* tutorial4.gif */; };
+		378F0F572A1189A1002E8583 /* tutorial3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 378F0F542A1189A1002E8583 /* tutorial3.gif */; };
 		379383D42852BFA400D6463C /* IMG_2213.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 379383C92852BFA400D6463C /* IMG_2213.PNG */; };
 		379383D52852BFA400D6463C /* IMG_2212.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 379383CA2852BFA400D6463C /* IMG_2212.PNG */; };
 		379383D62852BFA400D6463C /* IMG_2215.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 379383CB2852BFA400D6463C /* IMG_2215.PNG */; };
@@ -39,7 +42,10 @@
 		379383DC2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.15.png in Resources */ = {isa = PBXBuildFile; fileRef = 379383D22852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.15.png */; };
 		379383DD2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png in Resources */ = {isa = PBXBuildFile; fileRef = 379383D32852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png */; };
 		379EA0C7287DC19000406FC8 /* Stopwatch extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379EA0C6287DC19000406FC8 /* Stopwatch extension.swift */; };
+		37C20F9F2A0584ED001A98B1 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C20F9E2A0584ED001A98B1 /* Tutorial.swift */; };
+		37C20FA12A0589F1001A98B1 /* TutorialContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C20FA02A0589F1001A98B1 /* TutorialContents.swift */; };
 		37C3E2A22852A617009E6D5B /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C3E2A12852A617009E6D5B /* MainTabBar.swift */; };
+		37D653DA2A13008F0023D14C /* Gifu in Frameworks */ = {isa = PBXBuildFile; productRef = 37D653D92A13008F0023D14C /* Gifu */; };
 		BECDA9BFE8857DFD0A03E72D /* Pods_Timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F160EE6B80F5B857748379 /* Pods_Timer.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +76,9 @@
 		376F47C3285B1BA200CDF726 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		378210E527FF4D2A00B312C3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		378210E927FF5EFC00B312C3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		378F0F522A118998002E8583 /* tutorial2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tutorial2.gif; sourceTree = "<group>"; };
+		378F0F532A11899F002E8583 /* tutorial4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tutorial4.gif; sourceTree = "<group>"; };
+		378F0F542A1189A1002E8583 /* tutorial3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tutorial3.gif; sourceTree = "<group>"; };
 		379383C92852BFA400D6463C /* IMG_2213.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_2213.PNG; sourceTree = "<group>"; };
 		379383CA2852BFA400D6463C /* IMG_2212.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_2212.PNG; sourceTree = "<group>"; };
 		379383CB2852BFA400D6463C /* IMG_2215.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_2215.PNG; sourceTree = "<group>"; };
@@ -81,6 +90,8 @@
 		379383D22852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.15.png"; sourceTree = "<group>"; };
 		379383D32852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png"; sourceTree = "<group>"; };
 		379EA0C6287DC19000406FC8 /* Stopwatch extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stopwatch extension.swift"; sourceTree = "<group>"; };
+		37C20F9E2A0584ED001A98B1 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
+		37C20FA02A0589F1001A98B1 /* TutorialContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialContents.swift; sourceTree = "<group>"; };
 		37C3E2A12852A617009E6D5B /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		37F73E35287F1D7900068E6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		68F160EE6B80F5B857748379 /* Pods_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Timer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +105,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BECDA9BFE8857DFD0A03E72D /* Pods_Timer.framework in Frameworks */,
+				37D653DA2A13008F0023D14C /* Gifu in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +163,7 @@
 		370CF5E1285E4951007F67B0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				378F0F512A11897C002E8583 /* Tutorial */,
 				3751D9A128A2C728000AE0AA /* Info */,
 				370CF5E0285E3C62007F67B0 /* Icon */,
 			);
@@ -207,6 +220,8 @@
 				376F47C3285B1BA200CDF726 /* Stopwatch.swift */,
 				2B69E3E92722459D00591357 /* Setting.swift */,
 				3751D9A628A2CA2E000AE0AA /* Info.swift */,
+				37C20F9E2A0584ED001A98B1 /* Tutorial.swift */,
+				37C20FA02A0589F1001A98B1 /* TutorialContents.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -235,6 +250,16 @@
 				2BA0F04E269395C20040D20B /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		378F0F512A11897C002E8583 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				378F0F522A118998002E8583 /* tutorial2.gif */,
+				378F0F542A1189A1002E8583 /* tutorial3.gif */,
+				378F0F532A11899F002E8583 /* tutorial4.gif */,
+			);
+			path = Tutorial;
 			sourceTree = "<group>";
 		};
 		379383C72852BFA400D6463C /* Screenshots */ = {
@@ -306,6 +331,9 @@
 			dependencies = (
 			);
 			name = Timer;
+			packageProductDependencies = (
+				37D653D92A13008F0023D14C /* Gifu */,
+			);
 			productName = Test2;
 			productReference = 2BA0F045269395C20040D20B /* Timer.app */;
 			productType = "com.apple.product-type.application";
@@ -316,8 +344,9 @@
 		2BA0F03D269395C20040D20B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					2BA0F044269395C20040D20B = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -334,6 +363,9 @@
 				ko,
 			);
 			mainGroup = 2BA0F03C269395C20040D20B;
+			packageReferences = (
+				37D653D82A13008F0023D14C /* XCRemoteSwiftPackageReference "Gifu" */,
+			);
 			productRefGroup = 2BA0F046269395C20040D20B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -348,6 +380,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				378F0F552A1189A1002E8583 /* tutorial2.gif in Resources */,
 				378210E627FF4D2A00B312C3 /* .gitignore in Resources */,
 				379383D92852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.43.png in Resources */,
 				379383DA2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.49.41.png in Resources */,
@@ -356,6 +389,7 @@
 				379383DD2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png in Resources */,
 				379383D82852BFA400D6463C /* IMG_2216.PNG in Resources */,
 				376D7A2B285E26B600643F43 /* IMG_1453.PNG in Resources */,
+				378F0F572A1189A1002E8583 /* tutorial3.gif in Resources */,
 				2BA573AC275D7A09003C7677 /* Localizable.strings in Resources */,
 				2BD4CF0B2702817D0063D45D /* README.md in Resources */,
 				376CF454299D564700FE686D /* 2022 COMDORI.png in Resources */,
@@ -368,6 +402,7 @@
 				2BB176192746AE2E00324111 /* InfoPlist.strings in Resources */,
 				379383D72852BFA400D6463C /* IMG_2214.PNG in Resources */,
 				2BA0F050269395C20040D20B /* Main.storyboard in Resources */,
+				378F0F562A1189A1002E8583 /* tutorial4.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +459,9 @@
 				2B415B3A273CFFF500E8D3E6 /* BackgroundTimer.swift in Sources */,
 				2B6197AB27600A4B00310E7E /* MainTimer.swift in Sources */,
 				376F47C4285B1BA200CDF726 /* Stopwatch.swift in Sources */,
+				37C20FA12A0589F1001A98B1 /* TutorialContents.swift in Sources */,
 				376CF45A299D5F7600FE686D /* Reference.swift in Sources */,
+				37C20F9F2A0584ED001A98B1 /* Tutorial.swift in Sources */,
 				37C3E2A22852A617009E6D5B /* MainTabBar.swift in Sources */,
 				2B69E3EC27224DBA00591357 /* SettingTableCell.swift in Sources */,
 				378210EA27FF5EFC00B312C3 /* Button.swift in Sources */,
@@ -782,6 +819,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		37D653D82A13008F0023D14C /* XCRemoteSwiftPackageReference "Gifu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kaishin/Gifu";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		37D653D92A13008F0023D14C /* Gifu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37D653D82A13008F0023D14C /* XCRemoteSwiftPackageReference "Gifu" */;
+			productName = Gifu;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2BA0F03D269395C20040D20B /* Project object */;
 }
