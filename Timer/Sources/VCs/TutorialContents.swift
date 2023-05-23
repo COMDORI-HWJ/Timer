@@ -10,6 +10,8 @@
  
  */
 import UIKit
+import Gifu
+
 
 class TutorialContents: UIViewController {
     
@@ -18,31 +20,20 @@ class TutorialContents: UIViewController {
     var pageIndex: Int!
     
     var titleLabel: UILabel!
-    var bgImageView: UIImageView!
-    
+    let gifImageView = GIFImageView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        bgImageView = UIImageView()
-        bgImageView.image = UIImage(named: imageFile)
+        
+        gifImageView.animate(withGIFNamed: imageFile)
+        
         titleLabel = UILabel()
         titleLabel.text = titleText
         titleLabel.sizeToFit() // 레이블 객체 텍스트 동적 설정 레이블 너비를 텍스트 길에 맞추는 역할
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
     }
-    
-    
-    /*
-     MARK: - Navigation
-     
-     In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     Get the new view controller using segue.destination.
-     Pass the selected object to the new view controller.
-     }
-     */
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         
         // 디바이스 화면 사이즈 확인
@@ -53,10 +44,9 @@ class TutorialContents: UIViewController {
         
         titleLabel.frame = CGRect(x: 0, y: statusBarFrameHeight/3, width: deviceWidth, height: 30)
         print("현재 페이지: " , titleText!)
-        guard let img = UIImage(named: imageFile) else { return}
-        bgImageView.image = img
-        bgImageView.frame = CGRect(x: 0, y: 0, width: view.safeAreaLayoutGuide.layoutFrame.width, height: view.safeAreaLayoutGuide.layoutFrame.height)
-        view.addSubview(bgImageView)
+        
+        gifImageView.frame = CGRect(x: 0, y: 0, width: view.safeAreaLayoutGuide.layoutFrame.width, height: view.safeAreaLayoutGuide.layoutFrame.height)
+        view.addSubview(gifImageView)
         view.addSubview(titleLabel)
 //        titleLabel.frame = CGRectInset(CGRect, CGFloat, CGFloat)
     }
