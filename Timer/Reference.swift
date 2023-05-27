@@ -24,7 +24,6 @@ https://noahlogs.tistory.com/9 [기초]변수와 상수
  
  https://junyng.tistory.com/30 Dynamic Type을 사용하여 폰트 크기 조정하기
  
- https://kkh0977.tistory.com/2753
 */
 
 
