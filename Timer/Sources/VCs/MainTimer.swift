@@ -414,7 +414,7 @@ class MainTimer: UIViewController {
     
     @IBAction func millisecDown(_ sender : Any)
     {
-        if(count > 0)
+        if count > 0.000
         {
             count -= 0.001
             Firstcount -= 0.001
@@ -446,7 +446,7 @@ class MainTimer: UIViewController {
     
     @IBAction func secDown( _ sender : Any)
     {
-        if(count > 0)
+        if count > 1
         {
             count -= 1
             Firstcount -= 1
@@ -481,7 +481,7 @@ class MainTimer: UIViewController {
     
     @IBAction func minDown(_ sender : Any)
     {
-        if(count > 0)
+        if count > 60
         {
             count -= 60
             Firstcount -= 60
@@ -515,14 +515,12 @@ class MainTimer: UIViewController {
     
     @IBAction func hourDown(_ sender : Any)
     {
-       
-       if(count > 0)
-        {
-           count -= 3600
-           Firstcount -= 3600
-           Effect()
-           CountLabel()
-       }
+        if count > 3600 {
+            count -= 3600
+            Firstcount -= 3600
+            Effect()
+            CountLabel()
+        }
        else
        {
            DownAlertError()
