@@ -16,7 +16,6 @@
  https://boidevelop.tistory.com/57 알림창 텍스트필드 추가
  https://stackoverflow.com/questions/33658521/how-to-make-a-uilabel-clickable UILable 터치이벤트
  https://stackoverflow.com/questions/1080043/how-to-disable-multitouch 버튼 멀티터치 막기
-
  */
 
 import Foundation
@@ -101,23 +100,20 @@ class MainTimer: UIViewController {
     
 //    deinit
 //    {
-//        Reset() //인스턴스 메모리 해제가 필요할 때 자동으로 호출하는 "소멸자" 함수 https://woozzang.tistory.com/116 //단 백그라운드 작업 안됨.
+//        Reset() // 인스턴스 메모리 해제가 필요할 때 자동으로 호출하는 "소멸자" 함수 https://woozzang.tistory.com/116 //단 백그라운드 작업 안됨.
 //    }
     
     //var timerStatus: TimerStatus = .start
     
     func requestNotificationPermission(){  //푸시 알림 권한 메소드
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge,.criticalAlert], completionHandler: {didAllow,Error in
-               if didAllow {
-                   print("Push: 권한 허용")
-               } else {
-                   print("Push: 권한 거부")
-               }
-           })
-        
-
-       }
-    
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge,.criticalAlert], completionHandler: { didAllow,Error in
+            if didAllow {
+                print("Push: 권한 허용")
+            } else {
+                print("Push: 권한 거부")
+            }
+        })
+    }
     
     @IBAction func TimerStartStop(_ sender: Any)
     {
@@ -167,9 +163,10 @@ class MainTimer: UIViewController {
                     self!.Timecal()
 
             })
-                //RunLoop.current.run() //메인쓰레드에서는 불안정하게 작동함.
-    
+               
                 }
+//                        RunLoop.current.run() // 백그라운드 모드 사용으로 해결
+
         }
         else
         {
@@ -446,7 +443,7 @@ class MainTimer: UIViewController {
     
     @IBAction func secDown( _ sender : Any)
     {
-        if count > 1
+        if count > 0
         {
             count -= 1
             Firstcount -= 1
