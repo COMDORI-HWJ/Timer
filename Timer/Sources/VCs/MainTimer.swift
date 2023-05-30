@@ -16,11 +16,14 @@
  https://boidevelop.tistory.com/57 알림창 텍스트필드 추가
  https://stackoverflow.com/questions/33658521/how-to-make-a-uilabel-clickable UILable 터치이벤트
  https://stackoverflow.com/questions/1080043/how-to-disable-multitouch 버튼 멀티터치 막기
+ 
+ https://stackoverflow.com/questions/42319172/swift-3-how-to-make-timer-work-in-background 백그라운드 타이머 작동?
+ https://paul-goden.tistory.com/11 타이머 백그라운드 참고
  */
 
 import Foundation
 import UIKit
-import AVFoundation //햅틱
+import AVFoundation // 햅틱
 import GoogleMobileAds
 import UserNotifications
 import SystemConfiguration
@@ -37,10 +40,13 @@ class MainTimer: UIViewController {
     var TimerStatus : Bool = false // 타이머 상태
     var count : Double = 0, remainTime : Double = 0
     var elapsed : Double = 0 // 경과시간
-    var Firstcount: Double = 0 //처음 시작한 카운트 <추후 db연동후 사용자가 많이 사용하는 시간 빅데이터화...>
+    var backgroudInTime : Date? // 백그라운드 동안 시간
+    var Firstcount: Double = 0 // 처음 시작한 카운트 <추후 db연동후 사용자가 많이 사용하는 시간 빅데이터화...>
     
-    let Noti = UNMutableNotificationContent()
+    let noti = UNMutableNotificationContent()
     let notiCenter = UNUserNotificationCenter.current()
+    
+    var backgroundTaskIdentifier: UIBackgroundTaskIdentifier?
     
 //    enum timerStatus {
 //        case start
@@ -77,8 +83,9 @@ class MainTimer: UIViewController {
         super.viewDidLoad()
         UIButton.appearance().isExclusiveTouch = true // 버튼 멀티터치 막기
         
-        requestNotiAuthorization()
-        requestNotificationPermission()
+        requestNotiAuthorization() // 노티피케이션 알림 최초 허락
+        requestNotificationPermission() // 푸시 알림 허락
+        timerNoti() // 타이머 푸시 알림
 
         Enable()
         tipLabel()
@@ -91,7 +98,7 @@ class MainTimer: UIViewController {
         bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" //테스트 광고
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -105,8 +112,8 @@ class MainTimer: UIViewController {
     
     //var timerStatus: TimerStatus = .start
     
-    func requestNotificationPermission(){  //푸시 알림 권한 메소드
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge,.criticalAlert], completionHandler: { didAllow,Error in
+    func requestNotificationPermission(){  // 푸시 알림 권한 메소드
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge, .criticalAlert], completionHandler: { didAllow,Error in
             if didAllow {
                 print("Push: 권한 허용")
             } else {
@@ -134,10 +141,12 @@ class MainTimer: UIViewController {
             StartStopButton.setTitle(String(format: NSLocalizedString("일시중지", comment: "Pause")), for: .normal)
             DispatchQueue.main.async {
                 // Timer카운터 쓰레드 적용
+                
                 self.timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { [weak self] timer in
                     let timeInterval = Date().timeIntervalSince(startTime)
                     self!.remainTime = self!.count - timeInterval // 남은시간 계산
                     self!.elapsed = self!.count - self!.remainTime
+                    
                     
                 /** ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림 **/
                     
@@ -155,7 +164,9 @@ class MainTimer: UIViewController {
                             print("Sound: ",SettingTableCell.soundCheck)
                         }
                         
+                        
                         self?.Reset()
+//                        self?.timer.fire()
                         print("0초")
                         return print("초기화 완료")
 
@@ -163,9 +174,7 @@ class MainTimer: UIViewController {
                     self!.Timecal()
 
             })
-               
                 }
-//                        RunLoop.current.run() // 백그라운드 모드 사용으로 해결
 
         }
         else
@@ -270,43 +279,9 @@ class MainTimer: UIViewController {
         //AudioServicesPlaySystemSound(1016) // 소리발생
     }
     
-    func sendNotification()
-    {
-
-        Noti.title = String(format: NSLocalizedString("밀리초 타이머", comment: "Milliseccond Timer")) //appName(한글로만 나옴)
-        Noti.subtitle = String(format: NSLocalizedString("타이머 완료", comment: "Timer done"))
-        Noti.body = String(format: NSLocalizedString("0초가 되었습니다. 타이머를 다시 작동하려면 알림을 탭하세요!", comment: ""))
-        Noti.badge = 1
-        Noti.sound = UNNotificationSound.default
-        
-        //let notificationCenter = UNUserNotificationCenter.current()
-        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false) //알림 발생 시기
-        let identifier = "TimerNoti" //알림 고유 이름
-        let request = UNNotificationRequest(identifier: identifier, content: Noti, trigger: nil) //알림 등록 결과
-        notiCenter.add(request) { (error) in
-            if let err = error {
-                print("노티피케이션 알림 오류: ", err.localizedDescription)
-            }
-            else{
-                print("노티피케이션 푸시알림 성공")
-            }
-        }
-    }
+    // MARK: - Push 알림 관련
     
-    @Published var notiTime: Date = Date() {
-            didSet {
-                removeAllNotifications()
-            }
-        }
-
-        @Published var isAlertOccurred: Bool = false
-
-        func removeAllNotifications() {
-            notiCenter.removeAllDeliveredNotifications()
-            notiCenter.removeAllPendingNotificationRequests()
-        }
-    
-    func requestNotiAuthorization() //노티피케이션 설정 가져오기 개발중
+    func requestNotiAuthorization() // 노티피케이션 최초 허락
     {
         notiCenter.getNotificationSettings { settings in
 
@@ -331,6 +306,63 @@ class MainTimer: UIViewController {
     }
         }
     }
+    
+    func timerNoti() {
+        let notificationCenter = NotificationCenter.default
+//         백그라운드 상태
+        notificationCenter.addObserver(self, selector: #selector(TimerStartStop), name: UIApplication.willResignActiveNotification, object: nil)
+//         포그라운드 상태
+        notificationCenter.addObserver(self, selector: #selector(TimerStartStop), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    @objc func backgroudTime() {
+        if TimerStatus {
+//            Reset()
+            backgroudInTime = Date()
+            sendNotification()
+        }
+    }
+    
+    func foregroundTime() {
+        
+    }
+    
+    func sendNotification()
+    {
+        noti.title = String(format: NSLocalizedString("밀리초 타이머", comment: "Milliseccond Timer")) //appName(한글로만 나옴)
+        noti.subtitle = String(format: NSLocalizedString("타이머 완료", comment: "Timer done"))
+        noti.body = String(format: NSLocalizedString("0초가 되었습니다. 타이머를 다시 작동하려면 알림을 탭하세요!", comment: ""))
+        noti.badge = 1
+        noti.sound = UNNotificationSound.default
+        
+        //let notificationCenter = UNUserNotificationCenter.current()
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false) //알림 발생 시기
+        let identifier = "TimerNoti" //알림 고유 이름
+        let request = UNNotificationRequest(identifier: identifier, content: noti, trigger: nil) //알림 등록 결과
+        notiCenter.add(request) { (error) in
+            if let err = error {
+                print("노티피케이션 알림 오류: ", err.localizedDescription)
+            }
+            else{
+                print("노티피케이션 푸시알림 성공")
+            }
+        }
+    }
+    
+    @Published var notiTime: Date = Date() {
+            didSet {
+                removeAllNotifications()
+            }
+        }
+
+        @Published var isAlertOccurred: Bool = false
+
+        func removeAllNotifications() {
+            notiCenter.removeAllDeliveredNotifications()
+            notiCenter.removeAllPendingNotificationRequests()
+        }
+    
+    
     
     
     func UpAlertError()
@@ -478,7 +510,7 @@ class MainTimer: UIViewController {
     
     @IBAction func minDown(_ sender : Any)
     {
-        if count > 60
+        if count > 59
         {
             count -= 60
             Firstcount -= 60
@@ -512,7 +544,7 @@ class MainTimer: UIViewController {
     
     @IBAction func hourDown(_ sender : Any)
     {
-        if count > 3600 {
+        if count > 3599 {
             count -= 3600
             Firstcount -= 3600
             Effect()
@@ -738,14 +770,3 @@ class MainTimer: UIViewController {
     }
     
 }
-
-
-//extension Bundle
-//{
-//    class var appName : String {
-//        if let value = Bundle.main.infoDictionary?["CFBundleDispalyName"] as? String {
-//            return value
-//        }
-//        return ""
-//    }
-//}
