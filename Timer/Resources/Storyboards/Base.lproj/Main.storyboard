@@ -72,9 +72,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8N8-gQ-TQG">
-                                <rect key="frame" x="129" y="507.5" width="62.5" height="40.5"/>
+                                <rect key="frame" x="110" y="507.5" width="100.5" height="40.5"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="닫기">
+                                <buttonConfiguration key="configuration" style="plain" title="시작하기">
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle2"/>
                                 </buttonConfiguration>
                                 <connections>
