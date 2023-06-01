@@ -81,7 +81,7 @@ class Tutorial: UIViewController, UIPageViewControllerDataSource {
     /// close and tutorial check
     @IBAction func exit(_ sender: Any) {
         let ud = UserDefaults.standard
-        ud.set(true, forKey: UserInfoKey.tutorial)
+        ud.set(true, forKey: UserInfoKey.tutorial) // false - 앱 설치후 처음에만 튜토리얼 화면 작동
         ud.synchronize()
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
