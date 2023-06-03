@@ -383,7 +383,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="TimerStartStop:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="DZI-h0-deN"/>
+                                            <action selector="timerStartStop:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="cQN-hI-4bp"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTj-3u-3EN" customClass="Button" customModule="Timer" customModuleProvider="target">
@@ -702,9 +702,7 @@
                         <outlet property="HourLabel" destination="V84-kN-gde" id="7gv-UC-Oqh"/>
                         <outlet property="MillisecLabel" destination="wOn-rK-hKH" id="Rfw-AN-dxn"/>
                         <outlet property="MinLabel" destination="Zy4-OD-21G" id="TVU-6J-qK1"/>
-                        <outlet property="ResetButton" destination="wTj-3u-3EN" id="aie-As-YjZ"/>
                         <outlet property="SecLabel" destination="zKH-mc-nHk" id="rtO-DM-ozk"/>
-                        <outlet property="StartStopButton" destination="n2R-LT-9dT" id="Wyy-D5-oXW"/>
                         <outlet property="TipLabel" destination="AZ3-gm-XYI" id="kYG-uC-XrJ"/>
                         <outlet property="bannerView" destination="oeZ-cZ-mll" id="LBX-RS-7rp"/>
                         <outlet property="hourDownButton" destination="Ggl-Wh-D8x" id="l4e-Ir-ktc"/>
@@ -713,8 +711,10 @@
                         <outlet property="millisecUpButton" destination="kX7-bO-S07" id="BZk-w8-QwY"/>
                         <outlet property="minDownButton" destination="aB3-8f-b3z" id="tTR-ul-IyB"/>
                         <outlet property="minUpButton" destination="Moe-ao-nWA" id="NsQ-eB-ymN"/>
+                        <outlet property="resetButton" destination="wTj-3u-3EN" id="NG6-S0-XHa"/>
                         <outlet property="secDownButton" destination="GR3-0Y-Yfk" id="Hq1-Jk-RQa"/>
                         <outlet property="secUpButton" destination="zvx-zQ-uTH" id="oEU-6a-Bxr"/>
+                        <outlet property="startStopButton" destination="n2R-LT-9dT" id="NLT-SJ-5pe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hy0-53-JJM" sceneMemberID="firstResponder"/>
@@ -749,7 +749,6 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="StopwatchStartStop:" destination="TvW-ox-nD7" eventType="touchUpInside" id="ghK-zM-xnw"/>
-                                            <action selector="TimerStartStop:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="e4S-qh-vrg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVc-ug-WS5" customClass="Button" customModule="Timer" customModuleProvider="target">
