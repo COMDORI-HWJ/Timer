@@ -37,7 +37,6 @@ class MainTimer: UIViewController {
     var hour = 0, minute = 0, second = 0, milliSecond = 0
 
     var timer = Timer()
-    var backTimer = Timer()
     var timerStatus : Bool = false // 타이머 상태
     var count : Double = 0, remainTime : Double = 0
     var elapsed : Double = 0 // 경과시간
@@ -60,8 +59,8 @@ class MainTimer: UIViewController {
     @IBOutlet weak var SecLabel: UILabel!
     @IBOutlet weak var MillisecLabel: UILabel!
     
-    @IBOutlet weak var StartStopButton: UIButton!
-    @IBOutlet weak var ResetButton: UIButton!
+    @IBOutlet weak var startStopButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
     
     @IBOutlet weak var hourUpButton: UIButton!
     @IBOutlet weak var hourDownButton: UIButton!
@@ -123,10 +122,26 @@ class MainTimer: UIViewController {
         })
     }
     
-    @IBAction func TimerStartStop(_ sender: Any)
+    @IBAction func timerStartStop(_ sender: Any)
     {
-        StartStopButton.isSelected = !StartStopButton.isSelected
-        StartStopButton.isSelected ? timerPlay() : timerPause()
+//        startStopButton.isSelected = !startStopButton.isSelected
+//        startStopButton.isSelected ? timerPlay() : timerPause()
+        
+        if timerStatus
+        {
+            timerPause()
+            
+        }
+        else if count > 0
+        {
+            timerPlay()
+//            timerStart()
+        }
+        else
+        {
+            print("카운트를 시작하지 못하였습니다.")
+        }
+        
 //        let startTime = Date()
 //        if timerStatus
 //        {
@@ -178,8 +193,146 @@ class MainTimer: UIViewController {
 //            print("카운트를 시작하지 못하였습니다.")
 //        }
     }
+        
+    func timerStart() {
+        timerStatus = true
+        startStopButton.setTitle(String(format: NSLocalizedString("일시중지", comment: "Pause")), for: .normal)
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+    }
+   
+    @objc func timerCounter() {
+        
+        count -= 0.01 // 남은시간 계산
+        remainTime = count
+        
+        if remainTime > 0 {
+           
+//            guard remainTime >= trunc(0) else
+//            {
+//
+//
+//               return
+//            }
+            timeCal()
+                
+        } else {
+            
+            if(SettingTableCell.soundCheck == true)
+            {
+//                sendNotification()  // Local Notification 발생
+                print("Sound: ",SettingTableCell.soundCheck)
+                AudioServicesPlaySystemSound(1016) // "트윗" 소리발생
+                AudioServicesPlaySystemSound(4095) // 진동발생
+            }
+            else if(SettingTableCell.soundCheck == false)
+            {
+                print("Sound: ",SettingTableCell.soundCheck)
+            }
+            
+            timerStop()
+            reset()
+            print("0초")
+           print("초기화 완료")
+        }
+    }
     
-    func Timecal()
+    func timerPlay()
+    {
+        let startTime = Date()
+        timerStatus = true
+        startStopButton.setTitle(String(format: NSLocalizedString("일시중지", comment: "Pause")), for: .normal)
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { timer in
+            let timeInterval = Date().timeIntervalSince(startTime)
+            self.remainTime = self.count - timeInterval // 남은시간 계산
+            self.elapsed = self.count - self.remainTime
+
+            /** ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림 **/
+            guard self.remainTime >= trunc(0) else
+            {
+                if(SettingTableCell.soundCheck == true)
+                {
+                    //                        self?.sendNotification()  // Local Notification 발생
+                    print("Sound: ",SettingTableCell.soundCheck)
+                    AudioServicesPlaySystemSound(1016) // "트윗" 소리발생
+                    AudioServicesPlaySystemSound(4095) // 진동발생
+                }
+                else if(SettingTableCell.soundCheck == false)
+                {
+                    print("Sound: ",SettingTableCell.soundCheck)
+                }
+
+
+                self.timerStop()
+                self.reset()
+                //                        self?.timer.fire()
+                print("0초")
+                return print("초기화 완료")
+
+            }
+            self.timeCal()
+        })
+        
+        
+//        timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { [weak self] timer in
+//            let timeInterval = Date().timeIntervalSince(startTime)
+//            self!.remainTime = self!.count - timeInterval // 남은시간 계산
+//            self!.elapsed = self!.count - self!.remainTime
+//
+//            /** ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림 **/
+//            guard self!.remainTime >= trunc(0) else
+//            {
+//                if(SettingTableCell.soundCheck == true)
+//                {
+////                        self?.sendNotification()  // Local Notification 발생
+//                    print("Sound: ",SettingTableCell.soundCheck)
+//                    AudioServicesPlaySystemSound(1016) // "트윗" 소리발생
+//                    AudioServicesPlaySystemSound(4095) // 진동발생
+//                }
+//                else if(SettingTableCell.soundCheck == false)
+//                {
+//                    print("Sound: ",SettingTableCell.soundCheck)
+//                }
+//
+//
+//                self?.timerStop()
+//                self?.reset()
+//                //                        self?.timer.fire()
+//                print("0초")
+//                return print("초기화 완료")
+//
+//            }
+//            self!.timeCal()
+//
+//        })
+        
+        
+        
+        
+//        if count > 0
+//        {
+//
+//        }
+    }
+    
+    func timerPause()
+    {
+        timerStatus = false
+        count = count - elapsed // 일시정지 동안 카운트된 시간을 빼서 카운트를 줄인다
+        timer.invalidate()
+        startStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
+        btnEnable()
+        print("타이머 일시정지")
+    }
+   
+    func timerStop()
+    {
+        timer.invalidate()
+        timerStatus = false
+        print("타이머 정지")
+    }
+    
+    func timeCal()
     {
         hour = (Int)(fmod((remainTime/60/60), 100)) // 분을 12로 나누어 시를 구한다 * 100으로 설정해야 99시를 넘기지 않음.
         minute = (Int)(fmod((remainTime/60), 60)) // 초를 60으로 나누어 분을 구한다
@@ -206,120 +359,13 @@ class MainTimer: UIViewController {
 
     }
     
-    func startTimer() {
-        timerStatus = true
-        StartStopButton.setTitle(String(format: NSLocalizedString("일시중지", comment: "Pause")), for: .normal)
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
-        
-        
-    }
-   
-    
-    
-    @objc func timerCounter() {
-        
-        count -= 0.1 // 남은시간 계산
-        remainTime = count
-        
-        if remainTime > 0 {
-           
-//            guard remainTime >= trunc(0) else
-//            {
-//
-//
-//               return
-//            }
-            Timecal()
-                
-        } else {
-            
-            if(SettingTableCell.soundCheck == true)
-            {
-//                sendNotification()  // Local Notification 발생
-                print("Sound: ",SettingTableCell.soundCheck)
-                AudioServicesPlaySystemSound(1016) // "트윗" 소리발생
-                AudioServicesPlaySystemSound(4095) // 진동발생
-            }
-            else if(SettingTableCell.soundCheck == false)
-            {
-                print("Sound: ",SettingTableCell.soundCheck)
-            }
-            
-            timerStop()
-            Reset()
-            print("0초")
-           print("초기화 완료")
-        }
-    }
-    
-    func timerPlay()
-    {
-        if count > 0
-        {
-            let startTime = Date()
-            timerStatus = true
-            StartStopButton.setTitle(String(format: NSLocalizedString("일시중지", comment: "Pause")), for: .normal)
-            timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { [weak self] timer in
-                let timeInterval = Date().timeIntervalSince(startTime)
-                self!.remainTime = self!.count - timeInterval // 남은시간 계산
-                self!.elapsed = self!.count - self!.remainTime
-                
-                /** ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림 **/
-                guard self!.remainTime >= trunc(0) else
-                {
-                    if(SettingTableCell.soundCheck == true)
-                    {
-//                        self?.sendNotification()  // Local Notification 발생
-                        print("Sound: ",SettingTableCell.soundCheck)
-                        AudioServicesPlaySystemSound(1016) // "트윗" 소리발생
-                        AudioServicesPlaySystemSound(4095) // 진동발생
-                    }
-                    else if(SettingTableCell.soundCheck == false)
-                    {
-                        print("Sound: ",SettingTableCell.soundCheck)
-                    }
-                    
-                    
-                    self?.timerStop()
-                    self?.Reset()
-                    //                        self?.timer.fire()
-                    print("0초")
-                    return print("초기화 완료")
-                    
-                }
-                self!.Timecal()
-                
-            })
-        } else {
-            print("카운트를 시작하지 못했습니다.")
-        }
-       
-    }
-    
-    func timerPause()
-    {
-        timerStatus = false
-        count = count - elapsed //일시정지 동안 카운트된 시간을 빼서 카운트를 줄인다(일시정지후 초기화 안됨)
-        timer.invalidate()
-        StartStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
-        
-        btnEnable()
-    }
-   
-    func timerStop()
-    {
-        timer.invalidate()
-        timerStatus = false
-        print("타이머 정지")
-    }
-    
-    func Reset() /* 초기화 함수 선언 */
+    func reset() /* 초기화 함수 선언 */
     {
         timerStop()
         count = 0
         remainTime = 0
         elapsed = 0
-        self.StartStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
+        self.startStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
        
         hour = 0
         minute = 0
@@ -338,7 +384,7 @@ class MainTimer: UIViewController {
     
     @IBAction func ResetButton(_ sender: Any)
     {
-        Reset() //초기화 함수 호출
+        reset() //초기화 함수 호출
         print("초기화 되었습니다.")
         
     }
@@ -407,55 +453,13 @@ class MainTimer: UIViewController {
         }
     }
     
-    func timerNoti() {
+    func timerNoti()
+    {
         let notificationCenter = NotificationCenter.default
 //         백그라운드 상태
         notificationCenter.addObserver(self, selector: #selector(backgroudTimer), name: UIApplication.willResignActiveNotification, object: nil)
 //         포그라운드 상태
         notificationCenter.addObserver(self, selector: #selector(foregroundTimer), name: UIApplication.willEnterForegroundNotification, object: nil)
-    }
-    
-    @objc func backgroudTimer()
-    {
-        print("백그라운드 타이머 작동")
-
-        if timerStatus {
-            timerStop()
-            backgroudTime = Date()
-            print("백그라운드 남은 시간" , remainTime)
-            sendNotification()
-
-
-        }
-    }
-    
-    @objc func foregroundTimer()
-    {
-        print("포그라운드 타이머 작동")
-        guard let startTime = backgroudTime else { return}
-        let timeInterval = Date().timeIntervalSince(startTime)
-        if count < timeInterval {
-            timerStop()
-            Reset()
-            
-        } else {
-            DispatchQueue.main.async { [weak self] in
-                self?.timeIntervalBackground(timeInterval)
-//                self?.startTimer()
-                self?.timerPlay()
-               
-            }
-        }
-        
-    }
-    
-    func timeIntervalBackground(_ interval: Double)
-    {
-        count -= (interval * 100).rounded() / 100
-        print("백그라운드 남은 시간: ", remainTime)
-        if count < 0 {
-            count = 0
-        }
     }
     
     func sendNotification()
@@ -467,9 +471,9 @@ class MainTimer: UIViewController {
         notiContent.sound = UNNotificationSound.default
         
         //let notificationCenter = UNUserNotificationCenter.current()
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: remainTime, repeats: false) //알림 발생 시기
-        let identifier = "TimerNoti" //알림 고유 이름
-        let request = UNNotificationRequest(identifier: identifier, content: notiContent, trigger: trigger) //알림 결과
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: count, repeats: false) // 알림 발생 시기
+        let identifier = "timerEnd" // 알림 고유 이름
+        let request = UNNotificationRequest(identifier: identifier, content: notiContent, trigger: trigger) // 알림 결과
         notiCenter.add(request) { (error) in
             if let err = error {
                 print("노티피케이션 알림 오류: ", err.localizedDescription)
@@ -480,19 +484,70 @@ class MainTimer: UIViewController {
         }
     }
     
-    @Published var notiTime: Date = Date() {
-            didSet {
-                removeAllNotifications()
-            }
-        }
+//    @Published var notiTime: Date = Date() {
+//            didSet {
+//                removeAllNotifications()
+//            }
+//        }
 
         @Published var isAlertOccurred: Bool = false
 
-        func removeAllNotifications() {
-            notiCenter.removeAllDeliveredNotifications()
-            notiCenter.removeAllPendingNotificationRequests()
-        }
+//        func removeAllNotifications() {
+//            notiCenter.removeAllDeliveredNotifications()
+//            notiCenter.removeAllPendingNotificationRequests()
+//        }
     
+    
+    @objc func backgroudTimer()
+    {
+        print("백그라운드 타이머 작동")
+
+        if timerStatus {
+            timerStop()
+            backgroudTime = Date()
+            print("백그라운드 남은 시간" , remainTime)
+            sendNotification()
+            
+        }
+
+    }
+    
+    @objc func foregroundTimer()
+    {
+        print("포그라운드 타이머 작동")
+        guard let startTime = backgroudTime else { return}
+        let timeInterval = Date().timeIntervalSince(startTime)
+        if remainTime < timeInterval {
+            timerStop()
+            reset()
+            
+        }
+        else
+        {
+            DispatchQueue.main.async { [weak self] in
+                self?.count -= timeInterval // 남은시간 계산
+//                self?.timeIntervalBackground(timeInterval)
+//                self?.elapsed = self!.count - self!.remainTime
+//                self?.count -= self!.elapsed // 일시정지 동안 카운트된 시간을 빼서 카운트를 줄인다
+                //                self?.timerStart()
+                self?.timerPlay()
+//                self.remainTime = self.count - timeInterval // 남은시간 계산
+//                self.elapsed = self.count - self.remainTime
+            }
+        }
+    }
+    
+    func timeIntervalBackground(_ interval: Double)
+    {
+       
+        count -= (interval * 100).rounded() / 100
+        print("백그라운드 남은 시간: ", remainTime)
+        if count < 0
+        {
+            count = 0
+            reset()
+        }
+    }
     
     
     
