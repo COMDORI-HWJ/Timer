@@ -40,9 +40,8 @@ class MainTimer: UIViewController {
     var timerStatus : Bool = false // 타이머 상태
     var count : Double = 0, remainTime : Double = 0
     var elapsed : Double = 0 // 경과시간
-    var backgroudTime : Date? // 백그라운드 동안 시간
-    
-    
+    var backgroudTime : Date? // 백그라운드 경과시간
+
     let notiContent = UNMutableNotificationContent()
     let notiCenter = UNUserNotificationCenter.current()
     
@@ -89,7 +88,7 @@ class MainTimer: UIViewController {
 
         btnEnable()
         tipLabel()
-        
+
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.topItem?.title="AD" //뷰 제목
         
@@ -120,6 +119,12 @@ class MainTimer: UIViewController {
                 print("Push: 권한 거부")
             }
         })
+    }
+    
+    func calcRestartTime(start: Date, stop: Date) -> Date
+    {
+        let diff = start.timeIntervalSince(stop)
+        return Date().addingTimeInterval(diff)
     }
     
     @IBAction func timerStartStop(_ sender: Any)
@@ -244,8 +249,10 @@ class MainTimer: UIViewController {
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { timer in
             let timeInterval = Date().timeIntervalSince(startTime)
+           
             self.remainTime = self.count - timeInterval // 남은시간 계산
             self.elapsed = self.count - self.remainTime
+//            - self.backgroundElapsed
 
             /** ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림 **/
             guard self.remainTime >= trunc(0) else
@@ -271,8 +278,45 @@ class MainTimer: UIViewController {
 
             }
             self.timeCal()
+//            RunLoop.current.add(self.timer, forMode: .common)
         })
         
+//        DispatchQueue.main.async {
+//            self.timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { [weak self] timer in
+//                let timeInterval = Date().timeIntervalSince(startTime)
+//                self!.remainTime = self!.count - timeInterval // 남은시간 계산
+//                self!.elapsed = self!.count - self!.remainTime
+//
+//                /** ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림 **/
+//                guard self!.remainTime >= trunc(0) else
+//                {
+//                    if(SettingTableCell.soundCheck == true)
+//                    {
+//    //                        self?.sendNotification()  // Local Notification 발생
+//                        print("Sound: ",SettingTableCell.soundCheck)
+//                        AudioServicesPlaySystemSound(1016) // "트윗" 소리발생
+//                        AudioServicesPlaySystemSound(4095) // 진동발생
+//                    }
+//                    else if(SettingTableCell.soundCheck == false)
+//                    {
+//                        print("Sound: ",SettingTableCell.soundCheck)
+//                    }
+//
+//
+//                    self?.timerStop()
+//                    self?.reset()
+//                    //                        self?.timer.fire()
+//                    print("0초")
+//                    return print("초기화 완료")
+//
+//                }
+//                self!.timeCal()
+//
+//            })
+//            RunLoop.current.run()
+//        }
+//        RunLoop.current.add(self.timer, forMode: .default)
+
         
 //        timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { [weak self] timer in
 //            let timeInterval = Date().timeIntervalSince(startTime)
@@ -351,6 +395,7 @@ class MainTimer: UIViewController {
         print("remainTime:", remainTime)
         print("경과시간:", elapsed)
         print("남은 카운트:", count)
+
        
         //return ((ms / 3600000), ((ms % 3600000) / 60000), ((ms % 60000) / 1000), (ms % 3600000) % 1000) //1시간을 1밀리초로 환산하여 계산함. ex)3600000밀리초는 1시간
         
@@ -497,7 +542,7 @@ class MainTimer: UIViewController {
 //            notiCenter.removeAllPendingNotificationRequests()
 //        }
     
-    
+      
     @objc func backgroudTimer()
     {
         print("백그라운드 타이머 작동")
@@ -505,6 +550,7 @@ class MainTimer: UIViewController {
         if timerStatus {
             timerStop()
             backgroudTime = Date()
+            
             print("백그라운드 남은 시간" , remainTime)
             sendNotification()
             
@@ -517,30 +563,31 @@ class MainTimer: UIViewController {
         print("포그라운드 타이머 작동")
         guard let startTime = backgroudTime else { return}
         let timeInterval = Date().timeIntervalSince(startTime)
-        if remainTime < timeInterval {
+        if count < timeInterval {
             timerStop()
             reset()
+            
             
         }
         else
         {
             DispatchQueue.main.async { [weak self] in
-                self?.count -= timeInterval // 남은시간 계산
-//                self?.timeIntervalBackground(timeInterval)
-//                self?.elapsed = self!.count - self!.remainTime
-//                self?.count -= self!.elapsed // 일시정지 동안 카운트된 시간을 빼서 카운트를 줄인다
-                //                self?.timerStart()
+
+                self?.timeIntervalBackground(timeInterval)
                 self?.timerPlay()
-//                self.remainTime = self.count - timeInterval // 남은시간 계산
-//                self.elapsed = self.count - self.remainTime
+//                self?.backgroundElapsed = timeInterval
+//                (timeInterval * 100).rounded(.towardZero) / 100
+
+                
             }
         }
     }
+
     
     func timeIntervalBackground(_ interval: Double)
     {
-       
-        count -= (interval * 100).rounded() / 100
+        count = remainTime - interval
+//        count -= (interval * 100).rounded(.towardZero) / 100
         print("백그라운드 남은 시간: ", remainTime)
         if count < 0
         {
