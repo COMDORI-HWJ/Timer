@@ -19,6 +19,7 @@
  
  https://stackoverflow.com/questions/42319172/swift-3-how-to-make-timer-work-in-background 백그라운드 타이머 작동?
  https://paul-goden.tistory.com/11 타이머 백그라운드 참고
+ https://eun-dev.tistory.com/24 노티 제거
  */
 
 import Foundation
@@ -45,10 +46,11 @@ class MainTimer: UIViewController {
     let notiContent = UNMutableNotificationContent()
     let notiCenter = UNUserNotificationCenter.current()
     
-    var backgroundTaskIdentifier: UIBackgroundTaskIdentifier?
+//    var backgroundTaskIdentifier: UIBackgroundTaskIdentifier?
+
     
 //    enum timerStatus {
-//        case start
+//        case startmmo
 //        case stop
 //    }
 //    var timerStatus: timerStatus = .start
@@ -135,12 +137,15 @@ class MainTimer: UIViewController {
         if timerStatus
         {
             timerPause()
+            print("타이머 상태: ", timerStatus)
             
         }
         else if count > 0
         {
             timerPlay()
 //            timerStart()
+            print("타이머 상태: ", timerStatus)
+
         }
         else
         {
@@ -269,10 +274,8 @@ class MainTimer: UIViewController {
                     print("Sound: ",SettingTableCell.soundCheck)
                 }
 
-
                 self.timerStop()
                 self.reset()
-                //                        self?.timer.fire()
                 print("0초")
                 return print("초기화 완료")
 
@@ -359,6 +362,7 @@ class MainTimer: UIViewController {
 //        }
     }
     
+    
     func timerPause()
     {
         timerStatus = false
@@ -371,8 +375,8 @@ class MainTimer: UIViewController {
    
     func timerStop()
     {
-        timer.invalidate()
         timerStatus = false
+        timer.invalidate()
         print("타이머 정지")
     }
     
@@ -472,6 +476,8 @@ class MainTimer: UIViewController {
     
     // MARK: - Push 알림 관련
     
+    @Published var isAlertOccurred: Bool = false
+    
     func requestNotiAuthorization() // 노티피케이션 최초 허락
     {
         notiCenter.getNotificationSettings { settings in
@@ -528,59 +534,94 @@ class MainTimer: UIViewController {
             }
         }
     }
-    
-//    @Published var notiTime: Date = Date() {
-//            didSet {
-//                removeAllNotifications()
-//            }
-//        }
 
-        @Published var isAlertOccurred: Bool = false
-
-//        func removeAllNotifications() {
-//            notiCenter.removeAllDeliveredNotifications()
-//            notiCenter.removeAllPendingNotificationRequests()
-//        }
-    
+    // 알림 제거 메소드
+    func removeAllNotifications()
+    {
+        notiCenter.removeAllDeliveredNotifications()
+        notiCenter.removeAllPendingNotificationRequests()
+    }
       
     @objc func backgroudTimer()
     {
         print("백그라운드 타이머 작동")
+        
+        
+//        timerStop()
+//        backgroudTime = Date()
+//
+//        print("백그라운드 남은 시간" , remainTime)
+//        print("타이머 상태: ", timerStatus)
+//
+//        sendNotification()
 
-        if timerStatus {
+        if timerStatus == true
+        {
             timerStop()
+            timerStatus = true
             backgroudTime = Date()
-            
+
             print("백그라운드 남은 시간" , remainTime)
+            print("타이머 상태: ", timerStatus)
+
             sendNotification()
-            
+
+        }
+        else
+        {
+            timerStop()
+            removeAllNotifications()
+            print("타이머 상태: ", timerStatus)
+
         }
 
     }
     
     @objc func foregroundTimer()
     {
+        
         print("포그라운드 타이머 작동")
+        print("타이머 상태: ", timerStatus)
         guard let startTime = backgroudTime else { return}
         let timeInterval = Date().timeIntervalSince(startTime)
-        if count < timeInterval {
-            timerStop()
-            reset()
-            
-            
-        }
-        else
-        {
-            DispatchQueue.main.async { [weak self] in
+        
+        DispatchQueue.main.async { [weak self] in
 
+            if self?.timerStatus == true
+            {
                 self?.timeIntervalBackground(timeInterval)
                 self?.timerPlay()
-//                self?.backgroundElapsed = timeInterval
-//                (timeInterval * 100).rounded(.towardZero) / 100
 
-                
+            }
+            else
+            {
+                self?.timerStop()
             }
         }
+
+        
+//        if count < timeInterval {
+//            timerStop()
+//            reset()
+//            print("초기화 탓음.")
+//
+//        }
+//        else
+//        {
+//            DispatchQueue.main.async { [weak self] in
+//
+//                self?.timeIntervalBackground(timeInterval)
+//                self?.timerPlay()
+//
+//
+////                self?.backgroundElapsed = timeInterval
+////                (timeInterval * 100).rounded(.towardZero) / 100
+//
+//
+//            }
+//        }
+        
+       
     }
 
     
@@ -591,13 +632,11 @@ class MainTimer: UIViewController {
         print("백그라운드 남은 시간: ", remainTime)
         if count < 0
         {
-            count = 0
             reset()
         }
     }
     
-    
-    
+
     func UpAlertError()
     {
         let alert = UIAlertController(title: String(format: NSLocalizedString("경고", comment: "Warning")), message: String(format: NSLocalizedString("타이머는 99시까지만 설정가능합니다.(설정할 수 있는 최대 시간값을 넘겼습니다)", comment: "")), preferredStyle: .alert)
