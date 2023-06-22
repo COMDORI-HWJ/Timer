@@ -87,6 +87,7 @@ class MainTimer: UIViewController {
         requestNotiAuthorization() // 노티피케이션 알림 최초 허락
         requestNotificationPermission() // 푸시 알림 허락
         timerNoti() // 타이머 푸시 알림
+//        sendNotification()
 
         btnEnable()
         tipLabel()
@@ -121,12 +122,6 @@ class MainTimer: UIViewController {
                 print("Push: 권한 거부")
             }
         })
-    }
-    
-    func calcRestartTime(start: Date, stop: Date) -> Date
-    {
-        let diff = start.timeIntervalSince(stop)
-        return Date().addingTimeInterval(diff)
     }
     
     @IBAction func timerStartStop(_ sender: Any)
@@ -257,7 +252,6 @@ class MainTimer: UIViewController {
            
             self.remainTime = self.count - timeInterval // 남은시간 계산
             self.elapsed = self.count - self.remainTime
-//            - self.backgroundElapsed
 
             /** ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림 **/
             guard self.remainTime >= trunc(0) else
@@ -511,15 +505,21 @@ class MainTimer: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(backgroudTimer), name: UIApplication.willResignActiveNotification, object: nil)
 //         포그라운드 상태
         notificationCenter.addObserver(self, selector: #selector(foregroundTimer), name: UIApplication.willEnterForegroundNotification, object: nil)
+
     }
     
     func sendNotification()
     {
+        NotificationCenter.default.post(name: Notification.Name("showPage"), object: nil, userInfo: ["index": 0]) // 푸시 알림 클릭 시 타이머 뷰로 이동함
         notiContent.title = String(format: NSLocalizedString("밀리초 타이머", comment: "Milliseccond Timer")) //appName(한글로만 나옴)
         notiContent.subtitle = String(format: NSLocalizedString("타이머 완료", comment: "Timer done"))
         notiContent.body = String(format: NSLocalizedString("0초가 되었습니다. 타이머를 다시 작동하려면 알림을 탭하세요!", comment: ""))
         notiContent.badge = 1
         notiContent.sound = UNNotificationSound.default
+        notiContent.userInfo = ["targetScene": "splash"] // 푸시 받을 떄 오는 데이터
+        
+        
+        
         
         //let notificationCenter = UNUserNotificationCenter.current()
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: count, repeats: false) // 알림 발생 시기
@@ -565,6 +565,7 @@ class MainTimer: UIViewController {
             print("타이머 상태: ", timerStatus)
 
             sendNotification()
+            
 
         }
         else
@@ -585,6 +586,7 @@ class MainTimer: UIViewController {
         guard let startTime = backgroudTime else { return}
         let timeInterval = Date().timeIntervalSince(startTime)
         
+        
         DispatchQueue.main.async { [weak self] in
 
             if self?.timerStatus == true
@@ -598,7 +600,8 @@ class MainTimer: UIViewController {
                 self?.timerStop()
             }
         }
-
+        
+//        sendNotification()
         
 //        if count < timeInterval {
 //            timerStop()
@@ -620,8 +623,9 @@ class MainTimer: UIViewController {
 //
 //            }
 //        }
-        
+
        
+        
     }
 
     
