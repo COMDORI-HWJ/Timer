@@ -21,21 +21,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let userNotifiNotificationCenter = UNUserNotificationCenter.current()
 
-
-    
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         print("이제 앱 실행 준비할게요")
         return true
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
         print("앱 실행 준비 끝")
         
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         
-       UNUserNotificationCenter.current().delegate = self // 특정 ViewController에 구현되어 있으면 푸시를 받지 못할 가능성이 있으므로 AppDelegate에서 구현
-       userNotifiNotificationCenter.delegate = self // 특정 ViewController에 구현되어 있으면 푸시를 받지 못할 가능성이 있으므로 AppDelegate에서 구현(앱에서 푸시알림)
+//        UNUserNotificationCenter.current().delegate = self
+        
+        userNotifiNotificationCenter.delegate = self // 특정 ViewController에 구현되어 있으면 푸시를 받지 못할 가능성이 있으므로 AppDelegate에서 구현(앱에서 푸시알림)
+
+//        userNotifiNotificationCenter.requestAuthorization(
+//            options: [.alert, .sound, .badge], completionHandler: { ( granted, error) in
+//                print("granted notification, \(granted)")
+//            })
+        
         application.registerForRemoteNotifications()
         
         return true
@@ -78,13 +84,37 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     // ForeGround 에서 작동
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
-        completionHandler([.list, .badge, .sound, .banner])
+//        let _ = notification.request.content.userInfo // deep link 처리 시 아래 _ 값 가지고 처리
+        //
+        
+        //        completionHandler()
+        completionHandler([.list, .badge, .banner, .sound])
+        
         
     }
     
     // Background 에서 작동
-    private func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        completionHandler([.badge, .sound, .banner])
+        
+        let _ = response.notification.request.content.userInfo // deep link 처리 시 아래 _ 값 가지고 처리
+
+//        completionHandler([.list, .badge, .sound, .banner])
+        completionHandler()
+        
+        let application = UIApplication.shared
+        if application.applicationState == .active
+        {
+            if response.notification.request.content.subtitle == String(format: NSLocalizedString("Timer done", comment: ""))
+            {
+                NotificationCenter.default.post(name: Notification.Name("showPage"), object: nil, userInfo: ["index": 0])
+            }
+        }
+        else if application.applicationState == .inactive {
+                        print("푸시알림 탭함 : 앱 꺼진 상태")
+                        NotificationCenter.default.post(name: Notification.Name("showPage"), object: nil, userInfo: ["index": 0])
+                        }
     }
+    
+    
 }
