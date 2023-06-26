@@ -36,15 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("앱 실행 준비 끝")
         
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+    
+        requestNotificationAuthorization() // 최초 푸시 알림 권한 요청
         
         notiCenter.delegate = self // 특정 ViewController에 구현되어 있으면 푸시를 받지 못할 가능성이 있으므로 AppDelegate에서 구현(앱에서 포그라운드 푸시 알림)
-        requestNotiAuthorization()
-        
-        //        requestNotificationPermission()
-        
-        //        UNUserNotificationCenter.current().delegate = self
-        
-        
         
         //        application.registerForRemoteNotifications()
         //        UIApplication.shared.registerForRemoteNotifications()
@@ -83,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UIInterfaceOrientationMask.portrait // 세로 화면 고정
     }
     
-    func requestNotiAuthorization() // 노티피케이션 최초 허락
+    func requestNotificationAuthorization() // 노티피케이션 최초 허락
     {
         notiCenter.getNotificationSettings { settings in
             
