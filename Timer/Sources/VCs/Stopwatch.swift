@@ -53,9 +53,6 @@ class Stopwatch: UIViewController {
   
     var Firstcount: Double = 0 //처음 시작한 카운트 <추후 db연동후 사용자가 많이 사용하는 시간 빅데이터화...>
     
-    let Noti = UNMutableNotificationContent()
-    let notiCenter = UNUserNotificationCenter.current()
-
     var hour = 0
     var minute = 0
     var second = 0
@@ -77,9 +74,6 @@ class Stopwatch: UIViewController {
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         
-        requestNotiAuthorization()
-        requestNotificationPermission()
-        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -91,17 +85,6 @@ class Stopwatch: UIViewController {
 //    }
     
     //var timerStatus: TimerStatus = .start
-    
-    func requestNotificationPermission(){  //푸시 알림 권한 메소드
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge,.criticalAlert], completionHandler: {didAllow,Error in
-               if didAllow {
-                   print("Push: 권한 허용")
-               } else {
-                   print("Push: 권한 거부")
-               }
-           })
-       }
-
     
     @IBAction func StopwatchStartStop(_ sender: Any)
     {
@@ -363,71 +346,7 @@ class Stopwatch: UIViewController {
         }
         //AudioServicesPlaySystemSound(1016) // 소리발생
     }
-    
-    func sendNotification()
-    {
-
-        Noti.title = appName
-        Noti.subtitle = String(format: NSLocalizedString("Timer done", comment: ""))
-        Noti.body = "0초가 되었습니다. 타이머를 다시 작동하려면 알림을 터치하세요!"
-        Noti.badge = 1
-        Noti.sound = UNNotificationSound.default
         
-        //let notificationCenter = UNUserNotificationCenter.current()
-        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false) //알림 발생 시기
-        let identifier = "TimerNoti" //알림 고유 이름
-        let request = UNNotificationRequest(identifier: identifier, content: Noti, trigger: nil) //알림 등록 결과
-        notiCenter.add(request) { (error) in
-            if let err = error {
-                print("노티피케이션 알림 오류: ", err.localizedDescription)
-            }
-            else{
-                print("노티피케이션 푸시알림 성공")
-            }
-        }
-    }
-    
-    @Published var notiTime: Date = Date() {
-            didSet {
-                removeAllNotifications()
-            }
-        }
-
-        @Published var isAlertOccurred: Bool = false
-
-        func removeAllNotifications() {
-            notiCenter.removeAllDeliveredNotifications()
-            notiCenter.removeAllPendingNotificationRequests()
-        }
-    
-    func requestNotiAuthorization() //노티피케이션 설정 가져오기 개발중
-    {
-        notiCenter.getNotificationSettings { settings in
-
-                   // 승인되어있지 않은 경우 request
-                   if settings.authorizationStatus != .authorized {
-                       self.notiCenter.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
-                           if let error = error {
-                               print("Error : \(error)")
-                           }
-                   
-                           // 노티피케이션 최초 승인
-                          
-                           }
-                       
-                   
-
-                   // 거부되어있는 경우 alert
-                   if settings.authorizationStatus == .denied {
-                       // 알림 띄운 뒤 설정 창으로 이동
-                       DispatchQueue.main.async {
-                           self.isAlertOccurred = true
-                       }
-                   }
-    }
-        }
-    }
-    
     
     func UpAlertError()
     {
