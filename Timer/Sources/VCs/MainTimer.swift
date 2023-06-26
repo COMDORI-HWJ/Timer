@@ -39,7 +39,8 @@ class MainTimer: UIViewController {
 
     var timer = Timer()
     var timerStatus : Bool = false // 타이머 상태
-    var count : Double = 0, remainTime : Double = 0
+    var count : Double = 0 // 타이머 시간
+    var remainTime : Double = 0 // 남은 시간
     var elapsed : Double = 0 // 경과시간
     var backgroudTime : Date? // 백그라운드 경과시간
 
@@ -84,10 +85,9 @@ class MainTimer: UIViewController {
         super.viewDidLoad()
         UIButton.appearance().isExclusiveTouch = true // 버튼 멀티터치 막기
         
-        requestNotiAuthorization() // 노티피케이션 알림 최초 허락
-        requestNotificationPermission() // 푸시 알림 허락
+//        requestNotiAuthorization() // 노티피케이션 알림 최초 허락
+//        requestNotificationPermission() // 푸시 알림 허락
         timerNoti() // 타이머 푸시 알림
-//        sendNotification()
 
         btnEnable()
         tipLabel()
@@ -114,15 +114,7 @@ class MainTimer: UIViewController {
     
     //var timerStatus: TimerStatus = .start
     
-    func requestNotificationPermission(){  // 푸시 알림 권한 메소드
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge, .criticalAlert], completionHandler: { didAllow,Error in
-            if didAllow {
-                print("Push: 권한 허용")
-            } else {
-                print("Push: 권한 거부")
-            }
-        })
-    }
+
     
     @IBAction func timerStartStop(_ sender: Any)
     {
@@ -469,35 +461,6 @@ class MainTimer: UIViewController {
     }
     
     // MARK: - Push 알림 관련
-    
-    @Published var isAlertOccurred: Bool = false
-    
-    func requestNotiAuthorization() // 노티피케이션 최초 허락
-    {
-        notiCenter.getNotificationSettings { settings in
-
-                   // 승인되어있지 않은 경우 request
-                   if settings.authorizationStatus != .authorized {
-                       self.notiCenter.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
-                           if let error = error {
-                               print("Error : \(error)")
-                           }
-                   
-                           // 노티피케이션 최초 승인
-                          
-                           }            
-
-                   // 거부되어있는 경우 alert
-                   if settings.authorizationStatus == .denied {
-                       // 알림 띄운 뒤 설정 창으로 이동
-                       DispatchQueue.main.async {
-                           self.isAlertOccurred = true
-                       }
-                   }
-    }
-        }
-    }
-    
     func timerNoti()
     {
         let notificationCenter = NotificationCenter.default
@@ -516,12 +479,8 @@ class MainTimer: UIViewController {
         notiContent.body = String(format: NSLocalizedString("0초가 되었습니다. 타이머를 다시 작동하려면 알림을 탭하세요!", comment: ""))
         notiContent.badge = 1
         notiContent.sound = UNNotificationSound.default
-        notiContent.userInfo = ["targetScene": "splash"] // 푸시 받을 떄 오는 데이터
+        notiContent.userInfo = ["Timer": "done"] // 푸시 받을 떄 오는 데이터
         
-        
-        
-        
-        //let notificationCenter = UNUserNotificationCenter.current()
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: count, repeats: false) // 알림 발생 시기
         let identifier = "timerEnd" // 알림 고유 이름
         let request = UNNotificationRequest(identifier: identifier, content: notiContent, trigger: trigger) // 알림 결과
