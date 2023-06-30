@@ -14,7 +14,5 @@ class Setting: UIViewController { // UITableViewDataSource, UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-
 }
