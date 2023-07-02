@@ -26,6 +26,7 @@
 		376D7A2B285E26B600643F43 /* IMG_1453.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 376D7A29285E26B600643F43 /* IMG_1453.PNG */; };
 		376D7A2C285E26B600643F43 /* IMG_1452.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 376D7A2A285E26B600643F43 /* IMG_1452.PNG */; };
 		376F47C4285B1BA200CDF726 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F47C3285B1BA200CDF726 /* Stopwatch.swift */; };
+		377C6EAD2A52165C002E6668 /* tutorial1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 377C6EAC2A52165C002E6668 /* tutorial1.gif */; };
 		378210E627FF4D2A00B312C3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 378210E527FF4D2A00B312C3 /* .gitignore */; };
 		378210EA27FF5EFC00B312C3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378210E927FF5EFC00B312C3 /* Button.swift */; };
 		378F0F552A1189A1002E8583 /* tutorial2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 378F0F522A118998002E8583 /* tutorial2.gif */; };
@@ -74,6 +75,7 @@
 		376D7A29285E26B600643F43 /* IMG_1453.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_1453.PNG; sourceTree = "<group>"; };
 		376D7A2A285E26B600643F43 /* IMG_1452.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_1452.PNG; sourceTree = "<group>"; };
 		376F47C3285B1BA200CDF726 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
+		377C6EAC2A52165C002E6668 /* tutorial1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tutorial1.gif; sourceTree = "<group>"; };
 		378210E527FF4D2A00B312C3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		378210E927FF5EFC00B312C3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		378F0F522A118998002E8583 /* tutorial2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tutorial2.gif; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 		378F0F512A11897C002E8583 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				377C6EAC2A52165C002E6668 /* tutorial1.gif */,
 				378F0F522A118998002E8583 /* tutorial2.gif */,
 				378F0F542A1189A1002E8583 /* tutorial3.gif */,
 				378F0F532A11899F002E8583 /* tutorial4.gif */,
@@ -386,6 +389,7 @@
 				379383DA2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.49.41.png in Resources */,
 				376D7A2C285E26B600643F43 /* IMG_1452.PNG in Resources */,
 				2BA0F055269395C30040D20B /* LaunchScreen.storyboard in Resources */,
+				377C6EAD2A52165C002E6668 /* tutorial1.gif in Resources */,
 				379383DD2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png in Resources */,
 				379383D82852BFA400D6463C /* IMG_2216.PNG in Resources */,
 				376D7A2B285E26B600643F43 /* IMG_1453.PNG in Resources */,
@@ -567,7 +571,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -624,7 +628,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
