@@ -17,13 +17,11 @@ import UserNotifications
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    
     var window: UIWindow?
     //    let notiContent = UNMutableNotificationContent()
     let notiCenter = UNUserNotificationCenter.current()
     
     @Published var isAlertOccurred: Bool = false
-    
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         print("이제 앱 실행 준비할게요")
@@ -36,13 +34,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("앱 실행 준비 끝")
         
         GADMobileAds.sharedInstance().start(completionHandler: nil)
-    
+        
         requestNotificationAuthorization() // 최초 푸시 알림 권한 요청
         
         notiCenter.delegate = self // 특정 ViewController에 구현되어 있으면 푸시를 받지 못할 가능성이 있으므로 AppDelegate에서 구현(앱에서 포그라운드 푸시 알림)
         
         //        application.registerForRemoteNotifications()
         //        UIApplication.shared.registerForRemoteNotifications()
+        
+        
         
         return true
     }
