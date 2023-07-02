@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>ko_KR</string>
 	<key>CFBundleDisplayName</key>
-	<string>밀리초 타이머</string>
+	<string>밀리초타이머</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict/>
