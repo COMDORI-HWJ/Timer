@@ -51,13 +51,9 @@ class TutorialContents: UIViewController {
         let deviceWidth = self.view.frame.size.width
         let deviceHeight = self.view.frame.size.height
         
-        // 디바이스 상태 바 높이 사이즈 확인
-        let statusBarFrameHeight = view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
-        
         titleLabel.frame = CGRect(x: 0, y: deviceHeight/20, width: deviceWidth, height: 30)
         print("현재 페이지: " , titleText!)
         contentLabel.frame = CGRect(x: 0, y: deviceHeight/9, width: deviceWidth, height: 50)
-        
         
         gifImageView.frame = CGRect(x: 10, y: boundsHeight*0.2, width: deviceWidth-20, height: boundsHeight/2)
         gifImageView.translatesAutoresizingMaskIntoConstraints = true // 오토레이아웃 사용시 AutoresizingMask를 사용한 Constraints 변환을 막는 것
