@@ -11,6 +11,7 @@
  https://sweetdev.tistory.com/105 셀 선택시 바로 deselect 시켜버리기
  https://velog.io/@minji0801/iOS-Swift-iOS-%EA%B8%B0%EA%B8%B0%EC%97%90%EC%84%9C-Mail-%EC%95%B1-%EC%9D%B4%EC%9A%A9%ED%95%B4%EC%84%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EB%B3%B4%EB%82%B4%EB%8A%94-%EB%B0%A9%EB%B2%95 메일 보내기
  https://borabong.tistory.com/6 메일컨트롤러 dismiss
+ https://www.reddit.com/r/swift/comments/wsvmse/id_like_to_make_the_uiswitch_be_in_the_on/ 앱 처음 설치시 스위치 켜짐 상태
  */
 
 import Foundation
@@ -18,22 +19,23 @@ import UIKit
 import AVFoundation //소리, 진동
 import MessageUI
 
-
 class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegate{
     
-    @IBOutlet var SoundSwitch: UISwitch!
-    @IBOutlet var VibrationSwitch: UISwitch!
-    @IBOutlet weak var Ver: UILabel!
+    @IBOutlet var soundSwitch: UISwitch!
+    @IBOutlet var vibrationSwitch: UISwitch!
+    @IBOutlet weak var ver: UILabel!
     
     static var soundCheck : Bool = true  // 소리확인 변수 *static 프로퍼티를 사용해야 값이 수정된다. https://babbab2.tistory.com/119?category=828998
     static var vibrationCheck : Bool = true
     
+    let ud = UserDefaults.standard
+    let vibrationKey = "vibrationKey"
+    let soundKey = "soundKey"
+    
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        SoundSwitch.isOn = UserDefaults.standard.bool(forKey: "SoundSwitchState") // UserDefaults 사용하여 데이터 저장 https://zeddios.tistory.com/107
-        VibrationSwitch.isOn = UserDefaults.standard.bool(forKey: "VibrationSwitchState")
-
+        
         appver()
         
         func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
@@ -42,11 +44,20 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
         guard let info = storyboard?.instantiateViewController(identifier: "Info") as? Info else { return }
         let navigationController = UINavigationController(rootViewController: info)
         present(navigationController, animated: true)
+        
+        
+        ud.register(defaults: ["vibrationKey" : true])
+        ud.register(defaults: ["soundKey" : true])
+
+        
+        vibrationSwitch.isOn = ud.bool(forKey: vibrationKey)
+        
+        soundSwitch.isOn = ud.bool(forKey: soundKey) // UserDefaults 사용하여 데이터 저장 https://zeddios.tistory.com/107
     }
+    
 
-
-    @IBAction func SoundAlert(_ sender: UISwitch) {
-        UserDefaults.standard.set(SoundSwitch.isOn, forKey: "SoundSwitchState")
+    @IBAction func sound(_ sender: UISwitch) {
+       
         if(sender.isOn)
         {
             SettingTableCell.soundCheck = true
@@ -59,25 +70,25 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
             SettingTableCell.soundCheck = false
             print("소리확인 결과: ",SettingTableCell.soundCheck)
         }
+        ud.set(soundSwitch.isOn, forKey: soundKey)
     }
 
-    @IBAction func VibrationEffect(_ sender: Any){
-        UserDefaults.standard.set(VibrationSwitch.isOn, forKey: "VibrationSwitchState")
-        if(VibrationSwitch.isOn)
+    @IBAction func vibration(_ sender: Any){
+        
+        if(vibrationSwitch.isOn)
         {
             UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
             SettingTableCell.vibrationCheck = true
             print("진동체크 결과: ", SettingTableCell.vibrationCheck)
-
         }
         else
         {
             SettingTableCell.vibrationCheck = false
             print("진동체크 결과: ", SettingTableCell.vibrationCheck)
         }
+        ud.set(vibrationSwitch.isOn, forKey: vibrationKey)
     }
-
-
+    
     func version() -> String {
         guard let dictionary = Bundle.main.infoDictionary,
               let version = dictionary["CFBundleShortVersionString"] as? String else { return "" }
@@ -87,7 +98,7 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
     func appver ()
     {
         print(version())
-        Ver.text =  String(format: NSLocalizedString("앱 버전 : ", comment: "App Version"))+"\(self.version())"
+        ver.text =  String(format: NSLocalizedString("앱 버전 : ", comment: "App Version"))+"\(self.version())"
     }
     
     // Device Identifier 찾기
