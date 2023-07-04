@@ -49,7 +49,6 @@
 <img src=Screenshots/20230704/IMG_4915.PNG height="700">|<img src=Screenshots/20230704/IMG_4911.PNG height="700">
 |백그라운드 푸시 알림|잠금화면 푸시 알림|
 <img src=Screenshots/20230704/IMG_4913.PNG height="700">|<img src=Screenshots/20230704/IMG_4914.PNG height="700">
-<br>
 |첫 실행시 앱 사용방법 튜토리얼|첫 실행시 앱 사용방법 튜토리얼 2|
 |<img src=Screenshots/20230704/IMG_4907.PNG height="700">|<img src=Screenshots/20230704/IMG_4908.PNG height="700">
 |앱 아이콘|이 앱에 관하여|
