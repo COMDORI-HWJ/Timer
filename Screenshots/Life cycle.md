@@ -69,4 +69,19 @@
 |<img src=20230531/IMG_4782.PNG height="700">|<img src=20230531/IMG_4783.PNG height="700">
 |<img src=20230531/IMG_4784.PNG height="700">|<img src=20230531/IMG_4785.PNG height="700">
 
+|빌드 날짜 |2023년 7월 4일
+|:-:|:-:|
+| <img src=20230704/IMG_4909.PNG height ="700" >|<img src=20230704/IMG_4917.PNG height ="700">
+|타이머 플레이|스톱워치| 
+| <img src = 20230704/IMG_4918.PNG height="700"> | <img src=20230704/IMG_4910.PNG height="700">| <img src=20230704/IMG_4910.PNG height="700"> |
+|스톱워치 플레이|설정 화면|
+<img src=20230704/IMG_4915.PNG height="700">|<img src=20230704/IMG_4911.PNG height="700">
+|백그라운드 푸시 알림|잠금화면 푸시 알림|
+<img src=20230704/IMG_4913.PNG height="700">|<img src=20230704/IMG_4914.PNG height="700">
+|첫 실행시 앱 사용방법 튜토리얼|첫 실행시 앱 사용방법 튜토리얼 2|
+|<img src=20230704/IMG_4907.PNG height="700">|<img src=20230704/IMG_4908.PNG height="700">
+|앱 아이콘|이 앱에 관하여|
+|<img src=20230704/IMG_4916.PNG height="700">|<img src=20230704/IMG_4912.PNG height="700">
+
+
 </div>
