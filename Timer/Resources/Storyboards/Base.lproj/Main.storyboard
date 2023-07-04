@@ -25,22 +25,40 @@
                                     <segue destination="k19-w8-9zM" kind="embed" id="qhC-Lo-BdB"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ru4-Cu-umX" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                                <viewLayoutGuide key="safeArea" id="h0E-qA-uxJ"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BU1-qw-dAU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="R4I-q2-zUF" firstAttribute="bottom" secondItem="BU1-qw-dAU" secondAttribute="bottom" id="SBa-5q-kqg"/>
-                            <constraint firstItem="R4I-q2-zUF" firstAttribute="leading" secondItem="BU1-qw-dAU" secondAttribute="leading" id="YOP-US-g2N"/>
-                            <constraint firstItem="R4I-q2-zUF" firstAttribute="trailing" secondItem="BU1-qw-dAU" secondAttribute="trailing" id="nao-d8-pGf"/>
-                            <constraint firstItem="R4I-q2-zUF" firstAttribute="top" secondItem="BU1-qw-dAU" secondAttribute="top" constant="58" id="ws3-se-l9E"/>
+                            <constraint firstItem="ru4-Cu-umX" firstAttribute="leading" secondItem="BU1-qw-dAU" secondAttribute="leading" id="1Ze-2u-Jqq"/>
+                            <constraint firstItem="R4I-q2-zUF" firstAttribute="trailing" secondItem="BU1-qw-dAU" secondAttribute="trailing" id="2ug-Gc-Nj7"/>
+                            <constraint firstItem="ru4-Cu-umX" firstAttribute="trailing" secondItem="BU1-qw-dAU" secondAttribute="trailing" id="4aa-Xx-zul"/>
+                            <constraint firstItem="ru4-Cu-umX" firstAttribute="top" secondItem="BU1-qw-dAU" secondAttribute="top" id="5OX-lT-I7H"/>
+                            <constraint firstItem="R4I-q2-zUF" firstAttribute="bottom" secondItem="BU1-qw-dAU" secondAttribute="bottom" id="7Zh-OA-AyH"/>
+                            <constraint firstItem="ru4-Cu-umX" firstAttribute="leading" secondItem="BU1-qw-dAU" secondAttribute="leading" id="BFZ-VX-1r5"/>
+                            <constraint firstItem="ru4-Cu-umX" firstAttribute="leading" secondItem="BU1-qw-dAU" secondAttribute="leading" id="FXm-fb-DEV"/>
+                            <constraint firstItem="R4I-q2-zUF" firstAttribute="leading" secondItem="BU1-qw-dAU" secondAttribute="leading" id="YTY-fI-cOV"/>
+                            <constraint firstItem="ru4-Cu-umX" firstAttribute="top" secondItem="BU1-qw-dAU" secondAttribute="top" id="ejL-yG-Hn0"/>
+                            <constraint firstItem="ru4-Cu-umX" firstAttribute="top" secondItem="BU1-qw-dAU" secondAttribute="top" id="hc4-i9-tZm"/>
+                            <constraint firstItem="ru4-Cu-umX" firstAttribute="trailing" secondItem="BU1-qw-dAU" secondAttribute="trailing" id="hu3-MQ-ZOD"/>
+                            <constraint firstItem="R4I-q2-zUF" firstAttribute="top" secondItem="ru4-Cu-umX" secondAttribute="bottom" constant="8" symbolic="YES" id="j2Z-Of-4jh"/>
+                            <constraint firstItem="R4I-q2-zUF" firstAttribute="top" secondItem="CDa-lZ-pcQ" secondAttribute="top" constant="78" id="qwC-HN-o7n"/>
+                            <constraint firstItem="ru4-Cu-umX" firstAttribute="trailing" secondItem="BU1-qw-dAU" secondAttribute="trailing" id="wq0-Yv-r9S"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Setting" image="gearshape" catalog="system" id="Wbj-YU-TnF"/>
                     <navigationItem key="navigationItem" id="aQA-mU-s6W"/>
+                    <connections>
+                        <outlet property="bannerView" destination="ru4-Cu-umX" id="4ve-1P-Shh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jo-HN-Gzq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-619" y="825"/>
+            <point key="canvasLocation" x="-793" y="825"/>
         </scene>
         <!--Main-->
         <scene sceneID="fKT-pG-D9w">
@@ -72,7 +90,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8N8-gQ-TQG">
-                                <rect key="frame" x="110" y="507.5" width="100.5" height="40.5"/>
+                                <rect key="frame" x="109.5" y="507.5" width="101" height="40.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="시작하기">
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle2"/>
@@ -163,7 +181,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="타이머 완료 알림 소리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CgJ-3Q-KK9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="타이머 완료 소리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CgJ-3Q-KK9">
                                                     <rect key="frame" x="16" y="11" width="204" height="43"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
@@ -656,6 +674,7 @@
                             <constraint firstItem="AFg-oB-x1T" firstAttribute="centerX" secondItem="1FO-Ns-emW" secondAttribute="centerX" id="4zc-WN-2xS"/>
                             <constraint firstItem="V84-kN-gde" firstAttribute="top" secondItem="jv8-fk-50A" secondAttribute="bottom" constant="8" symbolic="YES" id="5Td-ho-SmN"/>
                             <constraint firstItem="BuV-V0-meS" firstAttribute="trailing" secondItem="Mhx-dz-w4h" secondAttribute="trailing" constant="29" id="6rI-1G-jtK"/>
+                            <constraint firstItem="jv8-fk-50A" firstAttribute="top" secondItem="AZ3-gm-XYI" secondAttribute="bottom" constant="8" symbolic="YES" id="7lq-Yz-Nb2"/>
                             <constraint firstItem="WnU-lN-goI" firstAttribute="leading" secondItem="Zy4-OD-21G" secondAttribute="trailing" constant="18" id="8B5-5q-Njj"/>
                             <constraint firstItem="WnU-lN-goI" firstAttribute="baseline" secondItem="Zy4-OD-21G" secondAttribute="firstBaseline" id="8nv-ZS-RNv"/>
                             <constraint firstItem="n6l-vk-qsb" firstAttribute="top" secondItem="WnU-lN-goI" secondAttribute="bottom" constant="11.5" id="95S-zT-cfJ"/>
@@ -664,6 +683,7 @@
                             <constraint firstItem="BLr-Js-dtz" firstAttribute="leading" secondItem="V84-kN-gde" secondAttribute="trailing" constant="21" id="E04-0S-Dtk"/>
                             <constraint firstItem="Zy4-OD-21G" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BLr-Js-dtz" secondAttribute="trailing" id="FOG-Sh-57I"/>
                             <constraint firstItem="BLr-Js-dtz" firstAttribute="leading" secondItem="V84-kN-gde" secondAttribute="trailing" constant="21" id="GQ6-D4-Ym9"/>
+                            <constraint firstItem="AZ3-gm-XYI" firstAttribute="top" secondItem="oeZ-cZ-mll" secondAttribute="bottom" constant="26" id="IaK-4P-4Nd"/>
                             <constraint firstItem="WnU-lN-goI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Zy4-OD-21G" secondAttribute="trailing" id="Iip-zW-VUm"/>
                             <constraint firstItem="n6l-vk-qsb" firstAttribute="centerX" secondItem="1FO-Ns-emW" secondAttribute="centerX" id="Jyl-Tm-p2S"/>
                             <constraint firstItem="n6l-vk-qsb" firstAttribute="top" secondItem="Zy4-OD-21G" secondAttribute="bottom" constant="11.5" id="NNd-ob-9Ud"/>
@@ -671,7 +691,6 @@
                             <constraint firstItem="Mhx-dz-w4h" firstAttribute="leading" secondItem="BuV-V0-meS" secondAttribute="leading" constant="29" id="RxT-ct-gEP"/>
                             <constraint firstItem="AZ3-gm-XYI" firstAttribute="leading" secondItem="oeZ-cZ-mll" secondAttribute="leading" constant="1" id="S5H-R7-zmZ"/>
                             <constraint firstItem="AFg-oB-x1T" firstAttribute="leading" secondItem="BuV-V0-meS" secondAttribute="leading" constant="13.5" id="TR3-EL-ihe"/>
-                            <constraint firstItem="AZ3-gm-XYI" firstAttribute="top" secondItem="oeZ-cZ-mll" secondAttribute="bottom" constant="26" id="U8f-4M-CFB"/>
                             <constraint firstItem="BLr-Js-dtz" firstAttribute="leading" secondItem="V84-kN-gde" secondAttribute="trailing" constant="21" id="aCd-FE-hoM"/>
                             <constraint firstItem="n6l-vk-qsb" firstAttribute="top" secondItem="V84-kN-gde" secondAttribute="bottom" constant="11.5" id="bFL-h8-JLJ"/>
                             <constraint firstItem="WnU-lN-goI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Zy4-OD-21G" secondAttribute="trailing" id="dgt-s3-Wrh"/>
@@ -723,7 +742,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hy0-53-JJM" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="5Rj-IT-3lk"/>
             </objects>
-            <point key="canvasLocation" x="-2171.25" y="825"/>
+            <point key="canvasLocation" x="-2064" y="825"/>
         </scene>
         <!--Stopwatch-->
         <scene sceneID="uFW-Ji-Kih">
@@ -881,7 +900,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="e8l-tf-bp5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FTn-U0-Sjr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
