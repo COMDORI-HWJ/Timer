@@ -29,6 +29,9 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                                 <viewLayoutGuide key="safeArea" id="h0E-qA-uxJ"/>
                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="bMh-3K-abH"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BU1-qw-dAU"/>
@@ -46,7 +49,6 @@
                             <constraint firstItem="ru4-Cu-umX" firstAttribute="top" secondItem="BU1-qw-dAU" secondAttribute="top" id="hc4-i9-tZm"/>
                             <constraint firstItem="ru4-Cu-umX" firstAttribute="trailing" secondItem="BU1-qw-dAU" secondAttribute="trailing" id="hu3-MQ-ZOD"/>
                             <constraint firstItem="R4I-q2-zUF" firstAttribute="top" secondItem="ru4-Cu-umX" secondAttribute="bottom" constant="8" symbolic="YES" id="j2Z-Of-4jh"/>
-                            <constraint firstItem="R4I-q2-zUF" firstAttribute="top" secondItem="CDa-lZ-pcQ" secondAttribute="top" constant="78" id="qwC-HN-o7n"/>
                             <constraint firstItem="ru4-Cu-umX" firstAttribute="trailing" secondItem="BU1-qw-dAU" secondAttribute="trailing" id="wq0-Yv-r9S"/>
                         </constraints>
                     </view>
