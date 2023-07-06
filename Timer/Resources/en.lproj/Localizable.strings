@@ -43,6 +43,9 @@
 
 "빠르게 시간을 변경하려면 타이머 숫자를 탭하세요.\n시:분:초:밀리초" = "Tap the timer number to quickly change the time. \nHours:minutes:seconds:milliseconds";
 
-
+/* 설정 탭 */
 "앱 버전 : " = "App Version : ";
+"문의사항 보내기 오류" = "Error sending feedback";
+"메일앱 다운로드" = "Mail app download";
+"현재 메일앱이 설치되어 있지 않거나 메일앱 설정이 되어 있지 않습니다. App Store에서 Mail앱 다운로드 또는 메일앱 설정을 확인해 주시기를 바랍니다." = "You don't currently have the Mail app installed or set up Mail app. Please download the Mail app from the App Store or check your Mail app settings.";
 
