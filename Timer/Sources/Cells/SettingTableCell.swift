@@ -173,8 +173,8 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
 
             } else {
                 print("send Mail Fail")
-                let sendMailErrorAlert = UIAlertController(title: "문의사항 보내기 오류", message: "현재 메일앱이 설치되어 있지 않거나 메일앱 설정이 되어 있지 않습니다. App Store에서 Apple Mail앱 다운로드 또는 메일앱 설정을 확인해 주시기를 바랍니다.", preferredStyle: .alert)
-                let mailInstall = UIAlertAction(title: "메일앱 다운로드", style: .default) { _ in
+                let sendMailErrorAlert = UIAlertController(title: String(format: NSLocalizedString("문의사항 보내기 오류", comment: "문의사항 보내기 오류")), message: String(format: NSLocalizedString("현재 메일앱이 설치되어 있지 않거나 메일앱 설정이 되어 있지 않습니다. App Store에서 Mail앱 다운로드 또는 메일앱 설정을 확인해 주시기를 바랍니다.", comment: "메일앱안내")), preferredStyle: .alert)
+                let mailInstall = UIAlertAction(title: String(format: NSLocalizedString("메일앱 다운로드", comment: "메일앱 다운로드")), style: .default) { _ in
                     if let url = URL(string: "https://apps.apple.com/kr/app/mail/id1108187098"), UIApplication.shared.canOpenURL(url) {
                         if #available(iOS 10.0, *) {
                             UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -183,7 +183,7 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
                         }
                     }
                 }
-                let cancelMailInstall = UIAlertAction(title: "취소", style: .destructive, handler: nil)
+                let cancelMailInstall = UIAlertAction(title: String(format: NSLocalizedString("취소", comment: "취소")), style: .destructive, handler: nil)
                 sendMailErrorAlert.addAction(mailInstall)
                 sendMailErrorAlert.addAction(cancelMailInstall)
                 self.present(sendMailErrorAlert, animated: true, completion: nil)
