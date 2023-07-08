@@ -72,3 +72,6 @@
 
 /* Class = "UILabel"; text = "버튼 진동"; ObjectID = "wQN-cf-q8U"; */
 "wQN-cf-q8U.text" = "버튼 진동";
+
+"X10-re-cdO.text" = "About this App"; // 이 앱에 관하여
+"IZH-Zn-ggU.normalTitle" = "Close"; // 닫기
