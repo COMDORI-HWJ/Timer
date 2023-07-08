@@ -17,8 +17,11 @@ class Tutorial: UIViewController, UIPageViewControllerDataSource {
 
     var pageVC : UIPageViewController!
     var pageControl : UIPageControl!
-    var tutorialTitles = ["환영합니다!", "시간 추가 방법", "시간 빼는 방법", "입력해서 타이머 맞추기"]
-    var tutoriaContents = ["밀리초타이머앱을 다운받아 주셔서 감사합니다.\n페이지를 넘겨서 사용 방법을 알아보세요!" ,"+ 버튼을 눌러서 시간을 추가해 보세요.", "- 버튼을 눌러서 시간을 줄여보세요.", "숫자를 터치해서 타이머 시간을 맞춰보세요."]
+    var tutorialTitles = [String(format: NSLocalizedString("환영합니다!", comment: "환영합니다")),
+                          String(format: NSLocalizedString("시간 추가 방법", comment: "시간추가방법")),
+                          String(format: NSLocalizedString("시간 빼는 방법", comment: "시간뺴는방법")),
+                          String(format: NSLocalizedString("입력해서 타이머 맞추기", comment: "타이머입력"))]
+    var tutoriaContents = ["밀리초타이머앱을 다운받아 주셔서 감사합니다.\n페이지를 넘겨서 사용 방법을 알아보세요!" ,"+ 버튼을 눌러서 시간을 추가해 보세요.", "- 버튼을 눌러서 시간을 줄여보세요.", "숫자를 눌러서 타이머 시간을 맞춰보세요."]
     var tutorialImages = ["tutorial1", "tutorial2", "tutorial3", "tutorial4"]
 
     
