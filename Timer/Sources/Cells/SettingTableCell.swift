@@ -31,8 +31,7 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
     let ud = UserDefaults.standard
     let vibrationKey = "vibrationKey"
     let soundKey = "soundKey"
-    
-        
+            
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -123,7 +122,7 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("테이블셀을 클릭 했습니다", indexPath.section,"섹션의", indexPath.row , "행입니다.")
         tableView.deselectRow(at: indexPath, animated: true) // 셀 선택후 바로 선택해제 하기
-        if(indexPath.section == 1 && indexPath.row == 0){
+        if(indexPath.section == 1 && indexPath.row == 0) {
 //           let infoVC = self.storyboard?.instantiateViewController(withIdentifier: "Info")
 //            self.navigationController?.pushViewController(infoVC!, animated: true)
             
@@ -167,7 +166,7 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
                 """
                 
                 composeViewController.setToRecipients(["02145s1@gmail.com"])
-                composeViewController.setSubject("[iOS 타이머 앱] 문의사항")
+                composeViewController.setSubject("[iOS 밀리초타이머 앱] 문의사항")
                 composeViewController.setMessageBody(msgBody, isHTML: false)
                 self.present(composeViewController, animated: true, completion: nil)
 
