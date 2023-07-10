@@ -21,7 +21,10 @@ class Tutorial: UIViewController, UIPageViewControllerDataSource {
                           String(format: NSLocalizedString("시간 추가 방법", comment: "시간추가방법")),
                           String(format: NSLocalizedString("시간 빼는 방법", comment: "시간뺴는방법")),
                           String(format: NSLocalizedString("입력해서 타이머 맞추기", comment: "타이머입력"))]
-    var tutoriaContents = ["밀리초타이머앱을 다운받아 주셔서 감사합니다.\n페이지를 넘겨서 사용 방법을 알아보세요!" ,"+ 버튼을 눌러서 시간을 추가해 보세요.", "- 버튼을 눌러서 시간을 줄여보세요.", "숫자를 눌러서 타이머 시간을 맞춰보세요."]
+    var tutoriaContents = [String(format: NSLocalizedString("밀리초타이머앱을 다운받아 주셔서 감사합니다.\n페이지를 넘겨서 사용 방법을 알아보세요!", comment: "설명1")),
+                           String(format: NSLocalizedString("+ 버튼을 눌러서 시간을 추가해 보세요.", comment: "설명2")),
+                           String(format: NSLocalizedString("- 버튼을 눌러서 시간을 줄여보세요.", comment: "설명3")),
+                           String(format: NSLocalizedString("숫자를 눌러서 타이머 시간을 맞춰보세요.", comment: "설명4"))]
     var tutorialImages = ["tutorial1", "tutorial2", "tutorial3", "tutorial4"]
 
     
