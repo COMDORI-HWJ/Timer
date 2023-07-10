@@ -23,7 +23,6 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
     
     @IBOutlet var soundSwitch: UISwitch!
     @IBOutlet var vibrationSwitch: UISwitch!
-    @IBOutlet weak var ver: UILabel!
     
     static var soundCheck : Bool = true  // 소리확인 변수 *static 프로퍼티를 사용해야 값이 수정된다. https://babbab2.tistory.com/119?category=828998
     static var vibrationCheck : Bool = true
@@ -35,7 +34,6 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        appver()
         
         func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
             self.dismiss(animated: true, completion: nil)
@@ -94,11 +92,6 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
         return version
     }
 
-    func appver ()
-    {
-        print(version())
-        ver.text =  String(format: NSLocalizedString("앱 버전 : ", comment: "App Version"))+"\(self.version())"
-    }
     
     // Device Identifier 찾기
     func getDeviceIdentifier() -> String {
@@ -144,7 +137,7 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
 
         }
         
-        if(indexPath.section == 1 && indexPath.row == 3) {
+        if(indexPath.section == 1 && indexPath.row == 2) {
             
             if MFMailComposeViewController.canSendMail() {
                 let composeViewController = MFMailComposeViewController()
