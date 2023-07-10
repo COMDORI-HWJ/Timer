@@ -83,5 +83,7 @@
 |앱 아이콘|이 앱에 관하여|
 |<img src=20230704/IMG_4916.PNG height="700">|<img src=20230704/IMG_4912.PNG height="700">
 
-
-</div>
+|빌드 날짜 |2023년 7월 10일
+|:-:|:-:|
+| <img src=20230710/1.PNG height ="700" >|<img src=20230710/2.PNG height ="700" >
+| <img src=20230710/3.PNG height ="700" >
