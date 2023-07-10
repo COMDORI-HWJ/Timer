@@ -265,29 +265,8 @@
                                             <segue destination="LaT-fN-nzW" kind="presentation" id="KOL-Qb-xdU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="yg1-Oq-jUK" imageView="7nq-BV-Q7m" style="IBUITableViewCellStyleDefault" id="uYI-FL-lf0">
-                                        <rect key="frame" x="16" y="358.5" width="288" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uYI-FL-lf0" id="qzZ-l8-1hA">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="버전" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="yg1-Oq-jUK">
-                                                    <rect key="frame" x="55" y="0.0" width="217" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="info.circle" catalog="system" id="7nq-BV-Q7m">
-                                                    <rect key="frame" x="18" y="12" width="20" height="19"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Meh-2g-bAF" imageView="lK0-0d-kNa" style="IBUITableViewCellStyleDefault" id="tjf-P5-yHn">
-                                        <rect key="frame" x="16" y="402" width="288" height="43.5"/>
+                                        <rect key="frame" x="16" y="358.5" width="288" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tjf-P5-yHn" id="kaa-Tv-deg">
                                             <rect key="frame" x="0.0" y="0.0" width="261.5" height="43.5"/>
@@ -319,7 +298,6 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="soundSwitch" destination="aeq-vZ-SJF" id="vH5-TN-oZY"/>
-                        <outlet property="ver" destination="yg1-Oq-jUK" id="iD8-QW-mpy"/>
                         <outlet property="vibrationSwitch" destination="8ds-ts-XFG" id="Hsc-x6-KkJ"/>
                     </connections>
                 </tableViewController>
@@ -336,30 +314,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="안녕하세요!" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ntX-h1-Vep">
-                                <rect key="frame" x="20" y="217" width="280" height="220"/>
+                                <rect key="frame" x="20" y="287" width="280" height="134"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2022 COMDORI.png" translatesAutoresizingMaskIntoConstraints="NO" id="0Vk-Ah-Gm4">
-                                <rect key="frame" x="85" y="59" width="150" height="150"/>
-                                <color key="backgroundColor" systemColor="systemGray2Color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="qrU-cn-5G0"/>
-                                    <constraint firstAttribute="width" constant="150" id="zNg-eU-gsW"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밀리초타이머" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zr-kV-1C4">
+                                <rect key="frame" x="103" y="222" width="114.5" height="26.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="버전" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnf-6Q-CG3">
+                                <rect key="frame" x="102" y="256" width="116" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="TimerIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Si-9a-taN">
+                                <rect key="frame" x="85" y="65" width="150" height="149"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2wG-gC-UeB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ntX-h1-Vep" firstAttribute="leading" secondItem="2wG-gC-UeB" secondAttribute="leading" constant="20" id="93K-hV-RDO"/>
-                            <constraint firstItem="0Vk-Ah-Gm4" firstAttribute="top" secondItem="2wG-gC-UeB" secondAttribute="top" constant="15" id="U31-zu-TXe"/>
-                            <constraint firstItem="2wG-gC-UeB" firstAttribute="trailing" secondItem="ntX-h1-Vep" secondAttribute="trailing" constant="20" id="bcq-SY-oaw"/>
-                            <constraint firstItem="0Vk-Ah-Gm4" firstAttribute="centerX" secondItem="Xt0-IE-tbg" secondAttribute="centerX" id="c9a-EI-MHr"/>
-                            <constraint firstItem="ntX-h1-Vep" firstAttribute="top" secondItem="0Vk-Ah-Gm4" secondAttribute="bottom" constant="8" id="oTD-Xf-4Un"/>
-                            <constraint firstItem="ntX-h1-Vep" firstAttribute="centerY" secondItem="Xt0-IE-tbg" secondAttribute="centerY" constant="106.5" id="qSU-vJ-850"/>
+                            <constraint firstItem="6Si-9a-taN" firstAttribute="centerX" secondItem="9zr-kV-1C4" secondAttribute="centerX" id="18P-ks-AfC"/>
+                            <constraint firstItem="9zr-kV-1C4" firstAttribute="centerX" secondItem="Xt0-IE-tbg" secondAttribute="centerX" id="2dW-CF-bLT"/>
+                            <constraint firstItem="Mnf-6Q-CG3" firstAttribute="top" secondItem="9zr-kV-1C4" secondAttribute="bottom" constant="7.5" id="4xj-YN-Vhu"/>
+                            <constraint firstItem="Mnf-6Q-CG3" firstAttribute="leading" secondItem="2wG-gC-UeB" secondAttribute="leading" constant="102" id="5rl-4x-ojQ"/>
+                            <constraint firstItem="ntX-h1-Vep" firstAttribute="leading" secondItem="2wG-gC-UeB" secondAttribute="leading" constant="20" id="6g9-20-DrB"/>
+                            <constraint firstItem="ntX-h1-Vep" firstAttribute="top" secondItem="Mnf-6Q-CG3" secondAttribute="bottom" constant="11" id="7zc-Ao-exy"/>
+                            <constraint firstItem="6Si-9a-taN" firstAttribute="top" secondItem="2wG-gC-UeB" secondAttribute="top" constant="21" id="BDm-Nh-DPJ"/>
+                            <constraint firstItem="Mnf-6Q-CG3" firstAttribute="top" secondItem="Xt0-IE-tbg" secondAttribute="top" constant="256" id="KY4-yK-hkN"/>
+                            <constraint firstItem="Mnf-6Q-CG3" firstAttribute="centerX" secondItem="ntX-h1-Vep" secondAttribute="centerX" id="LOZ-T2-yh8"/>
+                            <constraint firstItem="Mnf-6Q-CG3" firstAttribute="centerX" secondItem="9zr-kV-1C4" secondAttribute="centerX" id="dy1-S3-nyc"/>
+                            <constraint firstAttribute="bottom" secondItem="ntX-h1-Vep" secondAttribute="bottom" constant="20" symbolic="YES" id="eBv-fU-Qaa"/>
+                            <constraint firstItem="6Si-9a-taN" firstAttribute="leading" secondItem="2wG-gC-UeB" secondAttribute="leading" constant="85" id="gd5-FT-8UI"/>
+                            <constraint firstItem="9zr-kV-1C4" firstAttribute="top" secondItem="6Si-9a-taN" secondAttribute="bottom" constant="8" id="igi-Th-2uW"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
@@ -372,13 +364,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="Info" destination="ntX-h1-Vep" id="e7R-36-4R9"/>
-                        <outlet property="Profile" destination="0Vk-Ah-Gm4" id="Tuj-32-Omz"/>
                         <outlet property="backBtn" destination="IZH-Zn-ggU" id="NHU-bJ-Y2f"/>
+                        <outlet property="ver" destination="Mnf-6Q-CG3" id="YrY-hg-7el"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOe-v5-TgX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1608.75" y="825.52816901408448"/>
+            <point key="canvasLocation" x="1772" y="832"/>
         </scene>
         <!--MTimer-->
         <scene sceneID="yJN-KM-FTH">
@@ -955,9 +947,8 @@
     </designables>
     <color key="tintColor" systemColor="systemYellowColor"/>
     <resources>
-        <image name="2022 COMDORI.png" width="1094" height="1093"/>
+        <image name="TimerIcon.png" width="1024" height="1024"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
-        <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="info.circle.fill" catalog="system" width="128" height="123"/>
         <image name="minus" catalog="system" width="128" height="26"/>
         <image name="paperplane.circle.fill" catalog="system" width="128" height="123"/>
@@ -973,9 +964,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
