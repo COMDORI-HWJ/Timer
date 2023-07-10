@@ -51,6 +51,10 @@
 
 /* Tutorial */
 "환영합니다!" = "Welcome!";
+"밀리초타이머앱을 다운받아 주셔서 감사합니다.\n페이지를 넘겨서 사용 방법을 알아보세요!" = "Thank you for downloading MillisecondTimer app.\nTurn the page to learn how to use it!";
 "시간 추가 방법" = "How to add time";
+"+ 버튼을 눌러서 시간을 추가해 보세요." = "Press the + button to add more time.";
 "시간 빼는 방법" =  "How to subtract time";
+"- 버튼을 눌러서 시간을 줄여보세요." = "Press the - button to subtract time.";
 "입력해서 타이머 맞추기" = "How to enter timer";
+"숫자를 눌러서 타이머 시간을 맞춰보세요." = "Tap the numbers to adjust the timer time.";
