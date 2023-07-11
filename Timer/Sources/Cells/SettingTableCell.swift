@@ -34,10 +34,10 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
             self.dismiss(animated: true, completion: nil)
         }
+        
         guard let info = storyboard?.instantiateViewController(identifier: "Info") as? Info else { return }
         let navigationController = UINavigationController(rootViewController: info)
         present(navigationController, animated: true)
@@ -46,7 +46,6 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
         ud.register(defaults: ["vibrationKey" : true])
         ud.register(defaults: ["soundKey" : true])
 
-        
         vibrationSwitch.isOn = ud.bool(forKey: vibrationKey)
         
         soundSwitch.isOn = ud.bool(forKey: soundKey) // UserDefaults 사용하여 데이터 저장 https://zeddios.tistory.com/107
@@ -110,6 +109,22 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
 //        let cell = UITableViewCell()
 //        cell.selectionStyle = .none
 //    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection
+                                section: Int) -> String? {
+        
+        if section == 0
+        {
+            return String(format: NSLocalizedString("기능 설정", comment: "기능설정"))
+        }
+        
+        if section == 1
+        {
+            return String(format: NSLocalizedString("지원", comment: "지원"))
+        }
+        
+       return "Header \(section)"
+    }
     
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
