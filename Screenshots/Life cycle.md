@@ -85,5 +85,5 @@
 
 |빌드 날짜 |2023년 7월 10일
 |:-:|:-:|
-| <img src=20230710/1.PNG height ="700" >|<img src=20230710/2.PNG height ="700" >
-| <img src=20230710/3.PNG height ="700" >
+| <img src=20230710/1.png height ="700" >|<img src=20230710/2.png height ="700" >
+| <img src=20230710/3.png height ="700" >
