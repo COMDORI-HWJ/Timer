@@ -31,6 +31,8 @@
 /* 이 앱에 관하여 */
 "X10-re-cdO.title" = "About this App"; // 이 앱에 관하여
 "IZH-Zn-ggU.title" = "Close"; // 닫기
+"9zr-kV-1C4.text" = "MillisecondTimer"; // 밀리초타이머 앱 제목
+
 
 /* Tutorial */
 "8N8-gQ-TQG.normalTitle" = "Go"; // 시작하기
