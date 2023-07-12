@@ -474,7 +474,7 @@ class MainTimer: UIViewController {
     func sendNotification()
     {
         NotificationCenter.default.post(name: Notification.Name("showPage"), object: nil, userInfo: ["index": 0]) // 푸시 알림 클릭 시 타이머 뷰로 이동함
-        notiContent.title = String(format: NSLocalizedString("밀리초 타이머", comment: "Milliseccond Timer")) //appName(한글로만 나옴)
+//        notiContent.title = String(format: NSLocalizedString("밀리초 타이머", comment: "Milliseccond Timer")) //appName(한글로만 나옴)
         notiContent.subtitle = String(format: NSLocalizedString("타이머 완료", comment: "Timer done"))
         notiContent.body = String(format: NSLocalizedString("0초가 되었습니다. 타이머를 다시 작동하려면 알림을 탭하세요!", comment: ""))
         notiContent.badge = 1
