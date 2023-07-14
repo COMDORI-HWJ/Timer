@@ -8,9 +8,6 @@
 /* Class = "UILabel"; text = "00:00:00.000"; ObjectID = "DXh-Op-Bhf"; */
 "DXh-Op-Bhf.text" = "00:00:00.000";
 
-/* Class = "UILabel"; text = "스톱워치 준비중"; ObjectID = "La7-zP-Iob"; */
-"La7-zP-Iob.text" = "스톱워치 준비중";
-
 /* Class = "UIViewController"; title = "Stopwatch"; ObjectID = "Lxr-2m-ofb"; */
 "Lxr-2m-ofb.title" = "Stopwatch";
 
@@ -25,9 +22,6 @@
 
 /* Class = "UILabel"; text = "타이머 소리 및 진동 알림"; ObjectID = "R06-lm-MKw"; */
 "R06-lm-MKw.text" = "타이머 소리 및 진동 알림";
-
-/* Class = "UITabBarItem"; title = "Setting"; ObjectID = "Wbj-YU-TnF"; */
-"Wbj-YU-TnF.title" = "설정";
 
 /* Class = "UIButton"; highlightedTitle = "ll"; ObjectID = "X5G-82-1bc"; */
 "X5G-82-1bc.highlightedTitle" = "ll";
@@ -45,7 +39,7 @@
 
 
 /* Class = "UIViewController"; title = "Setting"; ObjectID = "fGX-y9-as3"; */
-"fGX-y9-as3.title" = "Setting";
+
 
 /* Class = "UIButton"; normalTitle = "Start"; ObjectID = "ga3-SA-Oma"; */
 "ga3-SA-Oma.normalTitle" = "시작";
@@ -63,12 +57,12 @@
 "tKf-dS-Obq.normalTitle" = "재시작";
 
 /* Class = "UITabBarItem"; title = "Countdown"; ObjectID = "MyG-DK-CRY"; */
-"MyG-DK-CRY.title" = "타이머";
+
 
 /* Class = "UITabBarItem"; title = "Countdown"; ObjectID = "ufF-Ca-BxA"; */
 "ufF-Ca-BxA.title" = "타이머(테스트)";
 
-"149-E9-hRK.title" = "스톱워치";
+
 
 /* Class = "UILabel"; text = "버튼 진동"; ObjectID = "wQN-cf-q8U"; */
 "wQN-cf-q8U.text" = "버튼 진동";
