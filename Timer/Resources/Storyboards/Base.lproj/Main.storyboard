@@ -52,7 +52,7 @@
                             <constraint firstItem="ru4-Cu-umX" firstAttribute="trailing" secondItem="BU1-qw-dAU" secondAttribute="trailing" id="wq0-Yv-r9S"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Setting" image="gearshape" catalog="system" id="Wbj-YU-TnF"/>
+                    <tabBarItem key="tabBarItem" title="설정" image="gearshape" catalog="system" id="Wbj-YU-TnF"/>
                     <navigationItem key="navigationItem" id="aQA-mU-s6W"/>
                     <connections>
                         <outlet property="bannerView" destination="ru4-Cu-umX" id="4ve-1P-Shh"/>
@@ -207,21 +207,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" rowHeight="30" id="o8g-ez-WDm">
-                                        <rect key="frame" x="16" y="169.5" width="288" height="30"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" preservesSuperviewLayoutMargins="YES" tableViewCell="o8g-ez-WDm" id="UPh-Qb-39B">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <viewLayoutGuide key="safeArea" id="tEB-H1-pdt"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="0sy-aF-xeG">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="rJu-qW-2bc" imageView="fWK-yk-SQX" style="IBUITableViewCellStyleDefault" id="eM8-HB-lux">
-                                        <rect key="frame" x="16" y="235.5" width="288" height="43.5"/>
+                                        <rect key="frame" x="16" y="205.5" width="288" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eM8-HB-lux" id="kID-YM-h2G">
                                             <rect key="frame" x="0.0" y="0.0" width="261.5" height="43.5"/>
@@ -242,7 +233,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="hjd-JM-Z0P" imageView="U8c-gd-i6Y" style="IBUITableViewCellStyleDefault" id="GxH-zC-q5I">
-                                        <rect key="frame" x="16" y="279" width="288" height="43.5"/>
+                                        <rect key="frame" x="16" y="249" width="288" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GxH-zC-q5I" id="fXC-By-gen">
                                             <rect key="frame" x="0.0" y="0.0" width="261.5" height="43.5"/>
@@ -266,7 +257,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Meh-2g-bAF" imageView="lK0-0d-kNa" style="IBUITableViewCellStyleDefault" id="tjf-P5-yHn">
-                                        <rect key="frame" x="16" y="322.5" width="288" height="43.5"/>
+                                        <rect key="frame" x="16" y="292.5" width="288" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tjf-P5-yHn" id="kaa-Tv-deg">
                                             <rect key="frame" x="0.0" y="0.0" width="261.5" height="43.5"/>
@@ -280,6 +271,27 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="paperplane.circle.fill" catalog="system" id="lK0-0d-kNa">
+                                                    <rect key="frame" x="18" y="12" width="20" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="oDj-ay-pwa" imageView="azc-OB-T12" style="IBUITableViewCellStyleDefault" id="Rpd-M0-tyb">
+                                        <rect key="frame" x="16" y="336" width="288" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rpd-M0-tyb" id="KAr-Qe-Zlj">
+                                            <rect key="frame" x="0.0" y="0.0" width="261.5" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="앱 별점 남기기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oDj-ay-pwa">
+                                                    <rect key="frame" x="55" y="0.0" width="198.5" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="star.circle.fill" catalog="system" id="azc-OB-T12">
                                                     <rect key="frame" x="18" y="12" width="20" height="19"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -708,7 +720,7 @@
                             <constraint firstItem="Zy4-OD-21G" firstAttribute="centerX" secondItem="jv8-fk-50A" secondAttribute="centerX" constant="4.5" id="zP9-eI-0vm"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="밀리초 타이머" id="MyG-DK-CRY">
+                    <tabBarItem key="tabBarItem" title="밀리초타이머" id="MyG-DK-CRY">
                         <imageReference key="image" image="timer" catalog="system" symbolScale="large"/>
                         <color key="badgeColor" systemColor="systemIndigoColor"/>
                     </tabBarItem>
@@ -868,7 +880,7 @@
                             <constraint firstItem="qcb-tt-kp1" firstAttribute="leading" secondItem="L8f-iP-cby" secondAttribute="leading" id="rlP-z7-UQH"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="밀리초 스톱워치" id="149-E9-hRK">
+                    <tabBarItem key="tabBarItem" title="밀리초스톱워치" id="149-E9-hRK">
                         <imageReference key="image" image="stopwatch.fill" catalog="system" symbolScale="large"/>
                         <color key="badgeColor" systemColor="systemIndigoColor"/>
                     </tabBarItem>
@@ -954,6 +966,7 @@
         <image name="paperplane.circle.fill" catalog="system" width="128" height="123"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="star.circle.fill" catalog="system" width="128" height="123"/>
         <image name="stopwatch.fill" catalog="system" width="121" height="128"/>
         <image name="timer" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
