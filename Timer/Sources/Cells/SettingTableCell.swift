@@ -12,19 +12,23 @@
  https://velog.io/@minji0801/iOS-Swift-iOS-%EA%B8%B0%EA%B8%B0%EC%97%90%EC%84%9C-Mail-%EC%95%B1-%EC%9D%B4%EC%9A%A9%ED%95%B4%EC%84%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EB%B3%B4%EB%82%B4%EB%8A%94-%EB%B0%A9%EB%B2%95 메일 보내기
  https://borabong.tistory.com/6 메일컨트롤러 dismiss
  https://www.reddit.com/r/swift/comments/wsvmse/id_like_to_make_the_uiswitch_be_in_the_on/ 앱 처음 설치시 스위치 켜짐 상태
+ https://0urtrees.tistory.com/344 StoreKit, iOS앱 리뷰유도 기능 requestReview deprecated 경고 해결방법
+ https://stackoverflow.com/questions/63953891/requestreview-was-deprecated-in-ios-14-0 앱 리뷰 경고 해결방법2
+ 
  */
 
 import Foundation
 import UIKit
-import AVFoundation //소리, 진동
+import AVFoundation // 소리, 진동
 import MessageUI
+import StoreKit
 
 class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegate{
     
     @IBOutlet var soundSwitch: UISwitch!
     @IBOutlet var vibrationSwitch: UISwitch!
     
-    static var soundCheck : Bool = true  // 소리확인 변수 *static 프로퍼티를 사용해야 값이 수정된다. https://babbab2.tistory.com/119?category=828998
+    static var soundCheck : Bool = true  // 소리 확인 변수 *static 프로퍼티를 사용해야 값이 수정된다. https://babbab2.tistory.com/119?category=828998
     static var vibrationCheck : Bool = true
     
     let ud = UserDefaults.standard
@@ -130,18 +134,6 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("테이블셀을 클릭 했습니다", indexPath.section,"섹션의", indexPath.row , "행입니다.")
         tableView.deselectRow(at: indexPath, animated: true) // 셀 선택후 바로 선택해제 하기
-        if(indexPath.section == 1 && indexPath.row == 0) {
-//           let infoVC = self.storyboard?.instantiateViewController(withIdentifier: "Info")
-//            self.navigationController?.pushViewController(infoVC!, animated: true)
-            
-//            let vcName = self.storyboard?.instantiateViewController(withIdentifier: "Info")
-//                    vcName?.modalPresentationStyle = .fullScreen //전체화면으로 보이게 설정
-//                    vcName?.modalTransitionStyle = .crossDissolve //전환 애니메이션 설정
-//                    self.present(vcName!, animated: true, completion: nil)
-            
-            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Info")
-            self.navigationController?.pushViewController(viewController!, animated: true)
-        }
         
         if(indexPath.section == 1 && indexPath.row == 0) {
             
@@ -149,7 +141,7 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
             tutorial.modalTransitionStyle = .flipHorizontal // 화면 전환 애니메이션 설정
             tutorial.modalPresentationStyle = .popover // 전환된 화면이 보여지는 방법 설정
             self.present(tutorial, animated: true, completion: nil)
-
+            
         }
         
         if(indexPath.section == 1 && indexPath.row == 2) {
@@ -177,7 +169,7 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
                 composeViewController.setSubject("[iOS 밀리초타이머 앱] 문의사항")
                 composeViewController.setMessageBody(msgBody, isHTML: false)
                 self.present(composeViewController, animated: true, completion: nil)
-
+                
             } else {
                 print("send Mail Fail")
                 let sendMailErrorAlert = UIAlertController(title: String(format: NSLocalizedString("문의사항 보내기 오류", comment: "문의사항 보내기 오류")), message: String(format: NSLocalizedString("현재 메일앱이 설치되어 있지 않거나 메일앱 설정이 되어 있지 않습니다. App Store에서 Mail앱 다운로드 또는 메일앱 설정을 확인해 주시기를 바랍니다.", comment: "메일앱안내")), preferredStyle: .alert)
@@ -196,9 +188,20 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
                 self.present(sendMailErrorAlert, animated: true, completion: nil)
             }
         }
+        
+        if(indexPath.section == 1 && indexPath.row == 3) { // 앱스토어 리뷰 남기기 메소드
+            if #available(iOS 14.0, *) {
+                if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive
+                }) as? UIWindowScene {
+                    SKStoreReviewController.requestReview(in: scene)
+                }
+            } else {
+                SKStoreReviewController.requestReview()
+            }
+        }
     }
+    
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         self.dismiss(animated: true, completion: nil) // 메일 보내기 창 dismiss
     }
 }
-
