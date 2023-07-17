@@ -162,7 +162,7 @@ class ViewController: UIViewController {
         if(count > 0)
         {
 
-            let realTime = Date().timeIntervalSince(self.startTime)
+//            let realTime = Date().timeIntervalSince(self.startTime)
            
             //remainTime = count - realTime
             count -= 1 //해결필요? 8.28  8.4, 8.3
