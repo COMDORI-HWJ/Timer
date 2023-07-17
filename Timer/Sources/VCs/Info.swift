@@ -14,7 +14,6 @@ import UIKit
 
 class Info: UIViewController {
 
-    @IBOutlet weak var Profile: UIImageView!
     @IBOutlet weak var Info: UITextView!
     @IBOutlet weak var backBtn: UIBarButtonItem!
     
