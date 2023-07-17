@@ -427,7 +427,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="ResetButton:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="mRI-5F-NZP"/>
+                                            <action selector="resetButton:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="1wb-sB-gTn"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -727,22 +727,22 @@
                     <navigationItem key="navigationItem" id="ZmE-1w-BPS"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
                     <connections>
-                        <outlet property="HourLabel" destination="V84-kN-gde" id="7gv-UC-Oqh"/>
-                        <outlet property="MillisecLabel" destination="wOn-rK-hKH" id="Rfw-AN-dxn"/>
-                        <outlet property="MinLabel" destination="Zy4-OD-21G" id="TVU-6J-qK1"/>
-                        <outlet property="SecLabel" destination="zKH-mc-nHk" id="rtO-DM-ozk"/>
-                        <outlet property="TipLabel" destination="AZ3-gm-XYI" id="kYG-uC-XrJ"/>
                         <outlet property="bannerView" destination="oeZ-cZ-mll" id="LBX-RS-7rp"/>
                         <outlet property="hourDownButton" destination="Ggl-Wh-D8x" id="l4e-Ir-ktc"/>
+                        <outlet property="hourLabel" destination="V84-kN-gde" id="VPA-1L-2Nb"/>
                         <outlet property="hourUpButton" destination="a4q-za-Xl9" id="NPN-7N-Wbl"/>
+                        <outlet property="milliSecLabel" destination="wOn-rK-hKH" id="G6R-gd-DsU"/>
                         <outlet property="millisecDownButton" destination="ybz-tX-2Hr" id="p88-j4-gtO"/>
                         <outlet property="millisecUpButton" destination="kX7-bO-S07" id="BZk-w8-QwY"/>
                         <outlet property="minDownButton" destination="aB3-8f-b3z" id="tTR-ul-IyB"/>
+                        <outlet property="minLabel" destination="Zy4-OD-21G" id="BbZ-F3-oLV"/>
                         <outlet property="minUpButton" destination="Moe-ao-nWA" id="NsQ-eB-ymN"/>
                         <outlet property="resetButton" destination="wTj-3u-3EN" id="NG6-S0-XHa"/>
                         <outlet property="secDownButton" destination="GR3-0Y-Yfk" id="Hq1-Jk-RQa"/>
+                        <outlet property="secLabel" destination="zKH-mc-nHk" id="FSQ-NG-hnC"/>
                         <outlet property="secUpButton" destination="zvx-zQ-uTH" id="oEU-6a-Bxr"/>
                         <outlet property="startStopButton" destination="n2R-LT-9dT" id="NLT-SJ-5pe"/>
+                        <outlet property="tipLabel" destination="AZ3-gm-XYI" id="IuL-CW-dir"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hy0-53-JJM" sceneMemberID="firstResponder"/>
@@ -792,7 +792,6 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="RecordResetButton:" destination="TvW-ox-nD7" eventType="touchUpInside" id="keC-Dz-WPc"/>
-                                            <action selector="ResetButton:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="dz7-dR-ZVd"/>
                                         </connections>
                                     </button>
                                 </subviews>
