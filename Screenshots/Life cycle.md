@@ -87,3 +87,10 @@
 |:-:|:-:|
 | <img src=20230710/1.png height ="700" >|<img src=20230710/2.png height ="700" >
 | <img src=20230710/3.png height ="700" >
+
+|빌드 날짜 |2023년 7월 18일
+|:-:|:-:|
+| <img src=20230718/IMG_4928.png height ="700" >|<img src=20230718/IMG_4929.png height ="700" >
+| <img src=20230718/IMG_4930.png height ="700" >| <img src=20230718/IMG_4931.png height ="700" >
+| <img src=20230718/IMG_4932.png height ="700" >| <img src=20230718/IMG_4933.png height ="700" >
+| <img src=20230718/IMG_4934.png height ="700" >
