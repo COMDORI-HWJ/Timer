@@ -776,7 +776,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="StopwatchStartStop:" destination="TvW-ox-nD7" eventType="touchUpInside" id="ghK-zM-xnw"/>
+                                            <action selector="stopWatchStartStop:" destination="TvW-ox-nD7" eventType="touchUpInside" id="eaX-gZ-cpi"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVc-ug-WS5" customClass="Button" customModule="Timer" customModuleProvider="target">
@@ -791,7 +791,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="RecordResetButton:" destination="TvW-ox-nD7" eventType="touchUpInside" id="keC-Dz-WPc"/>
+                                            <action selector="recordResetButton:" destination="TvW-ox-nD7" eventType="touchUpInside" id="MVG-9H-uFU"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -886,12 +886,12 @@
                     <navigationItem key="navigationItem" id="dqg-Lv-JKA"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
                     <connections>
-                        <outlet property="LapsTableView" destination="qcb-tt-kp1" id="m8E-9O-AkV"/>
-                        <outlet property="MillisecLabel" destination="0PY-Oy-uJh" id="9L6-Lq-RDv"/>
-                        <outlet property="RecordResetButton" destination="OVc-ug-WS5" id="G9v-ob-P9r"/>
-                        <outlet property="StartStopButton" destination="1Ol-qq-4mg" id="K7C-9k-l1z"/>
-                        <outlet property="TimeLabel" destination="6Qx-F3-pR7" id="Tue-z5-teD"/>
                         <outlet property="bannerView" destination="btZ-8R-I15" id="NK2-X0-Ccc"/>
+                        <outlet property="lapsTableView" destination="qcb-tt-kp1" id="yUd-Dy-0s2"/>
+                        <outlet property="milliSecLabel" destination="0PY-Oy-uJh" id="5Ui-Lo-nNN"/>
+                        <outlet property="recordResetButton" destination="OVc-ug-WS5" id="wQb-uk-hbp"/>
+                        <outlet property="startStopButton" destination="1Ol-qq-4mg" id="Jcx-cd-NqH"/>
+                        <outlet property="timeLabel" destination="6Qx-F3-pR7" id="ktX-hk-SPe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTy-DK-4Vg" sceneMemberID="firstResponder"/>
@@ -905,7 +905,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="e8l-tf-bp5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FTn-U0-Sjr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
