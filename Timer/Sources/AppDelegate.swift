@@ -107,7 +107,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         print("Error : \(error)")
                     }
                     
-                    
                 })
             }
         }
@@ -124,7 +123,6 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
         //        completionHandler()
         completionHandler([.list, .badge, .banner, .sound])
-        
         
     }
     
