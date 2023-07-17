@@ -15,7 +15,7 @@ class MainTabBar: UITabBarController {
 
         super.viewDidLoad()
         
-        self.selectedIndex = 0 //첫 시작 화면을 탭바 0번으로 시작
+        self.selectedIndex = 0 // 첫 시작 화면을 탭바 0번으로 시작
         //                tabBarController?.selectedIndex = 3
         
         // Do any additional setup after loading the view.
