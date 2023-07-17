@@ -7,7 +7,6 @@
 /** Reference
  * https://blog.naver.com/nanocode-/221386395463 튜토리얼 화면 만들기 (2) (스토리보드 분리 / 페이지 뷰 컨트롤러)
  * https://ios-development.tistory.com/80 튜토리얼 화면(tutorial screen) 만들기 - PageViewController (programmatically)
- *
  */
 import UIKit
 
@@ -148,12 +147,3 @@ class Tutorial: UIViewController, UIPageViewControllerDataSource {
 struct UserInfoKey {
     static let tutorial = "TUTORIAL"
 }
-
-extension UIViewController {
-    var mainSb: UIStoryboard {
-           return UIStoryboard(name: "Main", bundle: Bundle.main)
-       }
-       func instanceTutorial(name: String) -> UIViewController? {
-           return self.mainSb.instantiateViewController(withIdentifier: name)
-       }
-   }
