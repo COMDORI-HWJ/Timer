@@ -17,10 +17,9 @@ class Setting: UIViewController { // UITableViewDataSource, UITableViewDelegate
         super.viewDidLoad()
         
         /* Admob */
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // 테스트 광고
+        //        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // 테스트 광고
         bannerView.adUnitID = "ca-app-pub-7875242624363574/7192134359"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
-
     }
 }
