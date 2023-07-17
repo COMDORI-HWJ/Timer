@@ -28,8 +28,6 @@ class Stopwatch: UIViewController {
     
     @IBOutlet weak var bannerView: GADBannerView!
     
-    let appName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as! String
-    
     var timer = Timer()
     var startTime = Date()
     var stopWatchStatus : Bool = false // 타이머 상태
