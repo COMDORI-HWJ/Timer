@@ -22,8 +22,8 @@
 "CgJ-3Q-KK9.text" = "Timer completion sound"; // 타이머 완료 소리
 "rJu-qW-2bc.text" = "MillisecondTimer App User Guide"; // 밀리초타이머 앱 사용 방법
 "hjd-JM-Z0P.text" = "Information"; // 정보
-"Meh-2g-bAF.text" = "Feedback"; // 문의
-
+"Meh-2g-bAF.text" = "Send us feedback"; // 문의
+"oDj-ay-pwa.text" = "Rate our MillisecondTimer"; // 앱 평가
 /* 이 앱에 관하여 */
 "X10-re-cdO.title" = "About this App"; // 이 앱에 관하여
 "IZH-Zn-ggU.title" = "Close"; // 닫기
