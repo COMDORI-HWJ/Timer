@@ -9,9 +9,9 @@
  * https://woongsios.tistory.com/57 status bar 높이 구하기 in Swift 5
  
  */
+
 import UIKit
 import Gifu
-
 
 class TutorialContents: UIViewController {
     
@@ -42,7 +42,7 @@ class TutorialContents: UIViewController {
         contentLabel.textAlignment = .center
         contentLabel.font = UIFont.systemFont(ofSize: UIFont.labelFontSize)
     }
-        
+    
     override func viewWillAppear(_ animated: Bool) {
         
         // 디바이스 화면 사이즈 확인
@@ -53,16 +53,12 @@ class TutorialContents: UIViewController {
         
         titleLabel.frame = CGRect(x: 0, y: deviceHeight/20, width: deviceWidth, height: 30)
         print("현재 페이지: " , titleText!)
-        contentLabel.frame = CGRect(x: 0, y: deviceHeight/9, width: deviceWidth, height: 50)
+        contentLabel.frame = CGRect(x: 0, y: deviceHeight/9, width: deviceWidth+3, height: 50)
         
         gifImageView.frame = CGRect(x: 10, y: boundsHeight*0.2, width: deviceWidth-20, height: boundsHeight/2)
         gifImageView.translatesAutoresizingMaskIntoConstraints = true // 오토레이아웃 사용시 AutoresizingMask를 사용한 Constraints 변환을 막는 것
-//        gifImageView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100).isActive = true
-//        gifImageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 100).isActive = true
-//        gifImageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -80).isActive = true
         view.addSubview(gifImageView)
         view.addSubview(titleLabel)
         view.addSubview(contentLabel)
-//        titleLabel.frame = CGRectInset(CGRect, CGFloat, CGFloat)
     }
 }
