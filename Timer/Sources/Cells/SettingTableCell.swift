@@ -55,7 +55,6 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
         soundSwitch.isOn = ud.bool(forKey: soundKey) // UserDefaults 사용하여 데이터 저장 https://zeddios.tistory.com/107
     }
     
-
     @IBAction func sound(_ sender: UISwitch) {
        
         if(sender.isOn)
@@ -108,12 +107,7 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
         
         return identifier
     }
-    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell()
-//        cell.selectionStyle = .none
-//    }
-    
+        
     override func tableView(_ tableView: UITableView, titleForHeaderInSection
                                 section: Int) -> String? {
         
