@@ -18,7 +18,7 @@
 		2BA573AC275D7A09003C7677 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BA573AE275D7A09003C7677 /* Localizable.strings */; };
 		2BB176192746AE2E00324111 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1761B2746AE2E00324111 /* InfoPlist.strings */; };
 		2BD4CF0B2702817D0063D45D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2BD4CF0A2702817D0063D45D /* README.md */; };
-		371441652A5C4C14007A1B8E /* TimerIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 371441642A5C4C14007A1B8E /* TimerIcon.png */; };
+		373FBB622A6727B800C62452 /* TimerIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 373FBB612A6727B800C62452 /* TimerIcon.png */; };
 		3751D9A728A2CA2E000AE0AA /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3751D9A628A2CA2E000AE0AA /* Info.swift */; };
 		376CF45A299D5F7600FE686D /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376CF459299D5F7600FE686D /* Reference.swift */; };
 		376D7A2B285E26B600643F43 /* IMG_1453.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 376D7A29285E26B600643F43 /* IMG_1453.PNG */; };
@@ -65,7 +65,7 @@
 		2BA573AD275D7A09003C7677 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2BB1761A2746AE2E00324111 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BD4CF0A2702817D0063D45D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		371441642A5C4C14007A1B8E /* TimerIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimerIcon.png; sourceTree = "<group>"; };
+		373FBB612A6727B800C62452 /* TimerIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimerIcon.png; sourceTree = "<group>"; };
 		3751D9A628A2CA2E000AE0AA /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		376CF459299D5F7600FE686D /* Reference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reference.swift; sourceTree = "<group>"; };
 		376D7A29285E26B600643F43 /* IMG_1453.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_1453.PNG; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 		3714415B2A5C4AA4007A1B8E /* Icon */ = {
 			isa = PBXGroup;
 			children = (
-				371441642A5C4C14007A1B8E /* TimerIcon.png */,
+				373FBB612A6727B800C62452 /* TimerIcon.png */,
 			);
 			path = Icon;
 			sourceTree = "<group>";
@@ -384,7 +384,6 @@
 				379383DD2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png in Resources */,
 				379383D82852BFA400D6463C /* IMG_2216.PNG in Resources */,
 				376D7A2B285E26B600643F43 /* IMG_1453.PNG in Resources */,
-				371441652A5C4C14007A1B8E /* TimerIcon.png in Resources */,
 				378F0F572A1189A1002E8583 /* tutorial3.gif in Resources */,
 				2BA573AC275D7A09003C7677 /* Localizable.strings in Resources */,
 				2BD4CF0B2702817D0063D45D /* README.md in Resources */,
@@ -397,6 +396,7 @@
 				2BB176192746AE2E00324111 /* InfoPlist.strings in Resources */,
 				379383D72852BFA400D6463C /* IMG_2214.PNG in Resources */,
 				2BA0F050269395C20040D20B /* Main.storyboard in Resources */,
+				373FBB622A6727B800C62452 /* TimerIcon.png in Resources */,
 				378F0F562A1189A1002E8583 /* tutorial4.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
