@@ -15,7 +15,7 @@ import UIKit
 extension Stopwatch: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recordList.count
-
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -27,11 +27,9 @@ extension Stopwatch: UITableViewDelegate, UITableViewDataSource {
         
         if let TimeLabel = cell.viewWithTag(2) as? UILabel {
             TimeLabel.text = recordList[recordList.count - (indexPath as NSIndexPath).row - 1]
-//            TimeLabel.text = self.recordList[indexPath.row]
         }
-
-//        print("기록횟수:",recordList.count)
-        return cell
         
-       }
+        //        print("기록횟수:",recordList.count)
+        return cell
+    }
 }
