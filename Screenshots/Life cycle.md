@@ -94,3 +94,10 @@
 | <img src=20230718/IMG_4930.png height ="700" >| <img src=20230718/IMG_4931.png height ="700" >
 | <img src=20230718/IMG_4932.png height ="700" >| <img src=20230718/IMG_4933.png height ="700" >
 | <img src=20230718/IMG_4934.png height ="700" >
+
+|빌드 날짜 |2023년 7월 19일
+|:-:|:-:|
+| <img src=20230719/IMG_4936.png height ="700" >|<img src=20230719/IMG_4937.png height ="700" >
+| <img src=20230719/IMG_4938.png height ="700" >| <img src=20230719/IMG_4939.png height ="700" >
+| <img src=20230719/IMG_4940.png height ="700" >| <img src=20230719/IMG_4941.png height ="700" >
+| <img src=20230719/IMG_4942.png height ="700" >
