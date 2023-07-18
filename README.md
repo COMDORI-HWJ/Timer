@@ -36,11 +36,11 @@ MillisecondTimer 밀리초타이머 (iOS App)
 
 |타이머|타이머 시간 입력 
 |:-:|:-:|
-| <img src=Screenshots/20230718/IMG_4928.PNG height ="700" >|<img src=Screenshots/20230704/IMG_4917.PNG height ="700">
+| <img src=Screenshots/20230719/IMG_4936.PNG height ="700" >|<img src=Screenshots/20230719/IMG_4939.PNG height ="700">
 |타이머 플레이|스톱워치| 
-| <img src = Screenshots/20230718/IMG_4933.PNG height="700"> | <img src=Screenshots/20230718/IMG_4929.PNG height="700">| <img src=Screenshots/20230704/IMG_4910.PNG height="700"> |
+| <img src = Screenshots/20230719/IMG_4938.PNG height="700"> | <img src=Screenshots/20230719/IMG_4940.PNG height="700">|
 |스톱워치 플레이|설정 화면|
-<img src=Screenshots/20230718/IMG_4934.PNG height="700">|<img src=Screenshots/20230718/IMG_4930.PNG height="700">
+<img src=Screenshots/20230719/IMG_4941.PNG height="700">|<img src=Screenshots/20230719/IMG_4942.PNG height="700">
 |백그라운드 푸시 알림|잠금화면 푸시 알림|
 <img src=Screenshots/20230704/IMG_4913.PNG height="700">|<img src=Screenshots/20230704/IMG_4914.PNG height="700">
 |첫 실행시 앱 사용방법 튜토리얼|첫 실행시 앱 사용방법 튜토리얼 2|
