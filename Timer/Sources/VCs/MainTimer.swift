@@ -107,6 +107,8 @@ class MainTimer: UIViewController {
         {
             timerPlay()
             print("타이머 상태: ", timerStatus)
+            sendNotification()
+            
         }
         else
         {
@@ -116,6 +118,7 @@ class MainTimer: UIViewController {
     
     func timerPlay()
     {
+        
         let startTime = Date()
         timerStatus = true
         startStopButton.setTitle(String(format: NSLocalizedString("일시중지", comment: "Pause")), for: .normal)
@@ -143,11 +146,11 @@ class MainTimer: UIViewController {
                 self.timerStop()
                 self.reset()
                 print("0초")
-                return print("초기화 완료")
-                
+                return
             }
             self.timeCal()
         })
+        
     }
     
     func timerPause()
@@ -209,8 +212,8 @@ class MainTimer: UIViewController {
         secLabel.text = "00"
         milliSecLabel.text = "000"
         print("초기화 남은 카운트:", count)
-        
         btnEnable()
+        print("초기화 완료")
         
     }
     
@@ -260,9 +263,9 @@ class MainTimer: UIViewController {
     func timerNoti()
     {
         let notificationCenter = NotificationCenter.default
-        //         백그라운드 상태
+        // 백그라운드 상태
         notificationCenter.addObserver(self, selector: #selector(backgroudTimer), name: UIApplication.willResignActiveNotification, object: nil)
-        //         포그라운드 상태
+        // 포그라운드 상태
         notificationCenter.addObserver(self, selector: #selector(foregroundTimer), name: UIApplication.willEnterForegroundNotification, object: nil)
         
     }
@@ -334,6 +337,7 @@ class MainTimer: UIViewController {
             {
                 self?.timeIntervalBackground(timeInterval)
                 self?.timerPlay()
+                
             }
             else
             {
