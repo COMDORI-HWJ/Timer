@@ -46,6 +46,7 @@
 		37C20FA12A0589F1001A98B1 /* TutorialContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C20FA02A0589F1001A98B1 /* TutorialContents.swift */; };
 		37C3E2A22852A617009E6D5B /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C3E2A12852A617009E6D5B /* MainTabBar.swift */; };
 		37D653DA2A13008F0023D14C /* Gifu in Frameworks */ = {isa = PBXBuildFile; productRef = 37D653D92A13008F0023D14C /* Gifu */; };
+		37F4821E2A782D7E00C9ABCE /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F4821D2A782D7E00C9ABCE /* NotificationHandler.swift */; };
 		3E6CAC87086CCC88703CFFEA /* Pods_MillisecondTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95A5128CD578A423748BB47 /* Pods_MillisecondTimer.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		37C20F9E2A0584ED001A98B1 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		37C20FA02A0589F1001A98B1 /* TutorialContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialContents.swift; sourceTree = "<group>"; };
 		37C3E2A12852A617009E6D5B /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		37F4821D2A782D7E00C9ABCE /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		37F73E35287F1D7900068E6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A4A9127B56D652343BECAD0A /* Pods-MillisecondTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MillisecondTimer.debug.xcconfig"; path = "Target Support Files/Pods-MillisecondTimer/Pods-MillisecondTimer.debug.xcconfig"; sourceTree = "<group>"; };
 		C95A5128CD578A423748BB47 /* Pods_MillisecondTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MillisecondTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,6 +231,7 @@
 			children = (
 				378210E927FF5EFC00B312C3 /* Button.swift */,
 				37C3E2A12852A617009E6D5B /* MainTabBar.swift */,
+				37F4821D2A782D7E00C9ABCE /* NotificationHandler.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				37C20F9F2A0584ED001A98B1 /* Tutorial.swift in Sources */,
 				37C3E2A22852A617009E6D5B /* MainTabBar.swift in Sources */,
 				2B69E3EC27224DBA00591357 /* SettingTableCell.swift in Sources */,
+				37F4821E2A782D7E00C9ABCE /* NotificationHandler.swift in Sources */,
 				378210EA27FF5EFC00B312C3 /* Button.swift in Sources */,
 				379EA0C7287DC19000406FC8 /* StopwatchExtension.swift in Sources */,
 				2B69E3EA2722459D00591357 /* Setting.swift in Sources */,
