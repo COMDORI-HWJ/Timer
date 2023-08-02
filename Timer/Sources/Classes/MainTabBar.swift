@@ -15,7 +15,7 @@ class MainTabBar: UITabBarController {
         super.viewDidLoad()
         
         self.selectedIndex = 0 // 첫 시작 화면을 탭바 0번으로 시작
-        NotificationCenter.default.addObserver(self, selector: #selector(showPage(_:)), name: NSNotification.Name("showPage"), object: nil) // 푸시 알림 옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(showPage(_:)), name: NSNotification.Name("Timer"), object: nil) // 푸시 알림 옵저버
     }
     
     override func viewDidAppear(_ animated: Bool) { // https://scshim.tistory.com/284 whose view is not in the window hierarchy!
