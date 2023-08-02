@@ -272,22 +272,22 @@ class MainTimer: UIViewController {
     
     func sendNotification()
     {
-        NotificationCenter.default.post(name: Notification.Name("showPage"), object: nil, userInfo: ["index": 0]) // 푸시 알림 클릭 시 타이머 뷰로 이동함
-        //        notiContent.title = String(format: NSLocalizedString("밀리초 타이머", comment: "Milliseccond Timer")) //appName(한글로만 나옴)
+//        NotificationCenter.default.post(name: Notification.Name("Timer"), object: nil, userInfo: ["index": 0]) // 푸시 알림 클릭 시 타이머 뷰로 이동함
+//                notiContent.title = String(format: NSLocalizedString("타이머 완료", comment: "Milliseccond Timer")) //appName(한글로만 나옴)
         notiContent.subtitle = String(format: NSLocalizedString("타이머 완료", comment: "Timer done"))
         notiContent.body = String(format: NSLocalizedString("0초가 되었습니다. 타이머를 다시 작동하려면 알림을 탭하세요!", comment: ""))
         notiContent.badge = 1
-        notiContent.sound = UNNotificationSound.default
+        notiContent.sound = UNNotificationSound.defaultCritical
         notiContent.userInfo = ["Timer": "done"] // 푸시 받을 떄 오는 데이터
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: count, repeats: false) // 알림 발생 시기
-        let identifier = "timerEnd" // 알림 고유 이름
+        let identifier = "Timer done" // 푸시 알림 식별자
         let request = UNNotificationRequest(identifier: identifier, content: notiContent, trigger: trigger) // 알림 결과
         notiCenter.add(request) { (error) in
             if let err = error {
                 print("노티피케이션 알림 오류: ", err.localizedDescription)
             }
-            else{
+            else {
                 print("노티피케이션 푸시알림 성공")
             }
         }
