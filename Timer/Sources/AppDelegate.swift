@@ -151,7 +151,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 
         //        completionHandler()
         
-        print("willPresent - identifier: \(notification.request.identifier)")
+//        print("willPresent - identifier: \(notification.request.identifier)")
         
         completionHandler([.list, .banner])
     }
@@ -159,8 +159,8 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     // Background 에서 작동
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        print("didReceive - identifier: \(response.notification.request.identifier)")
-        print("didReceive - UserInfo: \(response.notification.request.content.userInfo)")
+//        print("didReceive - identifier: \(response.notification.request.identifier)")
+//        print("didReceive - UserInfo: \(response.notification.request.content.userInfo)")
         
 //        let _ = response.notification.request.content.userInfo
         
