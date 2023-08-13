@@ -1,5 +1,5 @@
 //  Timer
-//  MainTimer.swift(3600(1시간)밀리초에서 빼는 방식의 타이머)
+//  MainTimer.swift
 //  Created by WONJI HA on 2021/12/08.
 //
 
@@ -38,7 +38,6 @@ class MainTimer: UIViewController {
     var elapsed : Double = 0 // 경과시간
     var backgroudTime : Date? // 백그라운드 경과시간
     
-    let appName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as! String
     let notiContent = UNMutableNotificationContent()
     let notiCenter = UNUserNotificationCenter.current()
     
@@ -221,7 +220,6 @@ class MainTimer: UIViewController {
     {
         reset() //초기화 함수 호출
         print("초기화 되었습니다.")
-        
     }
     
     func countLabel()
@@ -273,7 +271,6 @@ class MainTimer: UIViewController {
     func sendNotification()
     {
 //        NotificationCenter.default.post(name: Notification.Name("Timer"), object: nil, userInfo: ["index": 0]) // 푸시 알림 클릭 시 타이머 뷰로 이동함
-//                notiContent.title = String(format: NSLocalizedString("타이머 완료", comment: "Milliseccond Timer")) //appName(한글로만 나옴)
         notiContent.subtitle = String(format: NSLocalizedString("타이머 완료", comment: "Timer done"))
         notiContent.body = String(format: NSLocalizedString("0초가 되었습니다. 타이머를 다시 작동하려면 알림을 탭하세요!", comment: ""))
         notiContent.badge = 1
@@ -588,7 +585,7 @@ class MainTimer: UIViewController {
                         print("숫자가 아님.")
                     }
                 }
-                else {
+                 else {
                     print("입력값이 없습니다.")
                 }
             }
@@ -669,28 +666,32 @@ class MainTimer: UIViewController {
                             self.upAlertError()
                             print("99시간이 넘어간다.")
                         }
-                    } else {
+                    }
+                    else {
                         let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: String(format: NSLocalizedString("시간은 숫자만 입력가능합니다.", comment: "")), preferredStyle: UIAlertController.Style.alert)
                         let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .destructive, handler: nil)
                         alert.addAction(ok)
                         self.present(alert, animated: false, completion: nil)
                         print("숫자가 아님.")
                     }
-                    
                 }
                 else {
                     print("입력값이 없습니다.")
                 }
-            }
+                
+                            }
         }
         
+        
+        
         let cancel = UIAlertAction(title: String(format: NSLocalizedString("취소", comment: "Cancel")), style: .cancel)
+        
+        
         
         alert.addTextField() { (textField) in
             textField.placeholder = String(format: NSLocalizedString("이곳에 초를 입력하세요.", comment: ""))
             textField.textContentType = .creditCardNumber
             textField.keyboardType = .numberPad
-            
         }
         alert.addAction(ok)
         alert.addAction(cancel)
