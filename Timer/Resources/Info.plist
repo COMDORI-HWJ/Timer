@@ -6,18 +6,31 @@
 	<string>Your data will be used to measure advertising efficiency.</string>
 	<key>Applcation supports iTunes file sharing</key>
 	<true/>
+    <key>BGTaskSchedulerPermittedIdentifiers</key>
+    <array>
+        <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    </array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>ko_KR</string>
 	<key>CFBundleDisplayName</key>
 	<string>밀리초타이머</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
-		<dict/>
-		<dict>
-			<key>LSHandlerRank</key>
-			<string>Default</string>
-		</dict>
-		<dict/>
+    <dict>
+        <key>CFBundleTypeName</key>
+        <string>gif</string>
+        <key>LSHandlerRank</key>
+        <string>Alternate</string>
+        <key>LSItemContentTypes</key>
+        <array>
+        <string>tutorial1.gif</string>
+        <string>tutorial2.gif</string>
+        <string>tutorial3.gif</string>
+        <string>tutorial4.gif</string>
+        </array>
+    <key>LSHandlerRank</key>
+    <string>Default</string>
+    </dict>
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
