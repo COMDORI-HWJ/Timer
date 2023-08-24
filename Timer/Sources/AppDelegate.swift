@@ -37,16 +37,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         print("앱 실행 준비 끝")
         
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
-        
-        requestNotificationAuthorization() // 최초 푸시 알림 권한 요청
         setAppTracking() // 앱 추적 권한 요청
-        
+        requestNotificationAuthorization() // 최초 푸시 알림 권한 요청
+       
         notiCenter.delegate = self // 특정 ViewController에 구현되어 있으면 푸시를 받지 못할 가능성이 있으므로 AppDelegate에서 구현(앱에서 포그라운드 푸시 알림)
         
-//        application.registerForRemoteNotifications()
-        //        UIApplication.shared.registerForRemoteNotifications()
-        
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         return true
     }
     
@@ -115,11 +111,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    @available(iOS 13.0, *)
     func setAppTracking(){
         NotificationHandler().askNotificationPermission {
             // 다른 권한 요청 창보다 늦게 띄우기
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                if #available(iOS 14, *) {
+                if #available(iOS 14.0, *) {
                     ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
                         switch status {
                         case .authorized:        // 허용됨
@@ -139,7 +136,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
 }
     
 extension AppDelegate : UNUserNotificationCenterDelegate {
