@@ -11,7 +11,7 @@
 
 import Foundation
 import UIKit
-import AVFoundation //햅틱
+import AVFoundation // 햅틱
 import UserNotifications
 import SystemConfiguration
 import GoogleMobileAds
@@ -86,8 +86,8 @@ class Stopwatch: UIViewController {
                 // Timer카운터 쓰레드 적용
                 self.timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(self.timerCounter), userInfo: nil, repeats: true)
             }
-            RunLoop.current.run() // 다른 작업을 실행해도 타이머는 돌아간다(Ex.LAP 테이블을 스크롤시 타이머가 안멈춤.)
         }
+        RunLoop.current.run() // 다른 작업을 실행해도 타이머는 돌아간다(Ex.LAP 테이블을 스크롤시 타이머가 안멈춤.)
     }
     
     @objc private func timerCounter() -> Void
@@ -112,7 +112,7 @@ class Stopwatch: UIViewController {
         
         if (stopWatchStatus == true) {
             
-            let record = "\(hour):\(minute):\(second):\(milliSecond)" //스톱워치 시간을 기록
+            let record = "\(hour):\(minute):\(second):\(milliSecond)" // 스톱워치 시간을 기록
             recordList.append(record)
             lapsTableView.reloadData()
             //            tableViewScroll() // 첫번째 기록으로 자동 스크롤
@@ -152,10 +152,10 @@ class Stopwatch: UIViewController {
             print("진동: ",SettingTableCell.vibrationCheck)
             UIImpactFeedbackGenerator(style: .heavy).impactOccurred() // 탭틱 엔진이 있는 경우만 작동, 진동세기 강하게
             
-        }else{
+        }
+        else {
             print("진동: ",SettingTableCell.vibrationCheck)
         }
-        //AudioServicesPlaySystemSound(1016) // 소리발생
     }
     
     private func tableViewScroll() { // 기록 테이블 자동 스크롤 갱신 메소드
