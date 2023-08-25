@@ -28,7 +28,7 @@ class Stopwatch: UIViewController {
     
     @IBOutlet weak var bannerView: GADBannerView!
     
-    var timer = Timer()
+    var stopWatch = Timer()
     var startTime = Date()
     var stopWatchStatus : Bool = false // 타이머 상태
     
@@ -45,8 +45,7 @@ class Stopwatch: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
+       
         lapsTableView.delegate = self
         lapsTableView.dataSource = self
         self.navigationController?.navigationBar.topItem?.title="AD" //뷰 제목
@@ -62,40 +61,48 @@ class Stopwatch: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func stopWatchStartStop(_ sender: Any)
-    {
-        startTime = Date()
-        if (stopWatchStatus)
-        {
-            btnEffect()
-            stopWatchStatus = false
-            count = elapsed - count // 일시정지 동안 경과된 시간(흐르는 시간)을 저장된 시간에서 빼준다.
-            timer.invalidate()
-            startStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
-            recordResetButton.setTitle(String(format: NSLocalizedString("초기화", comment: "Reset")), for: .normal)
+    @IBAction func stopWatchStartStop(_ sender: Any) {
+        if stopWatchStatus {
+            stopWatchPause()
+            print("스톱워치 상태: ", stopWatchStatus)
+        }
+        else {
+            stopWatchPlay()
+            print("스톱워치 상태: ", stopWatchStatus)
+        }
+    }
+   
+    func stopWatchPlay() {
+        btnEffect()
+        let startTime = Date()
+        stopWatchStatus = true
+        startStopButton.setTitle(String(format: NSLocalizedString("일시중지", comment: "Pause")), for: .normal)
+        recordResetButton.setTitle(String(format: NSLocalizedString("기록", comment: "Rap")), for: .normal)
+        
+        stopWatch = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { timer in
+            let timeInterval = Date().timeIntervalSince(startTime)
+            self.remainTime = self.count + timeInterval
+            self.elapsed = self.count + self.remainTime
+            self.timeCal()
             
-        }
-        else
-        {
-            btnEffect()
-            stopWatchStatus = true
-            startStopButton.setTitle(String(format: NSLocalizedString("일시중지", comment: "Pause")), for: .normal)
-            recordResetButton.setTitle(String(format: NSLocalizedString("기록", comment: "Rap")), for: .normal)
-            print("일시정지")
             DispatchQueue.main.async {
-                // Timer카운터 쓰레드 적용
-                self.timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(self.timerCounter), userInfo: nil, repeats: true)
+                RunLoop.current.add(self.stopWatch, forMode: .common)
             }
-        }
-        RunLoop.current.run() // 다른 작업을 실행해도 타이머는 돌아간다(Ex.LAP 테이블을 스크롤시 타이머가 안멈춤.)
+        })
+        print("스톱워치 작동")
     }
     
-    @objc private func timerCounter() -> Void
-    {
-        let timeInterval = Date().timeIntervalSince(startTime)
-        remainTime = count + timeInterval // 남은시간 계산
-        elapsed = count + remainTime
-        
+    func stopWatchPause() {
+        btnEffect()
+        stopWatchStatus = false
+        startStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
+        recordResetButton.setTitle(String(format: NSLocalizedString("초기화", comment: "Reset")), for: .normal)
+        count = elapsed - count
+        stopWatch.invalidate()
+        print("스톱워치 일시중지")
+    }
+    
+    func timeCal() {
         /** ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림     */
         
         hour = (Int)(fmod((remainTime/60/60), 100)) // 분을 12로 나누어 시를 구한다
@@ -129,7 +136,7 @@ class Stopwatch: UIViewController {
     func reset()
     {
         stopWatchStatus = false
-        timer.invalidate()
+        stopWatch.invalidate()
         count = 0
         remainTime = 0
         elapsed = 0
