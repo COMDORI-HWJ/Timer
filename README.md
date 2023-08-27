@@ -1,6 +1,6 @@
 MillisecondTimer 밀리초타이머 iOS App
 ===
-> <img src=Screenshots/20230828/BannerAd.png>
+> <img src=Screenshots/20230828/Banner.PNG>
 > 밀리초 타이머와 밀리초 스톱워치를 사용할 수 있는 앱
 ---
 <div align="center">
