@@ -153,10 +153,15 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
                 
                 오류 및 버그 :  ☛ 이 문장을 지우고 버그, 오류 사항, 안 되는것 을 적어주시면 됩니다.
                 
+                Errors or Bugs : ☛ Remove this sentence and list the bugs, errors, and things that don't work.
+                
                 ┈┈┈┈┈┈┈✄┈┈┈┈┈┈┈
                 개선사항 및 아이디어 제보 : ☛ 이 문장을 지우고 자유롭게 적어주시면 감사하겠습니다.
                 
+                Improvements and new features : ☛ If you need a new feature, remove this sentence and write it.
+                
                 문의해 주셔서 감사합니다. 🙇🏼‍♂️
+                Thanks for feedback. 🙇🏼‍♂️
                 """
                 
                 composeViewController.setToRecipients(["02145s1@gmail.com"])
