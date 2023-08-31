@@ -274,7 +274,7 @@ class MainTimer: UIViewController {
         notiContent.subtitle = String(format: NSLocalizedString("타이머 완료", comment: "Timer done"))
         notiContent.body = String(format: NSLocalizedString("0초가 되었습니다. 타이머를 다시 작동하려면 알림을 탭하세요!", comment: ""))
         notiContent.badge = 1
-        notiContent.sound = UNNotificationSound.defaultCritical
+        notiContent.sound = UNNotificationSound.default
         notiContent.userInfo = ["Timer": "done"] // 푸시 받을 떄 오는 데이터
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: count, repeats: false) // 알림 발생 시기
