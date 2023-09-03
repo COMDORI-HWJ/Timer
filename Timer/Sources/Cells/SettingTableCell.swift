@@ -14,7 +14,8 @@
  https://www.reddit.com/r/swift/comments/wsvmse/id_like_to_make_the_uiswitch_be_in_the_on/ 앱 처음 설치시 스위치 켜짐 상태
  https://0urtrees.tistory.com/344 StoreKit, iOS앱 리뷰유도 기능 requestReview deprecated 경고 해결방법
  https://stackoverflow.com/questions/63953891/requestreview-was-deprecated-in-ios-14-0 앱 리뷰 경고 해결방법2
- 
+ https://zeddios.tistory.com/107  UserDefaults 사용하여 데이터 저장
+ https://babbab2.tistory.com/119 소리 확인 변수 *static 프로퍼티를 사용해야 값이 수정된다.
  */
 
 import Foundation
@@ -28,7 +29,7 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
     @IBOutlet var soundSwitch: UISwitch!
     @IBOutlet var vibrationSwitch: UISwitch!
     
-    static var soundCheck : Bool = true  // 소리 확인 변수 *static 프로퍼티를 사용해야 값이 수정된다. https://babbab2.tistory.com/119?category=828998
+    static var soundCheck : Bool = true
     static var vibrationCheck : Bool = true
     
     let ud = UserDefaults.standard
@@ -46,13 +47,11 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
         let navigationController = UINavigationController(rootViewController: info)
         present(navigationController, animated: true)
         
-        
         ud.register(defaults: ["vibrationKey" : true])
         ud.register(defaults: ["soundKey" : true])
 
         vibrationSwitch.isOn = ud.bool(forKey: vibrationKey)
-        
-        soundSwitch.isOn = ud.bool(forKey: soundKey) // UserDefaults 사용하여 데이터 저장 https://zeddios.tistory.com/107
+        soundSwitch.isOn = ud.bool(forKey: soundKey)
     }
     
     @IBAction func sound(_ sender: UISwitch) {
@@ -94,7 +93,6 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
         return version
     }
 
-    
     // Device Identifier 찾기
     func getDeviceIdentifier() -> String {
         var systemInfo = utsname()
@@ -124,7 +122,6 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
        return "Header \(section)"
     }
     
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("테이블셀을 클릭 했습니다", indexPath.section,"섹션의", indexPath.row , "행입니다.")
         tableView.deselectRow(at: indexPath, animated: true) // 셀 선택후 바로 선택해제 하기
