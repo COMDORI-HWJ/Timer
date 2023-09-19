@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -171,6 +171,13 @@
 			path = Icon;
 			sourceTree = "<group>";
 		};
+		37648C0E2AB9CB97003AE48B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		376D7A28285E26B600643F43 /* 1.6.4 */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,7 +194,6 @@
 				370CF5E1285E4951007F67B0 /* Images */,
 				2BA0F056269395C30040D20B /* Info.plist */,
 				2BB1761B2746AE2E00324111 /* InfoPlist.strings */,
-				376D7A34285E322000643F43 /* Storyboards */,
 				2BA573AE275D7A09003C7677 /* Localizable.strings */,
 			);
 			path = Resources;
@@ -198,14 +204,16 @@
 			children = (
 				2BA0F048269395C20040D20B /* AppDelegate.swift */,
 				2BA0F04A269395C20040D20B /* SceneDelegate.swift */,
-				376D7A31285E2EE300643F43 /* VCs */,
+				37648C0E2AB9CB97003AE48B /* Models */,
+				376D7A34285E322000643F43 /* Views */,
+				376D7A31285E2EE300643F43 /* Controllers */,
 				376D7A33285E2FEC00643F43 /* Classes */,
 				376D7A32285E2EFD00643F43 /* Cells */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		376D7A31285E2EE300643F43 /* VCs */ = {
+		376D7A31285E2EE300643F43 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				2B6197AA27600A4B00310E7E /* MainTimer.swift */,
@@ -215,7 +223,7 @@
 				37C20F9E2A0584ED001A98B1 /* Tutorial.swift */,
 				37C20FA02A0589F1001A98B1 /* TutorialContents.swift */,
 			);
-			path = VCs;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		376D7A32285E2EFD00643F43 /* Cells */ = {
@@ -236,13 +244,13 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		376D7A34285E322000643F43 /* Storyboards */ = {
+		376D7A34285E322000643F43 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				2BA0F053269395C30040D20B /* LaunchScreen.storyboard */,
 				2BA0F04E269395C20040D20B /* Main.storyboard */,
 			);
-			path = Storyboards;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		378F0F512A11897C002E8583 /* Tutorial */ = {
