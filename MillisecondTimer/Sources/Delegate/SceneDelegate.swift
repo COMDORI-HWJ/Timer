@@ -1,15 +1,11 @@
 //
 //  SceneDelegate.swift
-//  Timer
+//  MillisecondTimer
 //
 //  Created by WONJI HA on 2021/07/06.
 //
 
-/*
-Reference
-https://fomaios.tistory.com/entry/%EC%95%B1-%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0App-LifeCycle-1?category=851398 - 생명주기
-https://hururuek-chapchap.tistory.com/149 노티피케이션
- */
+
 import UIKit
 import AVFoundation 
 

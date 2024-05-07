@@ -21,8 +21,24 @@
  * https://junyng.tistory.com/30 Dynamic Type을 사용하여 폰트 크기 조정하기
  * https://velog.io/@2004jmk/Background%EC%97%90%EC%84%9C-%EC%95%B1-%EA%B3%84%EC%86%8D%ED%95%B4%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0-Swift Background에서 앱 계속해서 실행하기
  * https://icksw.tistory.com/178 Foreground, Background 알아보기
- * 
+ * https://ohwhatisthis.tistory.com/21 프로젝트 폴더 변경후 컴파일 Info.plist'. Error 에러
+ * https://babbab2.tistory.com/124 extension(확장)이란?
+ *
 */
+/* Reference
+ 
+ http://yoonbumtae.com/?p=4642 로컬 푸시 알림 메시지
+ https://fomaios.tistory.com/entry/iOS-%ED%91%B8%EC%89%AC-%EC%95%8C%EB%A6%BC-%ED%83%AD%ED%96%88%EC%9D%84-%EB%95%8C-%ED%8A%B9%EC%A0%95-%ED%8E%98%EC%9D%B4%EC%A7%80%EB%A1%9C-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0 푸시알림 탭 특정뷰 이동(APN 네트워크 이용시)
+ https://velog.io/@yoonjong/Swift-Push-Notification-%EB%88%84%EB%A5%BC-%EB%95%8C-%ED%8A%B9%EC%A0%95-ViewController-%EB%9C%A8%EA%B2%8C-%ED%95%98%EA%B8%B0 푸시알림 특정뷰 이동(새뷰에서)
+ https://velog.io/@minji0801/iOS-Swift-%EC%95%B1-%EC%B6%94%EC%A0%81-%EA%B6%8C%ED%95%9C-Alert-%EB%9D%84%EC%9A%B0%EA%B8%B0 앱 추적 권한 요청
+ */
 
+/*
+Reference
+https://fomaios.tistory.com/entry/%EC%95%B1-%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0App-LifeCycle-1?category=851398 - 생명주기
+https://hururuek-chapchap.tistory.com/149 노티피케이션
+ */
 
-
+/** Reference
+ * https://dev200ok.blogspot.com/2020/06/swift-30-projects-02-ios-stopwatch.html 스톱워치 예제
+ */

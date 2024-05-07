@@ -1,16 +1,9 @@
 //
 //  AppDelegate.swift
-//  Timer
+//  MillisecondTimer
 //
 //  Created by WONJI HA on 2021/07/06.
 //
-/* Reference
- 
- http://yoonbumtae.com/?p=4642 로컬 푸시 알림 메시지
- https://fomaios.tistory.com/entry/iOS-%ED%91%B8%EC%89%AC-%EC%95%8C%EB%A6%BC-%ED%83%AD%ED%96%88%EC%9D%84-%EB%95%8C-%ED%8A%B9%EC%A0%95-%ED%8E%98%EC%9D%B4%EC%A7%80%EB%A1%9C-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0 푸시알림 탭 특정뷰 이동(APN 네트워크 이용시)
- https://velog.io/@yoonjong/Swift-Push-Notification-%EB%88%84%EB%A5%BC-%EB%95%8C-%ED%8A%B9%EC%A0%95-ViewController-%EB%9C%A8%EA%B2%8C-%ED%95%98%EA%B8%B0 푸시알림 특정뷰 이동(새뷰에서)
- https://velog.io/@minji0801/iOS-Swift-%EC%95%B1-%EC%B6%94%EC%A0%81-%EA%B6%8C%ED%95%9C-Alert-%EB%9D%84%EC%9A%B0%EA%B8%B0 앱 추적 권한 요청
- */
 
 import UIKit
 import UserNotifications

@@ -27,6 +27,7 @@
 		377C6EAD2A52165C002E6668 /* tutorial1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 377C6EAC2A52165C002E6668 /* tutorial1.gif */; };
 		378210E627FF4D2A00B312C3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 378210E527FF4D2A00B312C3 /* .gitignore */; };
 		378210EA27FF5EFC00B312C3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378210E927FF5EFC00B312C3 /* Button.swift */; };
+		37862A722BE9A34A0069BC8F /* Mtimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37862A712BE9A34A0069BC8F /* Mtimer.swift */; };
 		378F0F552A1189A1002E8583 /* tutorial2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 378F0F522A118998002E8583 /* tutorial2.gif */; };
 		378F0F562A1189A1002E8583 /* tutorial4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 378F0F532A11899F002E8583 /* tutorial4.gif */; };
 		378F0F572A1189A1002E8583 /* tutorial3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 378F0F542A1189A1002E8583 /* tutorial3.gif */; };
@@ -75,6 +76,7 @@
 		377C6EAC2A52165C002E6668 /* tutorial1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tutorial1.gif; sourceTree = "<group>"; };
 		378210E527FF4D2A00B312C3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		378210E927FF5EFC00B312C3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		37862A712BE9A34A0069BC8F /* Mtimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mtimer.swift; sourceTree = "<group>"; };
 		378F0F522A118998002E8583 /* tutorial2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tutorial2.gif; sourceTree = "<group>"; };
 		378F0F532A11899F002E8583 /* tutorial4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tutorial4.gif; sourceTree = "<group>"; };
 		378F0F542A1189A1002E8583 /* tutorial3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tutorial3.gif; sourceTree = "<group>"; };
@@ -128,7 +130,8 @@
 				379383C72852BFA400D6463C /* Screenshots */,
 				378210E527FF4D2A00B312C3 /* .gitignore */,
 				2BD4CF0A2702817D0063D45D /* README.md */,
-				2BA0F047269395C20040D20B /* Timer */,
+				2BA0F047269395C20040D20B /* MillisecondTimer */,
+				376CF459299D5F7600FE686D /* Reference.swift */,
 				2BA0F046269395C20040D20B /* Products */,
 				47DEF28A0F9F368041C8FFF1 /* Pods */,
 				048C891DC21C01A657C93343 /* Frameworks */,
@@ -143,15 +146,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2BA0F047269395C20040D20B /* Timer */ = {
+		2BA0F047269395C20040D20B /* MillisecondTimer */ = {
 			isa = PBXGroup;
 			children = (
 				376D7A30285E2ED500643F43 /* Sources */,
+				37F6722128624F8500AE6284 /* Extensions */,
 				376D7A2D285E2DC200643F43 /* Resources */,
-				2BA0F051269395C30040D20B /* Assets.xcassets */,
-				376CF459299D5F7600FE686D /* Reference.swift */,
 			);
-			path = Timer;
+			path = MillisecondTimer;
 			sourceTree = "<group>";
 		};
 		370CF5E1285E4951007F67B0 /* Images */ = {
@@ -174,6 +176,7 @@
 		37648C0E2AB9CB97003AE48B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				37862A712BE9A34A0069BC8F /* Mtimer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,11 +193,11 @@
 		376D7A2D285E2DC200643F43 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				37F6722128624F8500AE6284 /* Extensions */,
-				370CF5E1285E4951007F67B0 /* Images */,
 				2BA0F056269395C30040D20B /* Info.plist */,
 				2BB1761B2746AE2E00324111 /* InfoPlist.strings */,
 				2BA573AE275D7A09003C7677 /* Localizable.strings */,
+				370CF5E1285E4951007F67B0 /* Images */,
+				2BA0F051269395C30040D20B /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -202,8 +205,7 @@
 		376D7A30285E2ED500643F43 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				2BA0F048269395C20040D20B /* AppDelegate.swift */,
-				2BA0F04A269395C20040D20B /* SceneDelegate.swift */,
+				37862A702BE999750069BC8F /* Delegate */,
 				37648C0E2AB9CB97003AE48B /* Models */,
 				376D7A34285E322000643F43 /* Views */,
 				376D7A31285E2EE300643F43 /* Controllers */,
@@ -251,6 +253,15 @@
 				2BA0F04E269395C20040D20B /* Main.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		37862A702BE999750069BC8F /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				2BA0F048269395C20040D20B /* AppDelegate.swift */,
+				2BA0F04A269395C20040D20B /* SceneDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 		378F0F512A11897C002E8583 /* Tutorial */ = {
@@ -468,6 +479,7 @@
 				37C20F9F2A0584ED001A98B1 /* Tutorial.swift in Sources */,
 				37C3E2A22852A617009E6D5B /* MainTabBar.swift in Sources */,
 				2B69E3EC27224DBA00591357 /* SettingTableCell.swift in Sources */,
+				37862A722BE9A34A0069BC8F /* Mtimer.swift in Sources */,
 				37F4821E2A782D7E00C9ABCE /* NotificationHandler.swift in Sources */,
 				378210EA27FF5EFC00B312C3 /* Button.swift in Sources */,
 				379EA0C7287DC19000406FC8 /* StopwatchExtension.swift in Sources */,
@@ -647,7 +659,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T33V289Y8F;
-				INFOPLIST_FILE = Timer/Resources/Info.plist;
+				INFOPLIST_FILE = MillisecondTimer/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -732,7 +744,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T33V289Y8F;
-				INFOPLIST_FILE = Timer/Resources/Info.plist;
+				INFOPLIST_FILE = MillisecondTimer/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
