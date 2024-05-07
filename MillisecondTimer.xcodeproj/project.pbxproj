@@ -19,11 +19,12 @@
 		2BB176192746AE2E00324111 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1761B2746AE2E00324111 /* InfoPlist.strings */; };
 		2BD4CF0B2702817D0063D45D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2BD4CF0A2702817D0063D45D /* README.md */; };
 		373FBB622A6727B800C62452 /* TimerIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 373FBB612A6727B800C62452 /* TimerIcon.png */; };
+		374ACA4A2BE9C748001EBDF2 /* StopwatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374ACA492BE9C748001EBDF2 /* StopwatchViewModel.swift */; };
 		3751D9A728A2CA2E000AE0AA /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3751D9A628A2CA2E000AE0AA /* Info.swift */; };
 		376CF45A299D5F7600FE686D /* Reference.md in Sources */ = {isa = PBXBuildFile; fileRef = 376CF459299D5F7600FE686D /* Reference.md */; };
 		376D7A2B285E26B600643F43 /* IMG_1453.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 376D7A29285E26B600643F43 /* IMG_1453.PNG */; };
 		376D7A2C285E26B600643F43 /* IMG_1452.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 376D7A2A285E26B600643F43 /* IMG_1452.PNG */; };
-		376F47C4285B1BA200CDF726 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F47C3285B1BA200CDF726 /* Stopwatch.swift */; };
+		376F47C4285B1BA200CDF726 /* StopwatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F47C3285B1BA200CDF726 /* StopwatchViewController.swift */; };
 		377C6EAD2A52165C002E6668 /* tutorial1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 377C6EAC2A52165C002E6668 /* tutorial1.gif */; };
 		378210E627FF4D2A00B312C3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 378210E527FF4D2A00B312C3 /* .gitignore */; };
 		378210EA27FF5EFC00B312C3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378210E927FF5EFC00B312C3 /* Button.swift */; };
@@ -68,11 +69,12 @@
 		2BB1761A2746AE2E00324111 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BD4CF0A2702817D0063D45D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		373FBB612A6727B800C62452 /* TimerIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimerIcon.png; sourceTree = "<group>"; };
+		374ACA492BE9C748001EBDF2 /* StopwatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewModel.swift; sourceTree = "<group>"; };
 		3751D9A628A2CA2E000AE0AA /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		376CF459299D5F7600FE686D /* Reference.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Reference.md; sourceTree = "<group>"; };
 		376D7A29285E26B600643F43 /* IMG_1453.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_1453.PNG; sourceTree = "<group>"; };
 		376D7A2A285E26B600643F43 /* IMG_1452.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_1452.PNG; sourceTree = "<group>"; };
-		376F47C3285B1BA200CDF726 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
+		376F47C3285B1BA200CDF726 /* StopwatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewController.swift; sourceTree = "<group>"; };
 		377C6EAC2A52165C002E6668 /* tutorial1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tutorial1.gif; sourceTree = "<group>"; };
 		378210E527FF4D2A00B312C3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		378210E927FF5EFC00B312C3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				37862A702BE999750069BC8F /* Delegate */,
+				37862A732BE9C4A20069BC8F /* Presentation */,
 				37648C0E2AB9CB97003AE48B /* Models */,
 				376D7A34285E322000643F43 /* Views */,
 				376D7A31285E2EE300643F43 /* Controllers */,
@@ -219,7 +222,6 @@
 			isa = PBXGroup;
 			children = (
 				2B6197AA27600A4B00310E7E /* MainTimer.swift */,
-				376F47C3285B1BA200CDF726 /* Stopwatch.swift */,
 				2B69E3E92722459D00591357 /* Setting.swift */,
 				3751D9A628A2CA2E000AE0AA /* Info.swift */,
 				37C20F9E2A0584ED001A98B1 /* Tutorial.swift */,
@@ -262,6 +264,23 @@
 				2BA0F04A269395C20040D20B /* SceneDelegate.swift */,
 			);
 			path = Delegate;
+			sourceTree = "<group>";
+		};
+		37862A732BE9C4A20069BC8F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				37862A752BE9C5410069BC8F /* Stopwatch */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		37862A752BE9C5410069BC8F /* Stopwatch */ = {
+			isa = PBXGroup;
+			children = (
+				376F47C3285B1BA200CDF726 /* StopwatchViewController.swift */,
+				374ACA492BE9C748001EBDF2 /* StopwatchViewModel.swift */,
+			);
+			path = Stopwatch;
 			sourceTree = "<group>";
 		};
 		378F0F512A11897C002E8583 /* Tutorial */ = {
@@ -473,7 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B6197AB27600A4B00310E7E /* MainTimer.swift in Sources */,
-				376F47C4285B1BA200CDF726 /* Stopwatch.swift in Sources */,
+				376F47C4285B1BA200CDF726 /* StopwatchViewController.swift in Sources */,
 				37C20FA12A0589F1001A98B1 /* TutorialContents.swift in Sources */,
 				376CF45A299D5F7600FE686D /* Reference.md in Sources */,
 				37C20F9F2A0584ED001A98B1 /* Tutorial.swift in Sources */,
@@ -481,6 +500,7 @@
 				2B69E3EC27224DBA00591357 /* SettingTableCell.swift in Sources */,
 				37862A722BE9A34A0069BC8F /* Mtimer.swift in Sources */,
 				37F4821E2A782D7E00C9ABCE /* NotificationHandler.swift in Sources */,
+				374ACA4A2BE9C748001EBDF2 /* StopwatchViewModel.swift in Sources */,
 				378210EA27FF5EFC00B312C3 /* Button.swift in Sources */,
 				379EA0C7287DC19000406FC8 /* StopwatchExtension.swift in Sources */,
 				2B69E3EA2722459D00591357 /* Setting.swift in Sources */,

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zrm-wF-le5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zrm-wF-le5">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -753,7 +752,7 @@
         <!--Stopwatch-->
         <scene sceneID="uFW-Ji-Kih">
             <objects>
-                <viewController title="Stopwatch" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="TvW-ox-nD7" customClass="Stopwatch" customModule="MillisecondTimer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Stopwatch" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="TvW-ox-nD7" customClass="StopwatchViewController" customModule="MillisecondTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lL5-XQ-m2C">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -918,44 +917,6 @@
             <point key="canvasLocation" x="934" y="832"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="1Ol-qq-4mg">
-            <size key="intrinsicContentSize" width="65" height="52"/>
-        </designable>
-        <designable name="GR3-0Y-Yfk">
-            <size key="intrinsicContentSize" width="47" height="48"/>
-        </designable>
-        <designable name="Ggl-Wh-D8x">
-            <size key="intrinsicContentSize" width="47" height="48"/>
-        </designable>
-        <designable name="Moe-ao-nWA">
-            <size key="intrinsicContentSize" width="47" height="46"/>
-        </designable>
-        <designable name="OVc-ug-WS5">
-            <size key="intrinsicContentSize" width="68" height="52"/>
-        </designable>
-        <designable name="a4q-za-Xl9">
-            <size key="intrinsicContentSize" width="47" height="46"/>
-        </designable>
-        <designable name="aB3-8f-b3z">
-            <size key="intrinsicContentSize" width="47" height="48"/>
-        </designable>
-        <designable name="kX7-bO-S07">
-            <size key="intrinsicContentSize" width="47" height="56"/>
-        </designable>
-        <designable name="n2R-LT-9dT">
-            <size key="intrinsicContentSize" width="65" height="52"/>
-        </designable>
-        <designable name="wTj-3u-3EN">
-            <size key="intrinsicContentSize" width="128" height="52"/>
-        </designable>
-        <designable name="ybz-tX-2Hr">
-            <size key="intrinsicContentSize" width="47" height="18"/>
-        </designable>
-        <designable name="zvx-zQ-uTH">
-            <size key="intrinsicContentSize" width="47" height="26"/>
-        </designable>
-    </designables>
     <color key="tintColor" systemColor="systemYellowColor"/>
     <resources>
         <image name="TimerIcon.png" width="1024" height="1024"/>
@@ -972,7 +933,7 @@
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

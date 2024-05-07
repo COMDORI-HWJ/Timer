@@ -1,6 +1,6 @@
 //
 //  Stopwatch.swift
-//  Timer
+//  MillisecondTimer
 //
 //  Created by Wonji Ha on 2022/06/16.
 //
@@ -12,7 +12,7 @@ import UserNotifications
 import SystemConfiguration
 import GoogleMobileAds
 
-class Stopwatch: UIViewController {
+final class StopwatchViewController: UIViewController {
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var milliSecLabel: UILabel!
@@ -24,9 +24,10 @@ class Stopwatch: UIViewController {
     
     @IBOutlet weak var bannerView: GADBannerView!
     
-    var stopWatch = Timer()
-    var startTime = Date()
-    var mTimer = Mtimer() // Singleton
+    private var stopWatch = Timer()
+    private var startTime = Date()
+    private var mTimer = Mtimer()
+    private var viewModel = StopwatchViewModel()
     
 //    var stopWatchStatus : Bool = false // 타이머 상태
 //    var remainTime : Double = 0
@@ -84,7 +85,9 @@ class Stopwatch: UIViewController {
 //            self.remainTime = self.count + timeInterval
             self.mTimer.elapsed = self.mTimer.count + self.mTimer.remainTime
 //            self.elapsed = self.count + self.remainTime
-            self.timeCal()
+            self.viewModel.timeCalculate(self.mTimer.remainTime)
+            self.timeLabelText()
+
             
             DispatchQueue.main.async {
                 RunLoop.current.add(self.stopWatch, forMode: .common)
@@ -102,17 +105,10 @@ class Stopwatch: UIViewController {
         stopWatch.invalidate()
         print("스톱워치 일시중지")
     }
-    
-    func timeCal() {
-        /** ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림     */
         
-        mTimer.hour = (Int)(fmod((mTimer.remainTime/60/60), 100)) // 분을 12로 나누어 시를 구한다
-        mTimer.minute = (Int)(fmod((mTimer.remainTime/60), 60)) // 초를 60으로 나누어 분을 구한다
-        mTimer.second = (Int)(fmod(mTimer.remainTime, 60)) // 초를 구한다
-        mTimer.milliSecond = (Int)((mTimer.remainTime - floor(mTimer.remainTime))*1000)
-        
-        timeLabel.text = String(format: "%02d:", mTimer.hour)+String(format: "%02d:", mTimer.minute)+String(format: "%02d.", mTimer.second)
-        milliSecLabel.text = String(format: "%03d", mTimer.milliSecond)
+    func timeLabelText() {
+        timeLabel.text = String(format: "%02d:", viewModel.hour)+String(format: "%02d:", viewModel.minute)+String(format: "%02d.", viewModel.second)
+        milliSecLabel.text = String(format: "%03d", viewModel.milliSecond)
     }
     
     @IBAction func recordResetButton(_ sender: Any)
@@ -120,7 +116,7 @@ class Stopwatch: UIViewController {
         
         if (mTimer.status == true) {
             
-            let record = "\(mTimer.hour):\(mTimer.minute):\(mTimer.second):\(mTimer.milliSecond)" // 스톱워치 시간을 기록
+            let record = "\(viewModel.hour):\(viewModel.minute):\(viewModel.second):\(viewModel.milliSecond)" // 스톱워치 시간을 기록
             recordList.append(record)
             lapsTableView.reloadData()
             //            tableViewScroll() // 첫번째 기록으로 자동 스크롤
@@ -174,7 +170,7 @@ class Stopwatch: UIViewController {
     }
 }
 
-extension Stopwatch: UITableViewDelegate, UITableViewDataSource {
+extension StopwatchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recordList.count
         
