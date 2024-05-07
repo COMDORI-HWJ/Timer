@@ -31,9 +31,11 @@
  *
  /** stopwatch
  * https://dev200ok.blogspot.com/2020/06/swift-30-projects-02-ios-stopwatch.html 스톱워치 예제
+ * https://seorenn.blogspot.com/2018/05/swift-result-of-call-is-unused.html @discardableResult 사용하기 Result of call to ... is unused
  */
 
 /** Timer
+ * ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림
  *
  * https://unclean.tistory.com/27 타이머3 시작시간 카운트
  * https://ios-development.tistory.com/773 타이머4
@@ -50,4 +52,18 @@
  * https://stackoverflow.com/questions/42319172/swift-3-how-to-make-timer-work-in-background 백그라운드 타이머 작동?
  * https://paul-goden.tistory.com/11 타이머 백그라운드 참고
  * https://eun-dev.tistory.com/24 노티 제거
+
+ */
+ 
+/**
+ 3. ViewModel (뷰 모델):
+ ViewModel = Model 데이터를 View에 맞게 가공 및 처리 (뷰에 반영될 데이터 비즈니스 로직 담당)
+
+ 뷰와 모델 사이의 중간 계층으로, 비즈니스 로직을 처리하고 뷰에 표시할 데이터를 가공한다. 뷰 모델은 뷰에 데이터를 제공하고, 사용자 입력을 처리하여 모델과 상호작용한다. View로부터 전달받는 요청을 처리할 로직을 담고 있으며 Model에 변화가 생기면 View에 notification을 보낸다. (데이터의 변화를 View가 알아챌 수 있도록 한다고 생각하면 된다) ViewModel은 View와 Model 사이의 중개자 역할을 하며 Presentation Logic을 처리하는 역할을 한다.
+ 
+ 앱의 핵심적인 비즈니스 로직을 담고 있는 코드의 계층이다. MVC 패턴의 Controller와 비슷한 역할. View와 Model의 사이에서 View의 요청에 따라 로직을 실행하고, Model의 변화에 따라 데이터를 처리하여 View를 refresh한다.
+
+ Model에 변화가 생기면 View에게 notification을 보내는 역할을 한다. 또한, View로부터 전달받는 요청을 해결할 비즈니스 로직을 담는다. ViewModel은 UI 관련 코드로부터 완전히 분리되어있고, 따라서 ViewModel 파일에는 SiwftUI같은 UI 프레임워크를 import하지않아도 된다.
+
+
  */
