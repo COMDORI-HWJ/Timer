@@ -5,10 +5,6 @@
 //  Created by Wonji Ha on 2022/06/16.
 //
 
-/** Reference
- * https://dev200ok.blogspot.com/2020/06/swift-30-projects-02-ios-stopwatch.html 스톱워치 예제
- */
-
 import Foundation
 import UIKit
 import AVFoundation // 햅틱
@@ -30,16 +26,17 @@ class Stopwatch: UIViewController {
     
     var stopWatch = Timer()
     var startTime = Date()
-    var stopWatchStatus : Bool = false // 타이머 상태
+    var mTimer = Mtimer() // Singleton
     
-    var remainTime : Double = 0
-    var elapsed : Double = 0 // 경과시간
-    var count : Double = 0
-    
-    var hour = 0
-    var minute = 0
-    var second = 0
-    var milliSecond = 0
+//    var stopWatchStatus : Bool = false // 타이머 상태
+//    var remainTime : Double = 0
+//    var elapsed : Double = 0 // 경과시간
+//    var count : Double = 0
+//    
+//    var hour = 0
+//    var minute = 0
+//    var second = 0
+//    var milliSecond = 0
     
     var recordList: [String] = [] // 스톱워치 시간 기록 배열
     
@@ -62,27 +59,31 @@ class Stopwatch: UIViewController {
     }
     
     @IBAction func stopWatchStartStop(_ sender: Any) {
-        if stopWatchStatus {
+        if mTimer.status {
             stopWatchPause()
-            print("스톱워치 상태: ", stopWatchStatus)
+            print("스톱워치 상태: ", mTimer.status)
         }
         else {
             stopWatchPlay()
-            print("스톱워치 상태: ", stopWatchStatus)
+            print("스톱워치 상태: ", mTimer.status)
         }
     }
    
     func stopWatchPlay() {
+       
         btnEffect()
         let startTime = Date()
-        stopWatchStatus = true
+        mTimer.status = true
         startStopButton.setTitle(String(format: NSLocalizedString("일시중지", comment: "Pause")), for: .normal)
         recordResetButton.setTitle(String(format: NSLocalizedString("기록", comment: "Rap")), for: .normal)
         
-        stopWatch = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { timer in
+        stopWatch = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { t in
             let timeInterval = Date().timeIntervalSince(startTime)
-            self.remainTime = self.count + timeInterval
-            self.elapsed = self.count + self.remainTime
+//            guard var timer = self.mTimer else { return }
+            self.mTimer.remainTime = self.mTimer.count + timeInterval
+//            self.remainTime = self.count + timeInterval
+            self.mTimer.elapsed = self.mTimer.count + self.mTimer.remainTime
+//            self.elapsed = self.count + self.remainTime
             self.timeCal()
             
             DispatchQueue.main.async {
@@ -94,10 +95,10 @@ class Stopwatch: UIViewController {
     
     func stopWatchPause() {
         btnEffect()
-        stopWatchStatus = false
+        mTimer.status = false
         startStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
         recordResetButton.setTitle(String(format: NSLocalizedString("초기화", comment: "Reset")), for: .normal)
-        count = elapsed - count
+        mTimer.count = mTimer.elapsed - mTimer.count
         stopWatch.invalidate()
         print("스톱워치 일시중지")
     }
@@ -105,21 +106,21 @@ class Stopwatch: UIViewController {
     func timeCal() {
         /** ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림     */
         
-        hour = (Int)(fmod((remainTime/60/60), 100)) // 분을 12로 나누어 시를 구한다
-        minute = (Int)(fmod((remainTime/60), 60)) // 초를 60으로 나누어 분을 구한다
-        second = (Int)(fmod(remainTime, 60)) // 초를 구한다
-        milliSecond = (Int)((remainTime - floor(remainTime))*1000)
+        mTimer.hour = (Int)(fmod((mTimer.remainTime/60/60), 100)) // 분을 12로 나누어 시를 구한다
+        mTimer.minute = (Int)(fmod((mTimer.remainTime/60), 60)) // 초를 60으로 나누어 분을 구한다
+        mTimer.second = (Int)(fmod(mTimer.remainTime, 60)) // 초를 구한다
+        mTimer.milliSecond = (Int)((mTimer.remainTime - floor(mTimer.remainTime))*1000)
         
-        timeLabel.text = String(format: "%02d:", hour)+String(format: "%02d:", minute)+String(format: "%02d.", second)
-        milliSecLabel.text = String(format: "%03d", milliSecond)
+        timeLabel.text = String(format: "%02d:", mTimer.hour)+String(format: "%02d:", mTimer.minute)+String(format: "%02d.", mTimer.second)
+        milliSecLabel.text = String(format: "%03d", mTimer.milliSecond)
     }
     
     @IBAction func recordResetButton(_ sender: Any)
     {
         
-        if (stopWatchStatus == true) {
+        if (mTimer.status == true) {
             
-            let record = "\(hour):\(minute):\(second):\(milliSecond)" // 스톱워치 시간을 기록
+            let record = "\(mTimer.hour):\(mTimer.minute):\(mTimer.second):\(mTimer.milliSecond)" // 스톱워치 시간을 기록
             recordList.append(record)
             lapsTableView.reloadData()
             //            tableViewScroll() // 첫번째 기록으로 자동 스크롤
@@ -135,11 +136,11 @@ class Stopwatch: UIViewController {
     
     func reset()
     {
-        stopWatchStatus = false
+        mTimer.status = false
         stopWatch.invalidate()
-        count = 0
-        remainTime = 0
-        elapsed = 0
+        mTimer.count = 0
+        mTimer.remainTime = 0
+        mTimer.elapsed = 0
         recordList.removeAll() // 스톱워치 기록 배열 초기화
         lapsTableView.reloadData() // 스톱워치 랩 테이블 초기화
         
@@ -170,5 +171,27 @@ class Stopwatch: UIViewController {
         let numberOfRows = lapsTableView.numberOfRows(inSection: numberOfSections - 1)
         let lastPath = IndexPath(row: numberOfRows - 1, section: numberOfSections - 1)
         lapsTableView.scrollToRow(at: lastPath, at: .none, animated: true)
+    }
+}
+
+extension Stopwatch: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recordList.count
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        if let Lapnum = cell.viewWithTag(1) as? UILabel {
+            Lapnum.text = " \( recordList.count - (indexPath as NSIndexPath).row)"
+        }
+        
+        if let TimeLabel = cell.viewWithTag(2) as? UILabel {
+            TimeLabel.text = recordList[recordList.count - (indexPath as NSIndexPath).row - 1]
+        }
+        
+        //        print("기록횟수:",recordList.count)
+        return cell
     }
 }
