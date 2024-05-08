@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zrm-wF-le5">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -24,7 +25,7 @@
                                     <segue destination="k19-w8-9zM" kind="embed" id="qhC-Lo-BdB"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ru4-Cu-umX" customClass="GADBannerView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ru4-Cu-umX">
                                 <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                                 <viewLayoutGuide key="safeArea" id="h0E-qA-uxJ"/>
                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
@@ -54,7 +55,7 @@
                     <tabBarItem key="tabBarItem" title="설정" image="gearshape" catalog="system" id="Wbj-YU-TnF"/>
                     <navigationItem key="navigationItem" id="aQA-mU-s6W"/>
                     <connections>
-                        <outlet property="bannerView" destination="ru4-Cu-umX" id="4ve-1P-Shh"/>
+                        <outlet property="adView" destination="ru4-Cu-umX" id="EVd-oe-8SS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jo-HN-Gzq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -839,7 +840,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btZ-8R-I15" customClass="GADBannerView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btZ-8R-I15">
                                 <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                                 <viewLayoutGuide key="safeArea" id="8oE-tI-pfX"/>
                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
@@ -885,7 +886,7 @@
                     <navigationItem key="navigationItem" id="dqg-Lv-JKA"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
                     <connections>
-                        <outlet property="bannerView" destination="btZ-8R-I15" id="NK2-X0-Ccc"/>
+                        <outlet property="adView" destination="btZ-8R-I15" id="s36-cL-rTy"/>
                         <outlet property="lapsTableView" destination="qcb-tt-kp1" id="yUd-Dy-0s2"/>
                         <outlet property="milliSecLabel" destination="0PY-Oy-uJh" id="5Ui-Lo-nNN"/>
                         <outlet property="recordResetButton" destination="OVc-ug-WS5" id="wQb-uk-hbp"/>
@@ -917,6 +918,44 @@
             <point key="canvasLocation" x="934" y="832"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="1Ol-qq-4mg">
+            <size key="intrinsicContentSize" width="65" height="52"/>
+        </designable>
+        <designable name="GR3-0Y-Yfk">
+            <size key="intrinsicContentSize" width="47" height="48"/>
+        </designable>
+        <designable name="Ggl-Wh-D8x">
+            <size key="intrinsicContentSize" width="47" height="48"/>
+        </designable>
+        <designable name="Moe-ao-nWA">
+            <size key="intrinsicContentSize" width="47" height="46"/>
+        </designable>
+        <designable name="OVc-ug-WS5">
+            <size key="intrinsicContentSize" width="68" height="52"/>
+        </designable>
+        <designable name="a4q-za-Xl9">
+            <size key="intrinsicContentSize" width="47" height="46"/>
+        </designable>
+        <designable name="aB3-8f-b3z">
+            <size key="intrinsicContentSize" width="47" height="48"/>
+        </designable>
+        <designable name="kX7-bO-S07">
+            <size key="intrinsicContentSize" width="47" height="56"/>
+        </designable>
+        <designable name="n2R-LT-9dT">
+            <size key="intrinsicContentSize" width="65" height="52"/>
+        </designable>
+        <designable name="wTj-3u-3EN">
+            <size key="intrinsicContentSize" width="128" height="52"/>
+        </designable>
+        <designable name="ybz-tX-2Hr">
+            <size key="intrinsicContentSize" width="47" height="18"/>
+        </designable>
+        <designable name="zvx-zQ-uTH">
+            <size key="intrinsicContentSize" width="47" height="26"/>
+        </designable>
+    </designables>
     <color key="tintColor" systemColor="systemYellowColor"/>
     <resources>
         <image name="TimerIcon.png" width="1024" height="1024"/>

@@ -13,7 +13,6 @@ import SystemConfiguration
 
 final class StopwatchViewController: UIViewController {
     
-    
     @IBOutlet weak var adView: UIView!
     
     @IBOutlet weak var timeLabel: UILabel!
