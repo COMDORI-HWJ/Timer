@@ -28,6 +28,8 @@
  * https://velog.io/@minji0801/iOS-Swift-%EC%95%B1-%EC%B6%94%EC%A0%81-%EA%B6%8C%ED%95%9C-Alert-%EB%9D%84%EC%9A%B0%EA%B8%B0 앱 추적 권한 요청
  * https://fomaios.tistory.com/entry/%EC%95%B1-%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0App-LifeCycle-1?category=851398 - 생명주기
  * https://hururuek-chapchap.tistory.com/149 노티피케이션
+ * https://s-o-h-a.tistory.com/33 애드몹 사용방법
+ * https://stackoverflow.com/questions/61933279/how-to-have-admob-ads-in-multiple-viewcontrollers-swift-xcode 애드몹 여러뷰에서 1번만 호출하기(코드중복 제거)
  *
  /** stopwatch
  * https://dev200ok.blogspot.com/2020/06/swift-30-projects-02-ios-stopwatch.html 스톱워치 예제
