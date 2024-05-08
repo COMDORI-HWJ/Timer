@@ -18,6 +18,7 @@
 		2BA573AC275D7A09003C7677 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BA573AE275D7A09003C7677 /* Localizable.strings */; };
 		2BB176192746AE2E00324111 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1761B2746AE2E00324111 /* InfoPlist.strings */; };
 		2BD4CF0B2702817D0063D45D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2BD4CF0A2702817D0063D45D /* README.md */; };
+		37256C202BEBF9F2003CED3F /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37256C1F2BEBF9F2003CED3F /* AdsManager.swift */; };
 		373FBB622A6727B800C62452 /* TimerIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 373FBB612A6727B800C62452 /* TimerIcon.png */; };
 		374ACA4A2BE9C748001EBDF2 /* StopwatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374ACA492BE9C748001EBDF2 /* StopwatchViewModel.swift */; };
 		3751D9A728A2CA2E000AE0AA /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3751D9A628A2CA2E000AE0AA /* Info.swift */; };
@@ -68,6 +69,7 @@
 		2BA573AD275D7A09003C7677 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2BB1761A2746AE2E00324111 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BD4CF0A2702817D0063D45D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		37256C1F2BEBF9F2003CED3F /* AdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsManager.swift; sourceTree = "<group>"; };
 		373FBB612A6727B800C62452 /* TimerIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimerIcon.png; sourceTree = "<group>"; };
 		374ACA492BE9C748001EBDF2 /* StopwatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewModel.swift; sourceTree = "<group>"; };
 		3751D9A628A2CA2E000AE0AA /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				376D7A30285E2ED500643F43 /* Sources */,
+				37256C1D2BEBF98A003CED3F /* Utilities */,
 				37F6722128624F8500AE6284 /* Extensions */,
 				376D7A2D285E2DC200643F43 /* Resources */,
 			);
@@ -173,6 +176,24 @@
 				373FBB612A6727B800C62452 /* TimerIcon.png */,
 			);
 			path = Icon;
+			sourceTree = "<group>";
+		};
+		37256C1D2BEBF98A003CED3F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				37256C1E2BEBF9DA003CED3F /* Ads */,
+				376D7A32285E2EFD00643F43 /* Cells */,
+				376D7A33285E2FEC00643F43 /* Classes */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		37256C1E2BEBF9DA003CED3F /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				37256C1F2BEBF9F2003CED3F /* AdsManager.swift */,
+			);
+			path = Ads;
 			sourceTree = "<group>";
 		};
 		37648C0E2AB9CB97003AE48B /* Models */ = {
@@ -212,8 +233,6 @@
 				37648C0E2AB9CB97003AE48B /* Models */,
 				376D7A34285E322000643F43 /* Views */,
 				376D7A31285E2EE300643F43 /* Controllers */,
-				376D7A33285E2FEC00643F43 /* Classes */,
-				376D7A32285E2EFD00643F43 /* Cells */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -495,6 +514,7 @@
 				376F47C4285B1BA200CDF726 /* StopwatchViewController.swift in Sources */,
 				37C20FA12A0589F1001A98B1 /* TutorialContents.swift in Sources */,
 				376CF45A299D5F7600FE686D /* Reference.md in Sources */,
+				37256C202BEBF9F2003CED3F /* AdsManager.swift in Sources */,
 				37C20F9F2A0584ED001A98B1 /* Tutorial.swift in Sources */,
 				37C3E2A22852A617009E6D5B /* MainTabBar.swift in Sources */,
 				2B69E3EC27224DBA00591357 /* SettingTableCell.swift in Sources */,

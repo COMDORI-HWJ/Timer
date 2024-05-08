@@ -10,9 +10,11 @@ import UIKit
 import AVFoundation // 햅틱
 import UserNotifications
 import SystemConfiguration
-import GoogleMobileAds
 
 final class StopwatchViewController: UIViewController {
+    
+    
+    @IBOutlet weak var adView: UIView!
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var milliSecLabel: UILabel!
@@ -22,12 +24,11 @@ final class StopwatchViewController: UIViewController {
     
     @IBOutlet weak var lapsTableView: UITableView!
     
-    @IBOutlet weak var bannerView: GADBannerView!
-    
     private var stopWatch = Timer()
     private var startTime = Date()
     private var mTimer = Mtimer()
     private var viewModel = StopwatchViewModel()
+    private let adsManager = AdsManager()
     
 //    var stopWatchStatus : Bool = false // 타이머 상태
 //    var remainTime : Double = 0
@@ -48,13 +49,14 @@ final class StopwatchViewController: UIViewController {
         lapsTableView.dataSource = self
         self.navigationController?.navigationBar.topItem?.title="AD" //뷰 제목
         
-        /* Admob */
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // 테스트 광고
-        bannerView.adUnitID = "ca-app-pub-7875242624363574/7192134359"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
-        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        adView.backgroundColor = .clear
+        adsManager.rootViewController = self
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -189,5 +191,17 @@ extension StopwatchViewController: UITableViewDelegate, UITableViewDataSource {
         
         //        print("기록횟수:",recordList.count)
         return cell
+    }
+}
+
+extension StopwatchViewController: AdSimpleBannerPowered {
+    func addBannerToAdsPlaceholder(_ banner: UIView) {
+        
+        banner.translatesAutoresizingMaskIntoConstraints = false
+        adView.addSubview(banner)
+        banner.topAnchor.constraint(equalTo: adView.topAnchor).isActive = true
+        banner.heightAnchor.constraint(equalTo: adView.heightAnchor).isActive = true
+        banner.leadingAnchor.constraint(equalTo: adView.leadingAnchor).isActive = true
+        banner.trailingAnchor.constraint(equalTo: adView.trailingAnchor).isActive = true
     }
 }
