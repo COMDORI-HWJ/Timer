@@ -108,8 +108,8 @@ final class StopwatchViewController: UIViewController {
     }
         
     func timeLabelText() {
-        timeLabel.text = String(format: "%02d:", viewModel.hour)+String(format: "%02d:", viewModel.minute)+String(format: "%02d.", viewModel.second)
-        milliSecLabel.text = String(format: "%03d", viewModel.milliSecond)
+        timeLabel.text = "\(viewModel.hour)\(viewModel.minute)\(viewModel.second)"
+        milliSecLabel.text = viewModel.milliSecond
     }
     
     @IBAction func recordResetButton(_ sender: Any)
@@ -117,7 +117,7 @@ final class StopwatchViewController: UIViewController {
         
         if (mTimer.status == true) {
             
-            let record = "\(viewModel.hour):\(viewModel.minute):\(viewModel.second):\(viewModel.milliSecond)" // 스톱워치 시간을 기록
+            let record = "\(viewModel.hour)\(viewModel.minute)\(viewModel.second)\(viewModel.milliSecond)" // 스톱워치 시간을 기록
             recordList.append(record)
             lapsTableView.reloadData()
             //            tableViewScroll() // 첫번째 기록으로 자동 스크롤
