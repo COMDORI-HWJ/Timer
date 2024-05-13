@@ -22,10 +22,10 @@
 		373FBB622A6727B800C62452 /* TimerIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 373FBB612A6727B800C62452 /* TimerIcon.png */; };
 		374ACA4A2BE9C748001EBDF2 /* StopwatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374ACA492BE9C748001EBDF2 /* StopwatchViewModel.swift */; };
 		3751D9A728A2CA2E000AE0AA /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3751D9A628A2CA2E000AE0AA /* Info.swift */; };
-		376CF45A299D5F7600FE686D /* Reference.md in Sources */ = {isa = PBXBuildFile; fileRef = 376CF459299D5F7600FE686D /* Reference.md */; };
 		376D7A2B285E26B600643F43 /* IMG_1453.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 376D7A29285E26B600643F43 /* IMG_1453.PNG */; };
 		376D7A2C285E26B600643F43 /* IMG_1452.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 376D7A2A285E26B600643F43 /* IMG_1452.PNG */; };
 		376F47C4285B1BA200CDF726 /* StopwatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F47C3285B1BA200CDF726 /* StopwatchViewController.swift */; };
+		3774546C2BF193E00066C5CF /* Reference.md in Resources */ = {isa = PBXBuildFile; fileRef = 3774546B2BF193E00066C5CF /* Reference.md */; };
 		377C6EAD2A52165C002E6668 /* tutorial1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 377C6EAC2A52165C002E6668 /* tutorial1.gif */; };
 		378210E627FF4D2A00B312C3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 378210E527FF4D2A00B312C3 /* .gitignore */; };
 		378210EA27FF5EFC00B312C3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378210E927FF5EFC00B312C3 /* Button.swift */; };
@@ -73,10 +73,10 @@
 		373FBB612A6727B800C62452 /* TimerIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimerIcon.png; sourceTree = "<group>"; };
 		374ACA492BE9C748001EBDF2 /* StopwatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewModel.swift; sourceTree = "<group>"; };
 		3751D9A628A2CA2E000AE0AA /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
-		376CF459299D5F7600FE686D /* Reference.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Reference.md; sourceTree = "<group>"; };
 		376D7A29285E26B600643F43 /* IMG_1453.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_1453.PNG; sourceTree = "<group>"; };
 		376D7A2A285E26B600643F43 /* IMG_1452.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_1452.PNG; sourceTree = "<group>"; };
 		376F47C3285B1BA200CDF726 /* StopwatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewController.swift; sourceTree = "<group>"; };
+		3774546B2BF193E00066C5CF /* Reference.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Reference.md; sourceTree = "<group>"; };
 		377C6EAC2A52165C002E6668 /* tutorial1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tutorial1.gif; sourceTree = "<group>"; };
 		378210E527FF4D2A00B312C3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		378210E927FF5EFC00B312C3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -131,11 +131,11 @@
 		2BA0F03C269395C20040D20B = {
 			isa = PBXGroup;
 			children = (
+				3774546B2BF193E00066C5CF /* Reference.md */,
 				379383C72852BFA400D6463C /* Screenshots */,
 				378210E527FF4D2A00B312C3 /* .gitignore */,
 				2BD4CF0A2702817D0063D45D /* README.md */,
 				2BA0F047269395C20040D20B /* MillisecondTimer */,
-				376CF459299D5F7600FE686D /* Reference.md */,
 				2BA0F046269395C20040D20B /* Products */,
 				47DEF28A0F9F368041C8FFF1 /* Pods */,
 				048C891DC21C01A657C93343 /* Frameworks */,
@@ -447,6 +447,7 @@
 				378F0F572A1189A1002E8583 /* tutorial3.gif in Resources */,
 				2BA573AC275D7A09003C7677 /* Localizable.strings in Resources */,
 				2BD4CF0B2702817D0063D45D /* README.md in Resources */,
+				3774546C2BF193E00066C5CF /* Reference.md in Resources */,
 				379383DB2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.49.51.png in Resources */,
 				2BA0F052269395C30040D20B /* Assets.xcassets in Resources */,
 				379383D52852BFA400D6463C /* IMG_2212.PNG in Resources */,
@@ -513,7 +514,6 @@
 				2B6197AB27600A4B00310E7E /* MainTimer.swift in Sources */,
 				376F47C4285B1BA200CDF726 /* StopwatchViewController.swift in Sources */,
 				37C20FA12A0589F1001A98B1 /* TutorialContents.swift in Sources */,
-				376CF45A299D5F7600FE686D /* Reference.md in Sources */,
 				37256C202BEBF9F2003CED3F /* AdsManager.swift in Sources */,
 				37C20F9F2A0584ED001A98B1 /* Tutorial.swift in Sources */,
 				37C3E2A22852A617009E6D5B /* MainTabBar.swift in Sources */,
