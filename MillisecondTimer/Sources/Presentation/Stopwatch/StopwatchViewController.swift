@@ -5,7 +5,6 @@
 //  Created by Wonji Ha on 2022/06/16.
 //
 
-import Foundation
 import UIKit
 import AVFoundation // 햅틱
 import UserNotifications
@@ -23,27 +22,26 @@ final class StopwatchViewController: UIViewController {
     
     @IBOutlet weak var lapsTableView: UITableView!
     
-    private var stopWatch = Timer()
+    private var stopWatch: Timer?
     private var startTime = Date()
-    private var mTimer = Mtimer()
+    //    private var mTimer = Mtimer()
     private var viewModel = StopwatchViewModel()
     private let adsManager = AdsManager()
     
-//    var stopWatchStatus : Bool = false // 타이머 상태
-//    var remainTime : Double = 0
-//    var elapsed : Double = 0 // 경과시간
-//    var count : Double = 0
-//    
-//    var hour = 0
-//    var minute = 0
-//    var second = 0
-//    var milliSecond = 0
+    //    var stopWatchStatus : Bool = false // 타이머 상태
+    //    var remainTime : Double = 0
+    //    var elapsed : Double = 0 // 경과시간
+    //    var count : Double = 0
+    //
+    //    var hour = 0
+    //    var minute = 0
+    //    var second = 0
+    //    var milliSecond = 0
     
-    var recordList: [String] = [] // 스톱워치 시간 기록 배열
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         lapsTableView.delegate = self
         lapsTableView.dataSource = self
         self.navigationController?.navigationBar.topItem?.title="AD" //뷰 제목
@@ -52,7 +50,6 @@ final class StopwatchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        adView.backgroundColor = .clear
         adsManager.rootViewController = self
     }
     
@@ -61,84 +58,63 @@ final class StopwatchViewController: UIViewController {
     }
     
     @IBAction func stopWatchStartStop(_ sender: Any) {
-        if mTimer.status {
+        if viewModel.mTimer.status {
             stopWatchPause()
-            print("스톱워치 상태: ", mTimer.status)
+            print("스톱워치 상태: ", viewModel.mTimer.status)
         }
         else {
             stopWatchPlay()
-            print("스톱워치 상태: ", mTimer.status)
+            print("스톱워치 상태: ", viewModel.mTimer.status)
         }
     }
-   
-    func stopWatchPlay() {
-       
+    
+    private func stopWatchPlay() {
+        
         btnEffect()
         let startTime = Date()
-        mTimer.status = true
         startStopButton.setTitle(String(format: NSLocalizedString("일시중지", comment: "Pause")), for: .normal)
         recordResetButton.setTitle(String(format: NSLocalizedString("기록", comment: "Rap")), for: .normal)
         
         stopWatch = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { t in
             let timeInterval = Date().timeIntervalSince(startTime)
-//            guard var timer = self.mTimer else { return }
-            self.mTimer.remainTime = self.mTimer.count + timeInterval
-//            self.remainTime = self.count + timeInterval
-            self.mTimer.elapsed = self.mTimer.count + self.mTimer.remainTime
-//            self.elapsed = self.count + self.remainTime
-            self.viewModel.timeCalculate(self.mTimer.remainTime)
+            self.viewModel.timeCalculate(timeInterval)
             self.timeLabelText()
-
             
             DispatchQueue.main.async {
-                RunLoop.current.add(self.stopWatch, forMode: .common)
+                RunLoop.current.add(self.stopWatch!, forMode: .common)
             }
         })
         print("스톱워치 작동")
     }
     
-    func stopWatchPause() {
+    private func stopWatchPause() {
         btnEffect()
-        mTimer.status = false
         startStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
         recordResetButton.setTitle(String(format: NSLocalizedString("초기화", comment: "Reset")), for: .normal)
-        mTimer.count = mTimer.elapsed - mTimer.count
-        stopWatch.invalidate()
+        viewModel.timePauseCalculate()
+        stopWatch?.invalidate()
         print("스톱워치 일시중지")
     }
-        
-    func timeLabelText() {
-        timeLabel.text = "\(viewModel.hour)\(viewModel.minute)\(viewModel.second)"
+    
+    private func timeLabelText() {
+        timeLabel.text = "\(viewModel.timeText)"
         milliSecLabel.text = viewModel.milliSecond
     }
     
-    @IBAction func recordResetButton(_ sender: Any)
-    {
-        
-        if (mTimer.status == true) {
-            
-            let record = "\(viewModel.hour)\(viewModel.minute)\(viewModel.second)\(viewModel.milliSecond)" // 스톱워치 시간을 기록
-            recordList.append(record)
+    @IBAction func recordResetButton(_ sender: Any) {
+        if (viewModel.mTimer.status == true) {
+            viewModel.addRecord()
             lapsTableView.reloadData()
             //            tableViewScroll() // 첫번째 기록으로 자동 스크롤
-            
-            print("스톱워치 기록: ", recordList)
-            print("스톱워치 기록 횟수 : ", recordList.count)
-            
         }
         else {
-            reset() // 초기화 함수 호출
+            resetButtonTapped() // 초기화 함수 호출
         }
     }
     
-    func reset()
-    {
-        mTimer.status = false
-        stopWatch.invalidate()
-        mTimer.count = 0
-        mTimer.remainTime = 0
-        mTimer.elapsed = 0
-        recordList.removeAll() // 스톱워치 기록 배열 초기화
+    private func resetButtonTapped() {
+        stopWatch?.invalidate()
+        viewModel.resetRecords()
         lapsTableView.reloadData() // 스톱워치 랩 테이블 초기화
         
         startStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
@@ -147,16 +123,13 @@ final class StopwatchViewController: UIViewController {
         timeLabel.text = "00:00:00."
         milliSecLabel.text = "000"
         print("초기화 되었습니다.")
-        
     }
     
-    func btnEffect() /* 버튼을 누를때 발생하는 효과 */
-    {
+    private func btnEffect() {
         if(SettingTableCell.vibrationCheck == true)
         {
             print("진동: ",SettingTableCell.vibrationCheck)
             UIImpactFeedbackGenerator(style: .heavy).impactOccurred() // 탭틱 엔진이 있는 경우만 작동, 진동세기 강하게
-            
         }
         else {
             print("진동: ",SettingTableCell.vibrationCheck)
@@ -173,22 +146,19 @@ final class StopwatchViewController: UIViewController {
 
 extension StopwatchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recordList.count
-        
+        return viewModel.recordList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         if let Lapnum = cell.viewWithTag(1) as? UILabel {
-            Lapnum.text = " \( recordList.count - (indexPath as NSIndexPath).row)"
+            Lapnum.text = " \( viewModel.recordList.count - (indexPath as NSIndexPath).row)"
         }
         
         if let TimeLabel = cell.viewWithTag(2) as? UILabel {
-            TimeLabel.text = recordList[recordList.count - (indexPath as NSIndexPath).row - 1]
+            TimeLabel.text = viewModel.recordList[viewModel.recordList.count - (indexPath as NSIndexPath).row - 1]
         }
-        
-        //        print("기록횟수:",recordList.count)
         return cell
     }
 }
