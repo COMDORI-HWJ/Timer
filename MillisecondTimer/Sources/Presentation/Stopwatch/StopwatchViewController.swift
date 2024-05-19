@@ -6,46 +6,29 @@
 //
 
 import UIKit
-import AVFoundation // 햅틱
+import AVFoundation
 import UserNotifications
 import SystemConfiguration
 
 final class StopwatchViewController: UIViewController {
     
     @IBOutlet weak var adView: UIView!
-    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var milliSecLabel: UILabel!
-    
     @IBOutlet weak var startStopButton: UIButton!
     @IBOutlet weak var recordResetButton: UIButton!
-    
     @IBOutlet weak var lapsTableView: UITableView!
     
     private var stopWatch: Timer?
     private var startTime = Date()
-    //    private var mTimer = Mtimer()
     private var viewModel = StopwatchViewModel()
     private let adsManager = AdsManager()
-    
-    //    var stopWatchStatus : Bool = false // 타이머 상태
-    //    var remainTime : Double = 0
-    //    var elapsed : Double = 0 // 경과시간
-    //    var count : Double = 0
-    //
-    //    var hour = 0
-    //    var minute = 0
-    //    var second = 0
-    //    var milliSecond = 0
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         lapsTableView.delegate = self
         lapsTableView.dataSource = self
-        self.navigationController?.navigationBar.topItem?.title="AD" //뷰 제목
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,8 +52,7 @@ final class StopwatchViewController: UIViewController {
     }
     
     private func stopWatchPlay() {
-        
-        btnEffect()
+        buttonEffect()
         let startTime = Date()
         startStopButton.setTitle(String(format: NSLocalizedString("일시중지", comment: "Pause")), for: .normal)
         recordResetButton.setTitle(String(format: NSLocalizedString("기록", comment: "Rap")), for: .normal)
@@ -81,14 +63,15 @@ final class StopwatchViewController: UIViewController {
             self.timeLabelText()
             
             DispatchQueue.main.async {
-                RunLoop.current.add(self.stopWatch!, forMode: .common)
+                guard let stopWatch = self.stopWatch else { return print("stopWatch not working") }
+                RunLoop.current.add(stopWatch, forMode: .common)
             }
         })
         print("스톱워치 작동")
     }
     
     private func stopWatchPause() {
-        btnEffect()
+        buttonEffect()
         startStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
         recordResetButton.setTitle(String(format: NSLocalizedString("초기화", comment: "Reset")), for: .normal)
         viewModel.timePauseCalculate()
@@ -108,14 +91,14 @@ final class StopwatchViewController: UIViewController {
             //            tableViewScroll() // 첫번째 기록으로 자동 스크롤
         }
         else {
-            resetButtonTapped() // 초기화 함수 호출
+            resetButtonTapped()
         }
     }
     
     private func resetButtonTapped() {
         stopWatch?.invalidate()
         viewModel.resetRecords()
-        lapsTableView.reloadData() // 스톱워치 랩 테이블 초기화
+        lapsTableView.reloadData()
         
         startStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
         recordResetButton.setTitle(String(format: NSLocalizedString("기록", comment: "Rap")), for: .normal)
@@ -125,18 +108,18 @@ final class StopwatchViewController: UIViewController {
         print("초기화 되었습니다.")
     }
     
-    private func btnEffect() {
+    private func buttonEffect() {
         if(SettingTableCell.vibrationCheck == true)
         {
             print("진동: ",SettingTableCell.vibrationCheck)
-            UIImpactFeedbackGenerator(style: .heavy).impactOccurred() // 탭틱 엔진이 있는 경우만 작동, 진동세기 강하게
+            UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
         }
         else {
             print("진동: ",SettingTableCell.vibrationCheck)
         }
     }
     
-    private func tableViewScroll() { // 기록 테이블 자동 스크롤 갱신 메소드
+    private func tableViewScroll() {
         let numberOfSections = lapsTableView.numberOfSections
         let numberOfRows = lapsTableView.numberOfRows(inSection: numberOfSections - 1)
         let lastPath = IndexPath(row: numberOfRows - 1, section: numberOfSections - 1)
@@ -165,7 +148,6 @@ extension StopwatchViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension StopwatchViewController: AdSimpleBannerPowered {
     func addBannerToAdsPlaceholder(_ banner: UIView) {
-        
         banner.translatesAutoresizingMaskIntoConstraints = false
         adView.addSubview(banner)
         banner.topAnchor.constraint(equalTo: adView.topAnchor).isActive = true

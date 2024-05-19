@@ -5,16 +5,12 @@
 //  Created by Wonji Ha on 2024/05/07.
 //
 
-
-
 import Foundation
 
 final class StopwatchViewModel {
-    private let startTime = Date()
     private(set) var timeText = "", milliSecond = ""
     private(set) var mTimer = Mtimer()
     private(set) var recordList: [String] = [] // 스톱워치 시간 기록 배열
-    
     
     func timeCalculate(_ time: Double) {
         mTimer.status = true
