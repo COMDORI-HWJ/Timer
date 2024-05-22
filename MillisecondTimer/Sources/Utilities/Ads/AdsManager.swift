@@ -12,16 +12,12 @@ protocol AdSimpleBannerPowered: UIViewController {
     func addBannerToAdsPlaceholder(_ banner: UIView)
 }
 
-
 private struct AdsConstants {
-//    static let admobAppID = "YOUR_APP_ID"
     static let adBottomBannerUnitID = "ca-app-pub-7875242624363574/7192134359"
 }
 
 final class AdsManager : NSObject {
-        
     var loadedSimpleBannerAd = false
-    
     private(set) var bannerView: GADBannerView?
     var rootViewController: UIViewController? {
         didSet {
@@ -31,9 +27,7 @@ final class AdsManager : NSObject {
 
     public override init() {
         super.init()
-        
         GADMobileAds.sharedInstance().start()
-        
         configureSimpleBanner()
     }
     
@@ -56,12 +50,9 @@ final class AdsManager : NSObject {
             }
         }
     }
-    
 }
 
-// Simple Bottom Admob Banner delegate methods
 extension AdsManager : GADBannerViewDelegate {
-    
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
         bannerView.alpha = 1
         print("adViewDidReceiveAd")
