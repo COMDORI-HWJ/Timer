@@ -54,8 +54,8 @@ final class StopwatchViewController: UIViewController {
     private func stopWatchPlay() {
         buttonEffect()
         let startTime = Date()
-        startStopButton.setTitle(String(format: NSLocalizedString("일시중지", comment: "Pause")), for: .normal)
-        recordResetButton.setTitle(String(format: NSLocalizedString("기록", comment: "Rap")), for: .normal)
+        startStopButton.setTitle(ButtonType.pause.description, for: .normal)
+        recordResetButton.setTitle(ButtonType.rap.description, for: .normal)
         
         stopWatch = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { t in
             let timeInterval = Date().timeIntervalSince(startTime)
@@ -72,8 +72,8 @@ final class StopwatchViewController: UIViewController {
     
     private func stopWatchPause() {
         buttonEffect()
-        startStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
-        recordResetButton.setTitle(String(format: NSLocalizedString("초기화", comment: "Reset")), for: .normal)
+        startStopButton.setTitle(ButtonType.start.description, for: .normal)
+        recordResetButton.setTitle(ButtonType.reset.description, for: .normal)
         viewModel.timePauseCalculate()
         stopWatch?.invalidate()
         print("스톱워치 일시중지")
@@ -100,8 +100,8 @@ final class StopwatchViewController: UIViewController {
         viewModel.resetRecords()
         lapsTableView.reloadData()
         
-        startStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
-        recordResetButton.setTitle(String(format: NSLocalizedString("기록", comment: "Rap")), for: .normal)
+        startStopButton.setTitle(ButtonType.start.description, for: .normal)
+        recordResetButton.setTitle(ButtonType.rap.description, for: .normal)
         
         timeLabel.text = "00:00:00."
         milliSecLabel.text = "000"
