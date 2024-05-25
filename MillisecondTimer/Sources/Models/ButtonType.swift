@@ -13,7 +13,7 @@ enum ButtonType {
     case reset
     case rap
     
-    var description: String {
+    var name: String {
         switch self {
         case .start:
             return String(format: NSLocalizedString("시작", comment: "Start"))

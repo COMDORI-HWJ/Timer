@@ -54,8 +54,8 @@ final class StopwatchViewController: UIViewController {
     private func stopWatchPlay() {
         buttonEffect()
         let startTime = Date()
-        startStopButton.setTitle(ButtonType.pause.description, for: .normal)
-        recordResetButton.setTitle(ButtonType.rap.description, for: .normal)
+        startStopButton.setTitle(ButtonType.pause.name, for: .normal)
+        recordResetButton.setTitle(ButtonType.rap.name, for: .normal)
         
         stopWatch = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { t in
             let timeInterval = Date().timeIntervalSince(startTime)
@@ -72,8 +72,8 @@ final class StopwatchViewController: UIViewController {
     
     private func stopWatchPause() {
         buttonEffect()
-        startStopButton.setTitle(ButtonType.start.description, for: .normal)
-        recordResetButton.setTitle(ButtonType.reset.description, for: .normal)
+        startStopButton.setTitle(ButtonType.start.name, for: .normal)
+        recordResetButton.setTitle(ButtonType.reset.name, for: .normal)
         viewModel.timePauseCalculate()
         stopWatch?.invalidate()
         print("스톱워치 일시중지")
@@ -100,8 +100,8 @@ final class StopwatchViewController: UIViewController {
         viewModel.resetRecords()
         lapsTableView.reloadData()
         
-        startStopButton.setTitle(ButtonType.start.description, for: .normal)
-        recordResetButton.setTitle(ButtonType.rap.description, for: .normal)
+        startStopButton.setTitle(ButtonType.start.name, for: .normal)
+        recordResetButton.setTitle(ButtonType.rap.name, for: .normal)
         
         timeLabel.text = "00:00:00."
         milliSecLabel.text = "000"
