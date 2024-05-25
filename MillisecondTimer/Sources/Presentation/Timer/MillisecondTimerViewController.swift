@@ -1,45 +1,18 @@
-//  Timer
-//  MainTimer.swift
+//  
+//  MillisecondTimerViewController.swift
+//  MillisecondTimer
+//
 //  Created by WONJI HA on 2021/12/08.
 //
 
-/* Reference
- https://unclean.tistory.com/27 타이머3 시작시간 카운트
- https://ios-development.tistory.com/773 타이머4
- https://ios-development.tistory.com/775 DispatchSourceTimer를 이용한 Timer 모듈 구현
- https://80000coding.oopy.io/0bd77cd3-7dc7-4cf4-93ee-8ca4fbca898e 가드문 사용법 (if문보다 빠르게 끝낸다)
- https://jesterz91.github.io/ios/2021/04/07/ios-notification/ UserNotification 프레임워크를 이용한 알림구현
- https://twih1203.medium.com/swift-usernotification%EC%9C%BC%EB%A1%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80%EA%B0%80-%ED%8F%AC%ED%95%A8%EB%90%9C-%EB%A1%9C%EC%BB%AC-%EC%95%8C%EB%A6%BC-%EB%B3%B4%EB%82%B4%EA%B8%B0-5a7ef07fa2ec UserNotification으로 이미지가 포함된 로컬 알림 보내기
- https://gonslab.tistory.com/27 푸시 알림 권한
- https://boidevelop.tistory.com/62?category=839928 텍스트 필드 개념
- https://scshim.tistory.com/220 UIAlert 알림창 구현
- https://boidevelop.tistory.com/57 알림창 텍스트필드 추가
- https://stackoverflow.com/questions/33658521/how-to-make-a-uilabel-clickable UILable 터치이벤트
- https://stackoverflow.com/questions/1080043/how-to-disable-multitouch 버튼 멀티터치 막기
- https://stackoverflow.com/questions/42319172/swift-3-how-to-make-timer-work-in-background 백그라운드 타이머 작동?
- https://paul-goden.tistory.com/11 타이머 백그라운드 참고
- https://eun-dev.tistory.com/24 노티 제거
- */
-
-import Foundation
 import UIKit
-import AVFoundation // 햅틱
+import AVFoundation
 import UserNotifications
 import SystemConfiguration
-import GoogleMobileAds
 
-class MainTimer: UIViewController {
-    
-    var hour = 0, minute = 0, second = 0, milliSecond = 0
-    var timer = Timer()
-    var timerStatus : Bool = false // 타이머 상태
-    var count : Double = 0 // 타이머 시간
-    var remainTime : Double = 0 // 남은 시간
-    var elapsed : Double = 0 // 경과시간
-    var backgroudTime : Date? // 백그라운드 경과시간
-    
-    let notiContent = UNMutableNotificationContent()
-    let notiCenter = UNUserNotificationCenter.current()
+class MillisecondTimerViewController: UIViewController {
+
+    @IBOutlet weak var adView: UIView!
     
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var minLabel: UILabel!
@@ -63,7 +36,20 @@ class MainTimer: UIViewController {
     
     @IBOutlet weak var tipLabel: UILabel!
     
-    @IBOutlet weak var bannerView: GADBannerView!
+    var hour = 0, minute = 0, second = 0, milliSecond = 0
+    var timer = Timer()
+    var timerStatus : Bool = false // 타이머 상태
+    var count : Double = 0 // 타이머 시간
+    var remainTime : Double = 0 // 남은 시간
+    var elapsed : Double = 0 // 경과시간
+//    var backgroudTime : Date? // 백그라운드 경과시간
+    
+    private let viewModel = MillisecondTimerViewModel()
+    private let adsManager = AdsManager()
+    
+    let notiContent = UNMutableNotificationContent()
+    let notiCenter = UNUserNotificationCenter.current()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,16 +64,14 @@ class MainTimer: UIViewController {
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.topItem?.title="AD" //뷰 제목
         
-        /* Admob */
-        //        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // 테스트 광고
-        bannerView.adUnitID = "ca-app-pub-7875242624363574/7192134359"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
-        
     }
     
-    override func didReceiveMemoryWarning()
-    {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        adsManager.rootViewController = self
+    }
+    
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
@@ -96,75 +80,68 @@ class MainTimer: UIViewController {
         //        startStopButton.isSelected = !startStopButton.isSelected
         //        startStopButton.isSelected ? timerPlay() : timerPause()
         
-        if timerStatus
-        {
+        if viewModel.mTimer.status {
             timerPause()
-            print("타이머 상태: ", timerStatus)
-            
+            print("타이머 상태: ", viewModel.mTimer.status)
         }
-        else if count > 0
-        {
+        else if viewModel.mTimer.count > 0 {
             timerPlay()
-            print("타이머 상태: ", timerStatus)
-            sendNotification()
-            
+            print("타이머 상태: ", viewModel.mTimer.status)
+//            sendNotification()
+            viewModel.sendTimerNotification()
         }
-        else
-        {
+        else {
             print("카운트를 시작하지 못하였습니다.")
         }
     }
     
-    func timerPlay()
-    {
-        
+    func timerPlay() {        
         let startTime = Date()
-        timerStatus = true
-        startStopButton.setTitle(String(format: NSLocalizedString("일시중지", comment: "Pause")), for: .normal)
+//        guard let startTime = backgroudTime else { return }
         
-        timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { timer in
+//        timerStatus = true
+        startStopButton.setTitle(ButtonType.pause.name, for: .normal)
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { [self] _ in
+            
             let timeInterval = Date().timeIntervalSince(startTime)
-            
-            self.remainTime = self.count - timeInterval // 남은시간 계산
-            self.elapsed = self.count - self.remainTime
-            
-            /** ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림 **/
-            guard self.remainTime >= trunc(0) else
-            {
-                if(SettingTableCell.soundCheck == true)
-                {
+            viewModel.timeCalculate(timeInterval)
+            timeLabelText()
+            guard viewModel.mTimer.remainTime > trunc(0) else {
+                if SettingTableCell.soundCheck == true {
                     AudioServicesPlaySystemSound(1016) // "트윗" 소리발생
                     AudioServicesPlaySystemSound(4095) // 진동발생
                     print("Sound: ",SettingTableCell.soundCheck)
                 }
-                else if(SettingTableCell.soundCheck == false)
-                {
+                else if SettingTableCell.soundCheck == false {
                     print("Sound: ",SettingTableCell.soundCheck)
                 }
-                
-                self.timerStop()
-                self.reset()
-                print("0초")
+//                timerStop()
+                reset()
+                print("타이머완료")
                 return
             }
-            self.timeCal()
+                       
+                        /** ceil(값) = 소수점 올림  floor(값) = 소수점 내림  trunc(값) = 소수점 버림  round(값) = 소수점 반올림 **/
+         
         })
         
     }
     
-    func timerPause()
-    {
-        timerStatus = false
-        count = count - elapsed // 일시정지 동안 카운트된 시간을 빼서 카운트를 줄인다
+    func timerPause() {
+        
+        //        timerStatus = false
+        //        count = count - elapsed // 일시정지 동안 카운트된 시간을 빼서 카운트를 줄인다
+        viewModel.timePauseCalculate()
         timer.invalidate()
         startStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
         btnEnable()
         print("타이머 일시정지")
     }
     
-    func timerStop()
-    {
-        timerStatus = false
+    func timerStop() {
+        //        timerStatus = false
+        //        viewModel.mTimer.status = false
         timer.invalidate()
         print("타이머 정지")
     }
@@ -222,6 +199,13 @@ class MainTimer: UIViewController {
         print("초기화 되었습니다.")
     }
     
+    private func timeLabelText() {
+        hourLabel.text = viewModel.hourText
+        minLabel.text = viewModel.minuteText
+        secLabel.text = viewModel.secondText
+        milliSecLabel.text = viewModel.millisecondText
+    }
+    
     func countLabel()
     {
         /*        3600==1시간        60==1분        1==1초        0.001==1밀리초        */
@@ -268,27 +252,6 @@ class MainTimer: UIViewController {
         
     }
     
-    func sendNotification()
-    {
-//        NotificationCenter.default.post(name: Notification.Name("Timer"), object: nil, userInfo: ["index": 0]) // 푸시 알림 클릭 시 타이머 뷰로 이동함
-        notiContent.subtitle = String(format: NSLocalizedString("타이머 완료", comment: "Timer done"))
-        notiContent.body = String(format: NSLocalizedString("0초가 되었습니다. 타이머를 다시 작동하려면 알림을 탭하세요!", comment: ""))
-        notiContent.badge = 1
-        notiContent.sound = UNNotificationSound.default
-        notiContent.userInfo = ["Timer": "done"] // 푸시 받을 떄 오는 데이터
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: count, repeats: false) // 알림 발생 시기
-        let identifier = "Timer done" // 푸시 알림 식별자
-        let request = UNNotificationRequest(identifier: identifier, content: notiContent, trigger: trigger) // 알림 결과
-        notiCenter.add(request) { (error) in
-            if let err = error {
-                print("노티피케이션 알림 오류: ", err.localizedDescription)
-            }
-            else {
-                print("노티피케이션 푸시알림 성공")
-            }
-        }
-    }
     
     // 알림 제거 메소드
     func removeAllNotifications()
@@ -297,59 +260,48 @@ class MainTimer: UIViewController {
         notiCenter.removeAllPendingNotificationRequests()
     }
     
-    @objc func backgroudTimer()
-    {
+    @objc func backgroudTimer() {
         print("백그라운드 타이머 작동")
         
-        if timerStatus == true
-        {
+        if viewModel.mTimer.status == true {
             timerStop()
-            timerStatus = true
-            backgroudTime = Date()
-            
-            print("백그라운드 남은 시간" , remainTime)
-            print("타이머 상태: ", timerStatus)
-        
-            sendNotification()
+//            //            viewModel.mTimer.status = true
+//            viewModel.mTimer.backgroudTime = Date()
+//            
+//            print("백그라운드 남은 시간" , viewModel.mTimer.remainTime)
+//            print("타이머 상태: ", viewModel.mTimer.status)
+//            
+//            sendNotification()
+            viewModel.backgroundTimer()
+            viewModel.sendTimerNotification()
         }
-        else
-        {
+        else {
             timerStop()
-            removeAllNotifications()
-            print("타이머 상태: ", timerStatus)
+//            removeAllNotifications()
+//            print("타이머 상태: ", timerStatus)
+            viewModel.backgroundTimer()
         }
     }
     
-    @objc func foregroundTimer()
-    {
+    @objc
+    func foregroundTimer() {
         
         print("포그라운드 타이머 작동")
-        print("타이머 상태: ", timerStatus)
-        guard let startTime = backgroudTime else { return}
+        print("타이머 상태: ", viewModel.mTimer.status)
+        guard let startTime = viewModel.mTimer.backgroudTime else { return }
         let timeInterval = Date().timeIntervalSince(startTime)
         
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.main.async { [self] in
             
-            if self?.timerStatus == true
-            {
-                self?.timeIntervalBackground(timeInterval)
-                self?.timerPlay()
-                
+            if viewModel.mTimer.status == true {
+                //                self?.timeIntervalBackground(timeInterval)
+                viewModel.backgroundTimeInterval(timeInterval)
+                timerPlay()
             }
-            else
-            {
-                self?.timerStop()
+            else {
+                timerStop()
+                reset()
             }
-        }
-    }
-    
-    func timeIntervalBackground(_ interval: Double)
-    {
-        count = remainTime - interval
-        print("백그라운드 남은 시간: ", remainTime)
-        if count < 0
-        {
-            reset()
         }
     }
     
@@ -379,16 +331,16 @@ class MainTimer: UIViewController {
         millisecUpButton.isEnabled = true
         millisecDownButton.isEnabled = true
         
-        let hourTap = UITapGestureRecognizer(target: self, action: #selector(MainTimer.HourLabeltap))
+        let hourTap = UITapGestureRecognizer(target: self, action: #selector(MillisecondTimerViewController.HourLabeltap))
         hourLabel.addGestureRecognizer(hourTap)
         hourLabel.isUserInteractionEnabled = true
-        let minTap = UITapGestureRecognizer(target: self, action: #selector(MainTimer.MinLabeltap))
+        let minTap = UITapGestureRecognizer(target: self, action: #selector(MillisecondTimerViewController.MinLabeltap))
         minLabel.addGestureRecognizer(minTap)
         minLabel.isUserInteractionEnabled = true
-        let secTap = UITapGestureRecognizer(target: self, action: #selector(MainTimer.SecLabeltap))
+        let secTap = UITapGestureRecognizer(target: self, action: #selector(MillisecondTimerViewController.SecLabeltap))
         secLabel.addGestureRecognizer(secTap)
         secLabel.isUserInteractionEnabled = true
-        let milliSecTap = UITapGestureRecognizer(target: self, action: #selector(MainTimer.MillisecLabeltap))
+        let milliSecTap = UITapGestureRecognizer(target: self, action: #selector(MillisecondTimerViewController.MillisecLabeltap))
         milliSecLabel.addGestureRecognizer(milliSecTap)
         milliSecLabel.isUserInteractionEnabled = true
         
@@ -442,19 +394,15 @@ class MainTimer: UIViewController {
         }
     }
     
-    @IBAction func secUp(_ sender:Any)
-    {
-        if(count < 356400)
-        {
-            count += 1
-            countLabel()
+    @IBAction func secUp(_ sender:Any) {
+        if viewModel.mTimer.count < 356400 {
+            viewModel.secondCountUp()
+            timeLabelText()
             btnEffect()
         }
-        else
-        {
+        else {
             upAlertError()
         }
-        
     }
     
     @IBAction func secDown( _ sender : Any)
@@ -747,5 +695,16 @@ class MainTimer: UIViewController {
     private func TipLabel()
     {
         tipLabel.text = String(format: NSLocalizedString("빠르게 시간을 변경하려면 타이머 숫자를 탭하세요.\n시:분:초:밀리초", comment: ""))
+    }
+}
+
+extension MillisecondTimerViewController: AdSimpleBannerPowered {
+    func addBannerToAdsPlaceholder(_ banner: UIView) {
+        banner.translatesAutoresizingMaskIntoConstraints = false
+        adView.addSubview(banner)
+        banner.topAnchor.constraint(equalTo: adView.topAnchor).isActive = true
+        banner.heightAnchor.constraint(equalTo: adView.heightAnchor).isActive = true
+        banner.leadingAnchor.constraint(equalTo: adView.leadingAnchor).isActive = true
+        banner.trailingAnchor.constraint(equalTo: adView.trailingAnchor).isActive = true
     }
 }

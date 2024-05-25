@@ -45,6 +45,7 @@
 		379383DD2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png in Resources */ = {isa = PBXBuildFile; fileRef = 379383D32852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png */; };
 		379848412A65A30B00196629 /* TutorialExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379848402A65A30B00196629 /* TutorialExtensions.swift */; };
 		379EA0C7287DC19000406FC8 /* StopwatchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379EA0C6287DC19000406FC8 /* StopwatchExtension.swift */; };
+		37BDD89C2C02877700BCB862 /* NotificationContentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BDD89B2C02877700BCB862 /* NotificationContentDescription.swift */; };
 		37C17A762BFE984500DC2E5F /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C17A752BFE984500DC2E5F /* ButtonType.swift */; };
 		37C20F9F2A0584ED001A98B1 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C20F9E2A0584ED001A98B1 /* Tutorial.swift */; };
 		37C20FA12A0589F1001A98B1 /* TutorialContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C20FA02A0589F1001A98B1 /* TutorialContents.swift */; };
@@ -98,6 +99,7 @@
 		379383D32852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png"; sourceTree = "<group>"; };
 		379848402A65A30B00196629 /* TutorialExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialExtensions.swift; sourceTree = "<group>"; };
 		379EA0C6287DC19000406FC8 /* StopwatchExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchExtension.swift; sourceTree = "<group>"; };
+		37BDD89B2C02877700BCB862 /* NotificationContentDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationContentDescription.swift; sourceTree = "<group>"; };
 		37C17A752BFE984500DC2E5F /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
 		37C20F9E2A0584ED001A98B1 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		37C20FA02A0589F1001A98B1 /* TutorialContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialContents.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			children = (
 				37862A712BE9A34A0069BC8F /* Mtimer.swift */,
 				37C17A752BFE984500DC2E5F /* ButtonType.swift */,
+				37BDD89B2C02877700BCB862 /* NotificationContentDescription.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B6197AB27600A4B00310E7E /* MillisecondTimerViewController.swift in Sources */,
+				37BDD89C2C02877700BCB862 /* NotificationContentDescription.swift in Sources */,
 				376F47C4285B1BA200CDF726 /* StopwatchViewController.swift in Sources */,
 				37C20FA12A0589F1001A98B1 /* TutorialContents.swift in Sources */,
 				37256C202BEBF9F2003CED3F /* AdsManager.swift in Sources */,
