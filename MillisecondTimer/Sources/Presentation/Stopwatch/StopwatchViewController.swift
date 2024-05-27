@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import AVFoundation
-import UserNotifications
 import SystemConfiguration
 
 final class StopwatchViewController: UIViewController {
@@ -19,14 +17,11 @@ final class StopwatchViewController: UIViewController {
     @IBOutlet weak var recordResetButton: UIButton!
     @IBOutlet weak var lapsTableView: UITableView!
     
-    private var stopWatch: Timer?
-    private var startTime = Date()
     private var viewModel = StopwatchViewModel()
     private let adsManager = AdsManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         lapsTableView.delegate = self
         lapsTableView.dataSource = self
     }
@@ -40,51 +35,30 @@ final class StopwatchViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func stopWatchStartStop(_ sender: Any) {
+    @IBAction func stopWatchStartStopButtonTapped(_ sender: Any) {
+        viewModel.buttonVibrationEffect()
         if viewModel.mTimer.status {
-            stopWatchPause()
+            viewModel.stopWatchPause()
+            startStopButton.setTitle(ButtonType.start.name, for: .normal)
+            recordResetButton.setTitle(ButtonType.reset.name, for: .normal)
             print("스톱워치 상태: ", viewModel.mTimer.status)
         }
         else {
-            stopWatchPlay()
+            viewModel.stopWatchPlay {
+                self.timeLabelText()
+            }
+            startStopButton.setTitle(ButtonType.pause.name, for: .normal)
+            recordResetButton.setTitle(ButtonType.rap.name, for: .normal)
             print("스톱워치 상태: ", viewModel.mTimer.status)
         }
     }
     
-    private func stopWatchPlay() {
-        buttonEffect()
-        let startTime = Date()
-        startStopButton.setTitle(ButtonType.pause.name, for: .normal)
-        recordResetButton.setTitle(ButtonType.rap.name, for: .normal)
-        
-        stopWatch = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { t in
-            let timeInterval = Date().timeIntervalSince(startTime)
-            self.viewModel.timeCalculate(timeInterval)
-            self.timeLabelText()
-            
-            DispatchQueue.main.async {
-                guard let stopWatch = self.stopWatch else { return print("stopWatch not working") }
-                RunLoop.current.add(stopWatch, forMode: .common)
-            }
-        })
-        print("스톱워치 작동")
-    }
-    
-    private func stopWatchPause() {
-        buttonEffect()
-        startStopButton.setTitle(ButtonType.start.name, for: .normal)
-        recordResetButton.setTitle(ButtonType.reset.name, for: .normal)
-        viewModel.timePauseCalculate()
-        stopWatch?.invalidate()
-        print("스톱워치 일시중지")
-    }
-    
     private func timeLabelText() {
-        timeLabel.text = "\(viewModel.timeText)"
-        milliSecLabel.text = viewModel.milliSecond
+        timeLabel.text = viewModel.timeText
+        milliSecLabel.text = viewModel.milliSecondText
     }
     
-    @IBAction func recordResetButton(_ sender: Any) {
+    @IBAction func recordResetButtonTapped(_ sender: Any) {
         if (viewModel.mTimer.status == true) {
             viewModel.addRecord()
             lapsTableView.reloadData()
@@ -96,7 +70,6 @@ final class StopwatchViewController: UIViewController {
     }
     
     private func resetButtonTapped() {
-        stopWatch?.invalidate()
         viewModel.resetRecords()
         lapsTableView.reloadData()
         
@@ -106,17 +79,6 @@ final class StopwatchViewController: UIViewController {
         timeLabel.text = "00:00:00."
         milliSecLabel.text = "000"
         print("초기화 되었습니다.")
-    }
-    
-    private func buttonEffect() {
-        if(SettingTableCell.vibrationCheck == true)
-        {
-            print("진동: ",SettingTableCell.vibrationCheck)
-            UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-        }
-        else {
-            print("진동: ",SettingTableCell.vibrationCheck)
-        }
     }
     
     private func tableViewScroll() {
