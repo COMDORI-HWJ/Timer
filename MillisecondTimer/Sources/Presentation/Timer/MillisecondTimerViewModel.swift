@@ -6,25 +6,45 @@
 //
 
 import Foundation
+import AVFoundation
 import UserNotifications
 
 final class MillisecondTimerViewModel {
+    private var timer: Timer?
     private(set) var hourText = "", minuteText = "", secondText = "", millisecondText = ""
     private let notificationContent = UNMutableNotificationContent()
     private let notificationCenter = UNUserNotificationCenter.current()
     
     private(set) var mTimer = Mtimer()
-//    var mTimer = Mtimer()
+    private let setting = SettingTableCell()
+    
+    func timerPlay(timeUpdate: @escaping () -> ()) {
+        mTimer.status = true
+        let startTime = Date()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { [self] _ in
+            let timeInterval = Date().timeIntervalSince(startTime)
+            timeCalculate(timeInterval)
+            timeUpdate()
+            guard mTimer.remainTime > trunc(0) else {
+                if SettingTableCell.soundCheck == true {
+                    AudioServicesPlaySystemSound(1016)
+                    AudioServicesPlaySystemSound(4095)
+                }
+                else {
+                    print("Sound: ",SettingTableCell.soundCheck)
+                }
+                resetTime()
+                print("타이머 완료")
+                return
+            }
+        })
+    }
+    
     
     func timeCalculate(_ time: Double) {
-        mTimer.status = true
         mTimer.remainTime = mTimer.count - time
         mTimer.elapsed = mTimer.count - mTimer.remainTime
         currentTimerText(mTimer.remainTime)
-        guard mTimer.remainTime > trunc(0) else {
-            resetTime()
-            return
-        }
     }
     
     func timePauseCalculate() {
@@ -55,7 +75,7 @@ final class MillisecondTimerViewModel {
     }
     
     // MARK: - Notification
-    func sendTimerNotification() {
+    func createTimerNotification() {
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: mTimer.count, repeats: false)
         let identifier = "Timer done"
         let request = UNNotificationRequest(identifier: identifier, content: notificationContent, trigger: trigger)
@@ -65,7 +85,7 @@ final class MillisecondTimerViewModel {
         notificationContent.sound = .default
         notificationContent.userInfo = ["Timer": "done"]
         notificationCenter.add(request) { error in
-            guard let error = error else {
+            guard error != nil else {
                 print("타이머푸시 알림 오류: ", error?.localizedDescription ?? "에러 없음")
                 return
             }
