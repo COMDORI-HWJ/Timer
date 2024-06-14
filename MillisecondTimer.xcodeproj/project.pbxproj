@@ -26,6 +26,7 @@
 		376D7A2C285E26B600643F43 /* IMG_1452.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 376D7A2A285E26B600643F43 /* IMG_1452.PNG */; };
 		376F47C4285B1BA200CDF726 /* StopwatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F47C3285B1BA200CDF726 /* StopwatchViewController.swift */; };
 		3774546C2BF193E00066C5CF /* Reference.md in Resources */ = {isa = PBXBuildFile; fileRef = 3774546B2BF193E00066C5CF /* Reference.md */; };
+		3777D48E2C1BA7C0004D0250 /* MillisecondTimerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3777D48D2C1BA7C0004D0250 /* MillisecondTimerProtocols.swift */; };
 		377C6EAD2A52165C002E6668 /* tutorial1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 377C6EAC2A52165C002E6668 /* tutorial1.gif */; };
 		378210E627FF4D2A00B312C3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 378210E527FF4D2A00B312C3 /* .gitignore */; };
 		378210EA27FF5EFC00B312C3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378210E927FF5EFC00B312C3 /* Button.swift */; };
@@ -80,6 +81,7 @@
 		376D7A2A285E26B600643F43 /* IMG_1452.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_1452.PNG; sourceTree = "<group>"; };
 		376F47C3285B1BA200CDF726 /* StopwatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewController.swift; sourceTree = "<group>"; };
 		3774546B2BF193E00066C5CF /* Reference.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Reference.md; sourceTree = "<group>"; };
+		3777D48D2C1BA7C0004D0250 /* MillisecondTimerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillisecondTimerProtocols.swift; sourceTree = "<group>"; };
 		377C6EAC2A52165C002E6668 /* tutorial1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tutorial1.gif; sourceTree = "<group>"; };
 		378210E527FF4D2A00B312C3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		378210E927FF5EFC00B312C3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 		37958D3E2BFAA94A00FD040A /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				3777D48D2C1BA7C0004D0250 /* MillisecondTimerProtocols.swift */,
 				2B6197AA27600A4B00310E7E /* MillisecondTimerViewController.swift */,
 				37E98EAD2BFAADE00018C428 /* MillisecondTimerViewModel.swift */,
 			);
@@ -529,6 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B6197AB27600A4B00310E7E /* MillisecondTimerViewController.swift in Sources */,
+				3777D48E2C1BA7C0004D0250 /* MillisecondTimerProtocols.swift in Sources */,
 				37BDD89C2C02877700BCB862 /* NotificationContentDescription.swift in Sources */,
 				376F47C4285B1BA200CDF726 /* StopwatchViewController.swift in Sources */,
 				37C20FA12A0589F1001A98B1 /* TutorialContents.swift in Sources */,
