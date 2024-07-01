@@ -905,7 +905,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="e8l-tf-bp5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FTn-U0-Sjr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
