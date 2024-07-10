@@ -183,7 +183,7 @@ final class MillisecondTimerViewModel {
             print("오류 타이머 시간 감소 불가")
             break
         }
-        if mTimer.count > 0 {
+        if mTimer.count >= count {
             mTimer.count -= count
             print("타이머 현재 카운트: ", mTimer.count)
             currentTimerText(mTimer.count)

@@ -293,7 +293,7 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
     }
     
     @IBAction private func subtractSecondCountButton( _ sender : Any) {
-        if viewModel.mTimer.count > 0 {
+        if viewModel.mTimer.count > 0.9999 {
             viewModel.subtractTimerCount(unit: .second)
             timerCountUpdate()
         } else {
