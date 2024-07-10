@@ -9,6 +9,7 @@ import UIKit
 import AVFoundation
 import UserNotifications
 
+
 final class MillisecondTimerViewModel {
     private var timer: Timer?
     private(set) var hourText = "", minuteText = "", secondText = "", millisecondText = ""
@@ -19,6 +20,16 @@ final class MillisecondTimerViewModel {
     
     private(set) var mTimer = Mtimer()
     private let setting = SettingTableCell()
+    
+    let maxCount: Double = 356400
+    let minimumCount: Double = 0
+    
+    enum TimeUnit {
+        case hour
+        case minute
+        case second
+        case millisecond
+    }
     
     func timerPlay(timeUpdate: @escaping () -> (), timerReset: @escaping() -> ()) {
         mTimer.status = true
@@ -54,7 +65,6 @@ final class MillisecondTimerViewModel {
         timer?.invalidate()
     }
     
-    
     func timeCalculate(_ time: Double) {
         mTimer.remainTime = mTimer.count - time
         mTimer.elapsed = mTimer.count - mTimer.remainTime
@@ -66,7 +76,6 @@ final class MillisecondTimerViewModel {
         mTimer.count = 0
         mTimer.remainTime = 0
         mTimer.elapsed = 0
-//        timerResetCallback?()
         timerDelegate?.timerDidReset()
         print("타이머 초기화")
     }
@@ -134,13 +143,56 @@ final class MillisecondTimerViewModel {
     }
     
     // MARK: - Timer Count Controllers function
-    func secondCountUp() {
-        if(mTimer.count < 356400) {
-            mTimer.count += 1
+    func addTimerCount(unit: TimeUnit) {
+        let count: Double
+        
+        switch unit {
+        case .hour:
+            count = 3600
+        case .minute:
+            count = 60
+        case .second:
+            count = 1
+        case .millisecond:
+            count = 0.001
+        default:
+            print("오류 타이머 시간 증가 불가")
+            break
+        }
+        if (mTimer.count < maxCount) {
+            mTimer.count += count
             print("타이머 현재 카운트: ", mTimer.count)
             currentTimerText(mTimer.count)
+        } else {
+            print("타이머 시간 업데이트 불가")
         }
     }
+    
+    func subtractTimerCount(unit: TimeUnit) {
+        let count: Double
+        switch unit {
+        case .hour:
+            count = 3600
+        case .minute:
+            count = 60
+        case .second:
+            count = 1
+        case .millisecond:
+            count = 0.001
+        default:
+            print("오류 타이머 시간 감소 불가")
+            break
+        }
+        if mTimer.count > 0 {
+            mTimer.count -= count
+            print("타이머 현재 카운트: ", mTimer.count)
+            currentTimerText(mTimer.count)
+        } else {
+            print("타이머 시간 업데이트 불가")
+            print("타이머 현재 카운트: ", mTimer.count)
+        }
+    }
+    
 }
 
 // MARK: - Timer Notification

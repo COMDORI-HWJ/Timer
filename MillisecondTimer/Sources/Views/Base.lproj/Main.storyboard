@@ -410,7 +410,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="timerStartStop:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="cQN-hI-4bp"/>
+                                            <action selector="timerStartStopButton:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="cQN-hI-4bp"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTj-3u-3EN" customClass="Button" customModule="MillisecondTimer" customModuleProvider="target">
@@ -462,7 +462,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="millisecUp:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="2du-Ix-Rlf"/>
+                                            <action selector="addMillisecondCountButton:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="2du-Ix-Rlf"/>
                                             <outletCollection property="gestureRecognizers" destination="5Rj-IT-3lk" appends="YES" id="LL6-nH-5Ro"/>
                                         </connections>
                                     </button>
@@ -488,7 +488,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="millisecDown:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="Wlk-FR-Zhs"/>
+                                            <action selector="subtractMillisecondCountButton:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="Wlk-FR-Zhs"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -514,7 +514,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="hourDown:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="NoB-0h-a9t"/>
+                                            <action selector="subtractHourCountButton:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="NoB-0h-a9t"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aB3-8f-b3z" customClass="Button" customModule="MillisecondTimer" customModuleProvider="target">
@@ -533,7 +533,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="minDown:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="EbM-dN-6U7"/>
+                                            <action selector="subtractMinuteCountButton:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="EbM-dN-6U7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GR3-0Y-Yfk" customClass="Button" customModule="MillisecondTimer" customModuleProvider="target">
@@ -552,7 +552,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="secDown:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="3ez-9V-Vwc"/>
+                                            <action selector="subtractSecondCountButton:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="3ez-9V-Vwc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -578,7 +578,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="hourUp:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="GMb-92-To3"/>
+                                            <action selector="addHourCountButton:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="GMb-92-To3"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" multipleTouchEnabled="YES" tag="1" contentMode="bottomLeft" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Moe-ao-nWA" customClass="Button" customModule="MillisecondTimer" customModuleProvider="target">
@@ -599,7 +599,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="minUp:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="rx4-PM-5Ih"/>
+                                            <action selector="addMinuteCountButton:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="rx4-PM-5Ih"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvx-zQ-uTH" customClass="Button" customModule="MillisecondTimer" customModuleProvider="target">
@@ -620,7 +620,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="secUp:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="qXl-GZ-bed"/>
+                                            <action selector="addSecondCountButton:" destination="I47-fJ-GwZ" eventType="touchUpInside" id="qXl-GZ-bed"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -905,7 +905,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="e8l-tf-bp5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FTn-U0-Sjr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

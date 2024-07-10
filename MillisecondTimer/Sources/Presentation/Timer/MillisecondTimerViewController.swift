@@ -14,6 +14,7 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
     
     @IBOutlet weak var adView: UIView!
     
+    @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var minLabel: UILabel!
     @IBOutlet weak var secLabel: UILabel!
@@ -34,15 +35,13 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
     @IBOutlet weak var millisecUpButton: UIButton!
     @IBOutlet weak var millisecDownButton: UIButton!
     
-    @IBOutlet weak var tipLabel: UILabel!
-    
     var hour = 0, minute = 0, second = 0, milliSecond = 0
-//    var timer = Timer()
+
     var timerStatus : Bool = false // 타이머 상태
     var count : Double = 0 // 타이머 시간
     var remainTime : Double = 0 // 남은 시간
     var elapsed : Double = 0 // 경과시간
-//    var backgroudTime : Date? // 백그라운드 경과시간
+
     
     private let viewModel = MillisecondTimerViewModel()
     private let adsManager = AdsManager()
@@ -51,6 +50,9 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
         super.viewDidLoad()
         UIButton.appearance().isExclusiveTouch = true // 버튼 멀티터치 막기
         viewModel.addTimerPushNotification()
+        viewModel.timerTextCallback = { [weak self] in
+            self?.timeLabelText()
+        }
         buttonEnable()
         TipLabel()
         self.navigationController?.navigationBar.topItem?.title="AD" //뷰 제목
@@ -60,9 +62,6 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         adsManager.rootViewController = self
-        viewModel.timerTextCallback = {
-            self.timeLabelText()
-        }
         viewModel.timerDelegate = self
     }
     
@@ -70,18 +69,19 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func timerStartStop(_ sender: Any) {
+    @IBAction func timerStartStopButton(_ sender: Any) {
         if viewModel.mTimer.status {
             viewModel.timerPause()
             startStopButton.setTitle(ButtonType.start.name, for: .normal)
+            buttonEnable()
             print("타이머 상태: ", viewModel.mTimer.status)
         }
         else if viewModel.mTimer.count > 0 {
             viewModel.timerPlay(timeUpdate: timeLabelText, timerReset: timerReset)
             startStopButton.setTitle(ButtonType.pause.name, for: .normal)
             viewModel.createTimerNotification()
-            print("타이머 상태: ", viewModel.mTimer.status)
             buttonDisable()
+            print("타이머 상태: ", viewModel.mTimer.status)
         }
         else {
             print("카운트를 시작하지 못하였습니다.")
@@ -100,30 +100,6 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
     
     func timerDidReset() {
         timerReset()
-    }
-
-    
-    func reset() // 초기화 함수 선언
-    {
-//        timerStop()
-        count = 0
-        remainTime = 0
-        elapsed = 0
-        self.startStopButton.setTitle(String(format: NSLocalizedString("시작", comment: "Start")), for: .normal)
-        
-        hour = 0
-        minute = 0
-        second = 0
-        milliSecond = 0
-        
-        hourLabel.text = "00"
-        minLabel.text = "00"
-        secLabel.text = "00"
-        milliSecLabel.text = "000"
-        print("초기화 남은 카운트:", count)
-        buttonEnable()
-        print("초기화 완료")
-        
     }
     
     @IBAction func resetButton(_ sender: Any) {
@@ -161,7 +137,7 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
         print("밀리초: ", milliSecond)
     }
     
-    func btnEffect() /* 버튼을 누를때 발생하는 효과 */
+    func buttonEffectTapped() /* 버튼을 누를때 발생하는 효과 */
     {
         if(SettingTableCell.vibrationCheck == true)
         {
@@ -272,136 +248,92 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
 //        }
 //    }
     
-    func upAlertError()
-    {
-        let alert = UIAlertController(title: String(format: NSLocalizedString("경고", comment: "Warning")), message: String(format: NSLocalizedString("타이머는 99시까지만 설정가능합니다.(설정할 수 있는 최대 시간값을 넘겼습니다)", comment: "")), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+    func addTimerAlertError() {
+        let alert = UIAlertController(title:  String(format: NSLocalizedString("오류!", comment: "Error")), message: String(format: NSLocalizedString("타이머는 99시까지만 설정가능합니다.(설정할 수 있는 최대 시간값을 넘겼습니다)", comment: "")), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .default))
         present(alert, animated: true, completion: nil)
     }
     
-    func downAlertError ()
-    {
+    func subtractTimerAlertError () {
         let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "Error")), message: String(format: NSLocalizedString("시간이 충분히 남아 있지 않아 시간을 감소할 수 없습니다.", comment: "Time is no")), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .destructive))
         present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func millisecUp(_ sender : Any)
-    {
-        if(count < 356400)
-        {
-            count += 0.001
-            btnEffect()
-            countLabel()
-        }
-        
-        else
-        {
-            upAlertError()
+    private func timerCountUpdate() {
+        timeLabelText()
+        buttonEffectTapped()
+    }
+    
+    @IBAction private func addMillisecondCountButton(_ sender : Any) {
+        if viewModel.mTimer.count < viewModel.maxCount {
+            viewModel.addTimerCount(unit: .millisecond)
+            timerCountUpdate()
+        } else {
+            addTimerAlertError()
         }
     }
     
-    @IBAction func millisecDown(_ sender : Any)
-    {
-        if count > 0.000
-        {
-            count -= 0.001
-            btnEffect()
-            print(count,"m시간을 감소 하였습니다")
-            countLabel()
-        }
-        else
-        {
-            downAlertError()
+    @IBAction private func subtractMillisecondCountButton(_ sender : Any) {
+        if viewModel.mTimer.count > viewModel.minimumCount {
+            viewModel.subtractTimerCount(unit: .millisecond)
+            timerCountUpdate()
+        } else {
+            subtractTimerAlertError()
         }
     }
     
-    @IBAction func secUp(_ sender:Any) {
-        if viewModel.mTimer.count < 356400 {
-            viewModel.secondCountUp()
-            timeLabelText()
-            btnEffect()
-        }
-        else {
-            upAlertError()
+    @IBAction private func addSecondCountButton(_ sender:Any) {
+        if viewModel.mTimer.count < viewModel.maxCount {
+            viewModel.addTimerCount(unit: .second)
+            timerCountUpdate()
+        } else {
+            addTimerAlertError()
         }
     }
     
-    @IBAction func secDown( _ sender : Any)
-    {
-        if count > 0
-        {
-            count -= 1
-            btnEffect()
-            print(count, "s시간을 감소 하였습니다")
-            countLabel()
-        }
-        else
-        {
-            downAlertError()
-            print("초가 충분히 남아 있지 않아 시간을 감소할 수 없습니다.")
-            print(count, "시간이 저장되어있다.")
+    @IBAction private func subtractSecondCountButton( _ sender : Any) {
+        if viewModel.mTimer.count > 0 {
+            viewModel.subtractTimerCount(unit: .second)
+            timerCountUpdate()
+        } else {
+            subtractTimerAlertError()
         }
     }
     
-    @IBAction func minUp(_ sender : Any)
-    {
-        if(count < 356400)
-        {
-            count += 60
-            btnEffect()
-            countLabel()
-        }
-        
-        else
-        {
-            upAlertError()
+    @IBAction func addMinuteCountButton(_ sender : Any) {
+        if viewModel.mTimer.count < viewModel.maxCount {
+            viewModel.addTimerCount(unit: .minute)
+            timerCountUpdate()
+        } else {
+            addTimerAlertError()
         }
     }
     
-    @IBAction func minDown(_ sender : Any)
-    {
-        if count > 59
-        {
-            count -= 60
-            btnEffect()
-            print(count, "분시간이 감소 하였습니다")
-            countLabel()
-        }
-        else
-        {
-            downAlertError()
-            print("분 시간이 충분히 남아 있지 않아 시간을 감소할 수 없습니다.")
-            print(count, "시간이 저장되어있다.")
+    @IBAction private func subtractMinuteCountButton(_ sender : Any) {
+        if viewModel.mTimer.count > 59 {
+            viewModel.subtractTimerCount(unit: .minute)
+            timerCountUpdate()
+        } else {
+            subtractTimerAlertError()
         }
     }
     
-    @IBAction func hourUp(_ sender : Any)
-    {
-        if(count < 356400) //99시간으로 제한(3자리 시간적용시 레이아웃깨짐)
-        {
-            count += 3600
-            countLabel()
-            btnEffect()
-        }
-        else
-        {
-            upAlertError()
+    @IBAction private func addHourCountButton(_ sender : Any) {
+        if viewModel.mTimer.count < viewModel.maxCount {
+            viewModel.addTimerCount(unit: .hour)
+            timerCountUpdate()
+        } else {
+            addTimerAlertError()
         }
     }
     
-    @IBAction func hourDown(_ sender : Any)
-    {
-        if count > 3599 {
-            count -= 3600
-            btnEffect()
-            countLabel()
-        }
-        else
-        {
-            downAlertError()
-            print("h 시간이 충분히 남아 있지 않아 시간을 감소할 수 없습니다.")
-            print(count, "시간이 저장되어있다.")
+    @IBAction private func subtractHourCountButton(_ sender : Any) {
+        if viewModel.mTimer.count > 3599 {
+            viewModel.subtractTimerCount(unit: .hour)
+            timerCountUpdate()
+        } else {
+            subtractTimerAlertError()
         }
     }
     
@@ -444,7 +376,7 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
                             print("입력한숫자값:", inputcount)
                             print(type(of: inputcount))
                         } else {
-                            self.upAlertError()
+                            self.addTimerAlertError()
                             print("99시간이 넘어간다.")
                         }
                     } else {
@@ -487,7 +419,7 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
                             print("입력한숫자값:", inputcount)
                             print(type(of: inputcount))
                         } else {
-                            self.upAlertError()
+                            self.addTimerAlertError()
                             print("99시간이 넘어간다.")
                         }
                     } else {
@@ -533,7 +465,7 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
                             print("입력한숫자값:", inputcount)
                             print(type(of: inputcount))
                         } else {
-                            self.upAlertError()
+                            self.addTimerAlertError()
                             print("99시간이 넘어간다.")
                         }
                     }
@@ -583,7 +515,7 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
                             print("입력한숫자값:", inputcount)
                             print(type(of: inputcount))
                         } else {
-                            self.upAlertError()
+                            self.addTimerAlertError()
                             print("99시간이 넘어간다.")
                         }
                     } else {
@@ -612,6 +544,7 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
         alert.addAction(ok)
         alert.addAction(cancel)
         present(alert, animated: true)
+        
     }
     
     private func TipLabel()
