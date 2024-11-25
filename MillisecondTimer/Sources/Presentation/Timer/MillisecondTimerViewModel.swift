@@ -24,13 +24,6 @@ final class MillisecondTimerViewModel {
     let maxCount: Double = 356400
     let minimumCount: Double = 0
     
-    enum TimeUnit {
-        case hour
-        case minute
-        case second
-        case millisecond
-    }
-    
     func timerPlay(timeUpdate: @escaping () -> (), timerReset: @escaping() -> ()) {
         mTimer.status = true
         let startTime = Date()
@@ -78,6 +71,11 @@ final class MillisecondTimerViewModel {
         mTimer.elapsed = 0
         timerDelegate?.timerDidReset()
         print("타이머 초기화")
+    }
+    
+    func addSecondsToTimer(_ seconds: Double) {
+        mTimer.count += seconds
+        currentTimerText(mTimer.count) // 저장되어 있는 타이머 계속하여 누적 표시
     }
     
     @discardableResult

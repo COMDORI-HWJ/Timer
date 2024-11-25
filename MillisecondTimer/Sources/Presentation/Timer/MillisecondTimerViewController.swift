@@ -1,4 +1,4 @@
-//  
+//
 //  MillisecondTimerViewController.swift
 //  MillisecondTimer
 //
@@ -36,12 +36,12 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
     @IBOutlet weak var millisecDownButton: UIButton!
     
     var hour = 0, minute = 0, second = 0, milliSecond = 0
-
+    
     var timerStatus : Bool = false // 타이머 상태
     var count : Double = 0 // 타이머 시간
     var remainTime : Double = 0 // 남은 시간
     var elapsed : Double = 0 // 경과시간
-
+    
     
     private let viewModel = MillisecondTimerViewModel()
     private let adsManager = AdsManager()
@@ -159,16 +159,16 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
         millisecUpButton.isEnabled = true
         millisecDownButton.isEnabled = true
         
-        let hourTap = UITapGestureRecognizer(target: self, action: #selector(MillisecondTimerViewController.HourLabeltap))
+        let hourTap = UITapGestureRecognizer(target: self, action: #selector(MillisecondTimerViewController.hourLabeltap))
         hourLabel.addGestureRecognizer(hourTap)
         hourLabel.isUserInteractionEnabled = true
-        let minTap = UITapGestureRecognizer(target: self, action: #selector(MillisecondTimerViewController.MinLabeltap))
+        let minTap = UITapGestureRecognizer(target: self, action: #selector(MillisecondTimerViewController.minuteLabeltap))
         minLabel.addGestureRecognizer(minTap)
         minLabel.isUserInteractionEnabled = true
-        let secTap = UITapGestureRecognizer(target: self, action: #selector(MillisecondTimerViewController.SecLabeltap))
+        let secTap = UITapGestureRecognizer(target: self, action: #selector(MillisecondTimerViewController.secondLabeltap))
         secLabel.addGestureRecognizer(secTap)
         secLabel.isUserInteractionEnabled = true
-        let milliSecTap = UITapGestureRecognizer(target: self, action: #selector(MillisecondTimerViewController.MillisecLabeltap))
+        let milliSecTap = UITapGestureRecognizer(target: self, action: #selector(MillisecondTimerViewController.millisecondLabeltap))
         milliSecLabel.addGestureRecognizer(milliSecTap)
         milliSecLabel.isUserInteractionEnabled = true
     }
@@ -191,61 +191,61 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
     
     
     // MARK: - Push 알림 관련
-//    func timerNoti()
-//    {
-//        let notificationCenter = NotificationCenter.default
-//        // 백그라운드 상태
-//        notificationCenter.addObserver(self, selector: #selector(backgroudTimer), name: UIApplication.willResignActiveNotification, object: nil)
-//        // 포그라운드 상태
-//        notificationCenter.addObserver(self, selector: #selector(foregroundTimer), name: UIApplication.willEnterForegroundNotification, object: nil)
-//        
-//    }
+    //    func timerNoti()
+    //    {
+    //        let notificationCenter = NotificationCenter.default
+    //        // 백그라운드 상태
+    //        notificationCenter.addObserver(self, selector: #selector(backgroudTimer), name: UIApplication.willResignActiveNotification, object: nil)
+    //        // 포그라운드 상태
+    //        notificationCenter.addObserver(self, selector: #selector(foregroundTimer), name: UIApplication.willEnterForegroundNotification, object: nil)
+    //
+    //    }
     
     
-//    @objc func backgroudTimer() {
-//        print("백그라운드 타이머 작동")
-//        
-//        if viewModel.mTimer.status == true {
-//            timerStop()
-////            //            viewModel.mTimer.status = true
-////            viewModel.mTimer.backgroudTime = Date()
-////            
-////            print("백그라운드 남은 시간" , viewModel.mTimer.remainTime)
-////            print("타이머 상태: ", viewModel.mTimer.status)
-////            
-////            sendNotification()
-//            viewModel.backgroundTimer()
-//            viewModel.createTimerNotification()
-//        }
-//        else {
-//            timerStop()
-////            removeAllNotifications()
-////            print("타이머 상태: ", timerStatus)
-//            viewModel.backgroundTimer()
-//        }
-//    }
-//    
-//    @objc
-//    func foregroundTimer() {
-//        
-//        print("포그라운드 타이머 작동")
-//        print("타이머 상태: ", viewModel.mTimer.status)
-//        guard let startTime = viewModel.mTimer.backgroudTime else { return }
-//        let timeInterval = Date().timeIntervalSince(startTime)
-//        
-//        DispatchQueue.main.async { [self] in
-//            
-//            if viewModel.mTimer.status == true {
-//                //                self?.timeIntervalBackground(timeInterval)
-//                viewModel.backgroundTimeInterval(timeInterval)
-//                timerPlay()
-//            }
-//            else {
-//                timerStop()
-//                reset()
-//            }
-//        }
-//    }
+    //    @objc func backgroudTimer() {
+    //        print("백그라운드 타이머 작동")
+    //
+    //        if viewModel.mTimer.status == true {
+    //            timerStop()
+    ////            //            viewModel.mTimer.status = true
+    ////            viewModel.mTimer.backgroudTime = Date()
+    ////
+    ////            print("백그라운드 남은 시간" , viewModel.mTimer.remainTime)
+    ////            print("타이머 상태: ", viewModel.mTimer.status)
+    ////
+    ////            sendNotification()
+    //            viewModel.backgroundTimer()
+    //            viewModel.createTimerNotification()
+    //        }
+    //        else {
+    //            timerStop()
+    ////            removeAllNotifications()
+    ////            print("타이머 상태: ", timerStatus)
+    //            viewModel.backgroundTimer()
+    //        }
+    //    }
+    //
+    //    @objc
+    //    func foregroundTimer() {
+    //
+    //        print("포그라운드 타이머 작동")
+    //        print("타이머 상태: ", viewModel.mTimer.status)
+    //        guard let startTime = viewModel.mTimer.backgroudTime else { return }
+    //        let timeInterval = Date().timeIntervalSince(startTime)
+    //
+    //        DispatchQueue.main.async { [self] in
+    //
+    //            if viewModel.mTimer.status == true {
+    //                //                self?.timeIntervalBackground(timeInterval)
+    //                viewModel.backgroundTimeInterval(timeInterval)
+    //                timerPlay()
+    //            }
+    //            else {
+    //                timerStop()
+    //                reset()
+    //            }
+    //        }
+    //    }
     
     private func presentAlert(title: String? = nil, message: String, actions: [UIAlertAction], textField: ((UITextField) -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -254,7 +254,7 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
         }
         actions.forEach { alertController.addAction($0) }
         present(alertController, animated: true, completion: nil)
-        }
+    }
     
     func addTimerAlertError() {
         let action = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .default)
@@ -343,213 +343,267 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
         }
     }
     
-    @objc func HourLabeltap(sender:UITapGestureRecognizer) {
+    @objc func hourLabeltap(sender:UITapGestureRecognizer) {
         print("HourLabel tap working")
-        Hourinput()
+        presetHourInputAlert()
     }
     
-    @objc func MinLabeltap(sender:UITapGestureRecognizer) {
+    @objc func minuteLabeltap(sender:UITapGestureRecognizer) {
         print("MinLabel tap working")
-        Mininput()
+        presentMinuteInputAlert()
     }
     
-    @objc func SecLabeltap(sender:UITapGestureRecognizer) {
+    @objc func secondLabeltap(sender:UITapGestureRecognizer) {
         print("SecLabel tap working")
-        Secinput()
+        presentSecondInputAlert()
     }
     
-    @objc func MillisecLabeltap(sender:UITapGestureRecognizer) {
+    @objc func millisecondLabeltap(sender:UITapGestureRecognizer) {
         print("MillisecLabel tap working")
-        Millisecinput()
+        presentMillisecondInputAlert()
     }
     
-    func Hourinput() {
-        let alertController = UIAlertController(title: String(format: NSLocalizedString("타이머 시간을 입력하세요", comment: "Enter the timer hours")), message: String(format: NSLocalizedString("1시간은 1을 입력하면됩니다. 예) 99입력→99시간", comment: "")), preferredStyle: .alert)
-        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .default) { (_) in
-            print("알림창에서 확인을 눌렀습니다.")
-            if let txt = alertController.textFields?.first {
-                if txt.text?.isEmpty != true { // https://jeonyeohun.tistory.com/87 타입추론 형 변환
-                    print("입력값: ", txt.text!)
-                    if let inputcount = Int(txt.text!){ // https://developer.apple.com/forums/thread/100634 숫자 판별
-                        if inputcount < 356400 && txt.text!.count < 3 {
-                            self.count = Double(inputcount * 3600) + self.count
-                            self.countLabel()
-                            print("입력한숫자값:", inputcount)
-                            print(type(of: inputcount))
-                        } else {
-                            self.addTimerAlertError()
-                            print("99시간이 넘어간다.")
-                        }
-                    } else {
-                        let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: String(format: NSLocalizedString("시간은 숫자만 입력가능합니다.", comment: "")), preferredStyle: UIAlertController.Style.alert)
-                        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .destructive, handler: nil)
-                        alert.addAction(ok)
-                        self.present(alert, animated: false, completion: nil)
-                        print("숫자가 아님.")
-                    }
-                }
-                 else {
-                    print("입력값이 없습니다.")
-                }
-            }
+    private func presentTimeInputAlert(title: String, message: String, unit: TimeUnit) {
+        let alertController = UIAlertController(title: NSLocalizedString(title, comment: ""), message: NSLocalizedString(message, comment: ""), preferredStyle: .alert)
+        let okAction = UIAlertAction(title: NSLocalizedString("확인", comment: "OK"), style: .default) { [weak self] _ in
+            self?.handleTimeInput(alertController.textFields?.first?.text, unit: unit)
         }
+        let cancelAction = UIAlertAction(title: NSLocalizedString("취소", comment: "Cancel"), style: .cancel)
         
-        let cancel = UIAlertAction(title: String(format: NSLocalizedString("취소", comment: "Cancel")), style: .cancel)
-        alertController.addTextField() { (textField) in
-            textField.placeholder = String(format: NSLocalizedString("이곳에 시간을 입력하세요.", comment: ""))
-            textField.textContentType = .creditCardNumber // 숫자 키패드
+        alertController.addTextField { textField in
+            textField.placeholder = NSLocalizedString("이곳에 \(unit.description)을 입력하세요.", comment: "")
             textField.keyboardType = .numberPad
         }
-        alertController.addAction(ok)
-        alertController.addAction(cancel)
+        
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
         present(alertController, animated: true)
     }
     
-    func Mininput()
-    {
-        let alert = UIAlertController(title: String(format: NSLocalizedString("타이머 분을 입력하세요", comment: "Enter the timer minutes")), message: String(format: NSLocalizedString("1분은 1을 입력하세요. 예) 33입력→33분", comment: "1 minutes = Enter 1 Ex) 33input → 33minutes")), preferredStyle: .alert)
-        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "")), style: .default) { (_) in
-            print("알림창에서 확인을 눌렀습니다.")
-            if let txt = alert.textFields?.first {
-                if txt.text?.isEmpty != true {
-                    print("입력값: ", txt.text!)
-                    if let inputcount = Int(txt.text!){
-                        if inputcount < 356400 && txt.text!.count < 3 {
-                            self.count = Double(inputcount * 60) + self.count
-                            self.countLabel()
-                            print("입력한숫자값:", inputcount)
-                            print(type(of: inputcount))
-                        } else {
-                            self.addTimerAlertError()
-                            print("99시간이 넘어간다.")
-                        }
-                    } else {
-                        let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: String(format: NSLocalizedString("시간은 숫자만 입력가능합니다.", comment: "")), preferredStyle: UIAlertController.Style.alert)
-                        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .destructive, handler: nil)
-                        alert.addAction(ok)
-                        self.present(alert, animated: false, completion: nil)
-                        print("숫자가 아님.")
-                    }
-                    
-                }
-                else {
-                    print("입력값이 없습니다.")
-                }
-            }
+    private func handleTimeInput(_ input: String?, unit: TimeUnit) {
+        guard let inputText = input, !inputText.isEmpty else {
+            print("입력값이 없습니다.")
+            return
         }
         
-        let cancel = UIAlertAction(title: String(format: NSLocalizedString("취소", comment: "Cancel")), style: .cancel)
-        
-        alert.addTextField() { (textField) in
-            textField.placeholder = String(format: NSLocalizedString("이곳에 분을 입력하세요.", comment: ""))
-            textField.textContentType = .creditCardNumber
-            textField.keyboardType = .numberPad
-            
+        guard let inputValue = Double(inputText) else {
+            presentErrorAlert(message: "시간은 숫자만 입력 가능합니다.")
+            return
         }
-        alert.addAction(ok)
-        alert.addAction(cancel)
-        present(alert, animated: true)
+        
+        if inputValue < 356400 && (unit != .hour || inputText.count < 3) {
+            let seconds = unit.toSeconds(inputValue)
+            viewModel.addSecondsToTimer(seconds)
+            timerCountUpdate()
+            print("입력한 \(unit.description):", inputValue)
+        } else {
+            addTimerAlertError()
+            print("99시간이 넘어갑니다.")
+        }
     }
     
-    func Secinput()
-    {
-        let alert = UIAlertController(title: String(format: NSLocalizedString("타이머 초를 입력하세요", comment: "")), message: String(format: NSLocalizedString("1초는 1을 입력하세요. 예) 55입력→55초", comment: "")), preferredStyle: .alert)
-        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "")), style: .default) { (_) in
-            print("알림창에서 확인을 눌렀습니다.")
-            if let txt = alert.textFields?.first {
-                if txt.text?.isEmpty != true {
-                    print("입력값: ", txt.text!)
-                    if let inputcount = Double(txt.text!){
-                        if inputcount < 356400 {
-                            self.count = Double(inputcount) + self.count
-                            self.countLabel()
-                            print("입력한숫자값:", inputcount)
-                            print(type(of: inputcount))
-                        } else {
-                            self.addTimerAlertError()
-                            print("99시간이 넘어간다.")
-                        }
-                    }
-                    else {
-                        let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: String(format: NSLocalizedString("시간은 숫자만 입력가능합니다.", comment: "")), preferredStyle: UIAlertController.Style.alert)
-                        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .destructive, handler: nil)
-                        alert.addAction(ok)
-                        self.present(alert, animated: false, completion: nil)
-                        print("숫자가 아님.")
-                    }
-                }
-                else {
-                    print("입력값이 없습니다.")
-                }
-                
-                            }
-        }
-        
-        
-        
-        let cancel = UIAlertAction(title: String(format: NSLocalizedString("취소", comment: "Cancel")), style: .cancel)
-        
-        
-        
-        alert.addTextField() { (textField) in
-            textField.placeholder = String(format: NSLocalizedString("이곳에 초를 입력하세요.", comment: ""))
-            textField.textContentType = .creditCardNumber
-            textField.keyboardType = .numberPad
-        }
-        alert.addAction(ok)
-        alert.addAction(cancel)
-        present(alert, animated: true)
+    private func presentErrorAlert(message: String) {
+        let alert = UIAlertController(title: NSLocalizedString("오류", comment: ""), message: NSLocalizedString(message, comment: ""), preferredStyle: .alert)
+        let okAction = UIAlertAction(title: NSLocalizedString("확인", comment: "OK"), style: .destructive)
+        alert.addAction(okAction)
+        present(alert, animated: false)
     }
     
-    func Millisecinput()
-    {
-        let alert = UIAlertController(title: String(format: NSLocalizedString("타이머 밀리초를 입력하세요", comment: "")), message: String(format: NSLocalizedString("0.001초는 1을 입력하면됩니다. 예) 777입력→0.777밀리초", comment: "")), preferredStyle: .alert)
-        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .default) { (_) in
-            print("알림창에서 확인을 눌렀습니다.")
-            if let txt = alert.textFields?.first {
-                if txt.text?.isEmpty != true {
-                    print("입력값: ", txt.text!)
-                    if let inputcount = Double(txt.text!){
-                        if inputcount < 356400 {
-                            self.count = (inputcount * 0.001) + self.count
-                            self.countLabel()
-                            print("입력한숫자값:", inputcount)
-                            print(type(of: inputcount))
-                        } else {
-                            self.addTimerAlertError()
-                            print("99시간이 넘어간다.")
-                        }
-                    } else {
-                        let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: String(format: NSLocalizedString("시간은 숫자만 입력가능합니다.", comment: "")), preferredStyle: UIAlertController.Style.alert)
-                        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .destructive, handler: nil)
-                        alert.addAction(ok)
-                        self.present(alert, animated: false, completion: nil)
-                        print("숫자가 아님.")
-                    }
-                    
-                }
-                else {
-                    print("입력값이 없습니다.")
-                }
-            }
-        }
-        
-        let cancel = UIAlertAction(title: String(format: NSLocalizedString("취소", comment: "Cancel")), style: .cancel)
-        
-        alert.addTextField() { (textField) in
-            textField.placeholder = String(format: NSLocalizedString("이곳에 밀리초를 입력하세요.", comment: ""))
-            textField.textContentType = .creditCardNumber
-            textField.keyboardType = .numberPad
-            
-        }
-        alert.addAction(ok)
-        alert.addAction(cancel)
-        present(alert, animated: true)
-        
+    private func presetHourInputAlert() {
+        presentTimeInputAlert(title: "타이머 시간을 입력하세요", message: "1시간은 1을 입력하면됩니다. 예)99입력→99시간", unit: .hour)
     }
     
-    private func TipLabel()
-    {
+    private func presentMinuteInputAlert() {
+        presentTimeInputAlert(title: "타이머 분을 입력하세요", message: "1분은 1을 입력하면됩니다. 예) 33입력→33분", unit: .minute)
+    }
+    
+    private func presentSecondInputAlert() {
+        presentTimeInputAlert(title: "타이머 초를 입력하세요", message: "1초는 1을 입력하면됩니다. 예) 55입력→55초", unit: .second)
+    }
+    
+    private func presentMillisecondInputAlert() {
+        presentTimeInputAlert(title: "타이머 밀리초를 입력하세요", message: "0.001초는 1을 입력하면됩니다. \n예) 777입력→0.777밀리초", unit: .millisecond)
+    }
+    
+    //        let alertController = UIAlertController(title: String(format: NSLocalizedString("타이머 시간을 입력하세요", comment: "Enter the timer hours")), message: String(format: NSLocalizedString("1시간은 1을 입력하면됩니다. 예) 99입력→99시간", comment: "")), preferredStyle: .alert)
+    //
+    //        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .default) { (_) in
+    //            print("알림창에서 확인을 눌렀습니다.")
+    //            if let txt = alertController.textFields?.first {
+    //                if txt.text?.isEmpty != true { // https://jeonyeohun.tistory.com/87 타입추론 형 변환
+    //                    print("입력값: ", txt.text!)
+    //                    if let inputcount = Int(txt.text!){ // https://developer.apple.com/forums/thread/100634 숫자 판별
+    //                        if inputcount < 356400 && txt.text!.count < 3 {
+    //                            self.count = Double(inputcount * 3600) + self.count
+    //                            self.countLabel()
+    //                            print("입력한숫자값:", inputcount)
+    //                            print(type(of: inputcount))
+    //                        } else {
+    //                            self.addTimerAlertError()
+    //                            print("99시간이 넘어간다.")
+    //                        }
+    //                    } else {
+    //                        let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: String(format: NSLocalizedString("시간은 숫자만 입력가능합니다.", comment: "")), preferredStyle: UIAlertController.Style.alert)
+    //                        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .destructive, handler: nil)
+    //                        alert.addAction(ok)
+    //                        self.present(alert, animated: false, completion: nil)
+    //                        print("숫자가 아님.")
+    //                    }
+    //                }
+    //                 else {
+    //                    print("입력값이 없습니다.")
+    //                }
+    //            }
+    //        }
+    //
+    //        let cancel = UIAlertAction(title: String(format: NSLocalizedString("취소", comment: "Cancel")), style: .cancel)
+    //        alertController.addTextField() { (textField) in
+    //            textField.placeholder = String(format: NSLocalizedString("이곳에 시간을 입력하세요.", comment: ""))
+    //            textField.textContentType = .creditCardNumber // 숫자 키패드
+    //            textField.keyboardType = .numberPad
+    //        }
+    //        alertController.addAction(ok)
+    //        alertController.addAction(cancel)
+    //        present(alertController, animated: true)
+    //    }
+    
+    //    func Mininput() {
+    //        let alert = UIAlertController(title: String(format: NSLocalizedString("타이머 분을 입력하세요", comment: "Enter the timer minutes")), message: String(format: NSLocalizedString("1분은 1을 입력하세요. 예) 33입력→33분", comment: "1 minutes = Enter 1 Ex) 33input → 33minutes")), preferredStyle: .alert)
+    //        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "")), style: .default) { (_) in
+    //            print("알림창에서 확인을 눌렀습니다.")
+    //            if let txt = alert.textFields?.first {
+    //                if txt.text?.isEmpty != true {
+    //                    print("입력값: ", txt.text!)
+    //                    if let inputcount = Int(txt.text!){
+    //                        if inputcount < 356400 && txt.text!.count < 3 {
+    //                            self.count = Double(inputcount * 60) + self.count
+    //                            self.countLabel()
+    //                            print("입력한숫자값:", inputcount)
+    //                            print(type(of: inputcount))
+    //                        } else {
+    //                            self.addTimerAlertError()
+    //                            print("99시간이 넘어간다.")
+    //                        }
+    //                    } else {
+    //                        let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: String(format: NSLocalizedString("시간은 숫자만 입력가능합니다.", comment: "")), preferredStyle: UIAlertController.Style.alert)
+    //                        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .destructive, handler: nil)
+    //                        alert.addAction(ok)
+    //                        self.present(alert, animated: false, completion: nil)
+    //                        print("숫자가 아님.")
+    //                    }
+    //
+    //                }
+    //                else {
+    //                    print("입력값이 없습니다.")
+    //                }
+    //            }
+    //        }
+    //
+    //        let cancel = UIAlertAction(title: String(format: NSLocalizedString("취소", comment: "Cancel")), style: .cancel)
+    //
+    //        alert.addTextField() { (textField) in
+    //            textField.placeholder = String(format: NSLocalizedString("이곳에 분을 입력하세요.", comment: ""))
+    //            textField.textContentType = .creditCardNumber
+    //            textField.keyboardType = .numberPad
+    //
+    //        }
+    //        alert.addAction(ok)
+    //        alert.addAction(cancel)
+    //        present(alert, animated: true)
+    //    }
+    //
+    //    func Secinput() {
+    //        let alert = UIAlertController(title: String(format: NSLocalizedString("타이머 초를 입력하세요", comment: "")), message: String(format: NSLocalizedString("1초는 1을 입력하세요. 예) 55입력→55초", comment: "")), preferredStyle: .alert)
+    //        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "")), style: .default) { (_) in
+    //            print("알림창에서 확인을 눌렀습니다.")
+    //            if let txt = alert.textFields?.first {
+    //                if txt.text?.isEmpty != true {
+    //                    print("입력값: ", txt.text!)
+    //                    if let inputcount = Double(txt.text!){
+    //                        if inputcount < 356400 {
+    //                            self.count = Double(inputcount) + self.count
+    //                            self.countLabel()
+    //                            print("입력한숫자값:", inputcount)
+    //                            print(type(of: inputcount))
+    //                        } else {
+    //                            self.addTimerAlertError()
+    //                            print("99시간이 넘어간다.")
+    //                        }
+    //                    }
+    //                    else {
+    //                        let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: String(format: NSLocalizedString("시간은 숫자만 입력가능합니다.", comment: "")), preferredStyle: UIAlertController.Style.alert)
+    //                        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .destructive, handler: nil)
+    //                        alert.addAction(ok)
+    //                        self.present(alert, animated: false, completion: nil)
+    //                        print("숫자가 아님.")
+    //                    }
+    //                }
+    //                else {
+    //                    print("입력값이 없습니다.")
+    //                }
+    //
+    //                            }
+    //        }
+    //
+    //        let cancel = UIAlertAction(title: String(format: NSLocalizedString("취소", comment: "Cancel")), style: .cancel)
+    //
+    //        alert.addTextField() { (textField) in
+    //            textField.placeholder = String(format: NSLocalizedString("이곳에 초를 입력하세요.", comment: ""))
+    //            textField.textContentType = .creditCardNumber
+    //            textField.keyboardType = .numberPad
+    //        }
+    //        alert.addAction(ok)
+    //        alert.addAction(cancel)
+    //        present(alert, animated: true)
+    //    }
+    //
+    //    func Millisecinput() {
+    //        let alert = UIAlertController(title: String(format: NSLocalizedString("타이머 밀리초를 입력하세요", comment: "")), message: String(format: NSLocalizedString("0.001초는 1을 입력하면됩니다. 예) 777입력→0.777밀리초", comment: "")), preferredStyle: .alert)
+    //        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .default) { (_) in
+    //            print("알림창에서 확인을 눌렀습니다.")
+    //            if let txt = alert.textFields?.first {
+    //                if txt.text?.isEmpty != true {
+    //                    print("입력값: ", txt.text!)
+    //                    if let inputcount = Double(txt.text!){
+    //                        if inputcount < 356400 {
+    //                            self.count = (inputcount * 0.001) + self.count
+    //                            self.countLabel()
+    //                            print("입력한숫자값:", inputcount)
+    //                            print(type(of: inputcount))
+    //                        } else {
+    //                            self.addTimerAlertError()
+    //                            print("99시간이 넘어간다.")
+    //                        }
+    //                    } else {
+    //                        let alert = UIAlertController(title: String(format: NSLocalizedString("오류!", comment: "")), message: String(format: NSLocalizedString("시간은 숫자만 입력가능합니다.", comment: "")), preferredStyle: UIAlertController.Style.alert)
+    //                        let ok = UIAlertAction(title: String(format: NSLocalizedString("확인", comment: "OK")), style: .destructive, handler: nil)
+    //                        alert.addAction(ok)
+    //                        self.present(alert, animated: false, completion: nil)
+    //                        print("숫자가 아님.")
+    //                    }
+    //
+    //                }
+    //                else {
+    //                    print("입력값이 없습니다.")
+    //                }
+    //            }
+    //        }
+    //
+    //        let cancel = UIAlertAction(title: String(format: NSLocalizedString("취소", comment: "Cancel")), style: .cancel)
+    //
+    //        alert.addTextField() { (textField) in
+    //            textField.placeholder = String(format: NSLocalizedString("이곳에 밀리초를 입력하세요.", comment: ""))
+    //            textField.textContentType = .creditCardNumber
+    //            textField.keyboardType = .numberPad
+    //
+    //        }
+    //        alert.addAction(ok)
+    //        alert.addAction(cancel)
+    //        present(alert, animated: true)
+    //
+    //    }
+    
+    private func TipLabel() {
         tipLabel.text = String(format: NSLocalizedString("빠르게 시간을 변경하려면 타이머 숫자를 탭하세요.\n시:분:초:밀리초", comment: ""))
     }
 }
