@@ -10,7 +10,7 @@ import AVFoundation
 import UserNotifications
 import SystemConfiguration
 
-class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate {
+final class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate {
     
     @IBOutlet weak var adView: UIView!
     @IBOutlet weak var tipLabel: UILabel!
@@ -47,7 +47,7 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
         }
         buttonEnable()
         TipLabel()
-        self.navigationController?.navigationBar.topItem?.title="AD" //뷰 제목
+        self.navigationController?.navigationBar.topItem?.title = "AD" //뷰 제목
     }
     
     override func didReceiveMemoryWarning() {
@@ -101,11 +101,11 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
     }
     
     func buttonEffectTapped() { // 버튼을 누를때 발생하는 효과
-        if(SettingTableCell.vibrationCheck == true) {
-            print("진동: ",SettingTableCell.vibrationCheck)
+        if(SettingTableViewController.vibrationCheck == true) {
+            print("진동: ",SettingTableViewController.vibrationCheck)
             UIImpactFeedbackGenerator(style: .heavy).impactOccurred() // 탭틱 엔진이 있는 경우만 작동, 진동세기 강하게
         } else {
-            print("진동: ",SettingTableCell.vibrationCheck)
+            print("진동: ",SettingTableViewController.vibrationCheck)
         }
         //AudioServicesPlaySystemSound(1016) // 소리발생
     }
@@ -201,7 +201,7 @@ class MillisecondTimerViewController: UIViewController, MillisecondTimerDelegate
         }
     }
     
-    @IBAction private func subtractSecondCountButton( _ sender : Any) {
+    @IBAction private func subtractSecondCountButton(_ sender : Any) {
         if viewModel.mTimer.count > 0.9999 {
             viewModel.subtractTimerCount(unit: .second)
             timerCountUpdate()

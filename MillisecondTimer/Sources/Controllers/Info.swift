@@ -36,7 +36,7 @@ class Info: UIViewController {
     }
     
     func appver () {
-        print("앱버전", SettingTableCell().version())
-        ver.text =  String(format: NSLocalizedString("버전 : ", comment: "App Version"))+"\(SettingTableCell().version())"
+        print("앱버전", SettingTableViewController().version())
+        ver.text =  String(format: NSLocalizedString("버전 : ", comment: "App Version"))+"\(SettingTableViewController().version())"
     }
 }

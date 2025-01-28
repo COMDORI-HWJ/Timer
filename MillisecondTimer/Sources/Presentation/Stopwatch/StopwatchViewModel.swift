@@ -76,12 +76,12 @@ final class StopwatchViewModel {
     }
     
     func buttonVibrationEffect() {
-        if(SettingTableCell.vibrationCheck == true) {
-            print("진동: ",SettingTableCell.vibrationCheck)
+        if(SettingTableViewController.vibrationCheck == true) {
+            print("진동: ",SettingTableViewController.vibrationCheck)
             UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
         }
         else {
-            print("진동: ",SettingTableCell.vibrationCheck)
+            print("진동: ",SettingTableViewController.vibrationCheck)
         }
     }
 }

@@ -19,7 +19,7 @@ final class MillisecondTimerViewModel {
     weak var timerDelegate: MillisecondTimerDelegate?
     
     private(set) var mTimer = Mtimer()
-    private let setting = SettingTableCell()
+    private let setting = SettingTableViewController()
     
     let maxCount: Double = 356400
     let minimumCount: Double = 0
@@ -32,12 +32,12 @@ final class MillisecondTimerViewModel {
             timeCalculate(timeInterval)
             timeUpdate()
             guard mTimer.remainTime > trunc(0) else {
-                if SettingTableCell.soundCheck == true {
+                if SettingTableViewController.soundCheck == true {
                     AudioServicesPlaySystemSound(1016)
                     AudioServicesPlaySystemSound(4095)
                 }
                 else {
-                    print("Sound: ",SettingTableCell.soundCheck)
+                    print("Sound: ",SettingTableViewController.soundCheck)
                 }
                 resetTimer()
                 timerReset()
