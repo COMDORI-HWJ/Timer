@@ -5,26 +5,13 @@
 //  Created by WONJI HA on 2021/10/22.
 //
 
-/* Reference
- https://philosopher-chan.tistory.com/1032 테이블 셀 클릭 이벤트 처리
- https://stackoverflow.com/questions/37558333/select-cell-in-tableview-section 테이블 섹션 구분
- https://sweetdev.tistory.com/105 셀 선택시 바로 deselect 시켜버리기
- https://velog.io/@minji0801/iOS-Swift-iOS-%EA%B8%B0%EA%B8%B0%EC%97%90%EC%84%9C-Mail-%EC%95%B1-%EC%9D%B4%EC%9A%A9%ED%95%B4%EC%84%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EB%B3%B4%EB%82%B4%EB%8A%94-%EB%B0%A9%EB%B2%95 메일 보내기
- https://borabong.tistory.com/6 메일컨트롤러 dismiss
- https://www.reddit.com/r/swift/comments/wsvmse/id_like_to_make_the_uiswitch_be_in_the_on/ 앱 처음 설치시 스위치 켜짐 상태
- https://0urtrees.tistory.com/344 StoreKit, iOS앱 리뷰유도 기능 requestReview deprecated 경고 해결방법
- https://stackoverflow.com/questions/63953891/requestreview-was-deprecated-in-ios-14-0 앱 리뷰 경고 해결방법2
- https://zeddios.tistory.com/107  UserDefaults 사용하여 데이터 저장
- https://babbab2.tistory.com/119 소리 확인 변수 *static 프로퍼티를 사용해야 값이 수정된다.
- */
 
-import Foundation
 import UIKit
 import AVFoundation // 소리, 진동
 import MessageUI
 import StoreKit
 
-class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegate{
+class SettingTableViewController:UITableViewController, MFMailComposeViewControllerDelegate{
     
     @IBOutlet var soundSwitch: UISwitch!
     @IBOutlet var vibrationSwitch: UISwitch!
@@ -35,7 +22,7 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
     let ud = UserDefaults.standard
     let vibrationKey = "vibrationKey"
     let soundKey = "soundKey"
-            
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,40 +36,33 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
         
         ud.register(defaults: ["vibrationKey" : true])
         ud.register(defaults: ["soundKey" : true])
-
+        
         vibrationSwitch.isOn = ud.bool(forKey: vibrationKey)
         soundSwitch.isOn = ud.bool(forKey: soundKey)
     }
     
     @IBAction func sound(_ sender: UISwitch) {
-       
-        if(sender.isOn)
-        {
-            SettingTableCell.soundCheck = true
+        if(sender.isOn) {
+            SettingTableViewController.soundCheck = true
             AudioServicesPlaySystemSound(1016) // "트윗" 소리
             AudioServicesPlaySystemSound(4095) // 진동
-            print("소리확인 결과: ",SettingTableCell.soundCheck)
-        }
-        else
-        {
-            SettingTableCell.soundCheck = false
-            print("소리확인 결과: ",SettingTableCell.soundCheck)
+            print("소리확인 결과: ",SettingTableViewController.soundCheck)
+        } else {
+            SettingTableViewController.soundCheck = false
+            print("소리확인 결과: ",SettingTableViewController.soundCheck)
         }
         ud.set(soundSwitch.isOn, forKey: soundKey)
     }
-
-    @IBAction func vibration(_ sender: Any){
+    
+    @IBAction func vibration(_ sender: Any) {
         
-        if(vibrationSwitch.isOn)
-        {
+        if(vibrationSwitch.isOn) {
             UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-            SettingTableCell.vibrationCheck = true
-            print("진동체크 결과: ", SettingTableCell.vibrationCheck)
-        }
-        else
-        {
-            SettingTableCell.vibrationCheck = false
-            print("진동체크 결과: ", SettingTableCell.vibrationCheck)
+            SettingTableViewController.vibrationCheck = true
+            print("진동체크 결과: ", SettingTableViewController.vibrationCheck)
+        } else {
+            SettingTableViewController.vibrationCheck = false
+            print("진동체크 결과: ", SettingTableViewController.vibrationCheck)
         }
         ud.set(vibrationSwitch.isOn, forKey: vibrationKey)
     }
@@ -92,7 +72,7 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
               let version = dictionary["CFBundleShortVersionString"] as? String else { return "" }
         return version
     }
-
+    
     // Device Identifier 찾기
     func getDeviceIdentifier() -> String {
         var systemInfo = utsname()
@@ -102,24 +82,17 @@ class SettingTableCell:UITableViewController, MFMailComposeViewControllerDelegat
             guard let value = element.value as? Int8, value != 0 else { return identifier }
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
-        
         return identifier
     }
-        
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection
-                                section: Int) -> String? {
-        
-        if section == 0
-        {
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
             return String(format: NSLocalizedString("기능 설정", comment: "기능설정"))
         }
-        
-        if section == 1
-        {
+        if section == 1 {
             return String(format: NSLocalizedString("지원", comment: "지원"))
         }
-        
-       return "Header \(section)"
+        return "Header \(section)"
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

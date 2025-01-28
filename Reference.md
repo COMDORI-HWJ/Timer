@@ -61,6 +61,21 @@
 
  */
  
+ /** Setting
+ https://philosopher-chan.tistory.com/1032 테이블 셀 클릭 이벤트 처리
+ https://stackoverflow.com/questions/37558333/select-cell-in-tableview-section 테이블 섹션 구분
+ https://sweetdev.tistory.com/105 셀 선택시 바로 deselect 시켜버리기
+ https://velog.io/@minji0801/iOS-Swift-iOS-%EA%B8%B0%EA%B8%B0%EC%97%90%EC%84%9C-Mail-%EC%95%B1-%EC%9D%B4%EC%9A%A9%ED%95%B4%EC%84%9C-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EB%B3%B4%EB%82%B4%EB%8A%94-%EB%B0%A9%EB%B2%95 메일 보내기
+ https://borabong.tistory.com/6 메일컨트롤러 dismiss
+ https://www.reddit.com/r/swift/comments/wsvmse/id_like_to_make_the_uiswitch_be_in_the_on/ 앱 처음 설치시 스위치 켜짐 상태
+ https://0urtrees.tistory.com/344 StoreKit, iOS앱 리뷰유도 기능 requestReview deprecated 경고 해결방법
+ https://stackoverflow.com/questions/63953891/requestreview-was-deprecated-in-ios-14-0 앱 리뷰 경고 해결방법2
+ https://zeddios.tistory.com/107  UserDefaults 사용하여 데이터 저장
+ https://babbab2.tistory.com/119 소리 확인 변수 *static 프로퍼티를 사용해야 값이 수정된다.
+ 
+ */
+
+ 
 /**
  3. ViewModel (뷰 모델):
  ViewModel = Model 데이터를 View에 맞게 가공 및 처리 (뷰에 반영될 데이터 비즈니스 로직 담당)
@@ -70,6 +85,5 @@
  앱의 핵심적인 비즈니스 로직을 담고 있는 코드의 계층이다. MVC 패턴의 Controller와 비슷한 역할. View와 Model의 사이에서 View의 요청에 따라 로직을 실행하고, Model의 변화에 따라 데이터를 처리하여 View를 refresh한다.
 
  Model에 변화가 생기면 View에게 notification을 보내는 역할을 한다. 또한, View로부터 전달받는 요청을 해결할 비즈니스 로직을 담는다. ViewModel은 UI 관련 코드로부터 완전히 분리되어있고, 따라서 ViewModel 파일에는 SiwftUI같은 UI 프레임워크를 import하지않아도 된다.
-
 
  */

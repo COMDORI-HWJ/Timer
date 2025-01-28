@@ -1,5 +1,5 @@
 //
-//  Setting.swift
+//  SettingViewController.swift
 //  MillisecondTimer
 //
 //  Created by WONJI HA on 2021/10/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class Setting: UIViewController { // UITableViewDataSource, UITableViewDelegate
+final class SettingViewController: UIViewController { // UITableViewDataSource, UITableViewDelegate
     
     private let adsManager = AdsManager()
     @IBOutlet weak var adView: UIView!
@@ -22,7 +22,7 @@ final class Setting: UIViewController { // UITableViewDataSource, UITableViewDel
     }
 }
 
-extension Setting: AdSimpleBannerPowered {
+extension SettingViewController: AdSimpleBannerPowered {
     func addBannerToAdsPlaceholder(_ banner: UIView) {
         banner.translatesAutoresizingMaskIntoConstraints = false
         adView.addSubview(banner)
