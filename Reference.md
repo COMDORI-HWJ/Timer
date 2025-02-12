@@ -74,7 +74,24 @@
  https://babbab2.tistory.com/119 소리 확인 변수 *static 프로퍼티를 사용해야 값이 수정된다.
  
  */
-
+ 
+/** InfoViewController
+https://scshim.tistory.com/77 UITextView
+https://withthemilkyway.tistory.com/31 텍스트뷰 설명
+ 
+ */
+ 
+ /** TutorialViewController
+ * https://blog.naver.com/nanocode-/221386395463 튜토리얼 화면 만들기 (2) (스토리보드 분리 / 페이지 뷰 컨트롤러)
+ * https://ios-development.tistory.com/80 튜토리얼 화면(tutorial screen) 만들기 - PageViewController (programmatically)
+ */
+ 
+ /** TutorialContents
+ * https://kkh0977.tistory.com/2753 CGRect 사용해 x , y , width , height 좌표, 크기 설정 및 동적으로 UILabel 라벨 생성 실시
+ * https://woongsios.tistory.com/57 status bar 높이 구하기 in Swift 5
+ * https://stackoverflow.com/questions/15057471/how-can-i-get-my-app-in-open-with 내부 파일 추가시 Info.plist CFBundleDocumentTypes 항목에 추가해야함(gif)
+ * https://mrgamza.tistory.com/645 CFBundleDocumentTypes에 대해서
+ */
  
 /**
  3. ViewModel (뷰 모델):
