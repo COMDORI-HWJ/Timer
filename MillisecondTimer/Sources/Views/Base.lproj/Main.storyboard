@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Setting-->
+        <!--설정-->
         <scene sceneID="iwu-l4-1ql">
             <objects>
-                <viewController title="Setting" extendedLayoutIncludesOpaqueBars="YES" id="fGX-y9-as3" customClass="SettingViewController" customModule="MillisecondTimer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="fGX-y9-as3" customClass="SettingViewController" customModule="MillisecondTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CDa-lZ-pcQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="-793" y="825"/>
         </scene>
-        <!--Main-->
+        <!--MainView-->
         <scene sceneID="fKT-pG-D9w">
             <objects>
-                <tabBarController storyboardIdentifier="MainTabBar" title="Main" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zrm-wF-le5" customClass="MainTabBar" customModule="MillisecondTimer" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBar" title="MainView" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zrm-wF-le5" customClass="MainTabBar" customModule="MillisecondTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="PAn-lj-oPj"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WGU-IR-6kw">
@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="-1005" y="56"/>
         </scene>
-        <!--TutorialVC-->
+        <!--Tutorial View Controller-->
         <scene sceneID="82U-VB-iqD">
             <objects>
-                <viewController storyboardIdentifier="TutorialVC" title="TutorialVC" id="IkP-Js-vqQ" customClass="Tutorial" customModule="MillisecondTimer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TutorialViewController" id="IkP-Js-vqQ" customClass="TutorialViewController" customModule="MillisecondTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1zI-yb-zsI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,7 +120,7 @@
         <!--Page View Controller-->
         <scene sceneID="8Wu-BL-BcK">
             <objects>
-                <pageViewController storyboardIdentifier="PageVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="bmB-tN-kXb" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="bmB-tN-kXb" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lhj-NL-bKK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2550" y="59"/>
@@ -317,10 +317,10 @@
             </objects>
             <point key="canvasLocation" x="121.875" y="825.52816901408448"/>
         </scene>
-        <!--Info-->
+        <!--InfoView-->
         <scene sceneID="FUP-ST-NKN">
             <objects>
-                <viewController storyboardIdentifier="Info" title="Info" id="hzL-d3-N8y" customClass="Info" customModule="MillisecondTimer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Info" title="InfoView" id="hzL-d3-N8y" customClass="InfoViewController" customModule="MillisecondTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xt0-IE-tbg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="441"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -368,7 +368,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="이 앱에 관하여" id="X10-re-cdO">
-                        <barButtonItem key="leftBarButtonItem" title="뒤로가기" id="IZH-Zn-ggU">
+                        <barButtonItem key="rightBarButtonItem" title="뒤로가기" id="IZH-Zn-ggU">
                             <connections>
                                 <action selector="backBtn:" destination="hzL-d3-N8y" id="0Ft-dK-yIw"/>
                             </connections>
@@ -384,10 +384,10 @@
             </objects>
             <point key="canvasLocation" x="1772" y="832"/>
         </scene>
-        <!--MillisecondTimer-->
+        <!--밀리초타이머-->
         <scene sceneID="yJN-KM-FTH">
             <objects>
-                <viewController storyboardIdentifier="MTimer" title="MillisecondTimer" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="I47-fJ-GwZ" customClass="MillisecondTimerViewController" customModule="MillisecondTimer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MTimer" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="I47-fJ-GwZ" customClass="MillisecondTimerViewController" customModule="MillisecondTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1FO-Ns-emW" customClass="View">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -750,10 +750,10 @@
             </objects>
             <point key="canvasLocation" x="-2064" y="825"/>
         </scene>
-        <!--Stopwatch-->
+        <!--밀리초스톱워치-->
         <scene sceneID="uFW-Ji-Kih">
             <objects>
-                <viewController title="Stopwatch" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="TvW-ox-nD7" customClass="StopwatchViewController" customModule="MillisecondTimer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="TvW-ox-nD7" customClass="StopwatchViewController" customModule="MillisecondTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lL5-XQ-m2C">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

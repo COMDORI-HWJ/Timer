@@ -21,7 +21,7 @@
 		37256C202BEBF9F2003CED3F /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37256C1F2BEBF9F2003CED3F /* AdsManager.swift */; };
 		373FBB622A6727B800C62452 /* TimerIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 373FBB612A6727B800C62452 /* TimerIcon.png */; };
 		374ACA4A2BE9C748001EBDF2 /* StopwatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374ACA492BE9C748001EBDF2 /* StopwatchViewModel.swift */; };
-		3751D9A728A2CA2E000AE0AA /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3751D9A628A2CA2E000AE0AA /* Info.swift */; };
+		3751D9A728A2CA2E000AE0AA /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3751D9A628A2CA2E000AE0AA /* InfoViewController.swift */; };
 		376D7A2B285E26B600643F43 /* IMG_1453.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 376D7A29285E26B600643F43 /* IMG_1453.PNG */; };
 		376D7A2C285E26B600643F43 /* IMG_1452.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 376D7A2A285E26B600643F43 /* IMG_1452.PNG */; };
 		376F47C4285B1BA200CDF726 /* StopwatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F47C3285B1BA200CDF726 /* StopwatchViewController.swift */; };
@@ -44,10 +44,10 @@
 		379383DB2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.49.51.png in Resources */ = {isa = PBXBuildFile; fileRef = 379383D12852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.49.51.png */; };
 		379383DC2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.15.png in Resources */ = {isa = PBXBuildFile; fileRef = 379383D22852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.15.png */; };
 		379383DD2852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png in Resources */ = {isa = PBXBuildFile; fileRef = 379383D32852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png */; };
-		379848412A65A30B00196629 /* TutorialExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379848402A65A30B00196629 /* TutorialExtensions.swift */; };
+		379848412A65A30B00196629 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379848402A65A30B00196629 /* UIViewController+Extension.swift */; };
 		37BDD89C2C02877700BCB862 /* NotificationContentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BDD89B2C02877700BCB862 /* NotificationContentDescription.swift */; };
 		37C17A762BFE984500DC2E5F /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C17A752BFE984500DC2E5F /* ButtonType.swift */; };
-		37C20F9F2A0584ED001A98B1 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C20F9E2A0584ED001A98B1 /* Tutorial.swift */; };
+		37C20F9F2A0584ED001A98B1 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C20F9E2A0584ED001A98B1 /* TutorialViewController.swift */; };
 		37C20FA12A0589F1001A98B1 /* TutorialContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C20FA02A0589F1001A98B1 /* TutorialContents.swift */; };
 		37C3E2A22852A617009E6D5B /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C3E2A12852A617009E6D5B /* MainTabBar.swift */; };
 		37D653DA2A13008F0023D14C /* Gifu in Frameworks */ = {isa = PBXBuildFile; productRef = 37D653D92A13008F0023D14C /* Gifu */; };
@@ -75,7 +75,7 @@
 		37256C1F2BEBF9F2003CED3F /* AdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsManager.swift; sourceTree = "<group>"; };
 		373FBB612A6727B800C62452 /* TimerIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimerIcon.png; sourceTree = "<group>"; };
 		374ACA492BE9C748001EBDF2 /* StopwatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewModel.swift; sourceTree = "<group>"; };
-		3751D9A628A2CA2E000AE0AA /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		3751D9A628A2CA2E000AE0AA /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		376D7A29285E26B600643F43 /* IMG_1453.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_1453.PNG; sourceTree = "<group>"; };
 		376D7A2A285E26B600643F43 /* IMG_1452.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_1452.PNG; sourceTree = "<group>"; };
 		376F47C3285B1BA200CDF726 /* StopwatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewController.swift; sourceTree = "<group>"; };
@@ -98,10 +98,10 @@
 		379383D12852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.49.51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.49.51.png"; sourceTree = "<group>"; };
 		379383D22852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.15.png"; sourceTree = "<group>"; };
 		379383D32852BFA400D6463C /* Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 13 Pro - 2022-06-10 at 08.50.03.png"; sourceTree = "<group>"; };
-		379848402A65A30B00196629 /* TutorialExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialExtensions.swift; sourceTree = "<group>"; };
+		379848402A65A30B00196629 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		37BDD89B2C02877700BCB862 /* NotificationContentDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationContentDescription.swift; sourceTree = "<group>"; };
 		37C17A752BFE984500DC2E5F /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
-		37C20F9E2A0584ED001A98B1 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
+		37C20F9E2A0584ED001A98B1 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		37C20FA02A0589F1001A98B1 /* TutorialContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialContents.swift; sourceTree = "<group>"; };
 		37C3E2A12852A617009E6D5B /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		37E98EAD2BFAADE00018C428 /* MillisecondTimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillisecondTimerViewModel.swift; sourceTree = "<group>"; };
@@ -160,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				376D7A30285E2ED500643F43 /* Sources */,
-				37F6722128624F8500AE6284 /* Extensions */,
 				376D7A2D285E2DC200643F43 /* Resources */,
 			);
 			path = MillisecondTimer;
@@ -188,18 +187,37 @@
 			children = (
 				2B69E3E92722459D00591357 /* SettingViewController.swift */,
 				2B69E3EB27224DBA00591357 /* SettingTableViewController.swift */,
+				3721B5B92D5CDC5C00EB338A /* Info */,
+				3721B5B82D5CDB5000EB338A /* Tutorial */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		3721B5B82D5CDB5000EB338A /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				37C20F9E2A0584ED001A98B1 /* TutorialViewController.swift */,
+				37C20FA02A0589F1001A98B1 /* TutorialContents.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		3721B5B92D5CDC5C00EB338A /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				3751D9A628A2CA2E000AE0AA /* InfoViewController.swift */,
+			);
+			path = Info;
 			sourceTree = "<group>";
 		};
 		37256C1D2BEBF98A003CED3F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				37256C1E2BEBF9DA003CED3F /* Ads */,
-				376D7A32285E2EFD00643F43 /* Cells */,
 				376D7A33285E2FEC00643F43 /* Classes */,
 				37C17A752BFE984500DC2E5F /* ButtonType.swift */,
 				37BDD89B2C02877700BCB862 /* NotificationContentDescription.swift */,
+				379848402A65A30B00196629 /* UIViewController+Extension.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -248,27 +266,9 @@
 				37862A732BE9C4A20069BC8F /* Presentation */,
 				37648C0E2AB9CB97003AE48B /* Models */,
 				376D7A34285E322000643F43 /* Views */,
-				376D7A31285E2EE300643F43 /* Controllers */,
 				37256C1D2BEBF98A003CED3F /* Utilities */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		376D7A31285E2EE300643F43 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				3751D9A628A2CA2E000AE0AA /* Info.swift */,
-				37C20F9E2A0584ED001A98B1 /* Tutorial.swift */,
-				37C20FA02A0589F1001A98B1 /* TutorialContents.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		376D7A32285E2EFD00643F43 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		376D7A33285E2FEC00643F43 /* Classes */ = {
@@ -371,14 +371,6 @@
 				37E98EAD2BFAADE00018C428 /* MillisecondTimerViewModel.swift */,
 			);
 			path = Timer;
-			sourceTree = "<group>";
-		};
-		37F6722128624F8500AE6284 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				379848402A65A30B00196629 /* TutorialExtensions.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		47DEF28A0F9F368041C8FFF1 /* Pods */ = {
@@ -542,7 +534,7 @@
 				376F47C4285B1BA200CDF726 /* StopwatchViewController.swift in Sources */,
 				37C20FA12A0589F1001A98B1 /* TutorialContents.swift in Sources */,
 				37256C202BEBF9F2003CED3F /* AdsManager.swift in Sources */,
-				37C20F9F2A0584ED001A98B1 /* Tutorial.swift in Sources */,
+				37C20F9F2A0584ED001A98B1 /* TutorialViewController.swift in Sources */,
 				37C3E2A22852A617009E6D5B /* MainTabBar.swift in Sources */,
 				2B69E3EC27224DBA00591357 /* SettingTableViewController.swift in Sources */,
 				37862A722BE9A34A0069BC8F /* Mtimer.swift in Sources */,
@@ -550,12 +542,12 @@
 				374ACA4A2BE9C748001EBDF2 /* StopwatchViewModel.swift in Sources */,
 				378210EA27FF5EFC00B312C3 /* Button.swift in Sources */,
 				2B69E3EA2722459D00591357 /* SettingViewController.swift in Sources */,
-				3751D9A728A2CA2E000AE0AA /* Info.swift in Sources */,
+				3751D9A728A2CA2E000AE0AA /* InfoViewController.swift in Sources */,
 				37E98EAE2BFAADE00018C428 /* MillisecondTimerViewModel.swift in Sources */,
 				2BA0F049269395C20040D20B /* AppDelegate.swift in Sources */,
 				37C17A762BFE984500DC2E5F /* ButtonType.swift in Sources */,
 				2BA0F04B269395C20040D20B /* SceneDelegate.swift in Sources */,
-				379848412A65A30B00196629 /* TutorialExtensions.swift in Sources */,
+				379848412A65A30B00196629 /* UIViewController+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -734,7 +726,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 2.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Objc",
@@ -819,7 +811,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 2.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Objc",

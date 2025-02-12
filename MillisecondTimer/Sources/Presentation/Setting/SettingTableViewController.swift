@@ -30,7 +30,7 @@ class SettingTableViewController:UITableViewController, MFMailComposeViewControl
             self.dismiss(animated: true, completion: nil)
         }
         
-        guard let info = storyboard?.instantiateViewController(identifier: "Info") as? Info else { return }
+        guard let info = storyboard?.instantiateViewController(identifier: "Info") as? InfoViewController else { return }
         let navigationController = UINavigationController(rootViewController: info)
         present(navigationController, animated: true)
         
@@ -101,10 +101,10 @@ class SettingTableViewController:UITableViewController, MFMailComposeViewControl
         
         if(indexPath.section == 1 && indexPath.row == 0) {
             
-            guard let tutorial = self.storyboard?.instantiateViewController(withIdentifier: "TutorialVC") as? Tutorial else { return }
-            tutorial.modalTransitionStyle = .flipHorizontal // 화면 전환 애니메이션 설정
-            tutorial.modalPresentationStyle = .popover // 전환된 화면이 보여지는 방법 설정
-            self.present(tutorial, animated: true, completion: nil)
+            guard let tutorialViewController = self.storyboard?.instantiateViewController(withIdentifier: "TutorialViewController") as? TutorialViewController else { return }
+            tutorialViewController.modalTransitionStyle = .flipHorizontal // 화면 전환 애니메이션 설정
+            tutorialViewController.modalPresentationStyle = .popover // 전환된 화면이 보여지는 방법 설정
+            self.present(tutorialViewController, animated: true, completion: nil)
             
         }
         

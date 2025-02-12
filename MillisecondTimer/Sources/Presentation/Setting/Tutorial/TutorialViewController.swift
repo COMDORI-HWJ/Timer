@@ -1,17 +1,13 @@
 //
-//  Tutorial.swift
+//  TutorialViewController.swift
 //  Timer
 //
 //  Created by Wonji Ha on 2023/05/06.
 //
-/** Reference
- * https://blog.naver.com/nanocode-/221386395463 튜토리얼 화면 만들기 (2) (스토리보드 분리 / 페이지 뷰 컨트롤러)
- * https://ios-development.tistory.com/80 튜토리얼 화면(tutorial screen) 만들기 - PageViewController (programmatically)
- */
 
 import UIKit
 
-class Tutorial: UIViewController, UIPageViewControllerDataSource {
+final class TutorialViewController: UIViewController, UIPageViewControllerDataSource {
     
     @IBOutlet weak var exitButton: UIButton!
     
@@ -31,7 +27,7 @@ class Tutorial: UIViewController, UIPageViewControllerDataSource {
         super.viewDidLoad()
         
         /// page view controller 속성 정의
-        pageVC = instanceTutorial(name: "PageVC") as? UIPageViewController
+        pageVC = instanceTutorial(name: "PageViewController") as? UIPageViewController
         pageVC.dataSource = self
         
         /// page view controller에서 페이지가 될 부분 삽입
